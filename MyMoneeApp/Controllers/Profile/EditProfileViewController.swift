@@ -15,15 +15,14 @@ class EditProfileViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
 
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    @IBAction func saveProfile(_ gesture: UITapGestureRecognizer) {
+        print("Tapp")
+        let mainTabViewController = MainTabController(nibName: "MainTabViewController", bundle: nil)
+        
+        mainTabViewController.modalPresentationStyle = .fullScreen
+        mainTabViewController.modalTransitionStyle = .crossDissolve
+        
+        present(mainTabViewController, animated: false, completion: nil)
     }
-    */
-
+    
 }

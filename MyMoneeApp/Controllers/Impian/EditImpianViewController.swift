@@ -1,5 +1,5 @@
 //
-//  AddImpianViewController.swift
+//  EditImpianViewController.swift
 //  MyMoneeApp
 //
 //  Created by MacBook on 12/05/21.
@@ -7,19 +7,27 @@
 
 import UIKit
 
-class AddImpianViewController: UIViewController {
+class EditImpianViewController: UIViewController {
 
+    @IBOutlet weak var deleteButton: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        deleteButton.layer.cornerRadius = 20
+        deleteButton.layer.borderWidth = 3.0
+        deleteButton.layer.borderColor = mainRed.cgColor
+        
     }
 
-    @IBAction func backButton(_ sender: Any) {
+    @IBAction func updateButton(_ sender: Any) {
         backToImpianView()
     }
     
-    @IBAction func saveButton(_ sender: Any) {
+    @IBAction func deleteButton(_ sender: Any) {
+        backToImpianView()
+    }
+    
+    @IBAction func backButton(_ sender: Any) {
         backToImpianView()
     }
     
@@ -31,4 +39,5 @@ class AddImpianViewController: UIViewController {
         
         self.present(mainTabViewController, animated: false, completion: nil)
     }
+    
 }

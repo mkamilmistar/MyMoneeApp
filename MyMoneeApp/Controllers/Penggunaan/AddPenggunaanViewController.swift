@@ -15,7 +15,24 @@ class AddPenggunaanViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         categoryView()
+    }
+    
+    @IBAction func savePenggunaan(_ sender: UIButton) {
+        backNavigation()
+    }
+    
+    @IBAction func backToHome(_ sender: UIButton) {
+        backNavigation()
+
+    }
+    
+    func backNavigation(){
+        let mainTabViewController = MainTabController(nibName: "MainTabViewController", bundle: nil)
         
+        mainTabViewController.modalPresentationStyle = .fullScreen
+        mainTabViewController.modalTransitionStyle = .crossDissolve
+        
+        self.present(mainTabViewController, animated: false, completion: nil)
     }
     
     func categoryView(){

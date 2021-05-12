@@ -21,7 +21,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DetailImpianlViewController" customModule="MyMoneeApp" customModuleProvider="target">
             <connections>
-                <outlet property="backButton" destination="unY-hq-lmc" id="ofb-ee-KxO"/>
+                <outlet property="backButton" destination="qia-TN-x0n" id="e5t-op-cdq"/>
                 <outlet property="heartLogo" destination="heC-7c-L1i" id="0fQ-ma-964"/>
                 <outlet property="progressBackground" destination="ALo-F0-iNo" id="ICQ-5b-1ZE"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="T6Y-cy-SOR"/>
@@ -33,11 +33,14 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mPb-Bf-kRi">
-                    <rect key="frame" x="362" y="54" width="36" height="36"/>
+                    <rect key="frame" x="362" y="64" width="36" height="36"/>
                     <state key="normal" image="Edit"/>
+                    <connections>
+                        <action selector="goEditImpian:" destination="-1" eventType="touchUpInside" id="fyg-zL-YaW"/>
+                    </connections>
                 </button>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Bla-rb-hye" userLabel="DetailBG">
-                    <rect key="frame" x="0.0" y="113" width="414" height="783"/>
+                    <rect key="frame" x="0.0" y="123" width="414" height="773"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="heC-7c-L1i" userLabel="Heart">
                             <rect key="frame" x="178" y="-30" width="58" height="58"/>
@@ -70,16 +73,6 @@
                             <color key="textColor" red="0.31372549020000001" green="0.41176470590000003" blue="0.72156862749999995" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="unY-hq-lmc" userLabel="Back" customClass="Back">
-                            <rect key="frame" x="17" y="673" width="380" height="43"/>
-                            <constraints>
-                                <constraint firstAttribute="height" constant="43" id="uZY-km-ipe"/>
-                            </constraints>
-                            <fontDescription key="fontDescription" name="Poppins-SemiBold" family="Poppins" pointSize="14"/>
-                            <state key="normal" title="Kembali">
-                                <color key="titleColor" red="0.31372549020000001" green="0.41176470590000003" blue="0.72156862749999995" alpha="1" colorSpace="calibratedRGB"/>
-                            </state>
-                        </button>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ysi-Mk-6GH">
                             <rect key="frame" x="188" y="52" width="38.5" height="25.5"/>
                             <fontDescription key="fontDescription" name="Poppins-SemiBold" family="Poppins" pointSize="18"/>
@@ -129,7 +122,7 @@
                             </constraints>
                         </view>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XZG-OA-pO8" userLabel="Tercapai">
-                            <rect key="frame" x="17" y="614" width="380" height="43"/>
+                            <rect key="frame" x="17" y="604" width="380" height="43"/>
                             <color key="backgroundColor" red="0.31372549020000001" green="0.41176470590000003" blue="0.72156862749999995" alpha="1" colorSpace="calibratedRGB"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="43" id="Cf2-ru-jNp"/>
@@ -143,6 +136,22 @@
                                     <integer key="value" value="20"/>
                                 </userDefinedRuntimeAttribute>
                             </userDefinedRuntimeAttributes>
+                            <connections>
+                                <action selector="confirmButton:" destination="-1" eventType="touchUpInside" id="oe1-P8-EVD"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qia-TN-x0n">
+                            <rect key="frame" x="17" y="663" width="380" height="43"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="43" id="wei-jk-9DR"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" name="Poppins-SemiBold" family="Poppins" pointSize="14"/>
+                            <state key="normal" title="Kembali">
+                                <color key="titleColor" red="0.31372549020000001" green="0.41176470590000003" blue="0.72156862749999995" alpha="1" colorSpace="calibratedRGB"/>
+                            </state>
+                            <connections>
+                                <action selector="backButton:" destination="-1" eventType="touchUpInside" id="lRX-Hd-nS9"/>
+                            </connections>
                         </button>
                     </subviews>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -150,21 +159,21 @@
                         <constraint firstItem="XZG-OA-pO8" firstAttribute="leading" secondItem="Bla-rb-hye" secondAttribute="leading" constant="17" id="4ZD-DJ-0qE"/>
                         <constraint firstItem="Jda-VL-4XU" firstAttribute="top" secondItem="df8-AF-F6d" secondAttribute="bottom" constant="8" id="6wK-np-45u"/>
                         <constraint firstAttribute="bottom" secondItem="XZG-OA-pO8" secondAttribute="bottom" constant="126" id="7pK-iL-wP5"/>
-                        <constraint firstItem="unY-hq-lmc" firstAttribute="trailing" secondItem="XZG-OA-pO8" secondAttribute="trailing" id="BZ0-Rl-aIm"/>
                         <constraint firstAttribute="trailing" secondItem="4lo-ni-75V" secondAttribute="trailing" constant="17" id="CNZ-Dn-fLr"/>
                         <constraint firstAttribute="trailing" secondItem="XZG-OA-pO8" secondAttribute="trailing" constant="17" id="DWU-kL-dKG"/>
                         <constraint firstItem="4lo-ni-75V" firstAttribute="leading" secondItem="Bla-rb-hye" secondAttribute="leading" constant="17" id="LTj-Cy-4gt"/>
                         <constraint firstItem="df8-AF-F6d" firstAttribute="top" secondItem="ysi-Mk-6GH" secondAttribute="bottom" constant="4" id="LeX-qS-bRj"/>
-                        <constraint firstItem="unY-hq-lmc" firstAttribute="top" secondItem="XZG-OA-pO8" secondAttribute="bottom" constant="16" id="NGt-AA-iax"/>
                         <constraint firstItem="4lo-ni-75V" firstAttribute="top" secondItem="Jda-VL-4XU" secondAttribute="bottom" constant="86.5" id="Wt0-Zc-EYJ"/>
                         <constraint firstItem="ALo-F0-iNo" firstAttribute="top" secondItem="4lo-ni-75V" secondAttribute="bottom" constant="17" id="XLo-O6-zri"/>
                         <constraint firstItem="ysi-Mk-6GH" firstAttribute="centerX" secondItem="heC-7c-L1i" secondAttribute="centerX" id="YN4-za-dhb"/>
                         <constraint firstItem="Jda-VL-4XU" firstAttribute="centerX" secondItem="df8-AF-F6d" secondAttribute="centerX" id="Zu8-LZ-M4w"/>
+                        <constraint firstItem="qia-TN-x0n" firstAttribute="leading" secondItem="XZG-OA-pO8" secondAttribute="leading" id="cd5-1d-VaR"/>
                         <constraint firstItem="ALo-F0-iNo" firstAttribute="leading" secondItem="4lo-ni-75V" secondAttribute="leading" id="iH4-u6-GTA"/>
                         <constraint firstItem="heC-7c-L1i" firstAttribute="centerX" secondItem="Bla-rb-hye" secondAttribute="centerX" id="jbv-VL-oPz"/>
                         <constraint firstItem="df8-AF-F6d" firstAttribute="centerX" secondItem="ysi-Mk-6GH" secondAttribute="centerX" id="qu5-1T-hLd"/>
                         <constraint firstItem="ALo-F0-iNo" firstAttribute="trailing" secondItem="4lo-ni-75V" secondAttribute="trailing" id="rMW-ky-bPd"/>
-                        <constraint firstItem="unY-hq-lmc" firstAttribute="leading" secondItem="XZG-OA-pO8" secondAttribute="leading" id="vhe-s9-gWD"/>
+                        <constraint firstItem="qia-TN-x0n" firstAttribute="top" secondItem="XZG-OA-pO8" secondAttribute="bottom" constant="16" id="rg3-Km-wPO"/>
+                        <constraint firstItem="qia-TN-x0n" firstAttribute="trailing" secondItem="XZG-OA-pO8" secondAttribute="trailing" id="vsu-Ee-Bk1"/>
                         <constraint firstItem="heC-7c-L1i" firstAttribute="top" secondItem="Bla-rb-hye" secondAttribute="top" constant="-30" id="xIB-Jv-pg2"/>
                         <constraint firstItem="ysi-Mk-6GH" firstAttribute="top" secondItem="heC-7c-L1i" secondAttribute="bottom" constant="24" id="z1h-FW-pqF"/>
                     </constraints>
@@ -178,7 +187,7 @@
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" red="0.94117647058823528" green="0.94901960784313721" blue="0.97254901960784312" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
             <constraints>
-                <constraint firstItem="mPb-Bf-kRi" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="10" id="2Ki-ZV-IVg"/>
+                <constraint firstItem="mPb-Bf-kRi" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="20" id="2Ki-ZV-IVg"/>
                 <constraint firstItem="Bla-rb-hye" firstAttribute="bottom" secondItem="fnl-2z-Ty3" secondAttribute="bottom" constant="34" id="GSM-fb-1WR"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="mPb-Bf-kRi" secondAttribute="trailing" constant="16" id="Ikz-Wu-CUP"/>
                 <constraint firstItem="Bla-rb-hye" firstAttribute="top" secondItem="mPb-Bf-kRi" secondAttribute="bottom" constant="23" id="O7K-0I-sad"/>

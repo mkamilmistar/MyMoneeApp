@@ -33,15 +33,18 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MzO-gr-SM5" userLabel="HeaderComponent">
-                    <rect key="frame" x="16" y="54" width="382" height="25"/>
+                    <rect key="frame" x="16" y="64" width="382" height="25"/>
                     <subviews>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SeH-yL-11u">
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SeH-yL-11u" userLabel="Back">
                             <rect key="frame" x="0.0" y="3" width="11" height="19"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="10.779999999999999" id="D1b-v9-gT7"/>
                                 <constraint firstAttribute="height" constant="18.760000000000002" id="WJe-HK-DcU"/>
                             </constraints>
                             <state key="normal" image="Arrow_Back"/>
+                            <connections>
+                                <action selector="backToDetailPenggunaan:" destination="-1" eventType="touchUpInside" id="Rcz-YL-FmV"/>
+                            </connections>
                         </button>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ubah Penggunaan" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G0Q-pB-H7e">
                             <rect key="frame" x="32" y="2.5" width="132" height="20"/>
@@ -61,7 +64,7 @@
                     </constraints>
                 </view>
                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="9" translatesAutoresizingMaskIntoConstraints="NO" id="qRs-Y0-VWK" userLabel="Form">
-                    <rect key="frame" x="16" y="107" width="126" height="110"/>
+                    <rect key="frame" x="16" y="117" width="126" height="110"/>
                     <subviews>
                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="-5" translatesAutoresizingMaskIntoConstraints="NO" id="GYu-cU-t6Q" userLabel="Judul">
                             <rect key="frame" x="0.0" y="0.0" width="126" height="50.5"/>
@@ -100,13 +103,13 @@
                     </subviews>
                 </stackView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Kategori Penggunaan" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1B3-7U-rIx">
-                    <rect key="frame" x="16" y="231" width="155" height="20"/>
+                    <rect key="frame" x="16" y="241" width="155" height="20"/>
                     <fontDescription key="fontDescription" name="Poppins-Medium" family="Poppins" pointSize="14"/>
                     <color key="textColor" red="0.30980392159999998" green="0.30980392159999998" blue="0.30980392159999998" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="13" translatesAutoresizingMaskIntoConstraints="NO" id="NX8-Ql-2nu" userLabel="Kategori">
-                    <rect key="frame" x="16" y="267" width="382" height="75"/>
+                    <rect key="frame" x="16" y="277" width="382" height="75"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gtM-M2-08H" userLabel="Pemasukan">
                             <rect key="frame" x="0.0" y="0.0" width="184.5" height="75"/>
@@ -187,6 +190,9 @@
                             <integer key="value" value="20"/>
                         </userDefinedRuntimeAttribute>
                     </userDefinedRuntimeAttributes>
+                    <connections>
+                        <action selector="updatePenggunaan:" destination="-1" eventType="touchUpInside" id="hVh-2T-2EF"/>
+                    </connections>
                 </button>
                 <button clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Aq-qU-Dre" userLabel="UpdateButton">
                     <rect key="frame" x="17" y="752" width="380" height="44"/>
@@ -205,12 +211,15 @@
                             <integer key="value" value="20"/>
                         </userDefinedRuntimeAttribute>
                     </userDefinedRuntimeAttributes>
+                    <connections>
+                        <action selector="deletePenggunaan:" destination="-1" eventType="touchUpInside" id="25U-eW-9sf"/>
+                    </connections>
                 </button>
             </subviews>
             <viewLayoutGuide key="safeArea" id="4w5-vn-iiV"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
-                <constraint firstItem="4w5-vn-iiV" firstAttribute="top" secondItem="MzO-gr-SM5" secondAttribute="top" constant="-10" id="6f5-Nq-cwO"/>
+                <constraint firstItem="4w5-vn-iiV" firstAttribute="top" secondItem="MzO-gr-SM5" secondAttribute="top" constant="-20" id="6f5-Nq-cwO"/>
                 <constraint firstItem="5Aq-qU-Dre" firstAttribute="trailing" secondItem="xlV-dt-1iC" secondAttribute="trailing" id="IGt-Ec-Dgh"/>
                 <constraint firstItem="4w5-vn-iiV" firstAttribute="bottom" secondItem="xlV-dt-1iC" secondAttribute="bottom" constant="126" id="K29-ca-pB2"/>
                 <constraint firstItem="NX8-Ql-2nu" firstAttribute="leading" secondItem="4w5-vn-iiV" secondAttribute="leading" constant="16" id="Q3F-cC-lge"/>

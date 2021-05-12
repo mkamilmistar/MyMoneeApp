@@ -34,6 +34,7 @@
                     <subviews>
                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Emil" translatesAutoresizingMaskIntoConstraints="NO" id="Fcp-fQ-9lN" userLabel="Photo">
                             <rect key="frame" x="206.5" y="63" width="101" height="101"/>
+                            <gestureRecognizers/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="101" id="IJ2-zo-mP3"/>
                                 <constraint firstAttribute="width" constant="101" id="qbH-Hi-gia"/>
@@ -80,11 +81,15 @@
                                 </label>
                             </subviews>
                         </stackView>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Selesai" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1XY-0H-1QL">
+                        <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Selesai" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1XY-0H-1QL">
                             <rect key="frame" x="398.5" y="54" width="50.5" height="20"/>
+                            <gestureRecognizers/>
                             <fontDescription key="fontDescription" name="Poppins-Medium" family="Poppins" pointSize="14"/>
                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <nil key="highlightedColor"/>
+                            <connections>
+                                <outletCollection property="gestureRecognizers" destination="bTN-s8-xDk" appends="YES" id="70G-ga-GDa"/>
+                            </connections>
                         </label>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UFd-me-cZw">
                             <rect key="frame" x="283.5" y="136" width="24" height="24"/>
@@ -114,6 +119,11 @@
             </constraints>
             <point key="canvasLocation" x="-146.37681159420291" y="108.48214285714285"/>
         </view>
+        <tapGestureRecognizer id="bTN-s8-xDk">
+            <connections>
+                <action selector="saveProfile:" destination="-1" id="nTc-Tc-Vbx"/>
+            </connections>
+        </tapGestureRecognizer>
     </objects>
     <resources>
         <image name="Edit_Profile" width="24" height="24"/>

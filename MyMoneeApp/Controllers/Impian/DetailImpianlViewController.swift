@@ -30,5 +30,31 @@ class DetailImpianlViewController: UIViewController {
         backButton.layer.borderColor = mainPurple.cgColor
         
     }
-
+    
+    @IBAction func goEditImpian(_ sender: Any) {
+        let editImpianView = EditImpianViewController(nibName: "EditImpianViewController", bundle: nil)
+        
+        editImpianView.modalPresentationStyle = .fullScreen
+        editImpianView.modalTransitionStyle = .coverVertical
+        
+        self.present(editImpianView, animated: false, completion: nil)
+    }
+    
+    @IBAction func confirmButton(_ sender: Any) {
+        backToImpianView()
+    }
+    
+    @IBAction func backButton(_ sender: Any) {
+        backToImpianView()
+    }
+    
+    func backToImpianView(){
+        let mainTabViewController = MainTabController(nibName: "MainTabViewController", bundle: nil)
+        
+        mainTabViewController.modalPresentationStyle = .fullScreen
+        mainTabViewController.modalTransitionStyle = .crossDissolve
+        
+        self.present(mainTabViewController, animated: false, completion: nil)
+    }
+    
 }

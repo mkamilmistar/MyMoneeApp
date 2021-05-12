@@ -32,15 +32,18 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="F1w-3f-fhc" userLabel="HeaderComponent">
-                    <rect key="frame" x="16" y="54" width="382" height="25"/>
+                    <rect key="frame" x="16" y="64" width="382" height="25"/>
                     <subviews>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gOF-5k-MyF">
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gOF-5k-MyF" userLabel="Back">
                             <rect key="frame" x="0.0" y="3" width="11" height="19"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="10.779999999999999" id="jcc-tq-SRj"/>
                                 <constraint firstAttribute="height" constant="18.760000000000002" id="u1b-JB-YT7"/>
                             </constraints>
                             <state key="normal" image="Arrow_Back"/>
+                            <connections>
+                                <action selector="backToHome:" destination="-1" eventType="touchUpInside" id="yQx-mx-XW3"/>
+                            </connections>
                         </button>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tambah Penggunaan" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jRD-hO-cOG">
                             <rect key="frame" x="32" y="2.5" width="154" height="20"/>
@@ -78,9 +81,12 @@
                             <integer key="value" value="20"/>
                         </userDefinedRuntimeAttribute>
                     </userDefinedRuntimeAttributes>
+                    <connections>
+                        <action selector="savePenggunaan:" destination="-1" eventType="touchUpInside" id="NRL-rQ-Oiv"/>
+                    </connections>
                 </button>
                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="9" translatesAutoresizingMaskIntoConstraints="NO" id="z55-sy-kNp" userLabel="Form">
-                    <rect key="frame" x="16" y="107" width="126" height="110"/>
+                    <rect key="frame" x="16" y="117" width="126" height="110"/>
                     <subviews>
                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="-5" translatesAutoresizingMaskIntoConstraints="NO" id="iSI-2g-5TM" userLabel="Judul">
                             <rect key="frame" x="0.0" y="0.0" width="126" height="50.5"/>
@@ -119,7 +125,7 @@
                     </subviews>
                 </stackView>
                 <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="13" translatesAutoresizingMaskIntoConstraints="NO" id="lFB-0N-Vmn" userLabel="Kategori">
-                    <rect key="frame" x="16" y="267" width="382" height="75"/>
+                    <rect key="frame" x="16" y="277" width="382" height="75"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="f9o-Lh-OEK" userLabel="Pemasukan">
                             <rect key="frame" x="0.0" y="0.0" width="184.5" height="75"/>
@@ -183,7 +189,7 @@
                     </constraints>
                 </stackView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Kategori Penggunaan" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6ln-Jh-Miz">
-                    <rect key="frame" x="16" y="231" width="155" height="20"/>
+                    <rect key="frame" x="16" y="241" width="155" height="20"/>
                     <fontDescription key="fontDescription" name="Poppins-Medium" family="Poppins" pointSize="14"/>
                     <color key="textColor" red="0.30980392156862746" green="0.30980392156862746" blue="0.30980392156862746" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
@@ -199,7 +205,7 @@
                 <constraint firstItem="lFB-0N-Vmn" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="Obh-SI-Crv"/>
                 <constraint firstItem="6ln-Jh-Miz" firstAttribute="top" secondItem="YK8-j3-XIF" secondAttribute="bottom" constant="14" id="RpK-W5-q1O"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="Lcq-E8-GUA" secondAttribute="bottom" constant="68" id="W8N-b7-7Yb"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="top" secondItem="F1w-3f-fhc" secondAttribute="top" constant="-10" id="aTK-AG-zNZ"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="top" secondItem="F1w-3f-fhc" secondAttribute="top" constant="-20" id="aTK-AG-zNZ"/>
                 <constraint firstItem="z55-sy-kNp" firstAttribute="leading" secondItem="F1w-3f-fhc" secondAttribute="leading" id="bk3-Oq-Jb5"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="lFB-0N-Vmn" secondAttribute="trailing" constant="16" id="j2h-PN-BRo"/>
                 <constraint firstItem="z55-sy-kNp" firstAttribute="top" secondItem="F1w-3f-fhc" secondAttribute="bottom" constant="28" id="la1-AB-vpY"/>

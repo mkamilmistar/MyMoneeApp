@@ -192,12 +192,8 @@
 			isa = PBXGroup;
 			children = (
 				FAD7EBF7264BBFC5000E752D /* Component */,
-				FA15F420264AD213001B15D9 /* Home */,
-				FA15F3B1264AC775001B15D9 /* Impian */,
-				FA15F3C1264AC82F001B15D9 /* MainPage */,
 				FA15F3AD264AC755001B15D9 /* MainTab */,
-				FAD7EBF5264BBF0B000E752D /* Penggunaan */,
-				FA15F3B2264AC77A001B15D9 /* Profile */,
+				FAD7EC1B264BD80D000E752D /* Pages */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -222,10 +218,9 @@
 		FA15F3B1264AC775001B15D9 /* Impian */ = {
 			isa = PBXGroup;
 			children = (
-				FAD7EC0B264BD06A000E752D /* EditImpianViewController.xib */,
-				FAD7EBF1264BBEF6000E752D /* DetailImpianViewController.xib */,
 				FAD7EC05264BCDE2000E752D /* AddImpianViewController.xib */,
-				FAD7EBB5264B82CE000E752D /* ImpianTableCell */,
+				FAD7EBF1264BBEF6000E752D /* DetailImpianViewController.xib */,
+				FAD7EC0B264BD06A000E752D /* EditImpianViewController.xib */,
 			);
 			path = Impian;
 			sourceTree = "<group>";
@@ -273,14 +268,6 @@
 			path = Fonts;
 			sourceTree = "<group>";
 		};
-		FA15F420264AD213001B15D9 /* Home */ = {
-			isa = PBXGroup;
-			children = (
-				FA15F422264ADBE3001B15D9 /* TransactionTableCell */,
-			);
-			path = Home;
-			sourceTree = "<group>";
-		};
 		FA15F422264ADBE3001B15D9 /* TransactionTableCell */ = {
 			isa = PBXGroup;
 			children = (
@@ -309,10 +296,9 @@
 		FAD7EBE9264BB256000E752D /* Penggunaan */ = {
 			isa = PBXGroup;
 			children = (
-				FAD7EBC3264B90B5000E752D /* DetailPenggunaanViewController.swift */,
 				FAD7EBD5264B9FD7000E752D /* AddPenggunaanViewController.swift */,
+				FAD7EBC3264B90B5000E752D /* DetailPenggunaanViewController.swift */,
 				FAD7EBE3264BAF7E000E752D /* EditPenggunaanViewController.swift */,
-				FAD7EC0A264BD06A000E752D /* EditImpianViewController.swift */,
 			);
 			path = Penggunaan;
 			sourceTree = "<group>";
@@ -322,6 +308,7 @@
 			children = (
 				FAD7EC04264BCDE2000E752D /* AddImpianViewController.swift */,
 				FAD7EBF0264BBEF6000E752D /* DetailImpianlViewController.swift */,
+				FAD7EC0A264BD06A000E752D /* EditImpianViewController.swift */,
 			);
 			path = Impian;
 			sourceTree = "<group>";
@@ -329,9 +316,9 @@
 		FAD7EBF5264BBF0B000E752D /* Penggunaan */ = {
 			isa = PBXGroup;
 			children = (
-				FAD7EBE4264BAF7E000E752D /* EditPenggunaanViewController.xib */,
 				FAD7EBD6264B9FD7000E752D /* AddPenggunaanViewController.xib */,
 				FAD7EBC4264B90B5000E752D /* DetailPenggunaanViewController.xib */,
+				FAD7EBE4264BAF7E000E752D /* EditPenggunaanViewController.xib */,
 			);
 			path = Penggunaan;
 			sourceTree = "<group>";
@@ -339,6 +326,8 @@
 		FAD7EBF7264BBFC5000E752D /* Component */ = {
 			isa = PBXGroup;
 			children = (
+				FAD7EBB5264B82CE000E752D /* ImpianTableCell */,
+				FA15F422264ADBE3001B15D9 /* TransactionTableCell */,
 				FAD7EBC9264B9776000E752D /* Button */,
 			);
 			path = Component;
@@ -361,6 +350,17 @@
 				FAD7EC12264BD2A7000E752D /* EditProfileViewController.swift */,
 			);
 			path = Profile;
+			sourceTree = "<group>";
+		};
+		FAD7EC1B264BD80D000E752D /* Pages */ = {
+			isa = PBXGroup;
+			children = (
+				FA15F3B2264AC77A001B15D9 /* Profile */,
+				FA15F3B1264AC775001B15D9 /* Impian */,
+				FAD7EBF5264BBF0B000E752D /* Penggunaan */,
+				FA15F3C1264AC82F001B15D9 /* MainPage */,
+			);
+			path = Pages;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

@@ -22,7 +22,34 @@ class EditPenggunaanViewController: UIViewController {
         
         categoryView()
     }
-
+    
+    @IBAction func backToDetailPenggunaan(_ sender: UIButton) {
+        let detailPenggunaanViewController = DetailPenggunaanViewController(nibName: String(describing: DetailPenggunaanViewController.self), bundle: nil)
+        
+        detailPenggunaanViewController.modalPresentationStyle = .fullScreen
+        detailPenggunaanViewController.modalTransitionStyle = .coverVertical
+        
+        self.present(detailPenggunaanViewController, animated: false, completion: nil)
+    }
+    
+    
+    @IBAction func updatePenggunaan(_ sender: Any) {
+        goBackToHome()
+    }
+    
+    @IBAction func deletePenggunaan(_ sender: Any) {
+        goBackToHome()
+    }
+    
+    func goBackToHome(){
+        let mainTabViewController = MainTabController(nibName: "MainTabViewController", bundle: nil)
+        
+        mainTabViewController.modalPresentationStyle = .fullScreen
+        mainTabViewController.modalTransitionStyle = .crossDissolve
+        
+        self.present(mainTabViewController, animated: false, completion: nil)
+    }
+    
     func categoryView(){
         pemasukanView.layer.cornerRadius = 8.0
         pemasukanView.layer.shadowColor = UIColor.black.cgColor

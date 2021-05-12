@@ -28,7 +28,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="U7a-kz-ec8" userLabel="HeaderComponent">
-                    <rect key="frame" x="16" y="54" width="382" height="25"/>
+                    <rect key="frame" x="16" y="64" width="382" height="25"/>
                     <subviews>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8SD-af-Hov">
                             <rect key="frame" x="5" y="3" width="11" height="19"/>
@@ -37,6 +37,9 @@
                                 <constraint firstAttribute="height" constant="18.760000000000002" id="mEP-q9-v8W"/>
                             </constraints>
                             <state key="normal" image="Arrow_Back"/>
+                            <connections>
+                                <action selector="backButton:" destination="-1" eventType="touchUpInside" id="QT9-hb-i9o"/>
+                            </connections>
                         </button>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ubah Impian" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eCQ-eN-NSs">
                             <rect key="frame" x="37" y="2.5" width="90.5" height="20"/>
@@ -56,7 +59,7 @@
                     </constraints>
                 </view>
                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="9" translatesAutoresizingMaskIntoConstraints="NO" id="ORf-2v-HaO" userLabel="Form">
-                    <rect key="frame" x="16" y="107" width="270" height="108.5"/>
+                    <rect key="frame" x="16" y="117" width="270" height="108.5"/>
                     <subviews>
                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="-5" translatesAutoresizingMaskIntoConstraints="NO" id="bEc-YU-qXc" userLabel="Judul">
                             <rect key="frame" x="0.0" y="0.0" width="270" height="49"/>
@@ -112,6 +115,9 @@
                             <integer key="value" value="20"/>
                         </userDefinedRuntimeAttribute>
                     </userDefinedRuntimeAttributes>
+                    <connections>
+                        <action selector="updateButton:" destination="-1" eventType="touchUpInside" id="JvS-Gp-LnG"/>
+                    </connections>
                 </button>
                 <button clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0oH-pG-U1q" userLabel="UpdateButton">
                     <rect key="frame" x="17" y="752" width="381" height="44"/>
@@ -130,6 +136,9 @@
                             <integer key="value" value="20"/>
                         </userDefinedRuntimeAttribute>
                     </userDefinedRuntimeAttributes>
+                    <connections>
+                        <action selector="deleteButton:" destination="-1" eventType="touchUpInside" id="nvB-2L-xvh"/>
+                    </connections>
                 </button>
             </subviews>
             <viewLayoutGuide key="safeArea" id="HKP-mE-dyw"/>
@@ -137,7 +146,7 @@
             <constraints>
                 <constraint firstItem="HKP-mE-dyw" firstAttribute="trailing" secondItem="Fai-V9-uaz" secondAttribute="trailing" constant="16" id="Gnl-d7-WPY"/>
                 <constraint firstItem="0oH-pG-U1q" firstAttribute="leading" secondItem="Fai-V9-uaz" secondAttribute="leading" id="Gx5-sA-LnH"/>
-                <constraint firstItem="U7a-kz-ec8" firstAttribute="top" secondItem="HKP-mE-dyw" secondAttribute="top" constant="10" id="N2N-az-sUU"/>
+                <constraint firstItem="U7a-kz-ec8" firstAttribute="top" secondItem="HKP-mE-dyw" secondAttribute="top" constant="20" id="N2N-az-sUU"/>
                 <constraint firstItem="ORf-2v-HaO" firstAttribute="leading" secondItem="U7a-kz-ec8" secondAttribute="leading" id="SBP-9A-g83"/>
                 <constraint firstItem="Fai-V9-uaz" firstAttribute="leading" secondItem="HKP-mE-dyw" secondAttribute="leading" constant="17" id="T2u-7f-tNd"/>
                 <constraint firstItem="0oH-pG-U1q" firstAttribute="trailing" secondItem="Fai-V9-uaz" secondAttribute="trailing" id="lCT-6y-OOn"/>
