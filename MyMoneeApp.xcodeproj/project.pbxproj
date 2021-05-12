@@ -43,6 +43,20 @@
 		FAD7EBB7264B82E6000E752D /* Impian.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD7EBB6264B82E6000E752D /* Impian.swift */; };
 		FAD7EBBD264B82FE000E752D /* ImpianTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD7EBBB264B82FE000E752D /* ImpianTableViewCell.swift */; };
 		FAD7EBBE264B82FE000E752D /* ImpianTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FAD7EBBC264B82FE000E752D /* ImpianTableViewCell.xib */; };
+		FAD7EBC5264B90B5000E752D /* DetailPenggunaanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD7EBC3264B90B5000E752D /* DetailPenggunaanViewController.swift */; };
+		FAD7EBC6264B90B5000E752D /* DetailPenggunaanViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FAD7EBC4264B90B5000E752D /* DetailPenggunaanViewController.xib */; };
+		FAD7EBD3264B9D47000E752D /* GlobalColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD7EBD2264B9D47000E752D /* GlobalColor.swift */; };
+		FAD7EBD7264B9FD7000E752D /* AddPenggunaanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD7EBD5264B9FD7000E752D /* AddPenggunaanViewController.swift */; };
+		FAD7EBD8264B9FD7000E752D /* AddPenggunaanViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FAD7EBD6264B9FD7000E752D /* AddPenggunaanViewController.xib */; };
+		FAD7EBE5264BAF7E000E752D /* EditPenggunaanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD7EBE3264BAF7E000E752D /* EditPenggunaanViewController.swift */; };
+		FAD7EBE6264BAF7E000E752D /* EditPenggunaanViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FAD7EBE4264BAF7E000E752D /* EditPenggunaanViewController.xib */; };
+		FAD7EBF2264BBEF6000E752D /* DetailImpianlViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD7EBF0264BBEF6000E752D /* DetailImpianlViewController.swift */; };
+		FAD7EBFE264BC927000E752D /* DetailImpianlViewController.swift in Resources */ = {isa = PBXBuildFile; fileRef = FAD7EBF0264BBEF6000E752D /* DetailImpianlViewController.swift */; };
+		FAD7EBFF264BC927000E752D /* DetailImpianViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FAD7EBF1264BBEF6000E752D /* DetailImpianViewController.xib */; };
+		FAD7EC06264BCDE2000E752D /* AddImpianViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD7EC04264BCDE2000E752D /* AddImpianViewController.swift */; };
+		FAD7EC07264BCDE2000E752D /* AddImpianViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FAD7EC05264BCDE2000E752D /* AddImpianViewController.xib */; };
+		FAD7EC0C264BD06A000E752D /* EditImpianViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD7EC0A264BD06A000E752D /* EditImpianViewController.swift */; };
+		FAD7EC0D264BD06A000E752D /* EditImpianViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FAD7EC0B264BD06A000E752D /* EditImpianViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -84,6 +98,19 @@
 		FAD7EBB6264B82E6000E752D /* Impian.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Impian.swift; sourceTree = "<group>"; };
 		FAD7EBBB264B82FE000E752D /* ImpianTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImpianTableViewCell.swift; sourceTree = "<group>"; };
 		FAD7EBBC264B82FE000E752D /* ImpianTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ImpianTableViewCell.xib; sourceTree = "<group>"; };
+		FAD7EBC3264B90B5000E752D /* DetailPenggunaanViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPenggunaanViewController.swift; sourceTree = "<group>"; };
+		FAD7EBC4264B90B5000E752D /* DetailPenggunaanViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailPenggunaanViewController.xib; sourceTree = "<group>"; };
+		FAD7EBD2264B9D47000E752D /* GlobalColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalColor.swift; sourceTree = "<group>"; };
+		FAD7EBD5264B9FD7000E752D /* AddPenggunaanViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPenggunaanViewController.swift; sourceTree = "<group>"; };
+		FAD7EBD6264B9FD7000E752D /* AddPenggunaanViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddPenggunaanViewController.xib; sourceTree = "<group>"; };
+		FAD7EBE3264BAF7E000E752D /* EditPenggunaanViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditPenggunaanViewController.swift; sourceTree = "<group>"; };
+		FAD7EBE4264BAF7E000E752D /* EditPenggunaanViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EditPenggunaanViewController.xib; sourceTree = "<group>"; };
+		FAD7EBF0264BBEF6000E752D /* DetailImpianlViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailImpianlViewController.swift; sourceTree = "<group>"; };
+		FAD7EBF1264BBEF6000E752D /* DetailImpianViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailImpianViewController.xib; sourceTree = "<group>"; };
+		FAD7EC04264BCDE2000E752D /* AddImpianViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddImpianViewController.swift; sourceTree = "<group>"; };
+		FAD7EC05264BCDE2000E752D /* AddImpianViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddImpianViewController.xib; sourceTree = "<group>"; };
+		FAD7EC0A264BD06A000E752D /* EditImpianViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditImpianViewController.swift; sourceTree = "<group>"; };
+		FAD7EC0B264BD06A000E752D /* EditImpianViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EditImpianViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -128,10 +155,9 @@
 		FA15F3A7264AC6E9001B15D9 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				FA15F3AE264AC762001B15D9 /* Home */,
-				FA15F3AF264AC767001B15D9 /* Impian */,
-				FA15F3AC264AC73E001B15D9 /* MainTab */,
-				FA15F3B0264AC76D001B15D9 /* Profile */,
+				FAD7EC02264BCBFE000E752D /* MainController */,
+				FAD7EBEA264BB263000E752D /* Impian */,
+				FAD7EBE9264BB256000E752D /* Penggunaan */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -152,6 +178,7 @@
 			children = (
 				FA15F3D3264ACD24001B15D9 /* Fonts */,
 				FA15F38C264AA7FB001B15D9 /* Assets.xcassets */,
+				FAD7EBD2264B9D47000E752D /* GlobalColor.swift */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -159,10 +186,12 @@
 		FA15F3AA264AC71F001B15D9 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				FAD7EBF7264BBFC5000E752D /* Component */,
 				FA15F420264AD213001B15D9 /* Home */,
 				FA15F3B1264AC775001B15D9 /* Impian */,
+				FA15F3C1264AC82F001B15D9 /* MainPage */,
 				FA15F3AD264AC755001B15D9 /* MainTab */,
-				FA15F3C1264AC82F001B15D9 /* PageView */,
+				FAD7EBF5264BBF0B000E752D /* Penggunaan */,
 				FA15F3B2264AC77A001B15D9 /* Profile */,
 			);
 			path = Views;
@@ -177,14 +206,6 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
-		FA15F3AC264AC73E001B15D9 /* MainTab */ = {
-			isa = PBXGroup;
-			children = (
-				FA15F3A0264AC5BE001B15D9 /* MainTabController.swift */,
-			);
-			path = MainTab;
-			sourceTree = "<group>";
-		};
 		FA15F3AD264AC755001B15D9 /* MainTab */ = {
 			isa = PBXGroup;
 			children = (
@@ -193,33 +214,12 @@
 			path = MainTab;
 			sourceTree = "<group>";
 		};
-		FA15F3AE264AC762001B15D9 /* Home */ = {
-			isa = PBXGroup;
-			children = (
-				FA15F3BC264AC7D2001B15D9 /* HomeViewController.swift */,
-			);
-			path = Home;
-			sourceTree = "<group>";
-		};
-		FA15F3AF264AC767001B15D9 /* Impian */ = {
-			isa = PBXGroup;
-			children = (
-				FA15F3C2264AC86E001B15D9 /* ImpianViewController.swift */,
-			);
-			path = Impian;
-			sourceTree = "<group>";
-		};
-		FA15F3B0264AC76D001B15D9 /* Profile */ = {
-			isa = PBXGroup;
-			children = (
-				FA15F3C9264AC888001B15D9 /* ProfileViewController.swift */,
-			);
-			path = Profile;
-			sourceTree = "<group>";
-		};
 		FA15F3B1264AC775001B15D9 /* Impian */ = {
 			isa = PBXGroup;
 			children = (
+				FAD7EC0B264BD06A000E752D /* EditImpianViewController.xib */,
+				FAD7EBF1264BBEF6000E752D /* DetailImpianViewController.xib */,
+				FAD7EC05264BCDE2000E752D /* AddImpianViewController.xib */,
 				FAD7EBB5264B82CE000E752D /* ImpianTableCell */,
 			);
 			path = Impian;
@@ -232,14 +232,14 @@
 			path = Profile;
 			sourceTree = "<group>";
 		};
-		FA15F3C1264AC82F001B15D9 /* PageView */ = {
+		FA15F3C1264AC82F001B15D9 /* MainPage */ = {
 			isa = PBXGroup;
 			children = (
 				FA15F3BD264AC7D2001B15D9 /* HomeViewController.xib */,
 				FA15F3C3264AC86E001B15D9 /* ImpianViewController.xib */,
 				FA15F3CA264AC888001B15D9 /* ProfileViewController.xib */,
 			);
-			path = PageView;
+			path = MainPage;
 			sourceTree = "<group>";
 		};
 		FA15F3D3264ACD24001B15D9 /* Fonts */ = {
@@ -291,6 +291,62 @@
 				FAD7EBBC264B82FE000E752D /* ImpianTableViewCell.xib */,
 			);
 			path = ImpianTableCell;
+			sourceTree = "<group>";
+		};
+		FAD7EBC9264B9776000E752D /* Button */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Button;
+			sourceTree = "<group>";
+		};
+		FAD7EBE9264BB256000E752D /* Penggunaan */ = {
+			isa = PBXGroup;
+			children = (
+				FAD7EBC3264B90B5000E752D /* DetailPenggunaanViewController.swift */,
+				FAD7EBD5264B9FD7000E752D /* AddPenggunaanViewController.swift */,
+				FAD7EBE3264BAF7E000E752D /* EditPenggunaanViewController.swift */,
+				FAD7EC0A264BD06A000E752D /* EditImpianViewController.swift */,
+			);
+			path = Penggunaan;
+			sourceTree = "<group>";
+		};
+		FAD7EBEA264BB263000E752D /* Impian */ = {
+			isa = PBXGroup;
+			children = (
+				FAD7EC04264BCDE2000E752D /* AddImpianViewController.swift */,
+				FAD7EBF0264BBEF6000E752D /* DetailImpianlViewController.swift */,
+			);
+			path = Impian;
+			sourceTree = "<group>";
+		};
+		FAD7EBF5264BBF0B000E752D /* Penggunaan */ = {
+			isa = PBXGroup;
+			children = (
+				FAD7EBE4264BAF7E000E752D /* EditPenggunaanViewController.xib */,
+				FAD7EBD6264B9FD7000E752D /* AddPenggunaanViewController.xib */,
+				FAD7EBC4264B90B5000E752D /* DetailPenggunaanViewController.xib */,
+			);
+			path = Penggunaan;
+			sourceTree = "<group>";
+		};
+		FAD7EBF7264BBFC5000E752D /* Component */ = {
+			isa = PBXGroup;
+			children = (
+				FAD7EBC9264B9776000E752D /* Button */,
+			);
+			path = Component;
+			sourceTree = "<group>";
+		};
+		FAD7EC02264BCBFE000E752D /* MainController */ = {
+			isa = PBXGroup;
+			children = (
+				FA15F3BC264AC7D2001B15D9 /* HomeViewController.swift */,
+				FA15F3C2264AC86E001B15D9 /* ImpianViewController.swift */,
+				FA15F3A0264AC5BE001B15D9 /* MainTabController.swift */,
+				FA15F3C9264AC888001B15D9 /* ProfileViewController.swift */,
+			);
+			path = MainController;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -350,9 +406,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FAD7EBFE264BC927000E752D /* DetailImpianlViewController.swift in Resources */,
+				FAD7EBFF264BC927000E752D /* DetailImpianViewController.xib in Resources */,
 				FA15F40D264AD024001B15D9 /* Poppins-Black.ttf in Resources */,
 				FA15F40E264AD024001B15D9 /* Poppins-BlackItalic.ttf in Resources */,
 				FA15F40F264AD024001B15D9 /* Poppins-Bold.ttf in Resources */,
+				FAD7EBC6264B90B5000E752D /* DetailPenggunaanViewController.xib in Resources */,
+				FAD7EBD8264B9FD7000E752D /* AddPenggunaanViewController.xib in Resources */,
+				FAD7EC0D264BD06A000E752D /* EditImpianViewController.xib in Resources */,
 				FAD7EBBE264B82FE000E752D /* ImpianTableViewCell.xib in Resources */,
 				FA15F410264AD024001B15D9 /* Poppins-BoldItalic.ttf in Resources */,
 				FA15F411264AD024001B15D9 /* Poppins-ExtraBold.ttf in Resources */,
@@ -364,6 +425,7 @@
 				FA15F417264AD024001B15D9 /* Poppins-LightItalic.ttf in Resources */,
 				FA15F426264ADC1E001B15D9 /* TransactionTableViewCell.xib in Resources */,
 				FA15F418264AD024001B15D9 /* Poppins-Medium.ttf in Resources */,
+				FAD7EC07264BCDE2000E752D /* AddImpianViewController.xib in Resources */,
 				FA15F419264AD024001B15D9 /* Poppins-MediumItalic.ttf in Resources */,
 				FA15F41A264AD024001B15D9 /* Poppins-Regular.ttf in Resources */,
 				FA15F41B264AD024001B15D9 /* Poppins-SemiBold.ttf in Resources */,
@@ -375,6 +437,7 @@
 				FA15F390264AA7FB001B15D9 /* LaunchScreen.storyboard in Resources */,
 				FA15F38D264AA7FB001B15D9 /* Assets.xcassets in Resources */,
 				FA15F3A3264AC5BE001B15D9 /* MainTabController.xib in Resources */,
+				FAD7EBE6264BAF7E000E752D /* EditPenggunaanViewController.xib in Resources */,
 				FA15F3BF264AC7D2001B15D9 /* HomeViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -390,12 +453,19 @@
 				FA15F3C4264AC86E001B15D9 /* ImpianViewController.swift in Sources */,
 				FAD7EBB2264AE29D000E752D /* Transaction.swift in Sources */,
 				FA15F384264AA7F9001B15D9 /* AppDelegate.swift in Sources */,
+				FAD7EBD3264B9D47000E752D /* GlobalColor.swift in Sources */,
 				FA15F3A2264AC5BE001B15D9 /* MainTabController.swift in Sources */,
+				FAD7EBD7264B9FD7000E752D /* AddPenggunaanViewController.swift in Sources */,
 				FAD7EBBD264B82FE000E752D /* ImpianTableViewCell.swift in Sources */,
+				FAD7EBE5264BAF7E000E752D /* EditPenggunaanViewController.swift in Sources */,
 				FAD7EBB7264B82E6000E752D /* Impian.swift in Sources */,
 				FA15F386264AA7F9001B15D9 /* SceneDelegate.swift in Sources */,
 				FA15F425264ADC1E001B15D9 /* TransactionTableViewCell.swift in Sources */,
+				FAD7EBF2264BBEF6000E752D /* DetailImpianlViewController.swift in Sources */,
 				FA15F3BE264AC7D2001B15D9 /* HomeViewController.swift in Sources */,
+				FAD7EC06264BCDE2000E752D /* AddImpianViewController.swift in Sources */,
+				FAD7EC0C264BD06A000E752D /* EditImpianViewController.swift in Sources */,
+				FAD7EBC5264B90B5000E752D /* DetailPenggunaanViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -19,7 +19,7 @@ class MainTabController: UITabBarController {
         navigationController?.setNavigationBarHidden(true, animated: animated)
     }
     
-    let selectedColor   = UIColor(red: 50.0/255.0, green: 105.0/255.0, blue: 184.0/255.0, alpha: 1.0)
+    let selectedColor   = mainPurple
     let unselectedColor = UIColor(red: 130.0/255.0, green: 130.0/255.0, blue: 130.0/255.0, alpha: 1.0)
 
 
@@ -30,7 +30,7 @@ class MainTabController: UITabBarController {
         
         
         //Tab Bar Home
-        let home = HomeViewController(nibName: String(describing: HomeViewController.self), bundle: nil)
+        let home = HomeViewController(nibName: "HomeViewController", bundle: nil)
         let homeTab = UINavigationController(rootViewController: home)
         let homeImage = UIImage(named: "Home")?.withRenderingMode(.alwaysOriginal)
         let homeImageSelected = UIImage(named: "Home_Selected")?.withRenderingMode(.alwaysOriginal)
