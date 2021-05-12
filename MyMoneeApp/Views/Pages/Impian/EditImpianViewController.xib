@@ -42,7 +42,7 @@
                             </connections>
                         </button>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ubah Impian" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eCQ-eN-NSs">
-                            <rect key="frame" x="37" y="2.5" width="90.5" height="20"/>
+                            <rect key="frame" x="30" y="2.5" width="90.5" height="20"/>
                             <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="14"/>
                             <color key="textColor" red="0.30980392159999998" green="0.30980392159999998" blue="0.30980392159999998" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
@@ -50,7 +50,7 @@
                     </subviews>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     <constraints>
-                        <constraint firstItem="eCQ-eN-NSs" firstAttribute="leading" secondItem="8SD-af-Hov" secondAttribute="trailing" constant="21" id="3XH-G3-Xc0"/>
+                        <constraint firstItem="eCQ-eN-NSs" firstAttribute="leading" secondItem="8SD-af-Hov" secondAttribute="trailing" constant="14" id="3XH-G3-Xc0"/>
                         <constraint firstItem="eCQ-eN-NSs" firstAttribute="centerY" secondItem="8SD-af-Hov" secondAttribute="centerY" id="JSX-Au-mpJ"/>
                         <constraint firstAttribute="height" constant="25" id="vS1-CV-v8x"/>
                         <constraint firstItem="8SD-af-Hov" firstAttribute="centerY" secondItem="U7a-kz-ec8" secondAttribute="centerY" id="vcN-TO-4MW"/>

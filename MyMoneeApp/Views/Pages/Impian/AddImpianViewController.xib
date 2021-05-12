@@ -41,7 +41,7 @@
                             </connections>
                         </button>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tambah Impian" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Adq-ly-h6l">
-                            <rect key="frame" x="37" y="2.5" width="112.5" height="20"/>
+                            <rect key="frame" x="30" y="2.5" width="112.5" height="20"/>
                             <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="14"/>
                             <color key="textColor" red="0.30980392159999998" green="0.30980392159999998" blue="0.30980392159999998" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
@@ -49,7 +49,7 @@
                     </subviews>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     <constraints>
-                        <constraint firstItem="Adq-ly-h6l" firstAttribute="leading" secondItem="nEz-kw-EnT" secondAttribute="trailing" constant="21" id="249-Bb-kse"/>
+                        <constraint firstItem="Adq-ly-h6l" firstAttribute="leading" secondItem="nEz-kw-EnT" secondAttribute="trailing" constant="14" id="249-Bb-kse"/>
                         <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="Adq-ly-h6l" secondAttribute="trailing" constant="20" symbolic="YES" id="KxX-A4-6Z8"/>
                         <constraint firstItem="Adq-ly-h6l" firstAttribute="centerY" secondItem="nEz-kw-EnT" secondAttribute="centerY" id="S9X-cX-8uW"/>
                         <constraint firstAttribute="height" constant="25" id="dWM-GX-7dU"/>
