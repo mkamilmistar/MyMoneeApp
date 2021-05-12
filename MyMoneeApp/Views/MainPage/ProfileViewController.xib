@@ -7,6 +7,9 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
+        <array key="Poppins-Medium.ttf">
+            <string>Poppins-Medium</string>
+        </array>
         <array key="Poppins-Regular.ttf">
             <string>Poppins-Regular</string>
         </array>
@@ -61,6 +64,12 @@
                                 </label>
                             </subviews>
                         </stackView>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Edit" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YEi-bH-ayi">
+                            <rect key="frame" x="423" y="54" width="26" height="20"/>
+                            <fontDescription key="fontDescription" name="Poppins-Medium" family="Poppins" pointSize="14"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <nil key="highlightedColor"/>
+                        </label>
                     </subviews>
                     <color key="backgroundColor" red="0.31372549019607843" green="0.41176470588235292" blue="0.72156862745098038" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
@@ -77,7 +86,9 @@
             <constraints>
                 <constraint firstItem="QyX-RL-18I" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" constant="50" id="1yC-3z-15g"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="top" secondItem="QyX-RL-18I" secondAttribute="top" constant="44" id="2sg-WA-fGr"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="top" secondItem="YEi-bH-ayi" secondAttribute="top" constant="-10" id="Zz1-JJ-AwH"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="leading" secondItem="QyX-RL-18I" secondAttribute="leading" constant="50" id="r3d-c0-WWQ"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="YEi-bH-ayi" secondAttribute="trailing" constant="15" id="rqf-dY-n7m"/>
             </constraints>
             <point key="canvasLocation" x="-146.37681159420291" y="108.48214285714285"/>
         </view>

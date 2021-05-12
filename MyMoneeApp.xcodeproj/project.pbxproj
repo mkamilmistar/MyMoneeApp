@@ -57,6 +57,8 @@
 		FAD7EC07264BCDE2000E752D /* AddImpianViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FAD7EC05264BCDE2000E752D /* AddImpianViewController.xib */; };
 		FAD7EC0C264BD06A000E752D /* EditImpianViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD7EC0A264BD06A000E752D /* EditImpianViewController.swift */; };
 		FAD7EC0D264BD06A000E752D /* EditImpianViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FAD7EC0B264BD06A000E752D /* EditImpianViewController.xib */; };
+		FAD7EC14264BD2A7000E752D /* EditProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD7EC12264BD2A7000E752D /* EditProfileViewController.swift */; };
+		FAD7EC15264BD2A7000E752D /* EditProfileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FAD7EC13264BD2A7000E752D /* EditProfileViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -111,6 +113,8 @@
 		FAD7EC05264BCDE2000E752D /* AddImpianViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddImpianViewController.xib; sourceTree = "<group>"; };
 		FAD7EC0A264BD06A000E752D /* EditImpianViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditImpianViewController.swift; sourceTree = "<group>"; };
 		FAD7EC0B264BD06A000E752D /* EditImpianViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EditImpianViewController.xib; sourceTree = "<group>"; };
+		FAD7EC12264BD2A7000E752D /* EditProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileViewController.swift; sourceTree = "<group>"; };
+		FAD7EC13264BD2A7000E752D /* EditProfileViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EditProfileViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -155,6 +159,7 @@
 		FA15F3A7264AC6E9001B15D9 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				FAD7EC10264BD291000E752D /* Profile */,
 				FAD7EC02264BCBFE000E752D /* MainController */,
 				FAD7EBEA264BB263000E752D /* Impian */,
 				FAD7EBE9264BB256000E752D /* Penggunaan */,
@@ -228,6 +233,7 @@
 		FA15F3B2264AC77A001B15D9 /* Profile */ = {
 			isa = PBXGroup;
 			children = (
+				FAD7EC13264BD2A7000E752D /* EditProfileViewController.xib */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -349,6 +355,14 @@
 			path = MainController;
 			sourceTree = "<group>";
 		};
+		FAD7EC10264BD291000E752D /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				FAD7EC12264BD2A7000E752D /* EditProfileViewController.swift */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -420,6 +434,7 @@
 				FA15F412264AD024001B15D9 /* Poppins-ExtraBoldItalic.ttf in Resources */,
 				FA15F413264AD024001B15D9 /* Poppins-ExtraLight.ttf in Resources */,
 				FA15F414264AD024001B15D9 /* Poppins-ExtraLightItalic.ttf in Resources */,
+				FAD7EC15264BD2A7000E752D /* EditProfileViewController.xib in Resources */,
 				FA15F415264AD024001B15D9 /* Poppins-Italic.ttf in Resources */,
 				FA15F416264AD024001B15D9 /* Poppins-Light.ttf in Resources */,
 				FA15F417264AD024001B15D9 /* Poppins-LightItalic.ttf in Resources */,
@@ -457,6 +472,7 @@
 				FA15F3A2264AC5BE001B15D9 /* MainTabController.swift in Sources */,
 				FAD7EBD7264B9FD7000E752D /* AddPenggunaanViewController.swift in Sources */,
 				FAD7EBBD264B82FE000E752D /* ImpianTableViewCell.swift in Sources */,
+				FAD7EC14264BD2A7000E752D /* EditProfileViewController.swift in Sources */,
 				FAD7EBE5264BAF7E000E752D /* EditPenggunaanViewController.swift in Sources */,
 				FAD7EBB7264B82E6000E752D /* Impian.swift in Sources */,
 				FA15F386264AA7F9001B15D9 /* SceneDelegate.swift in Sources */,
