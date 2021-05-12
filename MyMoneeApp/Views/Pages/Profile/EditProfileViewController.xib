@@ -30,10 +30,10 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Fyv-s8-ucr" userLabel="Blue BG">
-                    <rect key="frame" x="-50" y="0.0" width="514" height="311"/>
+                    <rect key="frame" x="-50" y="-16" width="514" height="311"/>
                     <subviews>
                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Emil" translatesAutoresizingMaskIntoConstraints="NO" id="Fcp-fQ-9lN" userLabel="Photo">
-                            <rect key="frame" x="206.5" y="63" width="101" height="101"/>
+                            <rect key="frame" x="206.5" y="90" width="101" height="101"/>
                             <gestureRecognizers/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="101" id="IJ2-zo-mP3"/>
@@ -46,7 +46,7 @@
                             </userDefinedRuntimeAttributes>
                         </imageView>
                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="R0G-4H-BZn" userLabel="Text">
-                            <rect key="frame" x="144.5" y="193" width="225" height="52"/>
+                            <rect key="frame" x="144.5" y="220" width="225" height="52"/>
                             <subviews>
                                 <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="1Dt-GK-klP">
                                     <rect key="frame" x="62.5" y="0.0" width="100" height="16"/>
@@ -82,7 +82,7 @@
                             </subviews>
                         </stackView>
                         <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Selesai" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1XY-0H-1QL">
-                            <rect key="frame" x="398.5" y="54" width="50.5" height="20"/>
+                            <rect key="frame" x="398.5" y="70" width="50.5" height="20"/>
                             <gestureRecognizers/>
                             <fontDescription key="fontDescription" name="Poppins-Medium" family="Poppins" pointSize="14"/>
                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -92,7 +92,7 @@
                             </connections>
                         </label>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UFd-me-cZw">
-                            <rect key="frame" x="283.5" y="136" width="24" height="24"/>
+                            <rect key="frame" x="283.5" y="163" width="24" height="24"/>
                             <state key="normal" image="Edit_Profile"/>
                         </button>
                     </subviews>
@@ -103,7 +103,7 @@
                         <constraint firstItem="Fcp-fQ-9lN" firstAttribute="centerX" secondItem="Fyv-s8-ucr" secondAttribute="centerX" id="ONB-D4-3RN"/>
                         <constraint firstAttribute="height" constant="311" id="VPg-0B-zX9"/>
                         <constraint firstItem="UFd-me-cZw" firstAttribute="trailing" secondItem="Fcp-fQ-9lN" secondAttribute="trailing" id="ZtA-Hb-G5A"/>
-                        <constraint firstItem="Fcp-fQ-9lN" firstAttribute="top" secondItem="Fyv-s8-ucr" secondAttribute="top" constant="63" id="zau-hU-8nq"/>
+                        <constraint firstItem="Fcp-fQ-9lN" firstAttribute="top" secondItem="Fyv-s8-ucr" secondAttribute="top" constant="90" id="zau-hU-8nq"/>
                     </constraints>
                 </view>
             </subviews>
@@ -115,7 +115,7 @@
                 <constraint firstItem="Fyv-s8-ucr" firstAttribute="trailing" secondItem="Bkb-SZ-lLi" secondAttribute="trailing" constant="50" id="8yh-zE-hGJ"/>
                 <constraint firstItem="Bkb-SZ-lLi" firstAttribute="trailing" secondItem="1XY-0H-1QL" secondAttribute="trailing" constant="15" id="G2Q-a8-tYw"/>
                 <constraint firstItem="Bkb-SZ-lLi" firstAttribute="top" secondItem="1XY-0H-1QL" secondAttribute="top" constant="-10" id="TNB-nq-xZS"/>
-                <constraint firstItem="Bkb-SZ-lLi" firstAttribute="top" secondItem="Fyv-s8-ucr" secondAttribute="top" constant="44" id="jli-MJ-Q53"/>
+                <constraint firstItem="Bkb-SZ-lLi" firstAttribute="top" secondItem="Fyv-s8-ucr" secondAttribute="top" constant="60" id="jli-MJ-Q53"/>
             </constraints>
             <point key="canvasLocation" x="-146.37681159420291" y="108.48214285714285"/>
         </view>

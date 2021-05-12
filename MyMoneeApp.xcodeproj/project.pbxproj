@@ -51,7 +51,6 @@
 		FAD7EBE5264BAF7E000E752D /* EditPenggunaanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD7EBE3264BAF7E000E752D /* EditPenggunaanViewController.swift */; };
 		FAD7EBE6264BAF7E000E752D /* EditPenggunaanViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FAD7EBE4264BAF7E000E752D /* EditPenggunaanViewController.xib */; };
 		FAD7EBF2264BBEF6000E752D /* DetailImpianlViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD7EBF0264BBEF6000E752D /* DetailImpianlViewController.swift */; };
-		FAD7EBFE264BC927000E752D /* DetailImpianlViewController.swift in Resources */ = {isa = PBXBuildFile; fileRef = FAD7EBF0264BBEF6000E752D /* DetailImpianlViewController.swift */; };
 		FAD7EBFF264BC927000E752D /* DetailImpianViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FAD7EBF1264BBEF6000E752D /* DetailImpianViewController.xib */; };
 		FAD7EC06264BCDE2000E752D /* AddImpianViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD7EC04264BCDE2000E752D /* AddImpianViewController.swift */; };
 		FAD7EC07264BCDE2000E752D /* AddImpianViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FAD7EC05264BCDE2000E752D /* AddImpianViewController.xib */; };
@@ -420,7 +419,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FAD7EBFE264BC927000E752D /* DetailImpianlViewController.swift in Resources */,
 				FAD7EBFF264BC927000E752D /* DetailImpianViewController.xib in Resources */,
 				FA15F40D264AD024001B15D9 /* Poppins-Black.ttf in Resources */,
 				FA15F40E264AD024001B15D9 /* Poppins-BlackItalic.ttf in Resources */,

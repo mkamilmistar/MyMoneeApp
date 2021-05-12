@@ -29,10 +29,10 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QyX-RL-18I" userLabel="Blue BG">
-                    <rect key="frame" x="-50" y="0.0" width="514" height="311"/>
+                    <rect key="frame" x="-50" y="-16" width="514" height="311"/>
                     <subviews>
                         <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Emil" translatesAutoresizingMaskIntoConstraints="NO" id="XVY-V9-Bdc" userLabel="Photo">
-                            <rect key="frame" x="206.5" y="63" width="101" height="101"/>
+                            <rect key="frame" x="206.5" y="90" width="101" height="101"/>
                             <gestureRecognizers/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="101" id="Bue-tL-I9a"/>
@@ -45,7 +45,7 @@
                             </userDefinedRuntimeAttributes>
                         </imageView>
                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="veJ-5a-AZG" userLabel="Text">
-                            <rect key="frame" x="144.5" y="193" width="225" height="61.5"/>
+                            <rect key="frame" x="144.5" y="220" width="225" height="61.5"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="M. Kamil" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D0W-8m-aVe">
                                     <rect key="frame" x="73.5" y="0.0" width="78.5" height="25.5"/>
@@ -66,7 +66,7 @@
                             </subviews>
                         </stackView>
                         <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Edit" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YEi-bH-ayi">
-                            <rect key="frame" x="423" y="54" width="26" height="20"/>
+                            <rect key="frame" x="423" y="70" width="26" height="20"/>
                             <gestureRecognizers/>
                             <fontDescription key="fontDescription" name="Poppins-Medium" family="Poppins" pointSize="14"/>
                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -78,7 +78,7 @@
                     </subviews>
                     <color key="backgroundColor" red="0.31372549019607843" green="0.41176470588235292" blue="0.72156862745098038" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
-                        <constraint firstItem="XVY-V9-Bdc" firstAttribute="top" secondItem="QyX-RL-18I" secondAttribute="top" constant="63" id="Aab-Hk-tvL"/>
+                        <constraint firstItem="XVY-V9-Bdc" firstAttribute="top" secondItem="QyX-RL-18I" secondAttribute="top" constant="90" id="Aab-Hk-tvL"/>
                         <constraint firstItem="XVY-V9-Bdc" firstAttribute="centerX" secondItem="QyX-RL-18I" secondAttribute="centerX" id="CFz-aj-qRv"/>
                         <constraint firstItem="veJ-5a-AZG" firstAttribute="centerX" secondItem="XVY-V9-Bdc" secondAttribute="centerX" id="fh2-Sw-vQI"/>
                         <constraint firstAttribute="height" constant="311" id="n4O-7b-6Vr"/>
@@ -90,7 +90,7 @@
             <color key="backgroundColor" red="0.94117647058823528" green="0.94901960784313721" blue="0.97254901960784312" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
                 <constraint firstItem="QyX-RL-18I" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" constant="50" id="1yC-3z-15g"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="top" secondItem="QyX-RL-18I" secondAttribute="top" constant="44" id="2sg-WA-fGr"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="top" secondItem="QyX-RL-18I" secondAttribute="top" constant="60" id="2sg-WA-fGr"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="top" secondItem="YEi-bH-ayi" secondAttribute="top" constant="-10" id="Zz1-JJ-AwH"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="leading" secondItem="QyX-RL-18I" secondAttribute="leading" constant="50" id="r3d-c0-WWQ"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="YEi-bH-ayi" secondAttribute="trailing" constant="15" id="rqf-dY-n7m"/>

@@ -31,14 +31,14 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JyR-pi-6Cf" userLabel="Edit">
-                    <rect key="frame" x="362" y="64" width="36" height="36"/>
+                    <rect key="frame" x="362" y="54" width="36" height="36"/>
                     <state key="normal" image="Edit"/>
                     <connections>
                         <action selector="goEditPenggunaan:" destination="-1" eventType="touchUpInside" id="iKS-ad-RGS"/>
                     </connections>
                 </button>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nKh-2M-IWj" userLabel="DetailPenggunaanBG">
-                    <rect key="frame" x="0.0" y="123" width="414" height="773"/>
+                    <rect key="frame" x="0.0" y="113" width="414" height="783"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KpD-ds-T3B">
                             <rect key="frame" x="188" y="52" width="38.5" height="25.5"/>
@@ -111,7 +111,7 @@
                             <nil key="highlightedColor"/>
                         </label>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TpE-4P-ACP">
-                            <rect key="frame" x="16" y="628" width="382" height="43"/>
+                            <rect key="frame" x="16" y="638" width="382" height="43"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="43" id="fcw-qV-pkB"/>
                             </constraints>
@@ -155,7 +155,7 @@
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="JyR-pi-6Cf" secondAttribute="trailing" constant="16" id="CBO-c7-be9"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="nKh-2M-IWj" secondAttribute="trailing" id="GfC-hX-HNg"/>
                 <constraint firstItem="nKh-2M-IWj" firstAttribute="top" secondItem="JyR-pi-6Cf" secondAttribute="bottom" constant="23" id="KaB-Eb-hGJ"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="top" secondItem="JyR-pi-6Cf" secondAttribute="top" constant="-20" id="gf9-JY-c0C"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="top" secondItem="JyR-pi-6Cf" secondAttribute="top" constant="-10" id="gf9-JY-c0C"/>
                 <constraint firstItem="nKh-2M-IWj" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="t8b-X0-Skg"/>
             </constraints>
             <point key="canvasLocation" x="111.59420289855073" y="103.79464285714285"/>
