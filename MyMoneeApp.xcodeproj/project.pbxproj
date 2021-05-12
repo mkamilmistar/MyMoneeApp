@@ -40,6 +40,9 @@
 		FA15F425264ADC1E001B15D9 /* TransactionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA15F423264ADC1E001B15D9 /* TransactionTableViewCell.swift */; };
 		FA15F426264ADC1E001B15D9 /* TransactionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA15F424264ADC1E001B15D9 /* TransactionTableViewCell.xib */; };
 		FAD7EBB2264AE29D000E752D /* Transaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD7EBB1264AE29D000E752D /* Transaction.swift */; };
+		FAD7EBB7264B82E6000E752D /* Impian.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD7EBB6264B82E6000E752D /* Impian.swift */; };
+		FAD7EBBD264B82FE000E752D /* ImpianTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD7EBBB264B82FE000E752D /* ImpianTableViewCell.swift */; };
+		FAD7EBBE264B82FE000E752D /* ImpianTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FAD7EBBC264B82FE000E752D /* ImpianTableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -78,6 +81,9 @@
 		FA15F423264ADC1E001B15D9 /* TransactionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionTableViewCell.swift; sourceTree = "<group>"; };
 		FA15F424264ADC1E001B15D9 /* TransactionTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TransactionTableViewCell.xib; sourceTree = "<group>"; };
 		FAD7EBB1264AE29D000E752D /* Transaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transaction.swift; sourceTree = "<group>"; };
+		FAD7EBB6264B82E6000E752D /* Impian.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Impian.swift; sourceTree = "<group>"; };
+		FAD7EBBB264B82FE000E752D /* ImpianTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImpianTableViewCell.swift; sourceTree = "<group>"; };
+		FAD7EBBC264B82FE000E752D /* ImpianTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ImpianTableViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -166,6 +172,7 @@
 			isa = PBXGroup;
 			children = (
 				FAD7EBB1264AE29D000E752D /* Transaction.swift */,
+				FAD7EBB6264B82E6000E752D /* Impian.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -213,6 +220,7 @@
 		FA15F3B1264AC775001B15D9 /* Impian */ = {
 			isa = PBXGroup;
 			children = (
+				FAD7EBB5264B82CE000E752D /* ImpianTableCell */,
 			);
 			path = Impian;
 			sourceTree = "<group>";
@@ -276,6 +284,15 @@
 			path = TransactionTableCell;
 			sourceTree = "<group>";
 		};
+		FAD7EBB5264B82CE000E752D /* ImpianTableCell */ = {
+			isa = PBXGroup;
+			children = (
+				FAD7EBBB264B82FE000E752D /* ImpianTableViewCell.swift */,
+				FAD7EBBC264B82FE000E752D /* ImpianTableViewCell.xib */,
+			);
+			path = ImpianTableCell;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -336,6 +353,7 @@
 				FA15F40D264AD024001B15D9 /* Poppins-Black.ttf in Resources */,
 				FA15F40E264AD024001B15D9 /* Poppins-BlackItalic.ttf in Resources */,
 				FA15F40F264AD024001B15D9 /* Poppins-Bold.ttf in Resources */,
+				FAD7EBBE264B82FE000E752D /* ImpianTableViewCell.xib in Resources */,
 				FA15F410264AD024001B15D9 /* Poppins-BoldItalic.ttf in Resources */,
 				FA15F411264AD024001B15D9 /* Poppins-ExtraBold.ttf in Resources */,
 				FA15F412264AD024001B15D9 /* Poppins-ExtraBoldItalic.ttf in Resources */,
@@ -373,6 +391,8 @@
 				FAD7EBB2264AE29D000E752D /* Transaction.swift in Sources */,
 				FA15F384264AA7F9001B15D9 /* AppDelegate.swift in Sources */,
 				FA15F3A2264AC5BE001B15D9 /* MainTabController.swift in Sources */,
+				FAD7EBBD264B82FE000E752D /* ImpianTableViewCell.swift in Sources */,
+				FAD7EBB7264B82E6000E752D /* Impian.swift in Sources */,
 				FA15F386264AA7F9001B15D9 /* SceneDelegate.swift in Sources */,
 				FA15F425264ADC1E001B15D9 /* TransactionTableViewCell.swift in Sources */,
 				FA15F3BE264AC7D2001B15D9 /* HomeViewController.swift in Sources */,

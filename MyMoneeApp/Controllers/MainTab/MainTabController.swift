@@ -18,11 +18,16 @@ class MainTabController: UITabBarController {
         super.viewWillDisappear(animated)
         navigationController?.setNavigationBarHidden(true, animated: animated)
     }
+    
+    let selectedColor   = UIColor(red: 50.0/255.0, green: 105.0/255.0, blue: 184.0/255.0, alpha: 1.0)
+    let unselectedColor = UIColor(red: 130.0/255.0, green: 130.0/255.0, blue: 130.0/255.0, alpha: 1.0)
+
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         self.tabBar.barTintColor = .white
+        
         
         //Tab Bar Home
         let home = HomeViewController(nibName: String(describing: HomeViewController.self), bundle: nil)
@@ -30,8 +35,8 @@ class MainTabController: UITabBarController {
         let homeImage = UIImage(named: "Home")?.withRenderingMode(.alwaysOriginal)
         let homeImageSelected = UIImage(named: "Home_Selected")?.withRenderingMode(.alwaysOriginal)
         homeTab.tabBarItem = UITabBarItem(title: "Home", image: homeImage, selectedImage: homeImageSelected)
-        homeTab.tabBarItem.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.black], for: .selected)
-        homeTab.tabBarItem.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.lightGray], for: .normal)
+        homeTab.tabBarItem.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: selectedColor], for: .selected)
+        homeTab.tabBarItem.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: unselectedColor], for: .normal)
         homeTab.tabBarItem.tag = 0
         
         //Tab Bar Impian
@@ -40,8 +45,9 @@ class MainTabController: UITabBarController {
         let impianImage = UIImage(named: "Impian")?.withRenderingMode(.alwaysOriginal)
         let impianImageSelected = UIImage(named: "Impian_Selected")?.withRenderingMode(.alwaysOriginal)
         impianTab.tabBarItem = UITabBarItem(title: "Impian", image: impianImage, selectedImage: impianImageSelected)
-        impianTab.tabBarItem.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.black], for: .selected)
-        impianTab.tabBarItem.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.lightGray], for: .normal)
+        impianTab.tabBarItem.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: selectedColor], for: .selected)
+        impianTab.tabBarItem.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: unselectedColor], for: .normal)
+
         impianTab.tabBarItem.tag = 1
         
         //Tab Bar Profile
@@ -50,8 +56,8 @@ class MainTabController: UITabBarController {
         let profileImage = UIImage(named: "Profile")?.withRenderingMode(.alwaysOriginal)
         let profileImageSelected = UIImage(named: "Profile_Selected")?.withRenderingMode(.alwaysOriginal)
         profileTab.tabBarItem = UITabBarItem(title: "Profile", image: profileImage, selectedImage: profileImageSelected)
-        profileTab.tabBarItem.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.black], for: .selected)
-        profileTab.tabBarItem.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.lightGray], for: .normal)
+        profileTab.tabBarItem.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: selectedColor], for: .selected)
+        profileTab.tabBarItem.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: unselectedColor], for: .normal)
         profileTab.tabBarItem.tag = 2
         
         self.viewControllers = [homeTab, impianTab, profileTab]

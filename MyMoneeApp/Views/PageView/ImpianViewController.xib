@@ -7,9 +7,15 @@
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="Poppins-SemiBold.ttf">
+            <string>Poppins-SemiBold</string>
+        </array>
+    </customFonts>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ImpianViewController" customModule="MyMoneeApp" customModuleProvider="target">
             <connections>
+                <outlet property="impianTableView" destination="q9c-6U-RCc" id="Abz-Zf-ytE"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -18,23 +24,60 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Impian" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hVU-A7-28M">
-                    <rect key="frame" x="181.5" y="437.5" width="51" height="21"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <nil key="textColor"/>
-                    <nil key="highlightedColor"/>
-                </label>
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="wi4-6P-HJk" userLabel="Header">
+                    <rect key="frame" x="16" y="54" width="382" height="36"/>
+                    <subviews>
+                        <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="KVJ-wk-Vfn">
+                            <rect key="frame" x="0.0" y="0.0" width="382" height="36"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Impian" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nSw-Qw-fdW">
+                                    <rect key="frame" x="0.0" y="0.0" width="346" height="36"/>
+                                    <fontDescription key="fontDescription" name="Poppins-SemiBold" family="Poppins" pointSize="24"/>
+                                    <color key="textColor" red="0.30980392159999998" green="0.30980392159999998" blue="0.30980392159999998" alpha="1" colorSpace="calibratedRGB"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="w86-Ko-cWx" userLabel="AddButton">
+                                    <rect key="frame" x="346" y="0.0" width="36" height="36"/>
+                                    <color key="backgroundColor" red="0.31372549020000001" green="0.41176470590000003" blue="0.72156862749999995" alpha="0.29999999999999999" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="36" id="Zha-lW-f7b"/>
+                                        <constraint firstAttribute="height" constant="36" id="gft-oc-5Bg"/>
+                                    </constraints>
+                                    <color key="tintColor" red="0.31372549020000001" green="0.41176470590000003" blue="0.72156862749999995" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                    <state key="normal" image="plus" catalog="system"/>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                            <integer key="value" value="18"/>
+                                        </userDefinedRuntimeAttribute>
+                                    </userDefinedRuntimeAttributes>
+                                </button>
+                            </subviews>
+                        </stackView>
+                    </subviews>
+                </stackView>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="q9c-6U-RCc">
+                    <rect key="frame" x="16" y="123" width="382" height="260"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="260" id="WT0-rO-HwA"/>
+                    </constraints>
+                </tableView>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
-            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <color key="backgroundColor" red="0.94117647058823528" green="0.94901960784313721" blue="0.97254901960784312" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
-                <constraint firstItem="hVU-A7-28M" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="ddb-oY-zP8"/>
-                <constraint firstItem="hVU-A7-28M" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="uW1-KH-egJ"/>
+                <constraint firstItem="wi4-6P-HJk" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="10" id="8YV-Ky-Apf"/>
+                <constraint firstItem="q9c-6U-RCc" firstAttribute="leading" secondItem="nSw-Qw-fdW" secondAttribute="leading" id="EUz-SR-dze"/>
+                <constraint firstItem="q9c-6U-RCc" firstAttribute="trailing" secondItem="w86-Ko-cWx" secondAttribute="trailing" id="EkK-Wp-O9I"/>
+                <constraint firstItem="wi4-6P-HJk" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="16" id="KBO-Mv-qB2"/>
+                <constraint firstItem="q9c-6U-RCc" firstAttribute="top" secondItem="nSw-Qw-fdW" secondAttribute="bottom" constant="33" id="i3O-fc-1zB"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="wi4-6P-HJk" secondAttribute="trailing" constant="16" id="pyw-6Q-65U"/>
             </constraints>
             <point key="canvasLocation" x="139" y="109"/>
         </view>
     </objects>
     <resources>
+        <image name="plus" catalog="system" width="128" height="113"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

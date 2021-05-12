@@ -245,6 +245,7 @@
                 <constraint firstItem="xAi-lM-naH" firstAttribute="top" secondItem="x2w-6X-Nag" secondAttribute="bottom" constant="36" id="waZ-GR-Xe4"/>
                 <constraint firstItem="NyG-jd-piQ" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="10" id="xf2-aa-bC7"/>
             </constraints>
+            <nil key="simulatedTopBarMetrics"/>
             <point key="canvasLocation" x="137.68115942028987" y="108.48214285714285"/>
         </view>
     </objects>

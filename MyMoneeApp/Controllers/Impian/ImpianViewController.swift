@@ -7,23 +7,34 @@
 
 import UIKit
 
-class ImpianViewController: UIViewController {
-
+class ImpianViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+   
+    @IBOutlet weak var impianTableView: UITableView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        let nib = UINib(nibName: String(describing: ImpianTableViewCell.self), bundle: nil)
+        
+        impianTableView.register(nib, forCellReuseIdentifier: String(describing: ImpianTableViewCell.self))
+        
+        impianTableView.delegate = self
+        impianTableView.dataSource = self
     }
 
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return impian.count
     }
-    */
-
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let dataCell = tableView.dequeueReusableCell(withIdentifier: String(describing: ImpianTableViewCell.self), for: indexPath) as! ImpianTableViewCell
+        
+        dataCell.title.text = impian[indexPath.row].title
+        dataCell.money.text = impian[indexPath.row].price
+        dataCell.progressBar.progress = impian[indexPath.row].progress
+        
+        
+        return dataCell
+    }
+    
 }
