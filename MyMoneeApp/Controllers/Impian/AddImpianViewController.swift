@@ -24,11 +24,12 @@ class AddImpianViewController: UIViewController {
     }
     
     func backToImpianView(){
-        let mainTabViewController = MainTabController(nibName: "MainTabViewController", bundle: nil)
+        let impianTabView = MainTabController(nibName: "MainTabViewController", bundle: nil)
         
-        mainTabViewController.modalPresentationStyle = .fullScreen
-        mainTabViewController.modalTransitionStyle = .crossDissolve
+        impianTabView.modalPresentationStyle = .fullScreen
+        impianTabView.modalTransitionStyle = .crossDissolve
+        impianTabView.selectedIndex = 1
         
-        self.present(mainTabViewController, animated: false, completion: nil)
+        self.present(impianTabView, animated: false, completion: nil)
     }
 }

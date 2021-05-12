@@ -17,12 +17,14 @@ class EditProfileViewController: UIViewController {
 
     @IBAction func saveProfile(_ gesture: UITapGestureRecognizer) {
         print("Tapp")
-        let mainTabViewController = MainTabController(nibName: "MainTabViewController", bundle: nil)
+        let profileTab = MainTabController(nibName: "MainTabViewController", bundle: nil)
         
-        mainTabViewController.modalPresentationStyle = .fullScreen
-        mainTabViewController.modalTransitionStyle = .crossDissolve
+        profileTab.modalPresentationStyle = .fullScreen
+        profileTab.modalTransitionStyle = .crossDissolve
         
-        present(mainTabViewController, animated: false, completion: nil)
+        profileTab.selectedIndex = 2
+        
+        present(profileTab, animated: false, completion: nil)
     }
     
 }
