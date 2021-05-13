@@ -15,7 +15,7 @@ class AddImpianViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
 
-    @IBAction func backButton(_ sender: Any) {
+    @IBAction func backButton(_ sender: UITapGestureRecognizer) {
         backToImpianView()
     }
     

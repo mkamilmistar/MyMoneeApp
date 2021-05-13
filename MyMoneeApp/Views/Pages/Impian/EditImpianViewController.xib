@@ -30,32 +30,32 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="U7a-kz-ec8" userLabel="HeaderComponent">
                     <rect key="frame" x="16" y="54" width="382" height="25"/>
                     <subviews>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8SD-af-Hov">
-                            <rect key="frame" x="5" y="3" width="11" height="19"/>
-                            <constraints>
-                                <constraint firstAttribute="width" constant="10.779999999999999" id="KZK-yK-t6v"/>
-                                <constraint firstAttribute="height" constant="18.760000000000002" id="mEP-q9-v8W"/>
-                            </constraints>
-                            <state key="normal" image="Arrow_Back"/>
+                        <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" spacing="14" translatesAutoresizingMaskIntoConstraints="NO" id="EXl-hA-edH">
+                            <rect key="frame" x="5" y="3" width="115.5" height="19"/>
+                            <subviews>
+                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Arrow_Back" translatesAutoresizingMaskIntoConstraints="NO" id="BUt-4M-0cz">
+                                    <rect key="frame" x="0.0" y="0.0" width="11" height="19"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="18.760000000000002" id="LeH-bh-nen"/>
+                                        <constraint firstAttribute="width" constant="10.779999999999999" id="XBY-ti-1HO"/>
+                                    </constraints>
+                                </imageView>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ubah Impian" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eCQ-eN-NSs">
+                                    <rect key="frame" x="25" y="0.0" width="90.5" height="19"/>
+                                    <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="14"/>
+                                    <color key="textColor" red="0.30980392159999998" green="0.30980392159999998" blue="0.30980392159999998" alpha="1" colorSpace="calibratedRGB"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                            <gestureRecognizers/>
                             <connections>
-                                <action selector="backButton:" destination="-1" eventType="touchUpInside" id="QT9-hb-i9o"/>
+                                <outletCollection property="gestureRecognizers" destination="gJC-sA-3UO" appends="YES" id="WO9-gr-DZw"/>
                             </connections>
-                        </button>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ubah Impian" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eCQ-eN-NSs">
-                            <rect key="frame" x="30" y="2.5" width="90.5" height="20"/>
-                            <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="14"/>
-                            <color key="textColor" red="0.30980392159999998" green="0.30980392159999998" blue="0.30980392159999998" alpha="1" colorSpace="calibratedRGB"/>
-                            <nil key="highlightedColor"/>
-                        </label>
+                        </stackView>
                     </subviews>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     <constraints>
-                        <constraint firstItem="eCQ-eN-NSs" firstAttribute="leading" secondItem="8SD-af-Hov" secondAttribute="trailing" constant="14" id="3XH-G3-Xc0"/>
-                        <constraint firstItem="eCQ-eN-NSs" firstAttribute="centerY" secondItem="8SD-af-Hov" secondAttribute="centerY" id="JSX-Au-mpJ"/>
                         <constraint firstAttribute="height" constant="25" id="vS1-CV-v8x"/>
-                        <constraint firstItem="8SD-af-Hov" firstAttribute="centerY" secondItem="U7a-kz-ec8" secondAttribute="centerY" id="vcN-TO-4MW"/>
-                        <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="eCQ-eN-NSs" secondAttribute="trailing" constant="20" symbolic="YES" id="x6K-NA-4DM"/>
-                        <constraint firstItem="8SD-af-Hov" firstAttribute="leading" secondItem="U7a-kz-ec8" secondAttribute="leading" constant="5" id="yRX-9z-gPK"/>
                     </constraints>
                 </view>
                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="9" translatesAutoresizingMaskIntoConstraints="NO" id="ORf-2v-HaO" userLabel="Form">
@@ -158,6 +158,11 @@
             </constraints>
             <point key="canvasLocation" x="139" y="85"/>
         </view>
+        <tapGestureRecognizer id="gJC-sA-3UO">
+            <connections>
+                <action selector="backButton:" destination="-1" id="nkA-cb-ROp"/>
+            </connections>
+        </tapGestureRecognizer>
     </objects>
     <resources>
         <image name="Arrow_Back" width="44" height="76"/>

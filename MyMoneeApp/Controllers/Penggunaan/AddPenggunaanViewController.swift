@@ -43,13 +43,15 @@ class AddPenggunaanViewController: UIViewController,UICollectionViewDelegate, UI
         
     }
     
+    @IBAction func BackToHome(_ sender: UITapGestureRecognizer) {
+        backNavigation()
+    }
+    
     @IBAction func savePenggunaan(_ sender: UIButton) {
         backNavigation()
     }
     
-    @IBAction func backToHome(_ sender: UIButton) {
-        backNavigation()
-    }
+
     
     func backNavigation(){
         let mainTabViewController = MainTabController(nibName: "MainTabViewController", bundle: nil)

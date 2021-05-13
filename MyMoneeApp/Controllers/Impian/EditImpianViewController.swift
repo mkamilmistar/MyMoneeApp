@@ -27,7 +27,7 @@ class EditImpianViewController: UIViewController {
         backToImpianView()
     }
     
-    @IBAction func backButton(_ sender: Any) {
+    @IBAction func backButton(_ sender: UITapGestureRecognizer) {
         backToImpianView()
     }
     

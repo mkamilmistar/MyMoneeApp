@@ -23,7 +23,7 @@ class EditPenggunaanViewController: UIViewController {
         categoryView()
     }
     
-    @IBAction func backToDetailPenggunaan(_ sender: UIButton) {
+    @IBAction func backToDetailPenggunaan(_ sender: UITapGestureRecognizer) {
         let detailPenggunaanViewController = DetailPenggunaanViewController(nibName: String(describing: DetailPenggunaanViewController.self), bundle: nil)
         
         detailPenggunaanViewController.modalPresentationStyle = .fullScreen
