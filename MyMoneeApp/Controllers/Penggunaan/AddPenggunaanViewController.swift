@@ -10,8 +10,6 @@ import UIKit
 class AddPenggunaanViewController: UIViewController,UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout  {
 
     @IBOutlet var pemasukanTypeCollection: UICollectionView!
-    @IBOutlet weak var pemasukanView: UIView!
-    @IBOutlet weak var pengeluaranView: UIView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -50,9 +48,7 @@ class AddPenggunaanViewController: UIViewController,UICollectionViewDelegate, UI
     @IBAction func savePenggunaan(_ sender: UIButton) {
         backNavigation()
     }
-    
 
-    
     func backNavigation(){
         let mainTabViewController = MainTabController(nibName: "MainTabViewController", bundle: nil)
         
@@ -62,8 +58,6 @@ class AddPenggunaanViewController: UIViewController,UICollectionViewDelegate, UI
         self.present(mainTabViewController, animated: false, completion: nil)
     }
     
-
-    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return penggunaanType.count
     }
@@ -71,13 +65,10 @@ class AddPenggunaanViewController: UIViewController,UICollectionViewDelegate, UI
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = pemasukanTypeCollection.dequeueReusableCell(withReuseIdentifier: String(describing: PenggunaanTypeCell.self), for: indexPath) as! PenggunaanTypeCell
         
-        
         cell.background.layer.cornerRadius = 8.0
         cell.background.layer.shadowColor = UIColor.black.cgColor
         cell.background.layer.shadowOpacity = 0.3
         cell.background.layer.shadowOffset = CGSize(width: 0, height: 1)
-      
-        
         cell.title.text = penggunaanType[indexPath.row].title
         
         if penggunaanType[indexPath.row].type == .pemasukan {
@@ -87,11 +78,11 @@ class AddPenggunaanViewController: UIViewController,UICollectionViewDelegate, UI
         }
         
         return cell
-       
+
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: collectionView.frame.width / 2 - 8, height: 75)
+        return CGSize(width: collectionView.frame.width / 2 - 10, height: 75)
     }
     
 }

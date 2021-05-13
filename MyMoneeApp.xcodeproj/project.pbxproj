@@ -42,6 +42,8 @@
 		FA9AF01A264D0E8200EC9109 /* PenggunaanTypeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9AF018264D0E8200EC9109 /* PenggunaanTypeCell.swift */; };
 		FA9AF01B264D0E8200EC9109 /* PenggunaanTypeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA9AF019264D0E8200EC9109 /* PenggunaanTypeCell.xib */; };
 		FA9AF01E264D104400EC9109 /* Penggunaan.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9AF01D264D104400EC9109 /* Penggunaan.swift */; };
+		FA9AF024264D56D100EC9109 /* MainButton.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA9AF023264D56D100EC9109 /* MainButton.xib */; };
+		FA9AF027264D56DA00EC9109 /* MainButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9AF026264D56DA00EC9109 /* MainButton.swift */; };
 		FAD7EBB2264AE29D000E752D /* Transaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD7EBB1264AE29D000E752D /* Transaction.swift */; };
 		FAD7EBB7264B82E6000E752D /* Impian.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD7EBB6264B82E6000E752D /* Impian.swift */; };
 		FAD7EBBD264B82FE000E752D /* ImpianTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD7EBBB264B82FE000E752D /* ImpianTableViewCell.swift */; };
@@ -101,6 +103,8 @@
 		FA9AF018264D0E8200EC9109 /* PenggunaanTypeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PenggunaanTypeCell.swift; sourceTree = "<group>"; };
 		FA9AF019264D0E8200EC9109 /* PenggunaanTypeCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PenggunaanTypeCell.xib; sourceTree = "<group>"; };
 		FA9AF01D264D104400EC9109 /* Penggunaan.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Penggunaan.swift; sourceTree = "<group>"; };
+		FA9AF023264D56D100EC9109 /* MainButton.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainButton.xib; sourceTree = "<group>"; };
+		FA9AF026264D56DA00EC9109 /* MainButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainButton.swift; sourceTree = "<group>"; };
 		FAD7EBB1264AE29D000E752D /* Transaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transaction.swift; sourceTree = "<group>"; };
 		FAD7EBB6264B82E6000E752D /* Impian.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Impian.swift; sourceTree = "<group>"; };
 		FAD7EBBB264B82FE000E752D /* ImpianTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImpianTableViewCell.swift; sourceTree = "<group>"; };
@@ -292,6 +296,23 @@
 			path = PenggunaanTypeCell;
 			sourceTree = "<group>";
 		};
+		FA9AF021264D56B000EC9109 /* Button */ = {
+			isa = PBXGroup;
+			children = (
+				FA9AF022264D56B700EC9109 /* Main Button */,
+			);
+			path = Button;
+			sourceTree = "<group>";
+		};
+		FA9AF022264D56B700EC9109 /* Main Button */ = {
+			isa = PBXGroup;
+			children = (
+				FA9AF023264D56D100EC9109 /* MainButton.xib */,
+				FA9AF026264D56DA00EC9109 /* MainButton.swift */,
+			);
+			path = "Main Button";
+			sourceTree = "<group>";
+		};
 		FAD7EBB5264B82CE000E752D /* ImpianTableCell */ = {
 			isa = PBXGroup;
 			children = (
@@ -334,6 +355,7 @@
 		FAD7EBF7264BBFC5000E752D /* Component */ = {
 			isa = PBXGroup;
 			children = (
+				FA9AF021264D56B000EC9109 /* Button */,
 				FA9AF016264D0E2D00EC9109 /* PenggunaanTypeCell */,
 				FAD7EBB5264B82CE000E752D /* ImpianTableCell */,
 				FA15F422264ADBE3001B15D9 /* TransactionTableCell */,
@@ -442,6 +464,7 @@
 				FA15F413264AD024001B15D9 /* Poppins-ExtraLight.ttf in Resources */,
 				FA15F414264AD024001B15D9 /* Poppins-ExtraLightItalic.ttf in Resources */,
 				FAD7EC15264BD2A7000E752D /* EditProfileViewController.xib in Resources */,
+				FA9AF024264D56D100EC9109 /* MainButton.xib in Resources */,
 				FA15F415264AD024001B15D9 /* Poppins-Italic.ttf in Resources */,
 				FA15F416264AD024001B15D9 /* Poppins-Light.ttf in Resources */,
 				FA15F417264AD024001B15D9 /* Poppins-LightItalic.ttf in Resources */,
@@ -474,6 +497,7 @@
 			files = (
 				FA15F3CB264AC888001B15D9 /* ProfileViewController.swift in Sources */,
 				FA15F3C4264AC86E001B15D9 /* ImpianViewController.swift in Sources */,
+				FA9AF027264D56DA00EC9109 /* MainButton.swift in Sources */,
 				FAD7EBB2264AE29D000E752D /* Transaction.swift in Sources */,
 				FA15F384264AA7F9001B15D9 /* AppDelegate.swift in Sources */,
 				FAD7EBD3264B9D47000E752D /* GlobalColor.swift in Sources */,
