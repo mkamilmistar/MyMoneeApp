@@ -14,7 +14,7 @@ class DetailPenggunaanViewController: UIViewController {
         super.viewDidLoad()
         backButton.layer.cornerRadius = 20
         backButton.layer.borderWidth = 3.0
-        backButton.layer.borderColor = mainPurple.cgColor
+        backButton.layer.borderColor = appColor.mainPurple.cgColor
     }
     
     @IBAction func goEditPenggunaan(_ sender: UIButton) {

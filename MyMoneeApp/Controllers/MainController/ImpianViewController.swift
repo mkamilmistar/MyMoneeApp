@@ -10,7 +10,6 @@ import UIKit
 class ImpianViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
    
     @IBOutlet weak var impianTableView: UITableView!
-    let selectedColor   = UIColor(red: 240.0/255.0, green: 242.0/255.0, blue: 248.0/255.0, alpha: 1.0)
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -18,7 +17,7 @@ class ImpianViewController: UIViewController, UITableViewDelegate, UITableViewDa
         let nib = UINib(nibName: String(describing: ImpianTableViewCell.self), bundle: nil)
         
         impianTableView.register(nib, forCellReuseIdentifier: String(describing: ImpianTableViewCell.self))
-        impianTableView.backgroundColor = selectedColor
+        impianTableView.backgroundColor = appColor.mainBG
         impianTableView.delegate = self
         impianTableView.dataSource = self
     }

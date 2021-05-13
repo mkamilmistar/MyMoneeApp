@@ -18,6 +18,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HomeViewController" customModule="MyMoneeApp" customModuleProvider="target">
             <connections>
+                <outlet property="greetingLabel" destination="Bw9-B0-8J2" id="AZz-hC-GeD"/>
                 <outlet property="transactionTableView" destination="e94-Df-Xyt" id="d1d-Hw-cZ0"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>

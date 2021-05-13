@@ -18,7 +18,7 @@ class EditPenggunaanViewController: UIViewController {
 
         deleteButton.layer.cornerRadius = 20
         deleteButton.layer.borderWidth = 3.0
-        deleteButton.layer.borderColor = mainRed.cgColor
+        deleteButton.layer.borderColor = appColor.mainRed.cgColor
         
         categoryView()
     }

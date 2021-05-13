@@ -21,8 +21,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AddPenggunaanViewController" customModule="MyMoneeApp" customModuleProvider="target">
             <connections>
-                <outlet property="pemasukanView" destination="f9o-Lh-OEK" id="qO9-X6-Z9p"/>
-                <outlet property="pengeluaranView" destination="Ocu-mG-pW9" id="zTe-Qr-g8g"/>
+                <outlet property="pemasukanTypeCollection" destination="HzG-31-kYI" id="0jD-xt-Yb8"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -124,102 +123,48 @@
                         </stackView>
                     </subviews>
                 </stackView>
-                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="13" translatesAutoresizingMaskIntoConstraints="NO" id="lFB-0N-Vmn" userLabel="Kategori">
-                    <rect key="frame" x="16" y="267" width="382" height="75"/>
-                    <subviews>
-                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="f9o-Lh-OEK" userLabel="Pemasukan">
-                            <rect key="frame" x="0.0" y="0.0" width="184.5" height="75"/>
-                            <subviews>
-                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="UVd-vD-7Jb">
-                                    <rect key="frame" x="57" y="15" width="71" height="45"/>
-                                    <subviews>
-                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Arrow_Up" translatesAutoresizingMaskIntoConstraints="NO" id="bnb-zQ-cOX">
-                                            <rect key="frame" x="25.5" y="0.0" width="20" height="20"/>
-                                            <constraints>
-                                                <constraint firstAttribute="height" constant="20" id="oVQ-Kd-Dx4"/>
-                                                <constraint firstAttribute="width" constant="20" id="qzH-RY-Omg"/>
-                                            </constraints>
-                                        </imageView>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pemasukan" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OaA-Q5-CMz">
-                                            <rect key="frame" x="0.0" y="28" width="71" height="17"/>
-                                            <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="12"/>
-                                            <color key="textColor" red="0.30980392159999998" green="0.30980392159999998" blue="0.30980392159999998" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                    </subviews>
-                                </stackView>
-                            </subviews>
-                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            <constraints>
-                                <constraint firstItem="UVd-vD-7Jb" firstAttribute="centerX" secondItem="f9o-Lh-OEK" secondAttribute="centerX" id="07S-fZ-NBO"/>
-                                <constraint firstItem="UVd-vD-7Jb" firstAttribute="top" secondItem="f9o-Lh-OEK" secondAttribute="top" constant="15" id="BRh-4v-7vM"/>
-                            </constraints>
-                        </view>
-                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ocu-mG-pW9" userLabel="Pemasukan">
-                            <rect key="frame" x="197.5" y="0.0" width="184.5" height="75"/>
-                            <subviews>
-                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="ecK-6w-pma">
-                                    <rect key="frame" x="54" y="15" width="77" height="45"/>
-                                    <subviews>
-                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Arrow_Down" translatesAutoresizingMaskIntoConstraints="NO" id="hnI-Co-qa2">
-                                            <rect key="frame" x="28.5" y="0.0" width="20" height="20"/>
-                                            <constraints>
-                                                <constraint firstAttribute="width" constant="20" id="2eY-sE-zyR"/>
-                                                <constraint firstAttribute="height" constant="20" id="uuN-Xd-Hij"/>
-                                            </constraints>
-                                        </imageView>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pengeluaran" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8W8-X3-t9u">
-                                            <rect key="frame" x="0.0" y="28" width="77" height="17"/>
-                                            <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="12"/>
-                                            <color key="textColor" red="0.30980392159999998" green="0.30980392159999998" blue="0.30980392159999998" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                    </subviews>
-                                </stackView>
-                            </subviews>
-                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            <constraints>
-                                <constraint firstItem="ecK-6w-pma" firstAttribute="top" secondItem="Ocu-mG-pW9" secondAttribute="top" constant="15" id="r6y-FG-VJg"/>
-                                <constraint firstItem="ecK-6w-pma" firstAttribute="centerX" secondItem="Ocu-mG-pW9" secondAttribute="centerX" id="yOA-dE-PBI"/>
-                            </constraints>
-                        </view>
-                    </subviews>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="75" id="fvz-t7-N9H"/>
-                    </constraints>
-                </stackView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Kategori Penggunaan" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6ln-Jh-Miz">
                     <rect key="frame" x="16" y="231" width="155" height="20"/>
                     <fontDescription key="fontDescription" name="Poppins-Medium" family="Poppins" pointSize="14"/>
                     <color key="textColor" red="0.30980392156862746" green="0.30980392156862746" blue="0.30980392156862746" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="HzG-31-kYI">
+                    <rect key="frame" x="16" y="267" width="382" height="150"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="150" id="g9r-NV-218"/>
+                    </constraints>
+                    <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="tj6-0j-hHB">
+                        <size key="itemSize" width="128" height="128"/>
+                        <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                        <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                        <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                    </collectionViewFlowLayout>
+                </collectionView>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
                 <constraint firstItem="Lcq-E8-GUA" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="17" id="5Av-WQ-H3w"/>
-                <constraint firstItem="lFB-0N-Vmn" firstAttribute="top" secondItem="6ln-Jh-Miz" secondAttribute="bottom" constant="16" id="6UN-5e-UKY"/>
+                <constraint firstItem="HzG-31-kYI" firstAttribute="top" secondItem="6ln-Jh-Miz" secondAttribute="bottom" constant="16" id="9bC-2t-YWs"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="F1w-3f-fhc" secondAttribute="trailing" constant="16" id="COB-CT-sgs"/>
+                <constraint firstItem="HzG-31-kYI" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="16" id="DL6-jw-mrK"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="Lcq-E8-GUA" secondAttribute="trailing" constant="17" id="Mvf-ij-NLL"/>
-                <constraint firstItem="lFB-0N-Vmn" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="Obh-SI-Crv"/>
                 <constraint firstItem="6ln-Jh-Miz" firstAttribute="top" secondItem="YK8-j3-XIF" secondAttribute="bottom" constant="14" id="RpK-W5-q1O"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="Lcq-E8-GUA" secondAttribute="bottom" constant="68" id="W8N-b7-7Yb"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="top" secondItem="F1w-3f-fhc" secondAttribute="top" constant="-10" id="aTK-AG-zNZ"/>
                 <constraint firstItem="z55-sy-kNp" firstAttribute="leading" secondItem="F1w-3f-fhc" secondAttribute="leading" id="bk3-Oq-Jb5"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="lFB-0N-Vmn" secondAttribute="trailing" constant="16" id="j2h-PN-BRo"/>
                 <constraint firstItem="z55-sy-kNp" firstAttribute="top" secondItem="F1w-3f-fhc" secondAttribute="bottom" constant="28" id="la1-AB-vpY"/>
                 <constraint firstItem="F1w-3f-fhc" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="16" id="n9I-Jl-9Pz"/>
                 <constraint firstItem="6ln-Jh-Miz" firstAttribute="leading" secondItem="YK8-j3-XIF" secondAttribute="leading" id="rbQ-x4-Jv2"/>
-                <constraint firstItem="lFB-0N-Vmn" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="16" id="vWE-qK-hw9"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="HzG-31-kYI" secondAttribute="trailing" constant="16" id="yUx-hY-zqW"/>
             </constraints>
             <point key="canvasLocation" x="137.68115942028987" y="84.375"/>
         </view>
     </objects>
     <resources>
         <image name="Arrow_Back" width="44" height="76"/>
-        <image name="Arrow_Down" width="82" height="84"/>
-        <image name="Arrow_Up" width="82" height="84"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

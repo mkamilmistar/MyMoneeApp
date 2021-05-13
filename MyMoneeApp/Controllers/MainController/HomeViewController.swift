@@ -7,14 +7,19 @@
 
 import UIKit
 
+extension Date {
+    var hour: Int { return Calendar.current.component(.hour, from: self) }
+}
+
 class HomeViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
-    
+    @IBOutlet var greetingLabel: UILabel!
     @IBOutlet weak var transactionTableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        schedulerGreetingText()
         transactionTableView.delegate = self
         transactionTableView.dataSource = self
         transactionTableView.separatorStyle = .none
@@ -24,8 +29,20 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         transactionTableView.register(uiNib, forCellReuseIdentifier: String(describing: TransactionTableViewCell.self))
     }
     
-    @IBAction func goAddPenggunaanView(_ sender: UIButton) {
+    //Scheduler the Greeting Text
+    func schedulerGreetingText(){
+        let time = Date().hour
         
+        switch time {
+        case 1..<12: self.greetingLabel.text = "Selamat Pagi,"
+        case 12..<15: self.greetingLabel.text = "Selamat Siang,"
+        case 15..<18: self.greetingLabel.text = "Selamat Sore,"
+        case 18..<24: self.greetingLabel.text = "Selamat Malam,"
+        default:self.greetingLabel.text = "Selamat Dini Hari,"
+        }
+    }
+    
+    @IBAction func goAddPenggunaanView(_ sender: UIButton) {
         let addPenggunaanViewController = AddPenggunaanViewController(nibName: String(describing: AddPenggunaanViewController.self), bundle: nil)
         
         addPenggunaanViewController.modalPresentationStyle = .fullScreen
