@@ -9,6 +9,8 @@ import UIKit
 
 class EditDreamViewController: UIViewController {
 
+    var passIndex: Int? = nil
+    
     @IBOutlet weak var deleteButton: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,10 +42,12 @@ class EditDreamViewController: UIViewController {
     
     
     @IBAction func backButton(_ sender: UITapGestureRecognizer) {
-        self.dismiss(animated: true, completion: nil)
+        self.dismiss(animated: false, completion: nil)
     }
     
     func backToImpianView(){
+        dreams.remove(at: passIndex!)
+        
         let impianTabView = MainTabController(nibName: "MainTabViewController", bundle: nil)
         
         impianTabView.modalPresentationStyle = .fullScreen

@@ -13,31 +13,43 @@ class DetailDreamViewController: UIViewController {
     @IBOutlet weak var progressBackground: UIView!
     @IBOutlet weak var backButton: UIButton!
     
+    @IBOutlet var dreamTitle: UILabel!
+    @IBOutlet var currentAmount: UILabel!
+    @IBOutlet var progressAmount: UILabel!
+    @IBOutlet var progressBar: UIProgressView!
+    
+    //Data
+    var passIndex: Int? = nil
+    var passTitle: String? = ""
+    var passProgress: Float? = 0.0
+    
+    var passCurrentAmount: Decimal? = 0.0
+    var passTargetAmount: Decimal? = 0.0
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        heartLogo.layer.cornerRadius = 8.0
-        heartLogo.layer.shadowColor = UIColor.black.cgColor
-        heartLogo.layer.shadowOpacity = 0.3
-        heartLogo.layer.shadowOffset = CGSize(width: 0, height: 2)
+        setCompProperties()
         
-        progressBackground.layer.cornerRadius = 8.0
-        progressBackground.layer.shadowColor = UIColor.black.cgColor
-        progressBackground.layer.shadowOpacity = 0.3
-        progressBackground.layer.shadowOffset = CGSize(width: 0, height: 2)
+        let currentAmountConv = setAmountString(amountValue: passCurrentAmount!)
+        let targetAmountConv = setAmountString(amountValue: passTargetAmount!)
         
-        backButton.layer.cornerRadius = 20
-        backButton.layer.borderWidth = 3.0
-        backButton.layer.borderColor = appColor.mainPurple.cgColor
+        //Set View Variable
+        dreamTitle.text = passTitle
+        currentAmount.text = anotherSetAmountString(amountValue: passCurrentAmount!)
+        progressAmount.text = "\(currentAmountConv) / \(targetAmountConv)"
+        
+        progressBar.progress = passProgress ?? 0.0
         
     }
     
     @IBAction func goEditImpian(_ sender: Any) {
-        let editImpianView = EditDreamViewController(nibName: "EditDreamViewController", bundle: nil)
+        let editDreamVC = EditDreamViewController(nibName: "EditDreamViewController", bundle: nil)
         
-        editImpianView.modalPresentationStyle = .fullScreen
-        editImpianView.modalTransitionStyle = .coverVertical
+        editDreamVC.modalPresentationStyle = .fullScreen
+        editDreamVC.modalTransitionStyle = .coverVertical
+        editDreamVC.passIndex = passIndex
         
-        self.present(editImpianView, animated: false, completion: nil)
+        self.present(editDreamVC, animated: false, completion: nil)
     }
     
     @IBAction func confirmButton(_ sender: Any) {
@@ -54,4 +66,23 @@ class DetailDreamViewController: UIViewController {
         self.dismiss(animated: true, completion: nil)
     }
    
+}
+
+extension DetailDreamViewController {
+    fileprivate func setCompProperties() {
+        heartLogo.layer.cornerRadius = 8.0
+        heartLogo.layer.shadowColor = UIColor.black.cgColor
+        heartLogo.layer.shadowOpacity = 0.3
+        heartLogo.layer.shadowOffset = CGSize(width: 0, height: 2)
+        
+        progressBackground.layer.cornerRadius = 8.0
+        progressBackground.layer.shadowColor = UIColor.black.cgColor
+        progressBackground.layer.shadowOpacity = 0.3
+        progressBackground.layer.shadowOffset = CGSize(width: 0, height: 2)
+        
+        backButton.layer.cornerRadius = 20
+        backButton.layer.borderWidth = 3.0
+        backButton.layer.borderColor = appColor.mainPurple.cgColor
+    }
+    
 }

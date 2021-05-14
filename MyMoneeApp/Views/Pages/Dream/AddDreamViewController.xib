@@ -18,6 +18,8 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AddDreamViewController" customModule="MyMoneeApp" customModuleProvider="target">
             <connections>
+                <outlet property="targetAmountField" destination="lkv-qm-GaO" id="5aA-9e-eeT"/>
+                <outlet property="titleField" destination="IV4-Tb-D5b" id="gud-x0-x95"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -80,19 +82,19 @@
                     </connections>
                 </button>
                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="9" translatesAutoresizingMaskIntoConstraints="NO" id="6st-H9-EEj" userLabel="Form">
-                    <rect key="frame" x="16" y="107" width="270" height="108.5"/>
+                    <rect key="frame" x="16" y="107" width="382" height="110"/>
                     <subviews>
                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="-5" translatesAutoresizingMaskIntoConstraints="NO" id="yyj-RL-7NT" userLabel="Judul">
-                            <rect key="frame" x="0.0" y="0.0" width="270" height="49"/>
+                            <rect key="frame" x="0.0" y="0.0" width="382" height="50.5"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Judul" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xS2-CO-BKj">
-                                    <rect key="frame" x="0.0" y="0.0" width="270" height="20"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="382" height="20"/>
                                     <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="14"/>
                                     <color key="textColor" red="0.30980392159999998" green="0.30980392159999998" blue="0.30980392159999998" alpha="1" colorSpace="calibratedRGB"/>
                                     <nil key="highlightedColor"/>
                                 </label>
-                                <textField opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="249" verticalCompressionResistancePriority="751" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Membeli Airpods Baru" placeholder="Isi Judul" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="IV4-Tb-D5b">
-                                    <rect key="frame" x="0.0" y="15" width="270" height="34"/>
+                                <textField opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="249" verticalCompressionResistancePriority="751" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Isi Judul" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="IV4-Tb-D5b">
+                                    <rect key="frame" x="0.0" y="15" width="382" height="35.5"/>
                                     <color key="textColor" red="0.30980392159999998" green="0.30980392159999998" blue="0.30980392159999998" alpha="1" colorSpace="calibratedRGB"/>
                                     <fontDescription key="fontDescription" name="Poppins-SemiBold" family="Poppins" pointSize="24"/>
                                     <textInputTraits key="textInputTraits" textContentType="name"/>
@@ -100,16 +102,16 @@
                             </subviews>
                         </stackView>
                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="-5" translatesAutoresizingMaskIntoConstraints="NO" id="vMy-bl-t8o" userLabel="Jumlah">
-                            <rect key="frame" x="0.0" y="58" width="270" height="50.5"/>
+                            <rect key="frame" x="0.0" y="59.5" width="382" height="50.5"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Target Capaian (Rp)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ts7-If-WPm">
-                                    <rect key="frame" x="0.0" y="0.0" width="270" height="20"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="382" height="20"/>
                                     <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="14"/>
                                     <color key="textColor" red="0.30980392159999998" green="0.30980392159999998" blue="0.30980392159999998" alpha="1" colorSpace="calibratedRGB"/>
                                     <nil key="highlightedColor"/>
                                 </label>
-                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="1.250.000" placeholder="Isi Jumlah" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lkv-qm-GaO">
-                                    <rect key="frame" x="0.0" y="15" width="270" height="35.5"/>
+                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Isi Jumlah" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lkv-qm-GaO">
+                                    <rect key="frame" x="0.0" y="15" width="382" height="35.5"/>
                                     <color key="textColor" red="0.30980392159999998" green="0.30980392159999998" blue="0.30980392159999998" alpha="1" colorSpace="calibratedRGB"/>
                                     <fontDescription key="fontDescription" name="Poppins-SemiBold" family="Poppins" pointSize="24"/>
                                     <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
@@ -124,11 +126,12 @@
             <constraints>
                 <constraint firstItem="d8l-jp-aAT" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="18" id="1wo-aW-sdk"/>
                 <constraint firstItem="JHZ-Ta-nbP" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="16" id="4sB-PR-cgr"/>
+                <constraint firstItem="6st-H9-EEj" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="16" id="CMy-WQ-c0M"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="d8l-jp-aAT" secondAttribute="trailing" constant="18" id="JCi-RJ-Cpq"/>
                 <constraint firstItem="JHZ-Ta-nbP" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="10" id="McF-Aa-15Y"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="JHZ-Ta-nbP" secondAttribute="trailing" constant="16" id="Wcm-5P-vku"/>
-                <constraint firstItem="6st-H9-EEj" firstAttribute="leading" secondItem="JHZ-Ta-nbP" secondAttribute="leading" id="hOB-00-Vlq"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="d8l-jp-aAT" secondAttribute="bottom" constant="68" id="hw2-go-rKm"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="yyj-RL-7NT" secondAttribute="trailing" constant="16" id="ikI-jq-wGE"/>
                 <constraint firstItem="6st-H9-EEj" firstAttribute="top" secondItem="JHZ-Ta-nbP" secondAttribute="bottom" constant="28" id="zqe-sv-NW9"/>
             </constraints>
             <point key="canvasLocation" x="139" y="85"/>

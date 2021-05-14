@@ -59,11 +59,8 @@
                     </subviews>
                 </stackView>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="q9c-6U-RCc">
-                    <rect key="frame" x="16" y="123" width="382" height="260"/>
+                    <rect key="frame" x="16" y="123" width="382" height="669"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="260" id="WT0-rO-HwA"/>
-                    </constraints>
                     <color key="sectionIndexBackgroundColor" red="0.31372549020000001" green="0.41176470590000003" blue="0.72156862749999995" alpha="1" colorSpace="calibratedRGB"/>
                 </tableView>
             </subviews>
@@ -74,6 +71,7 @@
                 <constraint firstItem="q9c-6U-RCc" firstAttribute="leading" secondItem="nSw-Qw-fdW" secondAttribute="leading" id="EUz-SR-dze"/>
                 <constraint firstItem="q9c-6U-RCc" firstAttribute="trailing" secondItem="w86-Ko-cWx" secondAttribute="trailing" id="EkK-Wp-O9I"/>
                 <constraint firstItem="wi4-6P-HJk" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="16" id="KBO-Mv-qB2"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="q9c-6U-RCc" secondAttribute="bottom" constant="70" id="dcL-or-IUu"/>
                 <constraint firstItem="q9c-6U-RCc" firstAttribute="top" secondItem="nSw-Qw-fdW" secondAttribute="bottom" constant="33" id="i3O-fc-1zB"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="wi4-6P-HJk" secondAttribute="trailing" constant="16" id="pyw-6Q-65U"/>
             </constraints>

@@ -39,11 +39,10 @@
 		FA15F41E264AD024001B15D9 /* Poppins-ThinItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FA15F400264ACFFB001B15D9 /* Poppins-ThinItalic.ttf */; };
 		FA15F425264ADC1E001B15D9 /* TransactionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA15F423264ADC1E001B15D9 /* TransactionTableViewCell.swift */; };
 		FA15F426264ADC1E001B15D9 /* TransactionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA15F424264ADC1E001B15D9 /* TransactionTableViewCell.xib */; };
+		FA2F8784264E987E00B8BF30 /* ConvertDataType.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2F8783264E987E00B8BF30 /* ConvertDataType.swift */; };
 		FA9AF01A264D0E8200EC9109 /* UsageTypeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9AF018264D0E8200EC9109 /* UsageTypeCell.swift */; };
 		FA9AF01B264D0E8200EC9109 /* UsageTypeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA9AF019264D0E8200EC9109 /* UsageTypeCell.xib */; };
 		FA9AF01E264D104400EC9109 /* Usages.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9AF01D264D104400EC9109 /* Usages.swift */; };
-		FA9AF024264D56D100EC9109 /* MainButton.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA9AF023264D56D100EC9109 /* MainButton.xib */; };
-		FA9AF027264D56DA00EC9109 /* MainButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9AF026264D56DA00EC9109 /* MainButton.swift */; };
 		FAD7EBB2264AE29D000E752D /* Usage.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD7EBB1264AE29D000E752D /* Usage.swift */; };
 		FAD7EBB7264B82E6000E752D /* Dream.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD7EBB6264B82E6000E752D /* Dream.swift */; };
 		FAD7EBBD264B82FE000E752D /* DreamTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD7EBBB264B82FE000E752D /* DreamTableViewCell.swift */; };
@@ -100,11 +99,10 @@
 		FA15F40B264ACFFB001B15D9 /* Poppins-SemiBoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-SemiBoldItalic.ttf"; sourceTree = "<group>"; };
 		FA15F423264ADC1E001B15D9 /* TransactionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionTableViewCell.swift; sourceTree = "<group>"; };
 		FA15F424264ADC1E001B15D9 /* TransactionTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TransactionTableViewCell.xib; sourceTree = "<group>"; };
+		FA2F8783264E987E00B8BF30 /* ConvertDataType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConvertDataType.swift; sourceTree = "<group>"; };
 		FA9AF018264D0E8200EC9109 /* UsageTypeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsageTypeCell.swift; sourceTree = "<group>"; };
 		FA9AF019264D0E8200EC9109 /* UsageTypeCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UsageTypeCell.xib; sourceTree = "<group>"; };
 		FA9AF01D264D104400EC9109 /* Usages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Usages.swift; sourceTree = "<group>"; };
-		FA9AF023264D56D100EC9109 /* MainButton.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainButton.xib; sourceTree = "<group>"; };
-		FA9AF026264D56DA00EC9109 /* MainButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainButton.swift; sourceTree = "<group>"; };
 		FAD7EBB1264AE29D000E752D /* Usage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Usage.swift; sourceTree = "<group>"; };
 		FAD7EBB6264B82E6000E752D /* Dream.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dream.swift; sourceTree = "<group>"; };
 		FAD7EBBB264B82FE000E752D /* DreamTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DreamTableViewCell.swift; sourceTree = "<group>"; };
@@ -156,6 +154,7 @@
 		FA15F382264AA7F9001B15D9 /* MyMoneeApp */ = {
 			isa = PBXGroup;
 			children = (
+				FA2F8782264E987500B8BF30 /* Configuration */,
 				FA15F3A8264AC6FA001B15D9 /* Application */,
 				FA15F3A7264AC6E9001B15D9 /* Controllers */,
 				FA15F3AB264AC725001B15D9 /* Models */,
@@ -287,6 +286,14 @@
 			path = TransactionTableCell;
 			sourceTree = "<group>";
 		};
+		FA2F8782264E987500B8BF30 /* Configuration */ = {
+			isa = PBXGroup;
+			children = (
+				FA2F8783264E987E00B8BF30 /* ConvertDataType.swift */,
+			);
+			path = Configuration;
+			sourceTree = "<group>";
+		};
 		FA9AF016264D0E2D00EC9109 /* UsageTypeCell */ = {
 			isa = PBXGroup;
 			children = (
@@ -294,23 +301,6 @@
 				FA9AF019264D0E8200EC9109 /* UsageTypeCell.xib */,
 			);
 			path = UsageTypeCell;
-			sourceTree = "<group>";
-		};
-		FA9AF021264D56B000EC9109 /* Button */ = {
-			isa = PBXGroup;
-			children = (
-				FA9AF022264D56B700EC9109 /* Main Button */,
-			);
-			path = Button;
-			sourceTree = "<group>";
-		};
-		FA9AF022264D56B700EC9109 /* Main Button */ = {
-			isa = PBXGroup;
-			children = (
-				FA9AF023264D56D100EC9109 /* MainButton.xib */,
-				FA9AF026264D56DA00EC9109 /* MainButton.swift */,
-			);
-			path = "Main Button";
 			sourceTree = "<group>";
 		};
 		FAD7EBB5264B82CE000E752D /* DreamTableCell */ = {
@@ -355,7 +345,6 @@
 		FAD7EBF7264BBFC5000E752D /* Component */ = {
 			isa = PBXGroup;
 			children = (
-				FA9AF021264D56B000EC9109 /* Button */,
 				FAD7EBB5264B82CE000E752D /* DreamTableCell */,
 				FA15F422264ADBE3001B15D9 /* TransactionTableCell */,
 				FA9AF016264D0E2D00EC9109 /* UsageTypeCell */,
@@ -464,7 +453,6 @@
 				FA15F413264AD024001B15D9 /* Poppins-ExtraLight.ttf in Resources */,
 				FA15F414264AD024001B15D9 /* Poppins-ExtraLightItalic.ttf in Resources */,
 				FAD7EC15264BD2A7000E752D /* EditProfileViewController.xib in Resources */,
-				FA9AF024264D56D100EC9109 /* MainButton.xib in Resources */,
 				FA15F415264AD024001B15D9 /* Poppins-Italic.ttf in Resources */,
 				FA15F416264AD024001B15D9 /* Poppins-Light.ttf in Resources */,
 				FA15F417264AD024001B15D9 /* Poppins-LightItalic.ttf in Resources */,
@@ -497,7 +485,6 @@
 			files = (
 				FA15F3CB264AC888001B15D9 /* ProfileViewController.swift in Sources */,
 				FA15F3C4264AC86E001B15D9 /* DreamViewController.swift in Sources */,
-				FA9AF027264D56DA00EC9109 /* MainButton.swift in Sources */,
 				FAD7EBB2264AE29D000E752D /* Usage.swift in Sources */,
 				FA15F384264AA7F9001B15D9 /* AppDelegate.swift in Sources */,
 				FAD7EBD3264B9D47000E752D /* GlobalColor.swift in Sources */,
@@ -508,6 +495,7 @@
 				FAD7EBE5264BAF7E000E752D /* EditUsageViewController.swift in Sources */,
 				FAD7EBB7264B82E6000E752D /* Dream.swift in Sources */,
 				FA9AF01E264D104400EC9109 /* Usages.swift in Sources */,
+				FA2F8784264E987E00B8BF30 /* ConvertDataType.swift in Sources */,
 				FA15F386264AA7F9001B15D9 /* SceneDelegate.swift in Sources */,
 				FA15F425264ADC1E001B15D9 /* TransactionTableViewCell.swift in Sources */,
 				FA9AF01A264D0E8200EC9109 /* UsageTypeCell.swift in Sources */,

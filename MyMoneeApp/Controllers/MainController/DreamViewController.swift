@@ -35,12 +35,21 @@ class DreamViewController: UIViewController, UITableViewDelegate, UITableViewDat
         //deselect row animation
         tableView.deselectRow(at: indexPath, animated: false)
         
-        let detailImpianViewController = DetailDreamViewController(nibName: String(describing: DetailDreamViewController.self), bundle: nil)
+        let detailDreamVC = DetailDreamViewController(nibName: String(describing: DetailDreamViewController.self), bundle: nil)
         
-        detailImpianViewController.modalPresentationStyle = .fullScreen
-        detailImpianViewController.modalTransitionStyle = .coverVertical
+        detailDreamVC.modalPresentationStyle = .fullScreen
+        detailDreamVC.modalTransitionStyle = .coverVertical
         
-        self.present(detailImpianViewController, animated: true, completion: nil)
+        detailDreamVC.passTitle = dreams[indexPath.row].title
+        detailDreamVC.passCurrentAmount = dreams[indexPath.row].currentAmount
+        detailDreamVC.passTargetAmount = dreams[indexPath.row].targetAmount
+        
+        //pass index
+        detailDreamVC.passIndex = indexPath.row
+        let progress = setProgress(indexPath)
+        detailDreamVC.passProgress = progress
+        
+        self.present(detailDreamVC, animated: true, completion: nil)
         
 //        print("cell at #\(indexPath.row) is selected!")
     }
@@ -48,6 +57,8 @@ class DreamViewController: UIViewController, UITableViewDelegate, UITableViewDat
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return dreams.count
     }
+
+   
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let dataCell = tableView.dequeueReusableCell(withIdentifier: String(describing: DreamTableViewCell.self), for: indexPath) as! DreamTableViewCell
@@ -58,10 +69,26 @@ class DreamViewController: UIViewController, UITableViewDelegate, UITableViewDat
         dataCell.selectedBackgroundView = backgroundView
         
         dataCell.title.text = dreams[indexPath.row].title
-        dataCell.money.text = dreams[indexPath.row].targetAmount
-        dataCell.progressBar.progress = dreams[indexPath.row].progress
+        
+        dataCell.currentAmount.text = setAmountString(amountValue: dreams[indexPath.row].currentAmount)
+        dataCell.targetAmount.text = setAmountString(amountValue: dreams[indexPath.row].targetAmount)
+        
+        let progress = setProgress(indexPath)
+        
+        dataCell.progressBar.progress = progress
         
         return dataCell
     }
     
+}
+
+extension DreamViewController {
+    fileprivate func setProgress(_ indexPath: IndexPath) -> Float {
+        let currentDouble = setDecimalToDouble(value: dreams[indexPath.row].currentAmount)
+        let targetDouble = setDecimalToDouble(value: dreams[indexPath.row].targetAmount)
+        
+        dreams[indexPath.row].progress = Float(currentDouble / targetDouble)
+        let progress = dreams[indexPath.row].progress
+        return progress
+    }
 }

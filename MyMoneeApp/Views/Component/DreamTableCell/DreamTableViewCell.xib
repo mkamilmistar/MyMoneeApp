@@ -55,16 +55,39 @@
                                             <constraint firstItem="4hv-Wg-2aK" firstAttribute="leading" secondItem="Ohu-3o-0LR" secondAttribute="trailing" constant="16" id="ZqX-Tv-Typ"/>
                                         </constraints>
                                     </stackView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fyl-Zw-cMF">
-                                        <rect key="frame" x="0.0" y="45.5" width="29.5" height="15.5"/>
-                                        <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="11"/>
-                                        <color key="textColor" red="0.74117647060000003" green="0.74117647060000003" blue="0.74117647060000003" alpha="1" colorSpace="calibratedRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="4xB-qx-U9b" userLabel="Amount">
+                                        <rect key="frame" x="0.0" y="45.5" width="315" height="15.5"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" text="500.000" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mVE-w1-z8g" userLabel="500.000">
+                                                <rect key="frame" x="0.0" y="0.0" width="44" height="15.5"/>
+                                                <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="11"/>
+                                                <color key="textColor" red="0.74117647060000003" green="0.74117647060000003" blue="0.74117647060000003" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" text="/" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="19o-cb-kLt" userLabel="/">
+                                                <rect key="frame" x="46" y="0.0" width="5.5" height="15.5"/>
+                                                <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="11"/>
+                                                <color key="textColor" red="0.74117647060000003" green="0.74117647060000003" blue="0.74117647060000003" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" text="1.250.000" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MaA-vD-BcY" userLabel="TargetAmount">
+                                                <rect key="frame" x="53.5" y="0.0" width="261.5" height="15.5"/>
+                                                <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="11"/>
+                                                <color key="textColor" red="0.74117647060000003" green="0.74117647060000003" blue="0.74117647060000003" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="MaA-vD-BcY" firstAttribute="leading" secondItem="19o-cb-kLt" secondAttribute="trailing" constant="2" id="CeY-UY-HRd"/>
+                                            <constraint firstItem="19o-cb-kLt" firstAttribute="leading" secondItem="mVE-w1-z8g" secondAttribute="trailing" constant="2" id="gC0-RR-FF5"/>
+                                        </constraints>
+                                    </stackView>
                                 </subviews>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="5Z7-J7-wsY" secondAttribute="trailing" constant="7" id="7ZX-Qn-gKL"/>
                                     <constraint firstItem="5Z7-J7-wsY" firstAttribute="leading" secondItem="rTj-gG-OVa" secondAttribute="leading" id="Ffs-9J-ni0"/>
+                                    <constraint firstItem="4xB-qx-U9b" firstAttribute="leading" secondItem="Ohu-3o-0LR" secondAttribute="leading" id="MWf-ys-yUQ"/>
+                                    <constraint firstItem="4xB-qx-U9b" firstAttribute="trailing" secondItem="4hv-Wg-2aK" secondAttribute="trailing" id="wh6-Ze-VPz"/>
                                 </constraints>
                             </stackView>
                         </subviews>
@@ -93,10 +116,11 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
+                <outlet property="currentAmount" destination="mVE-w1-z8g" id="nq6-X2-yr5"/>
                 <outlet property="mainView" destination="fGd-PH-cX6" id="hl2-6z-Ifl"/>
                 <outlet property="menuAction" destination="4hv-Wg-2aK" id="8tb-Mw-7Y0"/>
-                <outlet property="money" destination="fyl-Zw-cMF" id="1qk-qz-aYa"/>
                 <outlet property="progressBar" destination="Ohu-3o-0LR" id="FCH-5z-GZe"/>
+                <outlet property="targetAmount" destination="MaA-vD-BcY" id="Yqo-kl-HCu"/>
                 <outlet property="title" destination="RFJ-dL-HWp" id="VLT-6L-zBx"/>
             </connections>
             <point key="canvasLocation" x="112" y="104"/>
