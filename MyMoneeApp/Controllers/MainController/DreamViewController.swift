@@ -20,6 +20,8 @@ class DreamViewController: UIViewController, UITableViewDelegate, UITableViewDat
         impianTableView.backgroundColor = appColor.mainBG
         impianTableView.delegate = self
         impianTableView.dataSource = self
+       
+
     }
     
     @IBAction func addImpian(_ sender: Any) {
@@ -40,11 +42,10 @@ class DreamViewController: UIViewController, UITableViewDelegate, UITableViewDat
         detailDreamVC.modalPresentationStyle = .fullScreen
         detailDreamVC.modalTransitionStyle = .coverVertical
         
+        //Passing Data
         detailDreamVC.passTitle = dreams[indexPath.row].title
         detailDreamVC.passCurrentAmount = dreams[indexPath.row].currentAmount
         detailDreamVC.passTargetAmount = dreams[indexPath.row].targetAmount
-        
-        //pass index
         detailDreamVC.passIndex = indexPath.row
         let progress = setProgress(indexPath)
         detailDreamVC.passProgress = progress
@@ -58,8 +59,6 @@ class DreamViewController: UIViewController, UITableViewDelegate, UITableViewDat
         return dreams.count
     }
 
-   
-    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let dataCell = tableView.dequeueReusableCell(withIdentifier: String(describing: DreamTableViewCell.self), for: indexPath) as! DreamTableViewCell
         

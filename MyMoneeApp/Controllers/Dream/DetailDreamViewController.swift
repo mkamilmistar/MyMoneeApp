@@ -52,6 +52,7 @@ class DetailDreamViewController: UIViewController {
         currentAmount.text = anotherSetAmountString(amountValue: passCurrentAmount!)
         progressAmount.text = "\(currentAmountConv) / \(targetAmountConv)"
         progressBar.progress = passProgress ?? 0.0
+    
         
     }
     
@@ -72,12 +73,21 @@ class DetailDreamViewController: UIViewController {
         
         editDreamVC.modalPresentationStyle = .fullScreen
         editDreamVC.modalTransitionStyle = .coverVertical
-        editDreamVC.passIndex = passIndex
+        
+        //Pass Data To Edit
+        editDreamVC.passIndex = self.passIndex
+        editDreamVC.passTitle = self.passTitle
+        editDreamVC.passCurrentAmount = self.passCurrentAmount
+        editDreamVC.passTargetAmount = self.passTargetAmount
+        editDreamVC.passProgress = self.passProgress
+
         
         self.present(editDreamVC, animated: false, completion: nil)
     }
     
     @IBAction func confirmButton(_ sender: Any) {
+        dreams.remove(at: passIndex!)
+        
         let impianTabView = MainTabController(nibName: "MainTabViewController", bundle: nil)
         
         impianTabView.modalPresentationStyle = .fullScreen

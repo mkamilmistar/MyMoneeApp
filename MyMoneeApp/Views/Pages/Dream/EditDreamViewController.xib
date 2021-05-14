@@ -18,7 +18,9 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="EditDreamViewController" customModule="MyMoneeApp" customModuleProvider="target">
             <connections>
+                <outlet property="amountField" destination="4UP-ID-YhB" id="lP1-o9-RD4"/>
                 <outlet property="deleteButton" destination="0oH-pG-U1q" id="JBA-Cs-G7Q"/>
+                <outlet property="titleField" destination="quI-Pr-xap" id="Xro-Rn-xtk"/>
                 <outlet property="view" destination="cFr-Hp-dfk" id="0vZ-w2-ohD"/>
             </connections>
         </placeholder>

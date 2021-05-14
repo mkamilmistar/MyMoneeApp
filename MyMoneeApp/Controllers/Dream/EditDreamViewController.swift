@@ -10,18 +10,28 @@ import UIKit
 class EditDreamViewController: UIViewController {
 
     var passIndex: Int? = nil
+    var passTitle: String? = ""
+    var passProgress: Float? = 0.0
+    var passCurrentAmount: Decimal? = 0.0
+    var passTargetAmount: Decimal? = 0.0
     
     @IBOutlet weak var deleteButton: UIButton!
+    @IBOutlet var titleField: UITextField!
+    @IBOutlet var amountField: UITextField!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        deleteButton.layer.cornerRadius = 20
-        deleteButton.layer.borderWidth = 3.0
-        deleteButton.layer.borderColor = appColor.mainRed.cgColor
+        setCompProperties()
+        
+        //Set Value
+        titleField.text = passTitle
+        amountField.text = setDecimalToString(amountValue: passCurrentAmount ?? 0.0)
         
     }
 
-    @IBAction func updateButton(_ sender: Any) {
+    @IBAction func updateButton(_ sender: UIButton) {
+        updateDream()
         goToDreamView()
     }
     
@@ -45,9 +55,18 @@ class EditDreamViewController: UIViewController {
         self.dismiss(animated: false, completion: nil)
     }
     
-    func deleteDream(){
+    func deleteDream() {
         dreams.remove(at: passIndex!)
         goToDreamView()
+        
+    }
+    
+    func updateDream() {
+        passTitle = titleField.text ?? ""
+        passCurrentAmount = setStringToDecimal(
+            amountValue: amountField.text?.replacingOccurrences(of: ".", with: "") ?? "")
+        
+        dreams[passIndex!] = Dream(id: passIndex!, title: passTitle ?? "", currentAmount: passCurrentAmount ?? 0.0, targetAmount: passTargetAmount!, progress: passProgress!)
         
     }
     
@@ -59,6 +78,15 @@ class EditDreamViewController: UIViewController {
         impianTabView.selectedIndex = 1
 
         self.present(impianTabView, animated: false, completion: nil)
+    }
+    
+}
+
+extension EditDreamViewController {
+    fileprivate func setCompProperties() {
+        deleteButton.layer.cornerRadius = 20
+        deleteButton.layer.borderWidth = 3.0
+        deleteButton.layer.borderColor = appColor.mainRed.cgColor
     }
     
 }

@@ -7,7 +7,7 @@
 
 import Foundation
 
-func setAmountString (amountValue: Decimal) -> String {
+func setAmountString(amountValue: Decimal) -> String {
     let formatter = NumberFormatter()
     formatter.currencyCode = "IDR"
     formatter.groupingSeparator = "."
@@ -20,7 +20,7 @@ func setAmountString (amountValue: Decimal) -> String {
     }
 }
 
-func anotherSetAmountString (amountValue: Decimal) -> String {
+func anotherSetAmountString(amountValue: Decimal) -> String {
     let formatter = NumberFormatter()
 
     formatter.groupingSeparator = "."
@@ -33,11 +33,11 @@ func anotherSetAmountString (amountValue: Decimal) -> String {
     }
 }
 
-func setDecimalToString (amountValue: Decimal) -> String {
+func setDecimalToString(amountValue: Decimal) -> String {
     let formatter = NumberFormatter()
 
     formatter.groupingSeparator = "."
-    formatter.numberStyle = NumberFormatter.Style.decimal
+    formatter.numberStyle = .decimal
 
      if let formatterStr: String = formatter.string(from: NSDecimalNumber(decimal: amountValue))  {
       return formatterStr
@@ -46,7 +46,7 @@ func setDecimalToString (amountValue: Decimal) -> String {
     }
 }
 
-func setStringToDecimal (amountValue: String) -> Decimal {
+func setStringToDecimal(amountValue: String) -> Decimal {
     if let formatterDecimal: Decimal = Decimal(string: amountValue) {
         return formatterDecimal
     } else {
@@ -54,7 +54,7 @@ func setStringToDecimal (amountValue: String) -> Decimal {
     }
 }
 
-func setDecimalToDouble (value: Decimal) -> Double {
+func setDecimalToDouble(value: Decimal) -> Double {
     let formatterDouble = Double(truncating: value as NSNumber)
    
     return formatterDouble
