@@ -12,34 +12,59 @@ class DetailDreamViewController: UIViewController {
     @IBOutlet weak var heartLogo: UIView!
     @IBOutlet weak var progressBackground: UIView!
     @IBOutlet weak var backButton: UIButton!
+    @IBOutlet var confirmButton: UIButton!
     
     @IBOutlet var dreamTitle: UILabel!
     @IBOutlet var currentAmount: UILabel!
     @IBOutlet var progressAmount: UILabel!
     @IBOutlet var progressBar: UIProgressView!
+    @IBOutlet var percentProgress: UILabel!
+
     
     //Data
     var passIndex: Int? = nil
     var passTitle: String? = ""
     var passProgress: Float? = 0.0
-    
     var passCurrentAmount: Decimal? = 0.0
     var passTargetAmount: Decimal? = 0.0
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        //Set Properties of Component
         setCompProperties()
         
         let currentAmountConv = setAmountString(amountValue: passCurrentAmount!)
         let targetAmountConv = setAmountString(amountValue: passTargetAmount!)
         
+        //Conditional Button Confirm
+        let progress = Int((passProgress ?? 0.0) * 100)
+
+        if progress != 100 {
+            disabledButton()
+        } else {
+            enabledButton()
+        }
+        
         //Set View Variable
         dreamTitle.text = passTitle
+        percentProgress.text = "\(progress)%"
         currentAmount.text = anotherSetAmountString(amountValue: passCurrentAmount!)
         progressAmount.text = "\(currentAmountConv) / \(targetAmountConv)"
-        
         progressBar.progress = passProgress ?? 0.0
         
+    }
+    
+    func enabledButton() {
+        confirmButton.isUserInteractionEnabled = true
+        confirmButton.isEnabled = true
+        confirmButton.backgroundColor = appColor.mainPurple
+    }
+    
+    func disabledButton() {
+        confirmButton.isUserInteractionEnabled = false
+        confirmButton.isEnabled = false
+        confirmButton.backgroundColor = appColor.disabledButton
     }
     
     @IBAction func goEditImpian(_ sender: Any) {
@@ -83,6 +108,8 @@ extension DetailDreamViewController {
         backButton.layer.cornerRadius = 20
         backButton.layer.borderWidth = 3.0
         backButton.layer.borderColor = appColor.mainPurple.cgColor
+        
+        enabledButton()
     }
     
 }

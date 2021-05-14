@@ -22,9 +22,11 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DetailDreamViewController" customModule="MyMoneeApp" customModuleProvider="target">
             <connections>
                 <outlet property="backButton" destination="qia-TN-x0n" id="e5t-op-cdq"/>
+                <outlet property="confirmButton" destination="XZG-OA-pO8" id="DjH-rb-KDC"/>
                 <outlet property="currentAmount" destination="Jda-VL-4XU" id="ERT-zk-Yvw"/>
                 <outlet property="dreamTitle" destination="ysi-Mk-6GH" id="gOb-Fn-wIT"/>
                 <outlet property="heartLogo" destination="heC-7c-L1i" id="0fQ-ma-964"/>
+                <outlet property="percentProgress" destination="Ffy-pB-rxJ" id="twZ-xH-CV7"/>
                 <outlet property="progressAmount" destination="haG-TQ-kz8" id="OA8-k2-av7"/>
                 <outlet property="progressBackground" destination="ALo-F0-iNo" id="ICQ-5b-1ZE"/>
                 <outlet property="progressBar" destination="1YH-jN-BeF" id="6xs-Hj-VKX"/>

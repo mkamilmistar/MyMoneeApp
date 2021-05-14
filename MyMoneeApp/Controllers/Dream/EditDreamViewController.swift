@@ -22,14 +22,14 @@ class EditDreamViewController: UIViewController {
     }
 
     @IBAction func updateButton(_ sender: Any) {
-        backToImpianView()
+        goToDreamView()
     }
     
     @IBAction func deleteAction(_ sender: UITapGestureRecognizer) {
             let alert = UIAlertController(title: "Menghapus Impian", message: "Apakah anda yakin menghapus impian \"Membeli Airpods Baru\" ?", preferredStyle: .alert)
             
             let deleteButton = UIAlertAction(title: "Hapus", style: .destructive) { (_) -> Void in
-                self.backToImpianView()
+                self.deleteDream()
             }
             
             let cancelButton = UIAlertAction(title: "Batal", style: .cancel)
@@ -45,9 +45,13 @@ class EditDreamViewController: UIViewController {
         self.dismiss(animated: false, completion: nil)
     }
     
-    func backToImpianView(){
+    func deleteDream(){
         dreams.remove(at: passIndex!)
+        goToDreamView()
         
+    }
+    
+    func goToDreamView() {
         let impianTabView = MainTabController(nibName: "MainTabViewController", bundle: nil)
         
         impianTabView.modalPresentationStyle = .fullScreen
