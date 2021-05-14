@@ -12,9 +12,7 @@ class DetailUsageViewController: UIViewController {
     @IBOutlet weak var backButton: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
-        backButton.layer.cornerRadius = 20
-        backButton.layer.borderWidth = 3.0
-        backButton.layer.borderColor = appColor.mainPurple.cgColor
+        mainNoBackgroundButton(backButton)
     }
     
     @IBAction func goEditUsage(_ sender: UIButton) {

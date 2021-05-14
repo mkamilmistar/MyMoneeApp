@@ -18,17 +18,17 @@ class EditUsageViewController: UIViewController, UICollectionViewDelegate, UICol
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        activedButton()
+        
+        //set Style init
+        enabledMainButton(updateButton)
+        mainDeleteButton(deleteButton)
+        
         pemasukanTypeCollection.delegate = self
         pemasukanTypeCollection.dataSource = self
         pemasukanTypeCollection.allowsMultipleSelection = false
         
         let uiNib = UINib(nibName: String(describing: UsageTypeCell.self), bundle: nil)
         pemasukanTypeCollection.register(uiNib, forCellWithReuseIdentifier: String(describing: UsageTypeCell.self))
-
-        deleteButton.layer.cornerRadius = 20
-        deleteButton.layer.borderWidth = 3.0
-        deleteButton.layer.borderColor = appColor.mainRed.cgColor
         
         titleTxtField.delegate = self
         priceTxtField.delegate = self
@@ -41,24 +41,13 @@ class EditUsageViewController: UIViewController, UICollectionViewDelegate, UICol
         let txtField = (textField.text! as NSString).replacingCharacters(in: range, with: string)
 
         if txtField.isEmpty || pemasukanType == nil {
-            disabledButton()
+            disabledMainButton(updateButton)
         } else {
-            activedButton()
+            enabledMainButton(updateButton)
         }
         return true
     }
     
-    func activedButton() {
-        updateButton.isUserInteractionEnabled = true
-        updateButton.isEnabled = true
-        updateButton.backgroundColor = appColor.mainPurple
-    }
-    
-    func disabledButton() {
-        updateButton.isUserInteractionEnabled = false
-        updateButton.isEnabled = false
-        updateButton.backgroundColor = appColor.disabledButton
-    }
     
     @IBAction func backToDetailUsage(_ sender: UITapGestureRecognizer) {
         self.dismiss(animated: false, completion: nil)
@@ -96,6 +85,7 @@ class EditUsageViewController: UIViewController, UICollectionViewDelegate, UICol
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
         let cell = collectionView.cellForItem(at: indexPath)
+    
         cell?.layer.borderColor = appColor.mainPurple.cgColor
         cell?.layer.borderWidth = 3.0
         cell?.layer.cornerRadius = 8.0
@@ -103,7 +93,7 @@ class EditUsageViewController: UIViewController, UICollectionViewDelegate, UICol
         pemasukanType = indexPath.row
         
         if (titleTxtField.text != "") && (priceTxtField.text != "") {
-            activedButton()
+            enabledMainButton(updateButton)
         }
         print("Ini isi tipe = \(pemasukanType!)")
     }
@@ -136,10 +126,8 @@ class EditUsageViewController: UIViewController, UICollectionViewDelegate, UICol
         }
         
         //Shadow View
-        cell.background.layer.cornerRadius = 8.0
-        cell.background.layer.shadowColor = UIColor.black.cgColor
-        cell.background.layer.shadowOpacity = 0.3
-        cell.background.layer.shadowOffset = CGSize(width: 0, height: 1)
+        setShadow(cell)
+        
         cell.title.text = usagesType[indexPath.row].title
         
         if usagesType[indexPath.row].type == .pemasukan {

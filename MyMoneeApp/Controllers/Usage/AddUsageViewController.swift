@@ -17,7 +17,7 @@ class AddUsageViewController: UIViewController, UICollectionViewDelegate, UIColl
         
     override func viewDidLoad() {
         super.viewDidLoad()
-        disabledButton()
+        disabledMainButton(saveButton)
         usagesTypeCollection.delegate = self
         usagesTypeCollection.dataSource = self
         usagesTypeCollection.allowsMultipleSelection = false
@@ -36,24 +36,13 @@ class AddUsageViewController: UIViewController, UICollectionViewDelegate, UIColl
         let txtField = (textField.text! as NSString).replacingCharacters(in: range, with: string)
 
         if txtField.isEmpty || usageTypeData == nil {
-            disabledButton()
+            disabledMainButton(saveButton)
         } else {
-            activedButton()
+            enabledMainButton(saveButton)
         }
         return true
     }
     
-    func activedButton() {
-        saveButton.isUserInteractionEnabled = true
-        saveButton.isEnabled = true
-        saveButton.backgroundColor = appColor.mainPurple
-    }
-    
-    func disabledButton() {
-        saveButton.isUserInteractionEnabled = false
-        saveButton.isEnabled = false
-        saveButton.backgroundColor = appColor.disabledButton
-    }
     
     //when select
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
@@ -63,7 +52,7 @@ class AddUsageViewController: UIViewController, UICollectionViewDelegate, UIColl
         cell?.layer.cornerRadius = 8.0
         usageTypeData = indexPath.row
         if (titleTxtField.text != "") && (priceTxtField.text != "") {
-            activedButton()
+            enabledMainButton(saveButton)
         }
         print("Ini isi tipe = \(usageTypeData!)")
     }

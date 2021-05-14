@@ -20,7 +20,6 @@ class DreamViewController: UIViewController, UITableViewDelegate, UITableViewDat
         impianTableView.backgroundColor = appColor.mainBG
         impianTableView.delegate = self
         impianTableView.dataSource = self
-       
 
     }
     
@@ -47,6 +46,7 @@ class DreamViewController: UIViewController, UITableViewDelegate, UITableViewDat
         detailDreamVC.passCurrentAmount = dreams[indexPath.row].currentAmount
         detailDreamVC.passTargetAmount = dreams[indexPath.row].targetAmount
         detailDreamVC.passIndex = indexPath.row
+        
         let progress = setProgress(indexPath)
         detailDreamVC.passProgress = progress
         

@@ -40,6 +40,8 @@
 		FA15F425264ADC1E001B15D9 /* TransactionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA15F423264ADC1E001B15D9 /* TransactionTableViewCell.swift */; };
 		FA15F426264ADC1E001B15D9 /* TransactionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA15F424264ADC1E001B15D9 /* TransactionTableViewCell.xib */; };
 		FA2F8784264E987E00B8BF30 /* ConvertDataType.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2F8783264E987E00B8BF30 /* ConvertDataType.swift */; };
+		FA2F878B264EE58700B8BF30 /* ButtonConditional.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2F878A264EE58700B8BF30 /* ButtonConditional.swift */; };
+		FA2F878E264EE79400B8BF30 /* Shadow.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2F878D264EE79400B8BF30 /* Shadow.swift */; };
 		FA9AF01A264D0E8200EC9109 /* UsageTypeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9AF018264D0E8200EC9109 /* UsageTypeCell.swift */; };
 		FA9AF01B264D0E8200EC9109 /* UsageTypeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA9AF019264D0E8200EC9109 /* UsageTypeCell.xib */; };
 		FA9AF01E264D104400EC9109 /* Usages.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9AF01D264D104400EC9109 /* Usages.swift */; };
@@ -100,6 +102,8 @@
 		FA15F423264ADC1E001B15D9 /* TransactionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionTableViewCell.swift; sourceTree = "<group>"; };
 		FA15F424264ADC1E001B15D9 /* TransactionTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TransactionTableViewCell.xib; sourceTree = "<group>"; };
 		FA2F8783264E987E00B8BF30 /* ConvertDataType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConvertDataType.swift; sourceTree = "<group>"; };
+		FA2F878A264EE58700B8BF30 /* ButtonConditional.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonConditional.swift; sourceTree = "<group>"; };
+		FA2F878D264EE79400B8BF30 /* Shadow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Shadow.swift; sourceTree = "<group>"; };
 		FA9AF018264D0E8200EC9109 /* UsageTypeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsageTypeCell.swift; sourceTree = "<group>"; };
 		FA9AF019264D0E8200EC9109 /* UsageTypeCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UsageTypeCell.xib; sourceTree = "<group>"; };
 		FA9AF01D264D104400EC9109 /* Usages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Usages.swift; sourceTree = "<group>"; };
@@ -191,7 +195,6 @@
 			children = (
 				FA15F3D3264ACD24001B15D9 /* Fonts */,
 				FA15F38C264AA7FB001B15D9 /* Assets.xcassets */,
-				FAD7EBD2264B9D47000E752D /* GlobalColor.swift */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -289,7 +292,10 @@
 		FA2F8782264E987500B8BF30 /* Configuration */ = {
 			isa = PBXGroup;
 			children = (
+				FA2F878A264EE58700B8BF30 /* ButtonConditional.swift */,
 				FA2F8783264E987E00B8BF30 /* ConvertDataType.swift */,
+				FAD7EBD2264B9D47000E752D /* GlobalColor.swift */,
+				FA2F878D264EE79400B8BF30 /* Shadow.swift */,
 			);
 			path = Configuration;
 			sourceTree = "<group>";
@@ -483,6 +489,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FA2F878E264EE79400B8BF30 /* Shadow.swift in Sources */,
 				FA15F3CB264AC888001B15D9 /* ProfileViewController.swift in Sources */,
 				FA15F3C4264AC86E001B15D9 /* DreamViewController.swift in Sources */,
 				FAD7EBB2264AE29D000E752D /* Usage.swift in Sources */,
@@ -493,6 +500,7 @@
 				FAD7EBBD264B82FE000E752D /* DreamTableViewCell.swift in Sources */,
 				FAD7EC14264BD2A7000E752D /* EditProfileViewController.swift in Sources */,
 				FAD7EBE5264BAF7E000E752D /* EditUsageViewController.swift in Sources */,
+				FA2F878B264EE58700B8BF30 /* ButtonConditional.swift in Sources */,
 				FAD7EBB7264B82E6000E752D /* Dream.swift in Sources */,
 				FA9AF01E264D104400EC9109 /* Usages.swift in Sources */,
 				FA2F8784264E987E00B8BF30 /* ConvertDataType.swift in Sources */,

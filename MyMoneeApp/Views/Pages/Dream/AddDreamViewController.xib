@@ -18,6 +18,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AddDreamViewController" customModule="MyMoneeApp" customModuleProvider="target">
             <connections>
+                <outlet property="saveButton" destination="d8l-jp-aAT" id="eqy-ug-uU0"/>
                 <outlet property="targetAmountField" destination="lkv-qm-GaO" id="5aA-9e-eeT"/>
                 <outlet property="titleField" destination="IV4-Tb-D5b" id="gud-x0-x95"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -97,7 +98,7 @@
                                     <rect key="frame" x="0.0" y="15" width="382" height="35.5"/>
                                     <color key="textColor" red="0.30980392159999998" green="0.30980392159999998" blue="0.30980392159999998" alpha="1" colorSpace="calibratedRGB"/>
                                     <fontDescription key="fontDescription" name="Poppins-SemiBold" family="Poppins" pointSize="24"/>
-                                    <textInputTraits key="textInputTraits" textContentType="name"/>
+                                    <textInputTraits key="textInputTraits"/>
                                 </textField>
                             </subviews>
                         </stackView>
@@ -114,7 +115,7 @@
                                     <rect key="frame" x="0.0" y="15" width="382" height="35.5"/>
                                     <color key="textColor" red="0.30980392159999998" green="0.30980392159999998" blue="0.30980392159999998" alpha="1" colorSpace="calibratedRGB"/>
                                     <fontDescription key="fontDescription" name="Poppins-SemiBold" family="Poppins" pointSize="24"/>
-                                    <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                    <textInputTraits key="textInputTraits"/>
                                 </textField>
                             </subviews>
                         </stackView>

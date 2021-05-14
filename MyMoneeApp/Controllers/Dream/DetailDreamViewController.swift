@@ -32,7 +32,9 @@ class DetailDreamViewController: UIViewController {
         super.viewDidLoad()
         
         //Set Properties of Component
-        setCompProperties()
+        setShadow(heartLogo)
+        setShadow(progressBackground)
+        mainNoBackgroundButton(backButton)
         
         let currentAmountConv = setAmountString(amountValue: passCurrentAmount!)
         let targetAmountConv = setAmountString(amountValue: passTargetAmount!)
@@ -41,35 +43,23 @@ class DetailDreamViewController: UIViewController {
         let progress = Int((passProgress ?? 0.0) * 100)
 
         if progress != 100 {
-            disabledButton()
+            disabledMainButton(confirmButton)
         } else {
-            enabledButton()
+            enabledMainButton(confirmButton)
         }
-        
+        print()
         //Set View Variable
         dreamTitle.text = passTitle
         percentProgress.text = "\(progress)%"
         currentAmount.text = anotherSetAmountString(amountValue: passCurrentAmount!)
         progressAmount.text = "\(currentAmountConv) / \(targetAmountConv)"
         progressBar.progress = passProgress ?? 0.0
-    
         
     }
     
-    func enabledButton() {
-        confirmButton.isUserInteractionEnabled = true
-        confirmButton.isEnabled = true
-        confirmButton.backgroundColor = appColor.mainPurple
-    }
-    
-    func disabledButton() {
-        confirmButton.isUserInteractionEnabled = false
-        confirmButton.isEnabled = false
-        confirmButton.backgroundColor = appColor.disabledButton
-    }
     
     @IBAction func goEditImpian(_ sender: Any) {
-        let editDreamVC = EditDreamViewController(nibName: "EditDreamViewController", bundle: nil)
+        let editDreamVC = EditDreamViewController(nibName: String(describing: EditDreamViewController.self), bundle: nil)
         
         editDreamVC.modalPresentationStyle = .fullScreen
         editDreamVC.modalTransitionStyle = .coverVertical
@@ -105,21 +95,7 @@ class DetailDreamViewController: UIViewController {
 
 extension DetailDreamViewController {
     fileprivate func setCompProperties() {
-        heartLogo.layer.cornerRadius = 8.0
-        heartLogo.layer.shadowColor = UIColor.black.cgColor
-        heartLogo.layer.shadowOpacity = 0.3
-        heartLogo.layer.shadowOffset = CGSize(width: 0, height: 2)
         
-        progressBackground.layer.cornerRadius = 8.0
-        progressBackground.layer.shadowColor = UIColor.black.cgColor
-        progressBackground.layer.shadowOpacity = 0.3
-        progressBackground.layer.shadowOffset = CGSize(width: 0, height: 2)
-        
-        backButton.layer.cornerRadius = 20
-        backButton.layer.borderWidth = 3.0
-        backButton.layer.borderColor = appColor.mainPurple.cgColor
-        
-        enabledButton()
     }
     
 }

@@ -7,7 +7,7 @@
 
 import UIKit
 
-class EditDreamViewController: UIViewController {
+class EditDreamViewController: UIViewController, UITextFieldDelegate {
 
     var passIndex: Int? = nil
     var passTitle: String? = ""
@@ -15,6 +15,7 @@ class EditDreamViewController: UIViewController {
     var passCurrentAmount: Decimal? = 0.0
     var passTargetAmount: Decimal? = 0.0
     
+    @IBOutlet var updateButton: UIButton!
     @IBOutlet weak var deleteButton: UIButton!
     @IBOutlet var titleField: UITextField!
     @IBOutlet var amountField: UITextField!
@@ -22,21 +23,40 @@ class EditDreamViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        setCompProperties()
+        //Set Style
+        mainDeleteButton(deleteButton)
+        enabledMainButton(updateButton)
+        
+        titleField.delegate = self
+        amountField.delegate = self
         
         //Set Value
         titleField.text = passTitle
         amountField.text = setDecimalToString(amountValue: passCurrentAmount ?? 0.0)
         
     }
+    
+    //button condition
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
 
+        let txtField = (textField.text! as NSString).replacingCharacters(in: range, with: string)
+        
+        if txtField.isEmpty || titleField.text == "" || amountField.text == "" {
+            disabledMainButton(updateButton)
+        } else {
+            enabledMainButton(updateButton)
+        }
+        
+        return true
+    }
+    
     @IBAction func updateButton(_ sender: UIButton) {
         updateDream()
         goToDreamView()
     }
     
     @IBAction func deleteAction(_ sender: UITapGestureRecognizer) {
-            let alert = UIAlertController(title: "Menghapus Impian", message: "Apakah anda yakin menghapus impian \"Membeli Airpods Baru\" ?", preferredStyle: .alert)
+            let alert = UIAlertController(title: "Menghapus Impian", message: "Apakah anda yakin menghapus impian \"\(passTitle ?? "")\" ?", preferredStyle: .alert)
             
             let deleteButton = UIAlertAction(title: "Hapus", style: .destructive) { (_) -> Void in
                 self.deleteDream()
@@ -71,22 +91,13 @@ class EditDreamViewController: UIViewController {
     }
     
     func goToDreamView() {
-        let impianTabView = MainTabController(nibName: "MainTabViewController", bundle: nil)
+        let impianTabView = MainTabController(nibName: String(describing: MainTabController.self), bundle: nil)
         
         impianTabView.modalPresentationStyle = .fullScreen
         impianTabView.modalTransitionStyle = .crossDissolve
         impianTabView.selectedIndex = 1
 
         self.present(impianTabView, animated: false, completion: nil)
-    }
-    
-}
-
-extension EditDreamViewController {
-    fileprivate func setCompProperties() {
-        deleteButton.layer.cornerRadius = 20
-        deleteButton.layer.borderWidth = 3.0
-        deleteButton.layer.borderColor = appColor.mainRed.cgColor
     }
     
 }

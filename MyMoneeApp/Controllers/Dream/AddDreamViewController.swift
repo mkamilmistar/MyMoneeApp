@@ -7,17 +7,35 @@
 
 import UIKit
 
-class AddDreamViewController: UIViewController {
+class AddDreamViewController: UIViewController, UITextFieldDelegate {
 
     @IBOutlet var titleField: UITextField!
     @IBOutlet var targetAmountField: UITextField!
+    @IBOutlet var saveButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        disabledMainButton(saveButton)
 
-        // Do any additional setup after loading the view.
+        titleField.delegate = self
+        targetAmountField.delegate = self
+        
     }
+    
+    //button condition
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
 
+        let txtField = (textField.text! as NSString).replacingCharacters(in: range, with: string)
+        
+        if txtField.isEmpty || titleField.text == "" || targetAmountField.text == "" {
+            disabledMainButton(saveButton)
+        } else {
+            enabledMainButton(saveButton)
+        }
+        
+        return true
+    }
+    
     @IBAction func backButton(_ sender: UITapGestureRecognizer) {
         self.dismiss(animated: true, completion: nil)
     }
