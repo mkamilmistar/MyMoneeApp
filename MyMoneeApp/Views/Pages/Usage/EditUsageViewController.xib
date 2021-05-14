@@ -19,10 +19,13 @@
         </array>
     </customFonts>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="EditPenggunaanViewController" customModule="MyMoneeApp" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="EditUsageViewController" customModule="MyMoneeApp" customModuleProvider="target">
             <connections>
                 <outlet property="deleteButton" destination="5Aq-qU-Dre" id="olO-Sb-WOw"/>
                 <outlet property="pemasukanTypeCollection" destination="VqN-In-ldh" id="txR-QZ-L57"/>
+                <outlet property="priceTxtField" destination="tsq-fV-83J" id="JhO-gv-QVh"/>
+                <outlet property="titleTxtField" destination="lqs-ve-0L3" id="7ke-Go-gJd"/>
+                <outlet property="updateButton" destination="xlV-dt-1iC" id="qV3-pl-h6u"/>
                 <outlet property="view" destination="zIJ-eE-WT7" id="XRX-ci-2PW"/>
             </connections>
         </placeholder>
@@ -63,19 +66,19 @@
                     </constraints>
                 </view>
                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="9" translatesAutoresizingMaskIntoConstraints="NO" id="qRs-Y0-VWK" userLabel="Form">
-                    <rect key="frame" x="16" y="107" width="113" height="108.5"/>
+                    <rect key="frame" x="16" y="107" width="382" height="108.5"/>
                     <subviews>
                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="-5" translatesAutoresizingMaskIntoConstraints="NO" id="GYu-cU-t6Q" userLabel="Judul">
-                            <rect key="frame" x="0.0" y="0.0" width="113" height="50.5"/>
+                            <rect key="frame" x="0.0" y="0.0" width="382" height="50.5"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Judul" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WxE-gA-mss">
-                                    <rect key="frame" x="0.0" y="0.0" width="113" height="20"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="382" height="20"/>
                                     <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="14"/>
                                     <color key="textColor" red="0.30980392159999998" green="0.30980392159999998" blue="0.30980392159999998" alpha="1" colorSpace="calibratedRGB"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <textField opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="249" verticalCompressionResistancePriority="751" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Gaji" placeholder="Isi Judul" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lqs-ve-0L3">
-                                    <rect key="frame" x="0.0" y="15" width="113" height="35.5"/>
+                                    <rect key="frame" x="0.0" y="15" width="382" height="35.5"/>
                                     <color key="textColor" red="0.30980392159999998" green="0.30980392159999998" blue="0.30980392159999998" alpha="1" colorSpace="calibratedRGB"/>
                                     <fontDescription key="fontDescription" name="Poppins-SemiBold" family="Poppins" pointSize="24"/>
                                     <textInputTraits key="textInputTraits" textContentType="name"/>
@@ -83,16 +86,16 @@
                             </subviews>
                         </stackView>
                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="-5" translatesAutoresizingMaskIntoConstraints="NO" id="18Q-h8-shs" userLabel="Jumlah">
-                            <rect key="frame" x="0.0" y="59.5" width="113" height="49"/>
+                            <rect key="frame" x="0.0" y="59.5" width="382" height="49"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Jumlah (Rp)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3RW-1i-LdP">
-                                    <rect key="frame" x="0.0" y="0.0" width="113" height="20"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="382" height="20"/>
                                     <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="14"/>
                                     <color key="textColor" red="0.30980392159999998" green="0.30980392159999998" blue="0.30980392159999998" alpha="1" colorSpace="calibratedRGB"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="1.250.000" placeholder="Isi Jumlah" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="tsq-fV-83J">
-                                    <rect key="frame" x="0.0" y="15" width="113" height="34"/>
+                                    <rect key="frame" x="0.0" y="15" width="382" height="34"/>
                                     <color key="textColor" red="0.30980392159999998" green="0.30980392159999998" blue="0.30980392159999998" alpha="1" colorSpace="calibratedRGB"/>
                                     <fontDescription key="fontDescription" name="Poppins-SemiBold" family="Poppins" pointSize="24"/>
                                     <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
@@ -111,7 +114,7 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <button clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xlV-dt-1iC" userLabel="UpdateButton">
-                    <rect key="frame" x="17" y="692" width="380" height="44"/>
+                    <rect key="frame" x="16" y="690" width="382" height="44"/>
                     <color key="backgroundColor" red="0.31372549020000001" green="0.41176470590000003" blue="0.72156862749999995" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="44" id="6Xa-s2-RiG"/>
@@ -129,11 +132,12 @@
                         </userDefinedRuntimeAttribute>
                     </userDefinedRuntimeAttributes>
                     <connections>
-                        <action selector="updatePenggunaan:" destination="-1" eventType="touchUpInside" id="hVh-2T-2EF"/>
+                        <action selector="updateUsage:" destination="-1" eventType="touchUpInside" id="hVh-2T-2EF"/>
                     </connections>
                 </button>
-                <button clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Aq-qU-Dre" userLabel="UpdateButton">
-                    <rect key="frame" x="17" y="752" width="380" height="44"/>
+                <button clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Aq-qU-Dre" userLabel="DeleteButton">
+                    <rect key="frame" x="16" y="750" width="382" height="44"/>
+                    <gestureRecognizers/>
                     <constraints>
                         <constraint firstAttribute="height" constant="44" id="9ap-ot-QPl"/>
                         <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="338" id="syw-XL-g5m"/>
@@ -150,7 +154,7 @@
                         </userDefinedRuntimeAttribute>
                     </userDefinedRuntimeAttributes>
                     <connections>
-                        <action selector="deletePenggunaan:" destination="-1" eventType="touchUpInside" id="25U-eW-9sf"/>
+                        <outletCollection property="gestureRecognizers" destination="hkV-hF-S0I" appends="YES" id="nqJ-cC-Z59"/>
                     </connections>
                 </button>
                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="VqN-In-ldh">
@@ -172,16 +176,17 @@
             <constraints>
                 <constraint firstItem="4w5-vn-iiV" firstAttribute="top" secondItem="MzO-gr-SM5" secondAttribute="top" constant="-10" id="6f5-Nq-cwO"/>
                 <constraint firstItem="5Aq-qU-Dre" firstAttribute="trailing" secondItem="xlV-dt-1iC" secondAttribute="trailing" id="IGt-Ec-Dgh"/>
-                <constraint firstItem="4w5-vn-iiV" firstAttribute="bottom" secondItem="xlV-dt-1iC" secondAttribute="bottom" constant="126" id="K29-ca-pB2"/>
+                <constraint firstItem="4w5-vn-iiV" firstAttribute="bottom" secondItem="xlV-dt-1iC" secondAttribute="bottom" constant="128" id="K29-ca-pB2"/>
                 <constraint firstItem="VqN-In-ldh" firstAttribute="top" secondItem="1B3-7U-rIx" secondAttribute="bottom" constant="16" id="LGB-2y-YgE"/>
+                <constraint firstItem="4w5-vn-iiV" firstAttribute="trailing" secondItem="qRs-Y0-VWK" secondAttribute="trailing" constant="16" id="MYJ-RN-0XB"/>
                 <constraint firstItem="5Aq-qU-Dre" firstAttribute="leading" secondItem="xlV-dt-1iC" secondAttribute="leading" id="TTj-MO-038"/>
                 <constraint firstItem="qRs-Y0-VWK" firstAttribute="top" secondItem="MzO-gr-SM5" secondAttribute="bottom" constant="28" id="YYa-5h-N7h"/>
-                <constraint firstItem="xlV-dt-1iC" firstAttribute="leading" secondItem="4w5-vn-iiV" secondAttribute="leading" constant="17" id="Zfd-9N-HFz"/>
+                <constraint firstItem="xlV-dt-1iC" firstAttribute="leading" secondItem="4w5-vn-iiV" secondAttribute="leading" constant="16" id="Zfd-9N-HFz"/>
                 <constraint firstItem="4w5-vn-iiV" firstAttribute="trailing" secondItem="VqN-In-ldh" secondAttribute="trailing" constant="16" id="cIg-8B-uIE"/>
                 <constraint firstItem="1B3-7U-rIx" firstAttribute="leading" secondItem="tsq-fV-83J" secondAttribute="leading" id="eBO-8S-lcx"/>
                 <constraint firstItem="4w5-vn-iiV" firstAttribute="trailing" secondItem="MzO-gr-SM5" secondAttribute="trailing" constant="16" id="fq7-qQ-eUi"/>
                 <constraint firstItem="1B3-7U-rIx" firstAttribute="top" secondItem="tsq-fV-83J" secondAttribute="bottom" constant="14" id="hBq-2P-Zv5"/>
-                <constraint firstItem="4w5-vn-iiV" firstAttribute="trailing" secondItem="xlV-dt-1iC" secondAttribute="trailing" constant="17" id="iQX-Hs-sQj"/>
+                <constraint firstItem="4w5-vn-iiV" firstAttribute="trailing" secondItem="xlV-dt-1iC" secondAttribute="trailing" constant="16" id="iQX-Hs-sQj"/>
                 <constraint firstItem="VqN-In-ldh" firstAttribute="leading" secondItem="4w5-vn-iiV" secondAttribute="leading" constant="16" id="lNo-qo-v8k"/>
                 <constraint firstItem="5Aq-qU-Dre" firstAttribute="top" secondItem="xlV-dt-1iC" secondAttribute="bottom" constant="16" id="pyF-BD-b3S"/>
                 <constraint firstItem="MzO-gr-SM5" firstAttribute="leading" secondItem="4w5-vn-iiV" secondAttribute="leading" constant="16" id="sKN-PX-0gA"/>
@@ -189,9 +194,14 @@
             </constraints>
             <point key="canvasLocation" x="137.68115942028987" y="84.375"/>
         </view>
-        <tapGestureRecognizer id="HbA-lu-otk">
+        <tapGestureRecognizer id="HbA-lu-otk" userLabel="BackTap">
             <connections>
-                <action selector="backToDetailPenggunaan:" destination="-1" id="ii7-Bu-kc4"/>
+                <action selector="backToDetailUsage:" destination="-1" id="ii7-Bu-kc4"/>
+            </connections>
+        </tapGestureRecognizer>
+        <tapGestureRecognizer id="hkV-hF-S0I" userLabel="DeleteTap">
+            <connections>
+                <action selector="deleteAction:" destination="-1" id="CyA-sm-DZZ"/>
             </connections>
         </tapGestureRecognizer>
     </objects>

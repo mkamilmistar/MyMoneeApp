@@ -42,31 +42,31 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         }
     }
     
-    @IBAction func goAddPenggunaanView(_ sender: UIButton) {
-        let addPenggunaanViewController = AddPenggunaanViewController(nibName: String(describing: AddPenggunaanViewController.self), bundle: nil)
+    @IBAction func goAddUsageView(_ sender: UIButton) {
+        let addUsageVC = AddUsageViewController(nibName: String(describing: AddUsageViewController.self), bundle: nil)
         
-        addPenggunaanViewController.modalPresentationStyle = .fullScreen
-        addPenggunaanViewController.modalTransitionStyle = .coverVertical
+        addUsageVC.modalPresentationStyle = .fullScreen
+        addUsageVC.modalTransitionStyle = .coverVertical
         
-        self.present(addPenggunaanViewController, animated: true, completion: nil)
+        self.present(addUsageVC, animated: true, completion: nil)
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         //deselect row animation
         tableView.deselectRow(at: indexPath, animated: false)
         
-        let detailPenggunaanViewController = DetailPenggunaanViewController(nibName: String(describing: DetailPenggunaanViewController.self), bundle: nil)
+        let detailUsageVC = DetailUsageViewController(nibName: String(describing: DetailUsageViewController.self), bundle: nil)
         
-        detailPenggunaanViewController.modalPresentationStyle = .fullScreen
-        detailPenggunaanViewController.modalTransitionStyle = .coverVertical
+        detailUsageVC.modalPresentationStyle = .fullScreen
+        detailUsageVC.modalTransitionStyle = .coverVertical
         
-        self.present(detailPenggunaanViewController, animated: true, completion: nil)
+        self.present(detailUsageVC, animated: true, completion: nil)
         
-        print("cell at #\(indexPath.row) is selected!")
+//        print("cell at #\(indexPath.row) is selected!")
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return transaction.count
+        return usages.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -77,10 +77,10 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         backgroundView.backgroundColor = .systemGray5
         trans.selectedBackgroundView = backgroundView
         
-        trans.title.text = transaction[indexPath.row].title
-        trans.date.text = transaction[indexPath.row].date
-        trans.price.text = transaction[indexPath.row].price
-        if transaction[indexPath.row].status {
+        trans.title.text = usages[indexPath.row].title
+        trans.date.text = usages[indexPath.row].date
+        trans.price.text = usages[indexPath.row].price
+        if usages[indexPath.row].status {
             trans.price.textColor = UIColor.systemRed
             trans.imageStatus.image = UIImage(named: "Arrow_Down_BG")
         } else {

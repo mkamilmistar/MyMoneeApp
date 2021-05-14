@@ -15,8 +15,8 @@
 		FA15F3A3264AC5BE001B15D9 /* MainTabController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA15F3A1264AC5BE001B15D9 /* MainTabController.xib */; };
 		FA15F3BE264AC7D2001B15D9 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA15F3BC264AC7D2001B15D9 /* HomeViewController.swift */; };
 		FA15F3BF264AC7D2001B15D9 /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA15F3BD264AC7D2001B15D9 /* HomeViewController.xib */; };
-		FA15F3C4264AC86E001B15D9 /* ImpianViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA15F3C2264AC86E001B15D9 /* ImpianViewController.swift */; };
-		FA15F3C5264AC86E001B15D9 /* ImpianViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA15F3C3264AC86E001B15D9 /* ImpianViewController.xib */; };
+		FA15F3C4264AC86E001B15D9 /* DreamViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA15F3C2264AC86E001B15D9 /* DreamViewController.swift */; };
+		FA15F3C5264AC86E001B15D9 /* DreamViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA15F3C3264AC86E001B15D9 /* DreamViewController.xib */; };
 		FA15F3CB264AC888001B15D9 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA15F3C9264AC888001B15D9 /* ProfileViewController.swift */; };
 		FA15F3CC264AC888001B15D9 /* ProfileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA15F3CA264AC888001B15D9 /* ProfileViewController.xib */; };
 		FA15F40D264AD024001B15D9 /* Poppins-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FA15F3FB264ACFFA001B15D9 /* Poppins-Black.ttf */; };
@@ -39,28 +39,28 @@
 		FA15F41E264AD024001B15D9 /* Poppins-ThinItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FA15F400264ACFFB001B15D9 /* Poppins-ThinItalic.ttf */; };
 		FA15F425264ADC1E001B15D9 /* TransactionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA15F423264ADC1E001B15D9 /* TransactionTableViewCell.swift */; };
 		FA15F426264ADC1E001B15D9 /* TransactionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA15F424264ADC1E001B15D9 /* TransactionTableViewCell.xib */; };
-		FA9AF01A264D0E8200EC9109 /* PenggunaanTypeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9AF018264D0E8200EC9109 /* PenggunaanTypeCell.swift */; };
-		FA9AF01B264D0E8200EC9109 /* PenggunaanTypeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA9AF019264D0E8200EC9109 /* PenggunaanTypeCell.xib */; };
-		FA9AF01E264D104400EC9109 /* Penggunaan.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9AF01D264D104400EC9109 /* Penggunaan.swift */; };
+		FA9AF01A264D0E8200EC9109 /* UsageTypeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9AF018264D0E8200EC9109 /* UsageTypeCell.swift */; };
+		FA9AF01B264D0E8200EC9109 /* UsageTypeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA9AF019264D0E8200EC9109 /* UsageTypeCell.xib */; };
+		FA9AF01E264D104400EC9109 /* Usages.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9AF01D264D104400EC9109 /* Usages.swift */; };
 		FA9AF024264D56D100EC9109 /* MainButton.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA9AF023264D56D100EC9109 /* MainButton.xib */; };
 		FA9AF027264D56DA00EC9109 /* MainButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9AF026264D56DA00EC9109 /* MainButton.swift */; };
-		FAD7EBB2264AE29D000E752D /* Transaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD7EBB1264AE29D000E752D /* Transaction.swift */; };
-		FAD7EBB7264B82E6000E752D /* Impian.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD7EBB6264B82E6000E752D /* Impian.swift */; };
-		FAD7EBBD264B82FE000E752D /* ImpianTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD7EBBB264B82FE000E752D /* ImpianTableViewCell.swift */; };
-		FAD7EBBE264B82FE000E752D /* ImpianTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FAD7EBBC264B82FE000E752D /* ImpianTableViewCell.xib */; };
-		FAD7EBC5264B90B5000E752D /* DetailPenggunaanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD7EBC3264B90B5000E752D /* DetailPenggunaanViewController.swift */; };
-		FAD7EBC6264B90B5000E752D /* DetailPenggunaanViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FAD7EBC4264B90B5000E752D /* DetailPenggunaanViewController.xib */; };
+		FAD7EBB2264AE29D000E752D /* Usage.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD7EBB1264AE29D000E752D /* Usage.swift */; };
+		FAD7EBB7264B82E6000E752D /* Dream.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD7EBB6264B82E6000E752D /* Dream.swift */; };
+		FAD7EBBD264B82FE000E752D /* DreamTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD7EBBB264B82FE000E752D /* DreamTableViewCell.swift */; };
+		FAD7EBBE264B82FE000E752D /* DreamTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FAD7EBBC264B82FE000E752D /* DreamTableViewCell.xib */; };
+		FAD7EBC5264B90B5000E752D /* DetailUsageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD7EBC3264B90B5000E752D /* DetailUsageViewController.swift */; };
+		FAD7EBC6264B90B5000E752D /* DetailUsageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FAD7EBC4264B90B5000E752D /* DetailUsageViewController.xib */; };
 		FAD7EBD3264B9D47000E752D /* GlobalColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD7EBD2264B9D47000E752D /* GlobalColor.swift */; };
-		FAD7EBD7264B9FD7000E752D /* AddPenggunaanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD7EBD5264B9FD7000E752D /* AddPenggunaanViewController.swift */; };
-		FAD7EBD8264B9FD7000E752D /* AddPenggunaanViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FAD7EBD6264B9FD7000E752D /* AddPenggunaanViewController.xib */; };
-		FAD7EBE5264BAF7E000E752D /* EditPenggunaanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD7EBE3264BAF7E000E752D /* EditPenggunaanViewController.swift */; };
-		FAD7EBE6264BAF7E000E752D /* EditPenggunaanViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FAD7EBE4264BAF7E000E752D /* EditPenggunaanViewController.xib */; };
-		FAD7EBF2264BBEF6000E752D /* DetailImpianlViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD7EBF0264BBEF6000E752D /* DetailImpianlViewController.swift */; };
-		FAD7EBFF264BC927000E752D /* DetailImpianViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FAD7EBF1264BBEF6000E752D /* DetailImpianViewController.xib */; };
-		FAD7EC06264BCDE2000E752D /* AddImpianViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD7EC04264BCDE2000E752D /* AddImpianViewController.swift */; };
-		FAD7EC07264BCDE2000E752D /* AddImpianViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FAD7EC05264BCDE2000E752D /* AddImpianViewController.xib */; };
-		FAD7EC0C264BD06A000E752D /* EditImpianViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD7EC0A264BD06A000E752D /* EditImpianViewController.swift */; };
-		FAD7EC0D264BD06A000E752D /* EditImpianViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FAD7EC0B264BD06A000E752D /* EditImpianViewController.xib */; };
+		FAD7EBD7264B9FD7000E752D /* AddUsageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD7EBD5264B9FD7000E752D /* AddUsageViewController.swift */; };
+		FAD7EBD8264B9FD7000E752D /* AddUsageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FAD7EBD6264B9FD7000E752D /* AddUsageViewController.xib */; };
+		FAD7EBE5264BAF7E000E752D /* EditUsageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD7EBE3264BAF7E000E752D /* EditUsageViewController.swift */; };
+		FAD7EBE6264BAF7E000E752D /* EditUsageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FAD7EBE4264BAF7E000E752D /* EditUsageViewController.xib */; };
+		FAD7EBF2264BBEF6000E752D /* DetailDreamViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD7EBF0264BBEF6000E752D /* DetailDreamViewController.swift */; };
+		FAD7EBFF264BC927000E752D /* DetailDreamViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FAD7EBF1264BBEF6000E752D /* DetailDreamViewController.xib */; };
+		FAD7EC06264BCDE2000E752D /* AddDreamViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD7EC04264BCDE2000E752D /* AddDreamViewController.swift */; };
+		FAD7EC07264BCDE2000E752D /* AddDreamViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FAD7EC05264BCDE2000E752D /* AddDreamViewController.xib */; };
+		FAD7EC0C264BD06A000E752D /* EditDreamViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD7EC0A264BD06A000E752D /* EditDreamViewController.swift */; };
+		FAD7EC0D264BD06A000E752D /* EditDreamViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FAD7EC0B264BD06A000E752D /* EditDreamViewController.xib */; };
 		FAD7EC14264BD2A7000E752D /* EditProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD7EC12264BD2A7000E752D /* EditProfileViewController.swift */; };
 		FAD7EC15264BD2A7000E752D /* EditProfileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FAD7EC13264BD2A7000E752D /* EditProfileViewController.xib */; };
 /* End PBXBuildFile section */
@@ -76,8 +76,8 @@
 		FA15F3A1264AC5BE001B15D9 /* MainTabController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainTabController.xib; sourceTree = "<group>"; };
 		FA15F3BC264AC7D2001B15D9 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		FA15F3BD264AC7D2001B15D9 /* HomeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeViewController.xib; sourceTree = "<group>"; };
-		FA15F3C2264AC86E001B15D9 /* ImpianViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImpianViewController.swift; sourceTree = "<group>"; };
-		FA15F3C3264AC86E001B15D9 /* ImpianViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ImpianViewController.xib; sourceTree = "<group>"; };
+		FA15F3C2264AC86E001B15D9 /* DreamViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DreamViewController.swift; sourceTree = "<group>"; };
+		FA15F3C3264AC86E001B15D9 /* DreamViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DreamViewController.xib; sourceTree = "<group>"; };
 		FA15F3C9264AC888001B15D9 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		FA15F3CA264AC888001B15D9 /* ProfileViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileViewController.xib; sourceTree = "<group>"; };
 		FA15F3FA264ACFFA001B15D9 /* Poppins-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Regular.ttf"; sourceTree = "<group>"; };
@@ -100,28 +100,28 @@
 		FA15F40B264ACFFB001B15D9 /* Poppins-SemiBoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-SemiBoldItalic.ttf"; sourceTree = "<group>"; };
 		FA15F423264ADC1E001B15D9 /* TransactionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionTableViewCell.swift; sourceTree = "<group>"; };
 		FA15F424264ADC1E001B15D9 /* TransactionTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TransactionTableViewCell.xib; sourceTree = "<group>"; };
-		FA9AF018264D0E8200EC9109 /* PenggunaanTypeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PenggunaanTypeCell.swift; sourceTree = "<group>"; };
-		FA9AF019264D0E8200EC9109 /* PenggunaanTypeCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PenggunaanTypeCell.xib; sourceTree = "<group>"; };
-		FA9AF01D264D104400EC9109 /* Penggunaan.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Penggunaan.swift; sourceTree = "<group>"; };
+		FA9AF018264D0E8200EC9109 /* UsageTypeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsageTypeCell.swift; sourceTree = "<group>"; };
+		FA9AF019264D0E8200EC9109 /* UsageTypeCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UsageTypeCell.xib; sourceTree = "<group>"; };
+		FA9AF01D264D104400EC9109 /* Usages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Usages.swift; sourceTree = "<group>"; };
 		FA9AF023264D56D100EC9109 /* MainButton.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainButton.xib; sourceTree = "<group>"; };
 		FA9AF026264D56DA00EC9109 /* MainButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainButton.swift; sourceTree = "<group>"; };
-		FAD7EBB1264AE29D000E752D /* Transaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transaction.swift; sourceTree = "<group>"; };
-		FAD7EBB6264B82E6000E752D /* Impian.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Impian.swift; sourceTree = "<group>"; };
-		FAD7EBBB264B82FE000E752D /* ImpianTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImpianTableViewCell.swift; sourceTree = "<group>"; };
-		FAD7EBBC264B82FE000E752D /* ImpianTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ImpianTableViewCell.xib; sourceTree = "<group>"; };
-		FAD7EBC3264B90B5000E752D /* DetailPenggunaanViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPenggunaanViewController.swift; sourceTree = "<group>"; };
-		FAD7EBC4264B90B5000E752D /* DetailPenggunaanViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailPenggunaanViewController.xib; sourceTree = "<group>"; };
+		FAD7EBB1264AE29D000E752D /* Usage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Usage.swift; sourceTree = "<group>"; };
+		FAD7EBB6264B82E6000E752D /* Dream.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dream.swift; sourceTree = "<group>"; };
+		FAD7EBBB264B82FE000E752D /* DreamTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DreamTableViewCell.swift; sourceTree = "<group>"; };
+		FAD7EBBC264B82FE000E752D /* DreamTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DreamTableViewCell.xib; sourceTree = "<group>"; };
+		FAD7EBC3264B90B5000E752D /* DetailUsageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailUsageViewController.swift; sourceTree = "<group>"; };
+		FAD7EBC4264B90B5000E752D /* DetailUsageViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailUsageViewController.xib; sourceTree = "<group>"; };
 		FAD7EBD2264B9D47000E752D /* GlobalColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalColor.swift; sourceTree = "<group>"; };
-		FAD7EBD5264B9FD7000E752D /* AddPenggunaanViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPenggunaanViewController.swift; sourceTree = "<group>"; };
-		FAD7EBD6264B9FD7000E752D /* AddPenggunaanViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddPenggunaanViewController.xib; sourceTree = "<group>"; };
-		FAD7EBE3264BAF7E000E752D /* EditPenggunaanViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditPenggunaanViewController.swift; sourceTree = "<group>"; };
-		FAD7EBE4264BAF7E000E752D /* EditPenggunaanViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EditPenggunaanViewController.xib; sourceTree = "<group>"; };
-		FAD7EBF0264BBEF6000E752D /* DetailImpianlViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailImpianlViewController.swift; sourceTree = "<group>"; };
-		FAD7EBF1264BBEF6000E752D /* DetailImpianViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailImpianViewController.xib; sourceTree = "<group>"; };
-		FAD7EC04264BCDE2000E752D /* AddImpianViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddImpianViewController.swift; sourceTree = "<group>"; };
-		FAD7EC05264BCDE2000E752D /* AddImpianViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddImpianViewController.xib; sourceTree = "<group>"; };
-		FAD7EC0A264BD06A000E752D /* EditImpianViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditImpianViewController.swift; sourceTree = "<group>"; };
-		FAD7EC0B264BD06A000E752D /* EditImpianViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EditImpianViewController.xib; sourceTree = "<group>"; };
+		FAD7EBD5264B9FD7000E752D /* AddUsageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddUsageViewController.swift; sourceTree = "<group>"; };
+		FAD7EBD6264B9FD7000E752D /* AddUsageViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddUsageViewController.xib; sourceTree = "<group>"; };
+		FAD7EBE3264BAF7E000E752D /* EditUsageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditUsageViewController.swift; sourceTree = "<group>"; };
+		FAD7EBE4264BAF7E000E752D /* EditUsageViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EditUsageViewController.xib; sourceTree = "<group>"; };
+		FAD7EBF0264BBEF6000E752D /* DetailDreamViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailDreamViewController.swift; sourceTree = "<group>"; };
+		FAD7EBF1264BBEF6000E752D /* DetailDreamViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailDreamViewController.xib; sourceTree = "<group>"; };
+		FAD7EC04264BCDE2000E752D /* AddDreamViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddDreamViewController.swift; sourceTree = "<group>"; };
+		FAD7EC05264BCDE2000E752D /* AddDreamViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddDreamViewController.xib; sourceTree = "<group>"; };
+		FAD7EC0A264BD06A000E752D /* EditDreamViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditDreamViewController.swift; sourceTree = "<group>"; };
+		FAD7EC0B264BD06A000E752D /* EditDreamViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EditDreamViewController.xib; sourceTree = "<group>"; };
 		FAD7EC12264BD2A7000E752D /* EditProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileViewController.swift; sourceTree = "<group>"; };
 		FAD7EC13264BD2A7000E752D /* EditProfileViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EditProfileViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -168,10 +168,10 @@
 		FA15F3A7264AC6E9001B15D9 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				FAD7EC10264BD291000E752D /* Profile */,
+				FAD7EBEA264BB263000E752D /* Dream */,
 				FAD7EC02264BCBFE000E752D /* MainController */,
-				FAD7EBEA264BB263000E752D /* Impian */,
-				FAD7EBE9264BB256000E752D /* Penggunaan */,
+				FAD7EC10264BD291000E752D /* Profile */,
+				FAD7EBE9264BB256000E752D /* Usage */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -210,9 +210,9 @@
 		FA15F3AB264AC725001B15D9 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				FAD7EBB1264AE29D000E752D /* Transaction.swift */,
-				FAD7EBB6264B82E6000E752D /* Impian.swift */,
-				FA9AF01D264D104400EC9109 /* Penggunaan.swift */,
+				FAD7EBB1264AE29D000E752D /* Usage.swift */,
+				FAD7EBB6264B82E6000E752D /* Dream.swift */,
+				FA9AF01D264D104400EC9109 /* Usages.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -225,14 +225,14 @@
 			path = MainTab;
 			sourceTree = "<group>";
 		};
-		FA15F3B1264AC775001B15D9 /* Impian */ = {
+		FA15F3B1264AC775001B15D9 /* Dream */ = {
 			isa = PBXGroup;
 			children = (
-				FAD7EC05264BCDE2000E752D /* AddImpianViewController.xib */,
-				FAD7EBF1264BBEF6000E752D /* DetailImpianViewController.xib */,
-				FAD7EC0B264BD06A000E752D /* EditImpianViewController.xib */,
+				FAD7EC05264BCDE2000E752D /* AddDreamViewController.xib */,
+				FAD7EBF1264BBEF6000E752D /* DetailDreamViewController.xib */,
+				FAD7EC0B264BD06A000E752D /* EditDreamViewController.xib */,
 			);
-			path = Impian;
+			path = Dream;
 			sourceTree = "<group>";
 		};
 		FA15F3B2264AC77A001B15D9 /* Profile */ = {
@@ -247,7 +247,7 @@
 			isa = PBXGroup;
 			children = (
 				FA15F3BD264AC7D2001B15D9 /* HomeViewController.xib */,
-				FA15F3C3264AC86E001B15D9 /* ImpianViewController.xib */,
+				FA15F3C3264AC86E001B15D9 /* DreamViewController.xib */,
 				FA15F3CA264AC888001B15D9 /* ProfileViewController.xib */,
 			);
 			path = MainPage;
@@ -287,13 +287,13 @@
 			path = TransactionTableCell;
 			sourceTree = "<group>";
 		};
-		FA9AF016264D0E2D00EC9109 /* PenggunaanTypeCell */ = {
+		FA9AF016264D0E2D00EC9109 /* UsageTypeCell */ = {
 			isa = PBXGroup;
 			children = (
-				FA9AF018264D0E8200EC9109 /* PenggunaanTypeCell.swift */,
-				FA9AF019264D0E8200EC9109 /* PenggunaanTypeCell.xib */,
+				FA9AF018264D0E8200EC9109 /* UsageTypeCell.swift */,
+				FA9AF019264D0E8200EC9109 /* UsageTypeCell.xib */,
 			);
-			path = PenggunaanTypeCell;
+			path = UsageTypeCell;
 			sourceTree = "<group>";
 		};
 		FA9AF021264D56B000EC9109 /* Button */ = {
@@ -313,52 +313,52 @@
 			path = "Main Button";
 			sourceTree = "<group>";
 		};
-		FAD7EBB5264B82CE000E752D /* ImpianTableCell */ = {
+		FAD7EBB5264B82CE000E752D /* DreamTableCell */ = {
 			isa = PBXGroup;
 			children = (
-				FAD7EBBB264B82FE000E752D /* ImpianTableViewCell.swift */,
-				FAD7EBBC264B82FE000E752D /* ImpianTableViewCell.xib */,
+				FAD7EBBB264B82FE000E752D /* DreamTableViewCell.swift */,
+				FAD7EBBC264B82FE000E752D /* DreamTableViewCell.xib */,
 			);
-			path = ImpianTableCell;
+			path = DreamTableCell;
 			sourceTree = "<group>";
 		};
-		FAD7EBE9264BB256000E752D /* Penggunaan */ = {
+		FAD7EBE9264BB256000E752D /* Usage */ = {
 			isa = PBXGroup;
 			children = (
-				FAD7EBD5264B9FD7000E752D /* AddPenggunaanViewController.swift */,
-				FAD7EBC3264B90B5000E752D /* DetailPenggunaanViewController.swift */,
-				FAD7EBE3264BAF7E000E752D /* EditPenggunaanViewController.swift */,
+				FAD7EBD5264B9FD7000E752D /* AddUsageViewController.swift */,
+				FAD7EBC3264B90B5000E752D /* DetailUsageViewController.swift */,
+				FAD7EBE3264BAF7E000E752D /* EditUsageViewController.swift */,
 			);
-			path = Penggunaan;
+			path = Usage;
 			sourceTree = "<group>";
 		};
-		FAD7EBEA264BB263000E752D /* Impian */ = {
+		FAD7EBEA264BB263000E752D /* Dream */ = {
 			isa = PBXGroup;
 			children = (
-				FAD7EC04264BCDE2000E752D /* AddImpianViewController.swift */,
-				FAD7EBF0264BBEF6000E752D /* DetailImpianlViewController.swift */,
-				FAD7EC0A264BD06A000E752D /* EditImpianViewController.swift */,
+				FAD7EC04264BCDE2000E752D /* AddDreamViewController.swift */,
+				FAD7EBF0264BBEF6000E752D /* DetailDreamViewController.swift */,
+				FAD7EC0A264BD06A000E752D /* EditDreamViewController.swift */,
 			);
-			path = Impian;
+			path = Dream;
 			sourceTree = "<group>";
 		};
-		FAD7EBF5264BBF0B000E752D /* Penggunaan */ = {
+		FAD7EBF5264BBF0B000E752D /* Usage */ = {
 			isa = PBXGroup;
 			children = (
-				FAD7EBD6264B9FD7000E752D /* AddPenggunaanViewController.xib */,
-				FAD7EBC4264B90B5000E752D /* DetailPenggunaanViewController.xib */,
-				FAD7EBE4264BAF7E000E752D /* EditPenggunaanViewController.xib */,
+				FAD7EBD6264B9FD7000E752D /* AddUsageViewController.xib */,
+				FAD7EBC4264B90B5000E752D /* DetailUsageViewController.xib */,
+				FAD7EBE4264BAF7E000E752D /* EditUsageViewController.xib */,
 			);
-			path = Penggunaan;
+			path = Usage;
 			sourceTree = "<group>";
 		};
 		FAD7EBF7264BBFC5000E752D /* Component */ = {
 			isa = PBXGroup;
 			children = (
 				FA9AF021264D56B000EC9109 /* Button */,
-				FA9AF016264D0E2D00EC9109 /* PenggunaanTypeCell */,
-				FAD7EBB5264B82CE000E752D /* ImpianTableCell */,
+				FAD7EBB5264B82CE000E752D /* DreamTableCell */,
 				FA15F422264ADBE3001B15D9 /* TransactionTableCell */,
+				FA9AF016264D0E2D00EC9109 /* UsageTypeCell */,
 			);
 			path = Component;
 			sourceTree = "<group>";
@@ -367,7 +367,7 @@
 			isa = PBXGroup;
 			children = (
 				FA15F3BC264AC7D2001B15D9 /* HomeViewController.swift */,
-				FA15F3C2264AC86E001B15D9 /* ImpianViewController.swift */,
+				FA15F3C2264AC86E001B15D9 /* DreamViewController.swift */,
 				FA15F3A0264AC5BE001B15D9 /* MainTabController.swift */,
 				FA15F3C9264AC888001B15D9 /* ProfileViewController.swift */,
 			);
@@ -385,10 +385,10 @@
 		FAD7EC1B264BD80D000E752D /* Pages */ = {
 			isa = PBXGroup;
 			children = (
-				FA15F3B2264AC77A001B15D9 /* Profile */,
-				FA15F3B1264AC775001B15D9 /* Impian */,
-				FAD7EBF5264BBF0B000E752D /* Penggunaan */,
+				FA15F3B1264AC775001B15D9 /* Dream */,
 				FA15F3C1264AC82F001B15D9 /* MainPage */,
+				FA15F3B2264AC77A001B15D9 /* Profile */,
+				FAD7EBF5264BBF0B000E752D /* Usage */,
 			);
 			path = Pages;
 			sourceTree = "<group>";
@@ -450,14 +450,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FAD7EBFF264BC927000E752D /* DetailImpianViewController.xib in Resources */,
+				FAD7EBFF264BC927000E752D /* DetailDreamViewController.xib in Resources */,
 				FA15F40D264AD024001B15D9 /* Poppins-Black.ttf in Resources */,
 				FA15F40E264AD024001B15D9 /* Poppins-BlackItalic.ttf in Resources */,
 				FA15F40F264AD024001B15D9 /* Poppins-Bold.ttf in Resources */,
-				FAD7EBC6264B90B5000E752D /* DetailPenggunaanViewController.xib in Resources */,
-				FAD7EBD8264B9FD7000E752D /* AddPenggunaanViewController.xib in Resources */,
-				FAD7EC0D264BD06A000E752D /* EditImpianViewController.xib in Resources */,
-				FAD7EBBE264B82FE000E752D /* ImpianTableViewCell.xib in Resources */,
+				FAD7EBC6264B90B5000E752D /* DetailUsageViewController.xib in Resources */,
+				FAD7EBD8264B9FD7000E752D /* AddUsageViewController.xib in Resources */,
+				FAD7EC0D264BD06A000E752D /* EditDreamViewController.xib in Resources */,
+				FAD7EBBE264B82FE000E752D /* DreamTableViewCell.xib in Resources */,
 				FA15F410264AD024001B15D9 /* Poppins-BoldItalic.ttf in Resources */,
 				FA15F411264AD024001B15D9 /* Poppins-ExtraBold.ttf in Resources */,
 				FA15F412264AD024001B15D9 /* Poppins-ExtraBoldItalic.ttf in Resources */,
@@ -470,20 +470,20 @@
 				FA15F417264AD024001B15D9 /* Poppins-LightItalic.ttf in Resources */,
 				FA15F426264ADC1E001B15D9 /* TransactionTableViewCell.xib in Resources */,
 				FA15F418264AD024001B15D9 /* Poppins-Medium.ttf in Resources */,
-				FAD7EC07264BCDE2000E752D /* AddImpianViewController.xib in Resources */,
+				FAD7EC07264BCDE2000E752D /* AddDreamViewController.xib in Resources */,
 				FA15F419264AD024001B15D9 /* Poppins-MediumItalic.ttf in Resources */,
 				FA15F41A264AD024001B15D9 /* Poppins-Regular.ttf in Resources */,
 				FA15F41B264AD024001B15D9 /* Poppins-SemiBold.ttf in Resources */,
-				FA9AF01B264D0E8200EC9109 /* PenggunaanTypeCell.xib in Resources */,
+				FA9AF01B264D0E8200EC9109 /* UsageTypeCell.xib in Resources */,
 				FA15F41C264AD024001B15D9 /* Poppins-SemiBoldItalic.ttf in Resources */,
 				FA15F41D264AD024001B15D9 /* Poppins-Thin.ttf in Resources */,
 				FA15F41E264AD024001B15D9 /* Poppins-ThinItalic.ttf in Resources */,
 				FA15F3CC264AC888001B15D9 /* ProfileViewController.xib in Resources */,
-				FA15F3C5264AC86E001B15D9 /* ImpianViewController.xib in Resources */,
+				FA15F3C5264AC86E001B15D9 /* DreamViewController.xib in Resources */,
 				FA15F390264AA7FB001B15D9 /* LaunchScreen.storyboard in Resources */,
 				FA15F38D264AA7FB001B15D9 /* Assets.xcassets in Resources */,
 				FA15F3A3264AC5BE001B15D9 /* MainTabController.xib in Resources */,
-				FAD7EBE6264BAF7E000E752D /* EditPenggunaanViewController.xib in Resources */,
+				FAD7EBE6264BAF7E000E752D /* EditUsageViewController.xib in Resources */,
 				FA15F3BF264AC7D2001B15D9 /* HomeViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -496,26 +496,26 @@
 			buildActionMask = 2147483647;
 			files = (
 				FA15F3CB264AC888001B15D9 /* ProfileViewController.swift in Sources */,
-				FA15F3C4264AC86E001B15D9 /* ImpianViewController.swift in Sources */,
+				FA15F3C4264AC86E001B15D9 /* DreamViewController.swift in Sources */,
 				FA9AF027264D56DA00EC9109 /* MainButton.swift in Sources */,
-				FAD7EBB2264AE29D000E752D /* Transaction.swift in Sources */,
+				FAD7EBB2264AE29D000E752D /* Usage.swift in Sources */,
 				FA15F384264AA7F9001B15D9 /* AppDelegate.swift in Sources */,
 				FAD7EBD3264B9D47000E752D /* GlobalColor.swift in Sources */,
 				FA15F3A2264AC5BE001B15D9 /* MainTabController.swift in Sources */,
-				FAD7EBD7264B9FD7000E752D /* AddPenggunaanViewController.swift in Sources */,
-				FAD7EBBD264B82FE000E752D /* ImpianTableViewCell.swift in Sources */,
+				FAD7EBD7264B9FD7000E752D /* AddUsageViewController.swift in Sources */,
+				FAD7EBBD264B82FE000E752D /* DreamTableViewCell.swift in Sources */,
 				FAD7EC14264BD2A7000E752D /* EditProfileViewController.swift in Sources */,
-				FAD7EBE5264BAF7E000E752D /* EditPenggunaanViewController.swift in Sources */,
-				FAD7EBB7264B82E6000E752D /* Impian.swift in Sources */,
-				FA9AF01E264D104400EC9109 /* Penggunaan.swift in Sources */,
+				FAD7EBE5264BAF7E000E752D /* EditUsageViewController.swift in Sources */,
+				FAD7EBB7264B82E6000E752D /* Dream.swift in Sources */,
+				FA9AF01E264D104400EC9109 /* Usages.swift in Sources */,
 				FA15F386264AA7F9001B15D9 /* SceneDelegate.swift in Sources */,
 				FA15F425264ADC1E001B15D9 /* TransactionTableViewCell.swift in Sources */,
-				FA9AF01A264D0E8200EC9109 /* PenggunaanTypeCell.swift in Sources */,
-				FAD7EBF2264BBEF6000E752D /* DetailImpianlViewController.swift in Sources */,
+				FA9AF01A264D0E8200EC9109 /* UsageTypeCell.swift in Sources */,
+				FAD7EBF2264BBEF6000E752D /* DetailDreamViewController.swift in Sources */,
 				FA15F3BE264AC7D2001B15D9 /* HomeViewController.swift in Sources */,
-				FAD7EC06264BCDE2000E752D /* AddImpianViewController.swift in Sources */,
-				FAD7EC0C264BD06A000E752D /* EditImpianViewController.swift in Sources */,
-				FAD7EBC5264B90B5000E752D /* DetailPenggunaanViewController.swift in Sources */,
+				FAD7EC06264BCDE2000E752D /* AddDreamViewController.swift in Sources */,
+				FAD7EC0C264BD06A000E752D /* EditDreamViewController.swift in Sources */,
+				FAD7EBC5264B90B5000E752D /* DetailUsageViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

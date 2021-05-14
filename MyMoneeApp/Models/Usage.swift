@@ -7,8 +7,7 @@
 
 import Foundation
 
-import Foundation
-struct Transaction {
+struct Usage {
     var id: Int
     var title: String
     var date: String
@@ -24,7 +23,7 @@ struct Transaction {
     }
 }
 
-let transaction: [Transaction] = [
-    Transaction(id: 1, title: "Bayar Listrik", price: "-Rp 256.000", date: "1 Mei 2021 - 19.30", status: true),
-    Transaction(id: 2, title: "Gaji", price: "+Rp 1.250.000", date: "1 Mei 2021 - 08.00", status: false),
+let usages: [Usage] = [
+    Usage(id: 1, title: "Bayar Listrik", price: "-Rp 256.000", date: "1 Mei 2021 - 19.30", status: true),
+    Usage(id: 2, title: "Gaji", price: "+Rp 1.250.000", date: "1 Mei 2021 - 08.00", status: false),
 ]

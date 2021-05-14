@@ -7,7 +7,7 @@
 
 import UIKit
 
-class DetailImpianlViewController: UIViewController {
+class DetailDreamViewController: UIViewController {
 
     @IBOutlet weak var heartLogo: UIView!
     @IBOutlet weak var progressBackground: UIView!
@@ -32,7 +32,7 @@ class DetailImpianlViewController: UIViewController {
     }
     
     @IBAction func goEditImpian(_ sender: Any) {
-        let editImpianView = EditImpianViewController(nibName: "EditImpianViewController", bundle: nil)
+        let editImpianView = EditDreamViewController(nibName: "EditDreamViewController", bundle: nil)
         
         editImpianView.modalPresentationStyle = .fullScreen
         editImpianView.modalTransitionStyle = .coverVertical
@@ -41,14 +41,6 @@ class DetailImpianlViewController: UIViewController {
     }
     
     @IBAction func confirmButton(_ sender: Any) {
-        backToImpianView()
-    }
-    
-    @IBAction func backButton(_ sender: Any) {
-        backToImpianView()
-    }
-    
-    func backToImpianView(){
         let impianTabView = MainTabController(nibName: "MainTabViewController", bundle: nil)
         
         impianTabView.modalPresentationStyle = .fullScreen
@@ -58,4 +50,8 @@ class DetailImpianlViewController: UIViewController {
         self.present(impianTabView, animated: false, completion: nil)
     }
     
+    @IBAction func backButton(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+    }
+   
 }

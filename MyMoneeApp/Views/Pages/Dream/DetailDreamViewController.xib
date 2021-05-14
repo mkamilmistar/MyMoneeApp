@@ -19,7 +19,7 @@
         </array>
     </customFonts>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DetailImpianlViewController" customModule="MyMoneeApp" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DetailDreamViewController" customModule="MyMoneeApp" customModuleProvider="target">
             <connections>
                 <outlet property="backButton" destination="qia-TN-x0n" id="e5t-op-cdq"/>
                 <outlet property="heartLogo" destination="heC-7c-L1i" id="0fQ-ma-964"/>
@@ -122,7 +122,7 @@
                             </constraints>
                         </view>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XZG-OA-pO8" userLabel="Tercapai">
-                            <rect key="frame" x="17" y="614" width="380" height="43"/>
+                            <rect key="frame" x="17" y="580" width="380" height="43"/>
                             <color key="backgroundColor" red="0.31372549020000001" green="0.41176470590000003" blue="0.72156862749999995" alpha="1" colorSpace="calibratedRGB"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="43" id="Cf2-ru-jNp"/>
@@ -141,7 +141,7 @@
                             </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qia-TN-x0n">
-                            <rect key="frame" x="17" y="673" width="380" height="43"/>
+                            <rect key="frame" x="17" y="639" width="380" height="43"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="43" id="wei-jk-9DR"/>
                             </constraints>
@@ -158,7 +158,6 @@
                     <constraints>
                         <constraint firstItem="XZG-OA-pO8" firstAttribute="leading" secondItem="Bla-rb-hye" secondAttribute="leading" constant="17" id="4ZD-DJ-0qE"/>
                         <constraint firstItem="Jda-VL-4XU" firstAttribute="top" secondItem="df8-AF-F6d" secondAttribute="bottom" constant="8" id="6wK-np-45u"/>
-                        <constraint firstAttribute="bottom" secondItem="XZG-OA-pO8" secondAttribute="bottom" constant="126" id="7pK-iL-wP5"/>
                         <constraint firstAttribute="trailing" secondItem="4lo-ni-75V" secondAttribute="trailing" constant="17" id="CNZ-Dn-fLr"/>
                         <constraint firstAttribute="trailing" secondItem="XZG-OA-pO8" secondAttribute="trailing" constant="17" id="DWU-kL-dKG"/>
                         <constraint firstItem="4lo-ni-75V" firstAttribute="leading" secondItem="Bla-rb-hye" secondAttribute="leading" constant="17" id="LTj-Cy-4gt"/>
@@ -188,6 +187,7 @@
             <color key="backgroundColor" red="0.94117647058823528" green="0.94901960784313721" blue="0.97254901960784312" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
             <constraints>
                 <constraint firstItem="mPb-Bf-kRi" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="10" id="2Ki-ZV-IVg"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="XZG-OA-pO8" secondAttribute="bottom" constant="126" id="A4o-5H-gru"/>
                 <constraint firstItem="Bla-rb-hye" firstAttribute="bottom" secondItem="fnl-2z-Ty3" secondAttribute="bottom" constant="34" id="GSM-fb-1WR"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="mPb-Bf-kRi" secondAttribute="trailing" constant="16" id="Ikz-Wu-CUP"/>
                 <constraint firstItem="Bla-rb-hye" firstAttribute="top" secondItem="mPb-Bf-kRi" secondAttribute="bottom" constant="23" id="O7K-0I-sad"/>

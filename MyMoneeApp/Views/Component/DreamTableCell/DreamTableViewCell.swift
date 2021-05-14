@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ImpianTableViewCell: UITableViewCell {
+class DreamTableViewCell: UITableViewCell {
 
     
     @IBOutlet weak var mainView: UIView!

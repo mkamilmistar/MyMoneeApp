@@ -16,7 +16,7 @@
         </array>
     </customFonts>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="EditImpianViewController" customModule="MyMoneeApp" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="EditDreamViewController" customModule="MyMoneeApp" customModuleProvider="target">
             <connections>
                 <outlet property="deleteButton" destination="0oH-pG-U1q" id="JBA-Cs-G7Q"/>
                 <outlet property="view" destination="cFr-Hp-dfk" id="0vZ-w2-ohD"/>
@@ -119,8 +119,9 @@
                         <action selector="updateButton:" destination="-1" eventType="touchUpInside" id="JvS-Gp-LnG"/>
                     </connections>
                 </button>
-                <button clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0oH-pG-U1q" userLabel="UpdateButton">
+                <button clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0oH-pG-U1q" userLabel="DeleteButton">
                     <rect key="frame" x="17" y="752" width="381" height="44"/>
+                    <gestureRecognizers/>
                     <constraints>
                         <constraint firstAttribute="height" constant="44" id="HPF-8w-a12"/>
                         <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="338" id="IF9-me-5A0"/>
@@ -137,7 +138,7 @@
                         </userDefinedRuntimeAttribute>
                     </userDefinedRuntimeAttributes>
                     <connections>
-                        <action selector="deleteButton:" destination="-1" eventType="touchUpInside" id="nvB-2L-xvh"/>
+                        <outletCollection property="gestureRecognizers" destination="Fds-Jo-BVe" appends="YES" id="t58-Y5-Q4H"/>
                     </connections>
                 </button>
             </subviews>
@@ -158,9 +159,14 @@
             </constraints>
             <point key="canvasLocation" x="139" y="85"/>
         </view>
-        <tapGestureRecognizer id="gJC-sA-3UO">
+        <tapGestureRecognizer id="gJC-sA-3UO" userLabel="BackTap">
             <connections>
                 <action selector="backButton:" destination="-1" id="nkA-cb-ROp"/>
+            </connections>
+        </tapGestureRecognizer>
+        <tapGestureRecognizer id="Fds-Jo-BVe" userLabel="DeleteTap">
+            <connections>
+                <action selector="deleteAction:" destination="-1" id="UfK-WY-bjn"/>
             </connections>
         </tapGestureRecognizer>
     </objects>

@@ -39,7 +39,7 @@ class MainTabController: UITabBarController {
         homeTab.tabBarItem.tag = 0
         
         //Tab Bar Impian
-        let impian = ImpianViewController(nibName: String(describing: ImpianViewController.self), bundle: nil)
+        let impian = DreamViewController(nibName: String(describing: DreamViewController.self), bundle: nil)
         let impianTab = UINavigationController(rootViewController: impian)
         impianTab.setNavigationBarHidden(true, animated: false)
         let impianImage = UIImage(named: "Impian")?.withRenderingMode(.alwaysOriginal)
