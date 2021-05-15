@@ -40,7 +40,7 @@
 		FA15F425264ADC1E001B15D9 /* UsageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA15F423264ADC1E001B15D9 /* UsageTableViewCell.swift */; };
 		FA15F426264ADC1E001B15D9 /* UsageTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA15F424264ADC1E001B15D9 /* UsageTableViewCell.xib */; };
 		FA2F8784264E987E00B8BF30 /* ConvertDataType.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2F8783264E987E00B8BF30 /* ConvertDataType.swift */; };
-		FA2F878B264EE58700B8BF30 /* ButtonConditional.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2F878A264EE58700B8BF30 /* ButtonConditional.swift */; };
+		FA2F878B264EE58700B8BF30 /* ButtonConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2F878A264EE58700B8BF30 /* ButtonConfig.swift */; };
 		FA2F878E264EE79400B8BF30 /* Shadow.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2F878D264EE79400B8BF30 /* Shadow.swift */; };
 		FA9AF01A264D0E8200EC9109 /* UsageTypeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9AF018264D0E8200EC9109 /* UsageTypeCell.swift */; };
 		FA9AF01B264D0E8200EC9109 /* UsageTypeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA9AF019264D0E8200EC9109 /* UsageTypeCell.xib */; };
@@ -51,7 +51,7 @@
 		FAD7EBBE264B82FE000E752D /* DreamTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FAD7EBBC264B82FE000E752D /* DreamTableViewCell.xib */; };
 		FAD7EBC5264B90B5000E752D /* DetailUsageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD7EBC3264B90B5000E752D /* DetailUsageViewController.swift */; };
 		FAD7EBC6264B90B5000E752D /* DetailUsageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FAD7EBC4264B90B5000E752D /* DetailUsageViewController.xib */; };
-		FAD7EBD3264B9D47000E752D /* GlobalColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD7EBD2264B9D47000E752D /* GlobalColor.swift */; };
+		FAD7EBD3264B9D47000E752D /* ColorConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD7EBD2264B9D47000E752D /* ColorConfig.swift */; };
 		FAD7EBD7264B9FD7000E752D /* AddUsageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD7EBD5264B9FD7000E752D /* AddUsageViewController.swift */; };
 		FAD7EBD8264B9FD7000E752D /* AddUsageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FAD7EBD6264B9FD7000E752D /* AddUsageViewController.xib */; };
 		FAD7EBE5264BAF7E000E752D /* EditUsageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD7EBE3264BAF7E000E752D /* EditUsageViewController.swift */; };
@@ -104,7 +104,7 @@
 		FA15F423264ADC1E001B15D9 /* UsageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsageTableViewCell.swift; sourceTree = "<group>"; };
 		FA15F424264ADC1E001B15D9 /* UsageTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UsageTableViewCell.xib; sourceTree = "<group>"; };
 		FA2F8783264E987E00B8BF30 /* ConvertDataType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConvertDataType.swift; sourceTree = "<group>"; };
-		FA2F878A264EE58700B8BF30 /* ButtonConditional.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonConditional.swift; sourceTree = "<group>"; };
+		FA2F878A264EE58700B8BF30 /* ButtonConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonConfig.swift; sourceTree = "<group>"; };
 		FA2F878D264EE79400B8BF30 /* Shadow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Shadow.swift; sourceTree = "<group>"; };
 		FA9AF018264D0E8200EC9109 /* UsageTypeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsageTypeCell.swift; sourceTree = "<group>"; };
 		FA9AF019264D0E8200EC9109 /* UsageTypeCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UsageTypeCell.xib; sourceTree = "<group>"; };
@@ -115,7 +115,7 @@
 		FAD7EBBC264B82FE000E752D /* DreamTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DreamTableViewCell.xib; sourceTree = "<group>"; };
 		FAD7EBC3264B90B5000E752D /* DetailUsageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailUsageViewController.swift; sourceTree = "<group>"; };
 		FAD7EBC4264B90B5000E752D /* DetailUsageViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailUsageViewController.xib; sourceTree = "<group>"; };
-		FAD7EBD2264B9D47000E752D /* GlobalColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalColor.swift; sourceTree = "<group>"; };
+		FAD7EBD2264B9D47000E752D /* ColorConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorConfig.swift; sourceTree = "<group>"; };
 		FAD7EBD5264B9FD7000E752D /* AddUsageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddUsageViewController.swift; sourceTree = "<group>"; };
 		FAD7EBD6264B9FD7000E752D /* AddUsageViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddUsageViewController.xib; sourceTree = "<group>"; };
 		FAD7EBE3264BAF7E000E752D /* EditUsageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditUsageViewController.swift; sourceTree = "<group>"; };
@@ -288,9 +288,9 @@
 		FA2F8782264E987500B8BF30 /* Configuration */ = {
 			isa = PBXGroup;
 			children = (
-				FA2F878A264EE58700B8BF30 /* ButtonConditional.swift */,
+				FA2F878A264EE58700B8BF30 /* ButtonConfig.swift */,
 				FA2F8783264E987E00B8BF30 /* ConvertDataType.swift */,
-				FAD7EBD2264B9D47000E752D /* GlobalColor.swift */,
+				FAD7EBD2264B9D47000E752D /* ColorConfig.swift */,
 				FA2F878D264EE79400B8BF30 /* Shadow.swift */,
 				FADFA9DA264FA16B00965CD8 /* Config.swift */,
 			);
@@ -495,12 +495,12 @@
 				FADFA9DB264FA16B00965CD8 /* Config.swift in Sources */,
 				FAD7EBB2264AE29D000E752D /* Usage.swift in Sources */,
 				FA15F384264AA7F9001B15D9 /* AppDelegate.swift in Sources */,
-				FAD7EBD3264B9D47000E752D /* GlobalColor.swift in Sources */,
+				FAD7EBD3264B9D47000E752D /* ColorConfig.swift in Sources */,
 				FA15F3A2264AC5BE001B15D9 /* MainTabController.swift in Sources */,
 				FAD7EBD7264B9FD7000E752D /* AddUsageViewController.swift in Sources */,
 				FAD7EBBD264B82FE000E752D /* DreamTableViewCell.swift in Sources */,
 				FAD7EBE5264BAF7E000E752D /* EditUsageViewController.swift in Sources */,
-				FA2F878B264EE58700B8BF30 /* ButtonConditional.swift in Sources */,
+				FA2F878B264EE58700B8BF30 /* ButtonConfig.swift in Sources */,
 				FAD7EBB7264B82E6000E752D /* Dream.swift in Sources */,
 				FA9AF01E264D104400EC9109 /* CategoryUsage.swift in Sources */,
 				FA2F8784264E987E00B8BF30 /* ConvertDataType.swift in Sources */,

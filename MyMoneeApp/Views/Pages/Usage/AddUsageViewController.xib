@@ -21,7 +21,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AddUsageViewController" customModule="MyMoneeApp" customModuleProvider="target">
             <connections>
-                <outlet property="priceTxtField" destination="YK8-j3-XIF" id="ePl-gz-piD"/>
+                <outlet property="amountTxtField" destination="YK8-j3-XIF" id="ePl-gz-piD"/>
                 <outlet property="saveButton" destination="Lcq-E8-GUA" id="fj6-1B-22J"/>
                 <outlet property="titleTxtField" destination="5An-sR-SeP" id="3ar-4e-Vcf"/>
                 <outlet property="usagesTypeCollection" destination="HzG-31-kYI" id="0jD-xt-Yb8"/>

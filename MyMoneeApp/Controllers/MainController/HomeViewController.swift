@@ -21,8 +21,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let date = NSDate()
-        print(date)
+        print(usages[0].date)
         
         view.backgroundColor = AppColor.mainBG
         balanceView.backgroundColor = AppColor.mainPurple
@@ -101,7 +100,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         //Set Data Cell
         trans.title.text = usages[indexPath.row].title
-        trans.date.text = usages[indexPath.row].date
+        trans.date.text = setDateToString(usages[indexPath.row].date)
         let price = setDecimalToString(amountValue: usages[indexPath.row].price)
        
         if usages[indexPath.row].status == .pengeluaran {

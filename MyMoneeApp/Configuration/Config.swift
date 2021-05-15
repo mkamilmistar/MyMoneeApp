@@ -13,16 +13,17 @@ struct AuthUser {
 
 func getDateByString(date:String)->Date{
     let formatter = DateFormatter()
-    formatter.dateFormat = "dd-MM-yyyy"
+    formatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+    formatter.timeZone = TimeZone(abbreviation: "WIT")
+    formatter.locale = NSLocale(localeIdentifier: "id") as Locale
     return formatter.date(from: date)!
 }
 
-func setDateToString(_ date: NSDate) -> String {
-    let date = NSDate()
+func setDateToString(_ date: Date) -> String {
     let outputFormat = DateFormatter()
     outputFormat.locale = NSLocale(localeIdentifier:"id") as Locale
-    outputFormat.dateFormat = "dd MMMM yyyy' - 'HH:mm"
-    let final = outputFormat.string(from: date as Date)
+    outputFormat.timeZone = TimeZone(abbreviation: "WIT")
+    outputFormat.dateFormat = "dd MMMM yyyy' - 'HH:mm:ss"
+    return outputFormat.string(from: date as Date)
     
-    return final
 }

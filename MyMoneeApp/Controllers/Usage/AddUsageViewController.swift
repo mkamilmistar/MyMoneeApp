@@ -12,7 +12,7 @@ class AddUsageViewController: UIViewController, UICollectionViewDelegate, UIColl
     @IBOutlet var usagesTypeCollection: UICollectionView!
     @IBOutlet var saveButton: UIButton!
     @IBOutlet var titleTxtField: UITextField!
-    @IBOutlet var priceTxtField: UITextField!
+    @IBOutlet var amountTxtField: UITextField!
     var usageTypeData: Int? = nil
     var dataUser: User = AuthUser.data
         
@@ -27,7 +27,7 @@ class AddUsageViewController: UIViewController, UICollectionViewDelegate, UIColl
         usagesTypeCollection.register(uiNib, forCellWithReuseIdentifier: String(describing: UsageTypeCell.self))
         
         titleTxtField.delegate = self
-        priceTxtField.delegate = self
+        amountTxtField.delegate = self
         
     }
     
@@ -36,11 +36,12 @@ class AddUsageViewController: UIViewController, UICollectionViewDelegate, UIColl
 
         let txtField = (textField.text! as NSString).replacingCharacters(in: range, with: string)
 
-        if txtField.isEmpty || usageTypeData == nil || titleTxtField.text == "" || priceTxtField.text == "" {
+        if txtField.isEmpty || usageTypeData == nil || titleTxtField.text == "" || amountTxtField.text == "" {
             disabledMainButton(saveButton)
         } else {
             enabledMainButton(saveButton)
         }
+        
         return true
     }
     
@@ -51,17 +52,17 @@ class AddUsageViewController: UIViewController, UICollectionViewDelegate, UIColl
     @IBAction func saveUsage(_ sender: UIButton) {
         let id: String = String.random()
         let title: String = titleTxtField.text ?? ""
-        let price: Decimal = setStringToDecimal(amountValue: priceTxtField.text ?? "")
+        let price: Decimal = setStringToDecimal(amountValue: amountTxtField.text ?? "")
         let status: UsageType
         
         if usageTypeData == 0 {
-            status = categoryUsage[usageTypeData ?? 0].type
+            status = .pemasukan
         } else {
-            status = categoryUsage[usageTypeData ?? 0].type
+            status = .pengeluaran
         }
         
         //Input To Array
-        usages.append(Usage(id: id, title: title, price: price, date: "15 Mei 2021 - 15.30", status: status))
+        usages.append(Usage(id: id, title: title, price: price, date: Date(), status: status))
         
         debitBalance(status, price)
         
@@ -78,7 +79,7 @@ class AddUsageViewController: UIViewController, UICollectionViewDelegate, UIColl
     }
     
     func backNavigation(){
-        let mainTabViewController = MainTabController(nibName: "MainTabViewController", bundle: nil)
+        let mainTabViewController = MainTabController(nibName: String(describing: MainTabController.self), bundle: nil)
         
         mainTabViewController.modalPresentationStyle = .fullScreen
         mainTabViewController.modalTransitionStyle = .crossDissolve
@@ -92,10 +93,14 @@ class AddUsageViewController: UIViewController, UICollectionViewDelegate, UIColl
         cell?.layer.borderColor = AppColor.mainPurple.cgColor
         cell?.layer.borderWidth = 3.0
         cell?.layer.cornerRadius = 8.0
+        
+        //Asign data usageTypeData
         usageTypeData = indexPath.row
-        if (titleTxtField.text != "") && (priceTxtField.text != "") {
+        if (titleTxtField.text != "") && (amountTxtField.text != "") {
             enabledMainButton(saveButton)
         }
+        
+//        print(usageTypeData!)
         
     }
     

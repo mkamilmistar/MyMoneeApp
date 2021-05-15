@@ -42,7 +42,7 @@ class DetailUsageViewController: UIViewController {
 
         }
         
-        dateUsage.text = usages[passIndex].date
+        dateUsage.text = setDateToString(usages[passIndex].date)
        
         
     }

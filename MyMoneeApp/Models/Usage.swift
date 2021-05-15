@@ -15,11 +15,11 @@ enum UsageType {
 class Usage {
     var id: String
     var title: String
-    var date: String
+    var date: Date
     var price: Decimal
     var status: UsageType
     
-    init(id: String, title: String, price: Decimal, date: String, status: UsageType) {
+    init(id: String, title: String, price: Decimal, date: Date, status: UsageType) {
         self.id = id
         self.title = title
         self.price = price
@@ -29,16 +29,16 @@ class Usage {
 }
 
 var usages: [Usage] = [
-    Usage(id: "MM-128371", title: "Bayar Listrik", price: 256000, date: "1 Mei 2021 - 19.30", status: .pengeluaran),
-    Usage(id: "MM-584933", title: "Gaji", price: 1250000, date: "1 Mei 2021 - 08.00", status: .pemasukan),
+    Usage(id: "MM-128371", title: "Bayar Listrik", price: 256000, date: getDateByString(date: "2021-05-1 19:30:27"), status: .pengeluaran),
+    Usage(id: "MM-584933", title: "Gaji", price: 1250000, date: getDateByString(date: "2021-05-1 08:00:27"), status: .pemasukan),
 ]
 
 var usages2: [Usage] = [
-    Usage(id: "MM-128371", title: "Bayar Listrik", price: 125000, date: "1 Mei 2021 - 19.30", status: .pengeluaran),
-    Usage(id: "MM-584933", title: "Gaji", price: 1250000, date: "1 Mei 2021 - 08.00", status: .pemasukan),
+    Usage(id: "MM-128371", title: "Bayar Listrik", price: 125000, date: getDateByString(date: "2021-05-1 19:30:27"), status: .pengeluaran),
+    Usage(id: "MM-584933", title: "Gaji", price: 1250000, date: getDateByString(date: "2021-05-1 19:30:27"), status: .pemasukan),
 ]
 
 var usages3: [Usage] = [
-    Usage(id: "MM-128371", title: "Bayar Listrik", price: 125000, date: "1 Mei 2021 - 19.30", status: .pengeluaran),
-    Usage(id: "MM-584933", title: "Gaji", price: 1250000, date: "1 Mei 2021 - 08.00", status: .pemasukan),
+    Usage(id: "MM-128371", title: "Bayar Listrik", price: 125000, date: getDateByString(date: "2021-05-1 19:30:27"), status: .pengeluaran),
+    Usage(id: "MM-584933", title: "Gaji", price: 1250000, date: getDateByString(date: "2021-05-1 08:00:27"), status: .pemasukan),
 ]
