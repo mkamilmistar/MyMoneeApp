@@ -26,21 +26,24 @@ class DetailUsageViewController: UIViewController {
         //setViewVariable
         idUsage.text = usages[passIndex].id
         titleUsage.text = usages[passIndex].title
+        let stringPrice = setDecimalToString(amountValue: usages[passIndex].price)
         
         if usages[passIndex].status == .pemasukan {
             iconStatus.image = UIImage(named: "Arrow_Up_BG")
             status.text = "Pemasukan"
             price.textColor = AppColor.mainGreen
+            price.text = "+Rp \(stringPrice)"
+         
         } else {
             iconStatus.image = UIImage(named: "Arrow_Down_BG")
             status.text = "Pengeluaran"
             price.textColor = AppColor.mainRed
+            price.text = "-Rp \(stringPrice)"
 
         }
         
         dateUsage.text = usages[passIndex].date
-        let stringPrice = setDecimalToString(amountValue: usages[passIndex].price)
-        price.text = "Rp \(stringPrice)"
+       
         
     }
     

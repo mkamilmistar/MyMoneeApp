@@ -103,16 +103,16 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         trans.title.text = usages[indexPath.row].title
         trans.date.text = usages[indexPath.row].date
         let price = setDecimalToString(amountValue: usages[indexPath.row].price)
-        trans.price.text = "Rp \(price)"
+       
         if usages[indexPath.row].status == .pengeluaran {
-            trans.price.textColor = UIColor.systemRed
             trans.imageStatus.image = UIImage(named: "Arrow_Down_BG")
             trans.price.textColor = AppColor.mainRed
+            trans.price.text = "-Rp \(price)"
         } else {
             trans.price.textColor = UIColor.systemGreen
             trans.imageStatus.image = UIImage(named: "Arrow_Up_BG")
             trans.price.textColor = AppColor.mainGreen
-
+            trans.price.text = "+Rp \(price)"
         }
         
         return trans
