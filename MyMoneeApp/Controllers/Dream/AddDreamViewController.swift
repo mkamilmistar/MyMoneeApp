@@ -11,6 +11,7 @@ class AddDreamViewController: UIViewController, UITextFieldDelegate {
 
     @IBOutlet var titleField: UITextField!
     @IBOutlet var targetAmountField: UITextField!
+    @IBOutlet var currentAmountField: UITextField!
     @IBOutlet var saveButton: UIButton!
     
     override func viewDidLoad() {
@@ -19,6 +20,7 @@ class AddDreamViewController: UIViewController, UITextFieldDelegate {
 
         titleField.delegate = self
         targetAmountField.delegate = self
+        currentAmountField.delegate = self
         
     }
     
@@ -27,7 +29,7 @@ class AddDreamViewController: UIViewController, UITextFieldDelegate {
 
         let txtField = (textField.text! as NSString).replacingCharacters(in: range, with: string)
         
-        if txtField.isEmpty || titleField.text == "" || targetAmountField.text == "" {
+        if txtField.isEmpty || titleField.text == "" || targetAmountField.text == "" || currentAmountField.text == "" {
             disabledMainButton(saveButton)
         } else {
             enabledMainButton(saveButton)
@@ -45,8 +47,9 @@ class AddDreamViewController: UIViewController, UITextFieldDelegate {
         let id: Int = lastIndex + 1
         let title: String = titleField.text ?? ""
         let targetAmount: Decimal = setStringToDecimal(amountValue: targetAmountField.text ?? "")
+        let currentAmount: Decimal = setStringToDecimal(amountValue: currentAmountField.text ?? "")
         
-        dreams.append(Dream(id: id, title: title, currentAmount: 0.0, targetAmount: targetAmount, progress: 0.0))
+        dreams.append(Dream(id: id, title: title, currentAmount: currentAmount, targetAmount: targetAmount, progress: 0.0))
         
 //        print(title)
         

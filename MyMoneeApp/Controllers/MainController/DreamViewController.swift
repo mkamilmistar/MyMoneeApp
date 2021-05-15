@@ -69,8 +69,8 @@ class DreamViewController: UIViewController, UITableViewDelegate, UITableViewDat
         
         dataCell.title.text = dreams[indexPath.row].title
         
-        dataCell.currentAmount.text = setAmountString(amountValue: dreams[indexPath.row].currentAmount)
-        dataCell.targetAmount.text = setAmountString(amountValue: dreams[indexPath.row].targetAmount)
+        dataCell.currentAmount.text = setDecimalToStringCurrency(amountValue: dreams[indexPath.row].currentAmount)
+        dataCell.targetAmount.text = setDecimalToStringCurrency(amountValue: dreams[indexPath.row].targetAmount)
         
         let progress = setProgress(indexPath)
         

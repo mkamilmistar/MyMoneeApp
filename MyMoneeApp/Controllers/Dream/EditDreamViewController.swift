@@ -18,7 +18,8 @@ class EditDreamViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet var updateButton: UIButton!
     @IBOutlet weak var deleteButton: UIButton!
     @IBOutlet var titleField: UITextField!
-    @IBOutlet var amountField: UITextField!
+    @IBOutlet var currentAmountField: UITextField!
+    @IBOutlet var targetAmountField: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,11 +29,12 @@ class EditDreamViewController: UIViewController, UITextFieldDelegate {
         enabledMainButton(updateButton)
         
         titleField.delegate = self
-        amountField.delegate = self
+        currentAmountField.delegate = self
         
         //Set Value
         titleField.text = passTitle
-        amountField.text = setDecimalToString(amountValue: passCurrentAmount ?? 0.0)
+        currentAmountField.text = setDecimalToString(amountValue: passCurrentAmount ?? 0.0)
+        targetAmountField.text = setDecimalToString(amountValue: passTargetAmount ?? 0.0)
         
     }
     
@@ -41,7 +43,7 @@ class EditDreamViewController: UIViewController, UITextFieldDelegate {
 
         let txtField = (textField.text! as NSString).replacingCharacters(in: range, with: string)
         
-        if txtField.isEmpty || titleField.text == "" || amountField.text == "" {
+        if txtField.isEmpty || titleField.text == "" || currentAmountField.text == "" {
             disabledMainButton(updateButton)
         } else {
             enabledMainButton(updateButton)
@@ -84,7 +86,9 @@ class EditDreamViewController: UIViewController, UITextFieldDelegate {
     func updateDream() {
         passTitle = titleField.text ?? ""
         passCurrentAmount = setStringToDecimal(
-            amountValue: amountField.text?.replacingOccurrences(of: ".", with: "") ?? "")
+            amountValue: currentAmountField.text?.replacingOccurrences(of: ".", with: "") ?? "")
+        passTargetAmount = setStringToDecimal(
+            amountValue: targetAmountField.text?.replacingOccurrences(of: ".", with: "") ?? "")
         
         dreams[passIndex!] = Dream(id: passIndex!, title: passTitle ?? "", currentAmount: passCurrentAmount ?? 0.0, targetAmount: passTargetAmount!, progress: passProgress!)
         

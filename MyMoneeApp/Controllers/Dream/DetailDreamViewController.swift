@@ -36,8 +36,8 @@ class DetailDreamViewController: UIViewController {
         setShadow(progressBackground)
         mainNoBackgroundButton(backButton)
         
-        let currentAmountConv = setAmountString(amountValue: passCurrentAmount!)
-        let targetAmountConv = setAmountString(amountValue: passTargetAmount!)
+        let currentAmountConv = setDecimalToStringCurrency(amountValue: passCurrentAmount!)
+        let targetAmountConv = setDecimalToStringCurrency(amountValue: passTargetAmount!)
         
         //Conditional Button Confirm
         let progress = Int((passProgress ?? 0.0) * 100)
@@ -51,7 +51,7 @@ class DetailDreamViewController: UIViewController {
         //Set View Variable
         dreamTitle.text = passTitle
         percentProgress.text = "\(progress)%"
-        currentAmount.text = anotherSetAmountString(amountValue: passCurrentAmount!)
+        currentAmount.text = anotherSetDecimalToStringCurrency(amountValue: passCurrentAmount!)
         progressAmount.text = "\(currentAmountConv) / \(targetAmountConv)"
         progressBar.progress = passProgress ?? 0.0
         

@@ -64,6 +64,7 @@
 		FAD7EC0D264BD06A000E752D /* EditDreamViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FAD7EC0B264BD06A000E752D /* EditDreamViewController.xib */; };
 		FAD7EC14264BD2A7000E752D /* EditProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD7EC12264BD2A7000E752D /* EditProfileViewController.swift */; };
 		FAD7EC15264BD2A7000E752D /* EditProfileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FAD7EC13264BD2A7000E752D /* EditProfileViewController.xib */; };
+		FADFA9CD264F618100965CD8 /* Customer.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADFA9CC264F618100965CD8 /* Customer.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -126,6 +127,7 @@
 		FAD7EC0B264BD06A000E752D /* EditDreamViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EditDreamViewController.xib; sourceTree = "<group>"; };
 		FAD7EC12264BD2A7000E752D /* EditProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileViewController.swift; sourceTree = "<group>"; };
 		FAD7EC13264BD2A7000E752D /* EditProfileViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EditProfileViewController.xib; sourceTree = "<group>"; };
+		FADFA9CC264F618100965CD8 /* Customer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Customer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -215,6 +217,7 @@
 				FAD7EBB1264AE29D000E752D /* Usage.swift */,
 				FAD7EBB6264B82E6000E752D /* Dream.swift */,
 				FA9AF01D264D104400EC9109 /* Usages.swift */,
+				FADFA9CC264F618100965CD8 /* Customer.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -492,6 +495,7 @@
 				FA2F878E264EE79400B8BF30 /* Shadow.swift in Sources */,
 				FA15F3CB264AC888001B15D9 /* ProfileViewController.swift in Sources */,
 				FA15F3C4264AC86E001B15D9 /* DreamViewController.swift in Sources */,
+				FADFA9CD264F618100965CD8 /* Customer.swift in Sources */,
 				FAD7EBB2264AE29D000E752D /* Usage.swift in Sources */,
 				FA15F384264AA7F9001B15D9 /* AppDelegate.swift in Sources */,
 				FAD7EBD3264B9D47000E752D /* GlobalColor.swift in Sources */,

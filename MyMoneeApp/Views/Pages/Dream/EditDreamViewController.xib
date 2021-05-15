@@ -18,8 +18,9 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="EditDreamViewController" customModule="MyMoneeApp" customModuleProvider="target">
             <connections>
-                <outlet property="amountField" destination="4UP-ID-YhB" id="lP1-o9-RD4"/>
+                <outlet property="currentAmountField" destination="4UP-ID-YhB" id="lP1-o9-RD4"/>
                 <outlet property="deleteButton" destination="0oH-pG-U1q" id="JBA-Cs-G7Q"/>
+                <outlet property="targetAmountField" destination="Qzz-Dl-68g" id="b6y-qV-kfo"/>
                 <outlet property="titleField" destination="quI-Pr-xap" id="Xro-Rn-xtk"/>
                 <outlet property="updateButton" destination="Fai-V9-uaz" id="3io-Jk-fDy"/>
                 <outlet property="view" destination="cFr-Hp-dfk" id="0vZ-w2-ohD"/>
@@ -62,7 +63,7 @@
                     </constraints>
                 </view>
                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="9" translatesAutoresizingMaskIntoConstraints="NO" id="ORf-2v-HaO" userLabel="Form">
-                    <rect key="frame" x="16" y="107" width="382" height="110"/>
+                    <rect key="frame" x="16" y="107" width="382" height="169.5"/>
                     <subviews>
                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="-5" translatesAutoresizingMaskIntoConstraints="NO" id="bEc-YU-qXc" userLabel="Judul">
                             <rect key="frame" x="0.0" y="0.0" width="382" height="50.5"/>
@@ -81,16 +82,33 @@
                                 </textField>
                             </subviews>
                         </stackView>
-                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="-5" translatesAutoresizingMaskIntoConstraints="NO" id="aWN-aP-vj6" userLabel="Jumlah">
+                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="-5" translatesAutoresizingMaskIntoConstraints="NO" id="lKB-OJ-iwE" userLabel="Uang Target">
                             <rect key="frame" x="0.0" y="59.5" width="382" height="50.5"/>
                             <subviews>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Target Capaian (Rp)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pnK-Wc-gEv">
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Target Capaian (Rp)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1a0-VA-AQE">
                                     <rect key="frame" x="0.0" y="0.0" width="382" height="20"/>
                                     <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="14"/>
                                     <color key="textColor" red="0.30980392159999998" green="0.30980392159999998" blue="0.30980392159999998" alpha="1" colorSpace="calibratedRGB"/>
                                     <nil key="highlightedColor"/>
                                 </label>
-                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="1.250.000" placeholder="Isi Jumlah" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4UP-ID-YhB">
+                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="1.250.000" placeholder="Isi Jumlah" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Qzz-Dl-68g">
+                                    <rect key="frame" x="0.0" y="15" width="382" height="35.5"/>
+                                    <color key="textColor" red="0.30980392159999998" green="0.30980392159999998" blue="0.30980392159999998" alpha="1" colorSpace="calibratedRGB"/>
+                                    <fontDescription key="fontDescription" name="Poppins-SemiBold" family="Poppins" pointSize="24"/>
+                                    <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                </textField>
+                            </subviews>
+                        </stackView>
+                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="-5" translatesAutoresizingMaskIntoConstraints="NO" id="aWN-aP-vj6" userLabel="Uang Sekarang">
+                            <rect key="frame" x="0.0" y="119" width="382" height="50.5"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Jumlah Saat Ini (Rp)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pnK-Wc-gEv">
+                                    <rect key="frame" x="0.0" y="0.0" width="382" height="20"/>
+                                    <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="14"/>
+                                    <color key="textColor" red="0.30980392159999998" green="0.30980392159999998" blue="0.30980392159999998" alpha="1" colorSpace="calibratedRGB"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <textField opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="751" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="500.000" placeholder="Isi Jumlah" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4UP-ID-YhB" userLabel="500.000">
                                     <rect key="frame" x="0.0" y="15" width="382" height="35.5"/>
                                     <color key="textColor" red="0.30980392159999998" green="0.30980392159999998" blue="0.30980392159999998" alpha="1" colorSpace="calibratedRGB"/>
                                     <fontDescription key="fontDescription" name="Poppins-SemiBold" family="Poppins" pointSize="24"/>

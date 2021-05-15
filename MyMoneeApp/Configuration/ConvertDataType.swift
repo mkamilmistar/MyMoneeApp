@@ -7,7 +7,7 @@
 
 import Foundation
 
-func setAmountString(amountValue: Decimal) -> String {
+func setDecimalToStringCurrency(amountValue: Decimal) -> String {
     let formatter = NumberFormatter()
     formatter.currencyCode = "IDR"
     formatter.groupingSeparator = "."
@@ -20,7 +20,7 @@ func setAmountString(amountValue: Decimal) -> String {
     }
 }
 
-func anotherSetAmountString(amountValue: Decimal) -> String {
+func anotherSetDecimalToStringCurrency(amountValue: Decimal) -> String {
     let formatter = NumberFormatter()
 
     formatter.groupingSeparator = "."
