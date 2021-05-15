@@ -69,7 +69,7 @@
                 <outlet property="imageStatus" destination="ZXf-hA-skN" id="z6S-kO-l30"/>
                 <outlet property="title" destination="WZ0-d4-K4W" id="TqV-zl-JQ2"/>
             </connections>
-            <point key="canvasLocation" x="163.04347826086959" y="181.47321428571428"/>
+            <point key="canvasLocation" x="166" y="181"/>
         </collectionViewCell>
     </objects>
     <resources>

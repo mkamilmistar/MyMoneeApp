@@ -15,18 +15,15 @@ class DetailDreamViewController: UIViewController {
     @IBOutlet var confirmButton: UIButton!
     
     @IBOutlet var dreamTitle: UILabel!
-    @IBOutlet var currentAmount: UILabel!
+    @IBOutlet var targetAmount: UILabel!
     @IBOutlet var progressAmount: UILabel!
     @IBOutlet var progressBar: UIProgressView!
     @IBOutlet var percentProgress: UILabel!
 
     
     //Data
-    var passIndex: Int? = nil
-    var passTitle: String? = ""
-    var passProgress: Float? = 0.0
-    var passCurrentAmount: Decimal? = 0.0
-    var passTargetAmount: Decimal? = 0.0
+    var passIndex: Int!
+    var userData: User = AuthUser.data
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,24 +33,26 @@ class DetailDreamViewController: UIViewController {
         setShadow(progressBackground)
         mainNoBackgroundButton(backButton)
         
-        let currentAmountConv = setDecimalToStringCurrency(amountValue: passCurrentAmount!)
-        let targetAmountConv = setDecimalToStringCurrency(amountValue: passTargetAmount!)
-        
         //Conditional Button Confirm
-        let progress = Int((passProgress ?? 0.0) * 100)
-
+        let progress = Int(setProgress(passIndex) * 100)
+        
         if progress != 100 {
             disabledMainButton(confirmButton)
         } else {
             enabledMainButton(confirmButton)
         }
-        print()
+        
         //Set View Variable
-        dreamTitle.text = passTitle
+        let currentAmountConv = setDecimalToStringCurrency(amountValue: userData.balance)
+        let targetAmountConv = setDecimalToStringCurrency(amountValue: dreams[passIndex].targetAmount)
+        
+        dreamTitle.text = dreams[passIndex].title
         percentProgress.text = "\(progress)%"
-        currentAmount.text = anotherSetDecimalToStringCurrency(amountValue: passCurrentAmount!)
+        
+        let amount = anotherSetDecimalToStringCurrency(amountValue: dreams[passIndex].targetAmount)
+        targetAmount.text = "Rp \(amount)"
         progressAmount.text = "\(currentAmountConv) / \(targetAmountConv)"
-        progressBar.progress = passProgress ?? 0.0
+        progressBar.progress = dreams[passIndex].progress
         
     }
     
@@ -65,37 +64,42 @@ class DetailDreamViewController: UIViewController {
         editDreamVC.modalTransitionStyle = .coverVertical
         
         //Pass Data To Edit
-        editDreamVC.passIndex = self.passIndex
-        editDreamVC.passTitle = self.passTitle
-        editDreamVC.passCurrentAmount = self.passCurrentAmount
-        editDreamVC.passTargetAmount = self.passTargetAmount
-        editDreamVC.passProgress = self.passProgress
-
+        editDreamVC.passIndex = passIndex
         
         self.present(editDreamVC, animated: false, completion: nil)
     }
     
     @IBAction func confirmButton(_ sender: Any) {
-        dreams.remove(at: passIndex!)
+        dreams.remove(at: passIndex ?? 0)
         
-        let impianTabView = MainTabController(nibName: "MainTabViewController", bundle: nil)
+        let mainTabVC = MainTabController(nibName: String(describing: MainTabController.self), bundle: nil)
         
-        impianTabView.modalPresentationStyle = .fullScreen
-        impianTabView.modalTransitionStyle = .crossDissolve
-        impianTabView.selectedIndex = 1
+        mainTabVC.modalPresentationStyle = .fullScreen
+        mainTabVC.modalTransitionStyle = .crossDissolve
+        mainTabVC.selectedIndex = 1
         
-        self.present(impianTabView, animated: false, completion: nil)
+        self.present(mainTabVC, animated: false, completion: nil)
     }
     
     @IBAction func backButton(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
     }
+    
+    
+    func setProgress(_ passIndex: Int) -> Float {
+        let currentDouble = setDecimalToDouble(value: userData.balance)
+        
+        let targetDouble = setDecimalToDouble(value: dreams[passIndex].targetAmount)
+        
+        dreams[passIndex].progress = Float(currentDouble / targetDouble)
+        
+        if dreams[passIndex].progress > 1 {
+            return 1
+        } else {
+            return dreams[passIndex].progress
+        }
+    }
+    
    
 }
 
-extension DetailDreamViewController {
-    fileprivate func setCompProperties() {
-        
-    }
-    
-}

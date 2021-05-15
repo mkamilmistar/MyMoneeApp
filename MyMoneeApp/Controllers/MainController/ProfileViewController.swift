@@ -8,20 +8,53 @@
 import UIKit
 
 class ProfileViewController: UIViewController {
-
+    
+    @IBOutlet var userImage: UIImageView!
+    @IBOutlet var statusUsage: UILabel!
+    @IBOutlet var userNameField: UITextField!
+    @IBOutlet var editNameIcon: UIImageView!
+    @IBOutlet var editPhotoButton: UIButton!
+    @IBOutlet var controlLabel: UILabel!
+    @IBOutlet var blueBg: UIView!
+    
+    var dataUser: User = AuthUser.data
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = appColor.mainBG
-        // Do any additional setup after loading the view.
+        view.backgroundColor = AppColor.mainBG
+        blueBg.layer.backgroundColor = AppColor.mainPurple.cgColor
+        
+        userNameField.text = dataUser.name
+        userNameField.isEnabled = false
+        editNameIcon.isHidden = true
+        editPhotoButton.isHidden = true
     }
-
-
+    
     @IBAction func goEditProfile(_ gesture: UITapGestureRecognizer) {
-        let editProfile = EditProfileViewController(nibName: String(describing: EditProfileViewController.self), bundle: nil)
+        if controlLabel.text == "Edit" {
+            editData()
+        } else {
+            showData()
+        }
+       
+    }
+    
+    func editData(){
+        userNameField.isEnabled = true
+        editNameIcon.isHidden = false
+        editPhotoButton.isHidden = false
+        controlLabel.text = "Selesai"
+    }
+    
+    func showData(){
+        userNameField.isEnabled = false
+        editNameIcon.isHidden = true
+        editPhotoButton.isHidden = true
+        controlLabel.text = "Edit"
         
-        editProfile.modalPresentationStyle = .fullScreen
+        //Passing data
+        dataUser.name = userNameField.text ?? ""
         
-        present(editProfile, animated: false, completion: nil)
     }
     
    }

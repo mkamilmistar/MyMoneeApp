@@ -22,6 +22,12 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DetailUsageViewController" customModule="MyMoneeApp" customModuleProvider="target">
             <connections>
                 <outlet property="backButton" destination="TpE-4P-ACP" id="7gk-0M-O1o"/>
+                <outlet property="dateUsage" destination="VrZ-Wr-IL7" id="Xhp-Ky-Bx2"/>
+                <outlet property="iconStatus" destination="MDY-Sk-6Tg" id="YfX-yq-xmZ"/>
+                <outlet property="idUsage" destination="gbq-B6-yOw" id="yEs-j1-tnc"/>
+                <outlet property="price" destination="IiT-Ye-9Zx" id="NUk-X0-NbE"/>
+                <outlet property="status" destination="Y09-Bt-Zel" id="qTR-am-3mx"/>
+                <outlet property="titleUsage" destination="KpD-ds-T3B" id="Nah-Ba-YPb"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>

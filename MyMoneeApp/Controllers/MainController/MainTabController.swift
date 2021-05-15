@@ -19,7 +19,7 @@ class MainTabController: UITabBarController {
         navigationController?.setNavigationBarHidden(true, animated: animated)
     }
     
-    let selectedColor   = appColor.mainPurple
+    let selectedColor   = AppColor.mainPurple
     let unselectedColor = UIColor(red: 130.0/255.0, green: 130.0/255.0, blue: 130.0/255.0, alpha: 1.0)
     
     override func viewDidLoad() {

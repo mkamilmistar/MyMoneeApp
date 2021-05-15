@@ -11,16 +11,18 @@ class DreamViewController: UIViewController, UITableViewDelegate, UITableViewDat
    
     @IBOutlet var notFound: NotFound!
     @IBOutlet weak var dreamTableView: UITableView!
+    var userData: User = AuthUser.data
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = appColor.mainBG
+        view.backgroundColor = AppColor.mainBG
 
         let nib = UINib(nibName: String(describing: DreamTableViewCell.self), bundle: nil)
         
         notFound.isHidden = true
+        
         dreamTableView.register(nib, forCellReuseIdentifier: String(describing: DreamTableViewCell.self))
-        dreamTableView.backgroundColor = appColor.mainBG
+        dreamTableView.backgroundColor = AppColor.mainBG
         dreamTableView.delegate = self
         dreamTableView.dataSource = self
         
@@ -45,20 +47,14 @@ class DreamViewController: UIViewController, UITableViewDelegate, UITableViewDat
         detailDreamVC.modalTransitionStyle = .coverVertical
         
         //Passing Data
-        detailDreamVC.passTitle = dreams[indexPath.row].title
-        detailDreamVC.passCurrentAmount = dreams[indexPath.row].currentAmount
-        detailDreamVC.passTargetAmount = dreams[indexPath.row].targetAmount
         detailDreamVC.passIndex = indexPath.row
-        
-        let progress = setProgress(indexPath)
-        detailDreamVC.passProgress = progress
         
         self.present(detailDreamVC, animated: true, completion: nil)
         
-//        print("cell at #\(indexPath.row) is selected!")
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+      
         if dreams.count > 0 {
             return dreams.count
         } else {
@@ -78,14 +74,10 @@ class DreamViewController: UIViewController, UITableViewDelegate, UITableViewDat
         dataCell.selectedBackgroundView = backgroundView
         
         dataCell.title.text = dreams[indexPath.row].title
-        
-        dataCell.currentAmount.text = setDecimalToStringCurrency(amountValue: dreams[indexPath.row].currentAmount)
         dataCell.targetAmount.text = setDecimalToStringCurrency(amountValue: dreams[indexPath.row].targetAmount)
         
-        let progress = setProgress(indexPath)
-        
-        dataCell.progressBar.progress = progress
-        
+        dataCell.balance.text = setDecimalToStringCurrency(amountValue: userData.balance)
+        dataCell.progressBar.progress = setProgress(indexPath)
         
         return dataCell
     }
@@ -94,11 +86,17 @@ class DreamViewController: UIViewController, UITableViewDelegate, UITableViewDat
 
 extension DreamViewController {
     fileprivate func setProgress(_ indexPath: IndexPath) -> Float {
-        let currentDouble = setDecimalToDouble(value: dreams[indexPath.row].currentAmount)
+        let currentDouble = setDecimalToDouble(value: userData.balance)
+        
         let targetDouble = setDecimalToDouble(value: dreams[indexPath.row].targetAmount)
         
         dreams[indexPath.row].progress = Float(currentDouble / targetDouble)
-        let progress = dreams[indexPath.row].progress
-        return progress
+        
+        if dreams[indexPath.row].progress > 1 {
+            return 1
+        } else {
+            return dreams[indexPath.row].progress
+        }
+        
     }
 }

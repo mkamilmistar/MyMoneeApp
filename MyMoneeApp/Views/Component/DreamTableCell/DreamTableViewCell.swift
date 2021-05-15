@@ -14,7 +14,7 @@ class DreamTableViewCell: UITableViewCell {
     @IBOutlet weak var title: UILabel!
     @IBOutlet weak var progressBar: UIProgressView!
     @IBOutlet weak var menuAction: UIImageView!
-    @IBOutlet var currentAmount: UILabel!
+    @IBOutlet var balance: UILabel!
     @IBOutlet var targetAmount: UILabel!
     
     override func awakeFromNib() {

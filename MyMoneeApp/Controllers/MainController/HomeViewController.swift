@@ -7,26 +7,40 @@
 
 import UIKit
 
-extension Date {
-    var hour: Int { return Calendar.current.component(.hour, from: self) }
-}
-
 class HomeViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
+    @IBOutlet var notFound: NotFound!
     @IBOutlet var greetingLabel: UILabel!
     @IBOutlet weak var transactionTableView: UITableView!
+    @IBOutlet var userName: UILabel!
+    @IBOutlet var balanceView: UIView!
+    @IBOutlet var balanceLabel: UILabel!
+    
+    var dataUser: User = AuthUser.data
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = appColor.mainBG
+        
+        let date = NSDate()
+        print(date)
+        
+        view.backgroundColor = AppColor.mainBG
+        balanceView.backgroundColor = AppColor.mainPurple
+        self.notFound.isHidden = true
+        
+        userName.text = dataUser.name
+        let balance =  setDecimalToString(amountValue: dataUser.balance)
+        balanceLabel.text = "Rp \(balance)"
+        
         schedulerGreetingText()
+        
         transactionTableView.delegate = self
         transactionTableView.dataSource = self
         transactionTableView.separatorStyle = .none
         transactionTableView.backgroundColor = .white
         
-        let uiNib = UINib(nibName: String(describing: TransactionTableViewCell.self), bundle: nil)
-        transactionTableView.register(uiNib, forCellReuseIdentifier: String(describing: TransactionTableViewCell.self))
+        let uiNib = UINib(nibName: String(describing: UsageTableViewCell.self), bundle: nil)
+        transactionTableView.register(uiNib, forCellReuseIdentifier: String(describing: UsageTableViewCell.self))
     }
     
     //Scheduler the Greeting Text
@@ -60,36 +74,52 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         detailUsageVC.modalPresentationStyle = .fullScreen
         detailUsageVC.modalTransitionStyle = .coverVertical
         
-        self.present(detailUsageVC, animated: true, completion: nil)
+        //PassingData
+        detailUsageVC.passIndex = indexPath.row
         
-//        print("cell at #\(indexPath.row) is selected!")
+        self.present(detailUsageVC, animated: true, completion: nil)
+    
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return usages.count
+        if usages.count > 0 {
+            return usages.count
+        } else {
+            self.transactionTableView.isHidden = true
+            self.notFound.isHidden = false
+            return 0
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let trans = tableView.dequeueReusableCell(withIdentifier: String(describing: TransactionTableViewCell.self), for: indexPath) as! TransactionTableViewCell
+        let trans = tableView.dequeueReusableCell(withIdentifier: String(describing: UsageTableViewCell.self), for: indexPath) as! UsageTableViewCell
         
         //change selected color
         let backgroundView = UIView()
         backgroundView.backgroundColor = .systemGray5
         trans.selectedBackgroundView = backgroundView
         
+        //Set Data Cell
         trans.title.text = usages[indexPath.row].title
         trans.date.text = usages[indexPath.row].date
-        trans.price.text = usages[indexPath.row].price
-        if usages[indexPath.row].status {
+        let price = setDecimalToString(amountValue: usages[indexPath.row].price)
+        trans.price.text = "Rp \(price)"
+        if usages[indexPath.row].status == .pengeluaran {
             trans.price.textColor = UIColor.systemRed
             trans.imageStatus.image = UIImage(named: "Arrow_Down_BG")
+            trans.price.textColor = AppColor.mainRed
         } else {
             trans.price.textColor = UIColor.systemGreen
             trans.imageStatus.image = UIImage(named: "Arrow_Up_BG")
+            trans.price.textColor = AppColor.mainGreen
+
         }
         
         return trans
     }
     
+}
 
+extension Date {
+    var hour: Int { return Calendar.current.component(.hour, from: self) }
 }

@@ -14,6 +14,7 @@ class AddUsageViewController: UIViewController, UICollectionViewDelegate, UIColl
     @IBOutlet var titleTxtField: UITextField!
     @IBOutlet var priceTxtField: UITextField!
     var usageTypeData: Int? = nil
+    var dataUser: User = AuthUser.data
         
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,7 +36,7 @@ class AddUsageViewController: UIViewController, UICollectionViewDelegate, UIColl
 
         let txtField = (textField.text! as NSString).replacingCharacters(in: range, with: string)
 
-        if txtField.isEmpty || usageTypeData == nil {
+        if txtField.isEmpty || usageTypeData == nil || titleTxtField.text == "" || priceTxtField.text == "" {
             disabledMainButton(saveButton)
         } else {
             enabledMainButton(saveButton)
@@ -43,18 +44,59 @@ class AddUsageViewController: UIViewController, UICollectionViewDelegate, UIColl
         return true
     }
     
+    @IBAction func BackToHome(_ sender: UITapGestureRecognizer) {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
+    @IBAction func saveUsage(_ sender: UIButton) {
+        let id: String = String.random()
+        let title: String = titleTxtField.text ?? ""
+        let price: Decimal = setStringToDecimal(amountValue: priceTxtField.text ?? "")
+        let status: UsageType
+        
+        if usageTypeData == 0 {
+            status = categoryUsage[usageTypeData ?? 0].type
+        } else {
+            status = categoryUsage[usageTypeData ?? 0].type
+        }
+        
+        //Input To Array
+        usages.append(Usage(id: id, title: title, price: price, date: "15 Mei 2021 - 15.30", status: status))
+        
+        debitBalance(status, price)
+        
+        backNavigation()
+    }
+
+    fileprivate func debitBalance(_ status: UsageType, _ price: Decimal) {
+        //Akumulasi
+        if status == .pengeluaran {
+            dataUser.balance = dataUser.balance - price
+        } else {
+            dataUser.balance = dataUser.balance + price
+        }
+    }
+    
+    func backNavigation(){
+        let mainTabViewController = MainTabController(nibName: "MainTabViewController", bundle: nil)
+        
+        mainTabViewController.modalPresentationStyle = .fullScreen
+        mainTabViewController.modalTransitionStyle = .crossDissolve
+        
+        self.present(mainTabViewController, animated: false, completion: nil)
+    }
     
     //when select
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let cell = collectionView.cellForItem(at: indexPath)
-        cell?.layer.borderColor = appColor.mainPurple.cgColor
+        cell?.layer.borderColor = AppColor.mainPurple.cgColor
         cell?.layer.borderWidth = 3.0
         cell?.layer.cornerRadius = 8.0
         usageTypeData = indexPath.row
         if (titleTxtField.text != "") && (priceTxtField.text != "") {
             enabledMainButton(saveButton)
         }
-        print("Ini isi tipe = \(usageTypeData!)")
+        
     }
     
     //when deselect
@@ -65,22 +107,20 @@ class AddUsageViewController: UIViewController, UICollectionViewDelegate, UIColl
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return usagesType.count
+        return categoryUsage.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = usagesTypeCollection.dequeueReusableCell(withReuseIdentifier: String(describing: UsageTypeCell.self), for: indexPath) as! UsageTypeCell
         
-        cell.background.layer.cornerRadius = 8.0
-        cell.background.layer.shadowColor = UIColor.black.cgColor
-        cell.background.layer.shadowOpacity = 0.3
-        cell.background.layer.shadowOffset = CGSize(width: 0, height: 1)
-        cell.title.text = usagesType[indexPath.row].title
+        setShadow(cell)
         
-        if usagesType[indexPath.row].type == .pemasukan {
-            cell.imageStatus.image = UIImage(named: "Arrow_Up")
+        cell.title.text = categoryUsage[indexPath.row].label
+        
+        if categoryUsage[indexPath.row].type == .pemasukan {
+            cell.imageStatus.image = UIImage(named: categoryUsage[indexPath.row].icon)
         } else {
-            cell.imageStatus.image = UIImage(named: "Arrow_Down")
+            cell.imageStatus.image = UIImage(named: categoryUsage[indexPath.row].icon)
         }
         
         return cell
@@ -91,20 +131,17 @@ class AddUsageViewController: UIViewController, UICollectionViewDelegate, UIColl
         return CGSize(width: collectionView.frame.width / 2 - 10, height: 75)
     }
     
-    @IBAction func BackToHome(_ sender: UITapGestureRecognizer) {
-        self.dismiss(animated: true, completion: nil)
-    }
-    
-    @IBAction func saveUsage(_ sender: UIButton) {
-        backNavigation()
-    }
+}
 
-    func backNavigation(){
-        let mainTabViewController = MainTabController(nibName: "MainTabViewController", bundle: nil)
-        
-        mainTabViewController.modalPresentationStyle = .fullScreen
-        mainTabViewController.modalTransitionStyle = .crossDissolve
-        
-        self.present(mainTabViewController, animated: false, completion: nil)
+extension String {
+    static func random(length: Int = 6) -> String {
+        let base = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
+        var randomString: String = ""
+
+        for _ in 0..<length {
+            let randomValue = arc4random_uniform(UInt32(base.count))
+            randomString += "\(base[base.index(base.startIndex, offsetBy: Int(randomValue))])"
+        }
+        return "MM-\(randomString)"
     }
 }

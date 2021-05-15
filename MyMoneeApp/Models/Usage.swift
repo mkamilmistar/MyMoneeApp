@@ -7,14 +7,19 @@
 
 import Foundation
 
-struct Usage {
-    var id: Int
+enum UsageType {
+    case pengeluaran
+    case pemasukan
+}
+
+class Usage {
+    var id: String
     var title: String
     var date: String
-    var price: String
-    var status: Bool = false
+    var price: Decimal
+    var status: UsageType
     
-    init(id: Int, title: String, price: String, date: String, status: Bool) {
+    init(id: String, title: String, price: Decimal, date: String, status: UsageType) {
         self.id = id
         self.title = title
         self.price = price
@@ -23,7 +28,17 @@ struct Usage {
     }
 }
 
-let usages: [Usage] = [
-    Usage(id: 1, title: "Bayar Listrik", price: "-Rp 256.000", date: "1 Mei 2021 - 19.30", status: true),
-    Usage(id: 2, title: "Gaji", price: "+Rp 1.250.000", date: "1 Mei 2021 - 08.00", status: false),
+var usages: [Usage] = [
+    Usage(id: "MM-128371", title: "Bayar Listrik", price: 256000, date: "1 Mei 2021 - 19.30", status: .pengeluaran),
+    Usage(id: "MM-584933", title: "Gaji", price: 1250000, date: "1 Mei 2021 - 08.00", status: .pemasukan),
+]
+
+var usages2: [Usage] = [
+    Usage(id: "MM-128371", title: "Bayar Listrik", price: 125000, date: "1 Mei 2021 - 19.30", status: .pengeluaran),
+    Usage(id: "MM-584933", title: "Gaji", price: 1250000, date: "1 Mei 2021 - 08.00", status: .pemasukan),
+]
+
+var usages3: [Usage] = [
+    Usage(id: "MM-128371", title: "Bayar Listrik", price: 125000, date: "1 Mei 2021 - 19.30", status: .pengeluaran),
+    Usage(id: "MM-584933", title: "Gaji", price: 1250000, date: "1 Mei 2021 - 08.00", status: .pemasukan),
 ]

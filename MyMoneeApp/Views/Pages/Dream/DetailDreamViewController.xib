@@ -23,13 +23,13 @@
             <connections>
                 <outlet property="backButton" destination="qia-TN-x0n" id="e5t-op-cdq"/>
                 <outlet property="confirmButton" destination="XZG-OA-pO8" id="DjH-rb-KDC"/>
-                <outlet property="currentAmount" destination="Jda-VL-4XU" id="ERT-zk-Yvw"/>
                 <outlet property="dreamTitle" destination="ysi-Mk-6GH" id="gOb-Fn-wIT"/>
                 <outlet property="heartLogo" destination="heC-7c-L1i" id="0fQ-ma-964"/>
                 <outlet property="percentProgress" destination="Ffy-pB-rxJ" id="twZ-xH-CV7"/>
                 <outlet property="progressAmount" destination="haG-TQ-kz8" id="OA8-k2-av7"/>
                 <outlet property="progressBackground" destination="ALo-F0-iNo" id="ICQ-5b-1ZE"/>
                 <outlet property="progressBar" destination="1YH-jN-BeF" id="6xs-Hj-VKX"/>
+                <outlet property="targetAmount" destination="Jda-VL-4XU" id="ERT-zk-Yvw"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="T6Y-cy-SOR"/>
             </connections>
         </placeholder>
@@ -153,17 +153,11 @@
                                 <action selector="backButton:" destination="-1" eventType="touchUpInside" id="lRX-Hd-nS9"/>
                             </connections>
                         </button>
-                        <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" alignment="center" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="QXR-6c-0Vh" userLabel="CurrentAmoun">
-                            <rect key="frame" x="140" y="106.5" width="134.5" height="34"/>
+                        <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" alignment="center" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="QXR-6c-0Vh" userLabel="TargetAmoun">
+                            <rect key="frame" x="158.5" y="106.5" width="97.5" height="34"/>
                             <subviews>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rp" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t3p-Xj-kBZ" userLabel="Rp">
-                                    <rect key="frame" x="0.0" y="0.0" width="32" height="34"/>
-                                    <fontDescription key="fontDescription" name="Poppins-SemiBold" family="Poppins" pointSize="24"/>
-                                    <color key="textColor" red="0.31372549020000001" green="0.41176470590000003" blue="0.72156862749999995" alpha="1" colorSpace="calibratedRGB"/>
-                                    <nil key="highlightedColor"/>
-                                </label>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="250.000" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jda-VL-4XU" userLabel="250.000">
-                                    <rect key="frame" x="37" y="0.0" width="97.5" height="34"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="97.5" height="34"/>
                                     <fontDescription key="fontDescription" name="Poppins-SemiBold" family="Poppins" pointSize="24"/>
                                     <color key="textColor" red="0.31372549020000001" green="0.41176470590000003" blue="0.72156862749999995" alpha="1" colorSpace="calibratedRGB"/>
                                     <nil key="highlightedColor"/>

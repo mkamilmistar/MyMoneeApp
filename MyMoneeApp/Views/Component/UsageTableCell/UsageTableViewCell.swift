@@ -7,7 +7,7 @@
 
 import UIKit
 
-class TransactionTableViewCell: UITableViewCell {
+class UsageTableViewCell: UITableViewCell {
 
    
     @IBOutlet weak var mainView: UIView!
@@ -24,7 +24,6 @@ class TransactionTableViewCell: UITableViewCell {
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+        date.textColor = AppColor.mainGrey
     }
 }

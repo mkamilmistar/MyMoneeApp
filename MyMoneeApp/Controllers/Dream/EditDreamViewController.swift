@@ -9,16 +9,12 @@ import UIKit
 
 class EditDreamViewController: UIViewController, UITextFieldDelegate {
 
-    var passIndex: Int? = nil
-    var passTitle: String? = ""
-    var passProgress: Float? = 0.0
-    var passCurrentAmount: Decimal? = 0.0
-    var passTargetAmount: Decimal? = 0.0
+    var passIndex: Int!
+    var userData: User = AuthUser.data
     
     @IBOutlet var updateButton: UIButton!
     @IBOutlet weak var deleteButton: UIButton!
     @IBOutlet var titleField: UITextField!
-    @IBOutlet var currentAmountField: UITextField!
     @IBOutlet var targetAmountField: UITextField!
     
     override func viewDidLoad() {
@@ -29,12 +25,11 @@ class EditDreamViewController: UIViewController, UITextFieldDelegate {
         enabledMainButton(updateButton)
         
         titleField.delegate = self
-        currentAmountField.delegate = self
+        targetAmountField.delegate = self
         
         //Set Value
-        titleField.text = passTitle
-        currentAmountField.text = setDecimalToString(amountValue: passCurrentAmount ?? 0.0)
-        targetAmountField.text = setDecimalToString(amountValue: passTargetAmount ?? 0.0)
+        titleField.text = dreams[passIndex].title
+        targetAmountField.text = setDecimalToString(amountValue: dreams[passIndex].targetAmount)
         
     }
     
@@ -43,7 +38,7 @@ class EditDreamViewController: UIViewController, UITextFieldDelegate {
 
         let txtField = (textField.text! as NSString).replacingCharacters(in: range, with: string)
         
-        if txtField.isEmpty || titleField.text == "" || currentAmountField.text == "" {
+        if txtField.isEmpty || titleField.text == "" || targetAmountField.text == "" {
             disabledMainButton(updateButton)
         } else {
             enabledMainButton(updateButton)
@@ -53,12 +48,12 @@ class EditDreamViewController: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func updateButton(_ sender: UIButton) {
-        updateDream()
+        updateDreamData()
         goToDreamView()
     }
     
     @IBAction func deleteAction(_ sender: UITapGestureRecognizer) {
-            let alert = UIAlertController(title: "Menghapus Impian", message: "Apakah anda yakin menghapus impian \"\(passTitle ?? "")\" ?", preferredStyle: .alert)
+        let alert = UIAlertController(title: "Menghapus Impian", message: "Apakah anda yakin ingin menghapus impian \"\(dreams[passIndex].title)\" ?", preferredStyle: .alert)
             
             let deleteButton = UIAlertAction(title: "Hapus", style: .destructive) { (_) -> Void in
                 self.deleteDream()
@@ -83,14 +78,13 @@ class EditDreamViewController: UIViewController, UITextFieldDelegate {
         
     }
     
-    func updateDream() {
-        passTitle = titleField.text ?? ""
-        passCurrentAmount = setStringToDecimal(
-            amountValue: currentAmountField.text?.replacingOccurrences(of: ".", with: "") ?? "")
-        passTargetAmount = setStringToDecimal(
+    func updateDreamData() {
+        let title = titleField.text ?? ""
+        let targetAmount = setStringToDecimal(
             amountValue: targetAmountField.text?.replacingOccurrences(of: ".", with: "") ?? "")
+        let progress = dreams[passIndex].progress
         
-        dreams[passIndex!] = Dream(id: passIndex!, title: passTitle ?? "", currentAmount: passCurrentAmount ?? 0.0, targetAmount: passTargetAmount!, progress: passProgress!)
+        dreams[passIndex!] = Dream(id: passIndex, title: title, targetAmount: targetAmount, progress: progress)
         
     }
     
@@ -103,5 +97,5 @@ class EditDreamViewController: UIViewController, UITextFieldDelegate {
 
         self.present(impianTabView, animated: false, completion: nil)
     }
-    
+  
 }

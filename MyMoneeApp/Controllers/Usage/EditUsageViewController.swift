@@ -14,7 +14,9 @@ class EditUsageViewController: UIViewController, UICollectionViewDelegate, UICol
     @IBOutlet var titleTxtField: UITextField!
     @IBOutlet var priceTxtField: UITextField!
     @IBOutlet var updateButton: UIButton!
-    private var pemasukanType: Int? = 0
+    private var usageTypeData: Int? 
+    
+    var passIndex: Int!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,6 +35,16 @@ class EditUsageViewController: UIViewController, UICollectionViewDelegate, UICol
         titleTxtField.delegate = self
         priceTxtField.delegate = self
         
+        //Set Value
+        titleTxtField.text = usages[passIndex].title
+        priceTxtField.text = setDecimalToString(amountValue: usages[passIndex].price)
+        
+        if usages[passIndex].status == .pemasukan {
+            usageTypeData = 0
+        } else {
+            usageTypeData = 1
+        }
+        
     }
     
     //button condition
@@ -40,7 +52,7 @@ class EditUsageViewController: UIViewController, UICollectionViewDelegate, UICol
 
         let txtField = (textField.text! as NSString).replacingCharacters(in: range, with: string)
 
-        if txtField.isEmpty || pemasukanType == nil {
+        if txtField.isEmpty || usageTypeData == nil {
             disabledMainButton(updateButton)
         } else {
             enabledMainButton(updateButton)
@@ -53,15 +65,16 @@ class EditUsageViewController: UIViewController, UICollectionViewDelegate, UICol
         self.dismiss(animated: false, completion: nil)
     }
     
-    @IBAction func updateUsage(_ sender: Any) {
+    @IBAction func updateButton(_ sender: Any) {
+        updateUsage()
         goBackToHome()
     }
     
     @IBAction func deleteAction(_ gesture: UITapGestureRecognizer) {
-        let alert = UIAlertController(title: "Menghapus Penggunaan", message: "Apakah anda yakin menghapus penggunaan \"Gaji\" ?", preferredStyle: .alert)
+        let alert = UIAlertController(title: "Menghapus Penggunaan", message: "Apakah anda yakin ingin menghapus penggunaan \"\(usages[passIndex].title)\" ?", preferredStyle: .alert)
         
         let deleteButton = UIAlertAction(title: "Hapus", style: .destructive) { (_) -> Void in
-            self.goBackToHome()
+            self.deleteUsage()
         }
         
         let cancelButton = UIAlertAction(title: "Batal", style: .cancel)
@@ -72,8 +85,30 @@ class EditUsageViewController: UIViewController, UICollectionViewDelegate, UICol
         present(alert, animated: true, completion: nil)
     }
     
+    func updateUsage(){
+        let id = usages[passIndex].id
+        let title = titleTxtField.text ?? ""
+        let price = setStringToDecimal(
+            amountValue: priceTxtField.text?.replacingOccurrences(of: ".", with: "") ?? "")
+        let date = usages[passIndex].date
+        let status: UsageType
+        if usageTypeData == 0 {
+            status = categoryUsage[usageTypeData ?? 0].type
+        } else {
+            status = categoryUsage[usageTypeData ?? 0].type
+        }
+
+        usages[passIndex] = Usage(id: id, title: title, price: price, date: date, status: status)
+        
+    }
+    
+    func deleteUsage(){
+        usages.remove(at: passIndex)
+        goBackToHome()
+    }
+    
     func goBackToHome() {
-        let mainTabViewController = MainTabController(nibName: "MainTabViewController", bundle: nil)
+        let mainTabViewController = MainTabController(nibName: String(describing: MainTabController.self), bundle: nil)
         
         mainTabViewController.modalPresentationStyle = .fullScreen
         mainTabViewController.modalTransitionStyle = .crossDissolve
@@ -86,16 +121,16 @@ class EditUsageViewController: UIViewController, UICollectionViewDelegate, UICol
         
         let cell = collectionView.cellForItem(at: indexPath)
     
-        cell?.layer.borderColor = appColor.mainPurple.cgColor
+        cell?.layer.borderColor = AppColor.mainPurple.cgColor
         cell?.layer.borderWidth = 3.0
         cell?.layer.cornerRadius = 8.0
         
-        pemasukanType = indexPath.row
+        usageTypeData = indexPath.row
         
         if (titleTxtField.text != "") && (priceTxtField.text != "") {
             enabledMainButton(updateButton)
         }
-        print("Ini isi tipe = \(pemasukanType!)")
+        
     }
     
     //when deselect
@@ -108,16 +143,16 @@ class EditUsageViewController: UIViewController, UICollectionViewDelegate, UICol
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return usagesType.count
+        return categoryUsage.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = pemasukanTypeCollection.dequeueReusableCell(withReuseIdentifier: String(describing: UsageTypeCell.self), for: indexPath) as! UsageTypeCell
         
         //Selected in First Show
-        if indexPath.row == pemasukanType {
+        if indexPath.row == usageTypeData {
             pemasukanTypeCollection.selectItem(at: indexPath, animated: true, scrollPosition: .centeredHorizontally)
-            cell.layer.borderColor = appColor.mainPurple.cgColor
+            cell.layer.borderColor = AppColor.mainPurple.cgColor
             cell.layer.borderWidth = 3.0
             cell.layer.cornerRadius = 8.0
         } else {
@@ -128,11 +163,12 @@ class EditUsageViewController: UIViewController, UICollectionViewDelegate, UICol
         //Shadow View
         setShadow(cell)
         
-        cell.title.text = usagesType[indexPath.row].title
+        cell.title.text = categoryUsage[indexPath.row].label
         
-        if usagesType[indexPath.row].type == .pemasukan {
+        if categoryUsage[indexPath.row].type == .pemasukan {
             cell.imageStatus.image = UIImage(named: "Arrow_Up")
-        } else {
+        }
+        else if categoryUsage[indexPath.row].type == .pengeluaran{
             cell.imageStatus.image = UIImage(named: "Arrow_Down")
         }
         

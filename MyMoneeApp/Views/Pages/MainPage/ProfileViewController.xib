@@ -3,6 +3,7 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -20,6 +21,13 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ProfileViewController" customModule="MyMoneeApp" customModuleProvider="target">
             <connections>
+                <outlet property="blueBg" destination="QyX-RL-18I" id="oiE-d9-sHw"/>
+                <outlet property="controlLabel" destination="YEi-bH-ayi" id="Dx9-XP-Hoy"/>
+                <outlet property="editNameIcon" destination="eKo-Pi-FeZ" id="H6d-Im-BUI"/>
+                <outlet property="editPhotoButton" destination="ez5-jb-Nsc" id="hdk-rz-GG2"/>
+                <outlet property="statusUsage" destination="kSo-Ta-tsF" id="xTJ-Ow-DLn"/>
+                <outlet property="userImage" destination="XVY-V9-Bdc" id="kAz-wJ-0wV"/>
+                <outlet property="userNameField" destination="t22-Ck-jdb" id="TMy-gU-bHv"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -44,17 +52,31 @@
                                 </userDefinedRuntimeAttribute>
                             </userDefinedRuntimeAttributes>
                         </imageView>
-                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="veJ-5a-AZG" userLabel="Text">
-                            <rect key="frame" x="144.5" y="220" width="225" height="61.5"/>
+                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="veJ-5a-AZG" userLabel="Text">
+                            <rect key="frame" x="66" y="220" width="382" height="59"/>
                             <subviews>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="M. Kamil" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D0W-8m-aVe">
-                                    <rect key="frame" x="73.5" y="0.0" width="78.5" height="25.5"/>
-                                    <fontDescription key="fontDescription" name="Poppins-SemiBold" family="Poppins" pointSize="18"/>
-                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    <nil key="highlightedColor"/>
-                                </label>
+                                <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="ahY-dD-zbh" userLabel="Stack Name">
+                                    <rect key="frame" x="141" y="0.0" width="100" height="16"/>
+                                    <subviews>
+                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" text="M. Kamil" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="t22-Ck-jdb">
+                                            <rect key="frame" x="0.0" y="0.0" width="79" height="16"/>
+                                            <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                            <fontDescription key="fontDescription" name="Poppins-SemiBold" family="Poppins" pointSize="18"/>
+                                            <textInputTraits key="textInputTraits"/>
+                                        </textField>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="eKo-Pi-FeZ">
+                                            <rect key="frame" x="84" y="0.5" width="16" height="15.5"/>
+                                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="16" id="jZI-hn-ZzA"/>
+                                                <constraint firstAttribute="height" constant="16" id="jcW-z6-cMI"/>
+                                            </constraints>
+                                            <imageReference key="image" image="pencil" catalog="system" symbolScale="large"/>
+                                        </imageView>
+                                    </subviews>
+                                </stackView>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bagus! Pengeluaranmu lebih sedikit dari Pemasukan" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kSo-Ta-tsF">
-                                    <rect key="frame" x="0.0" y="26.5" width="225" height="35"/>
+                                    <rect key="frame" x="78.5" y="24" width="225" height="35"/>
                                     <constraints>
                                         <constraint firstAttribute="width" constant="225" id="CZM-zX-q4P"/>
                                         <constraint firstAttribute="height" constant="35" id="vhZ-nA-bb1"/>
@@ -75,14 +97,22 @@
                                 <outletCollection property="gestureRecognizers" destination="GJX-zK-cvx" appends="YES" id="a8H-Vi-i9s"/>
                             </connections>
                         </label>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ez5-jb-Nsc">
+                            <rect key="frame" x="283.5" y="167" width="24" height="24"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="24" id="IKt-GO-ex7"/>
+                                <constraint firstAttribute="width" constant="24" id="QMB-ZT-JQR"/>
+                            </constraints>
+                            <state key="normal" image="Edit_Profile"/>
+                        </button>
                     </subviews>
                     <color key="backgroundColor" red="0.31372549019607843" green="0.41176470588235292" blue="0.72156862745098038" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
+                        <constraint firstItem="ez5-jb-Nsc" firstAttribute="bottom" secondItem="XVY-V9-Bdc" secondAttribute="bottom" id="7az-oL-Wlf"/>
                         <constraint firstItem="XVY-V9-Bdc" firstAttribute="top" secondItem="QyX-RL-18I" secondAttribute="top" constant="90" id="Aab-Hk-tvL"/>
-                        <constraint firstItem="XVY-V9-Bdc" firstAttribute="centerX" secondItem="QyX-RL-18I" secondAttribute="centerX" id="CFz-aj-qRv"/>
-                        <constraint firstItem="veJ-5a-AZG" firstAttribute="centerX" secondItem="XVY-V9-Bdc" secondAttribute="centerX" id="fh2-Sw-vQI"/>
+                        <constraint firstItem="ez5-jb-Nsc" firstAttribute="trailing" secondItem="XVY-V9-Bdc" secondAttribute="trailing" id="eym-fg-aSu"/>
                         <constraint firstAttribute="height" constant="311" id="n4O-7b-6Vr"/>
-                        <constraint firstItem="veJ-5a-AZG" firstAttribute="top" secondItem="XVY-V9-Bdc" secondAttribute="bottom" constant="29" id="nJW-py-12U"/>
+                        <constraint firstItem="veJ-5a-AZG" firstAttribute="top" secondItem="XVY-V9-Bdc" secondAttribute="bottom" constant="29" id="raQ-Wi-KHB"/>
                     </constraints>
                 </view>
             </subviews>
@@ -91,9 +121,12 @@
             <constraints>
                 <constraint firstItem="QyX-RL-18I" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" constant="50" id="1yC-3z-15g"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="top" secondItem="QyX-RL-18I" secondAttribute="top" constant="60" id="2sg-WA-fGr"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="veJ-5a-AZG" secondAttribute="trailing" constant="16" id="IfC-Li-pzZ"/>
+                <constraint firstItem="veJ-5a-AZG" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="16" id="O2K-EL-Mgy"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="top" secondItem="YEi-bH-ayi" secondAttribute="top" constant="-10" id="Zz1-JJ-AwH"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="leading" secondItem="QyX-RL-18I" secondAttribute="leading" constant="50" id="r3d-c0-WWQ"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="YEi-bH-ayi" secondAttribute="trailing" constant="15" id="rqf-dY-n7m"/>
+                <constraint firstItem="XVY-V9-Bdc" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="yBp-2q-YSL"/>
             </constraints>
             <point key="canvasLocation" x="-146.37681159420291" y="108.48214285714285"/>
         </view>
@@ -104,6 +137,8 @@
         </tapGestureRecognizer>
     </objects>
     <resources>
+        <image name="Edit_Profile" width="24" height="24"/>
         <image name="Emil" width="1144" height="1140"/>
+        <image name="pencil" catalog="system" width="128" height="113"/>
     </resources>
 </document>
