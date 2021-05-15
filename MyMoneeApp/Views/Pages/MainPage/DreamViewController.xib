@@ -15,7 +15,8 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DreamViewController" customModule="MyMoneeApp" customModuleProvider="target">
             <connections>
-                <outlet property="impianTableView" destination="q9c-6U-RCc" id="Abz-Zf-ytE"/>
+                <outlet property="dreamTableView" destination="q9c-6U-RCc" id="Abz-Zf-ytE"/>
+                <outlet property="notFound" destination="UxU-WN-0u0" id="wpI-Wi-RyX"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -59,10 +60,17 @@
                     </subviews>
                 </stackView>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="q9c-6U-RCc">
-                    <rect key="frame" x="16" y="123" width="382" height="669"/>
+                    <rect key="frame" x="16" y="123" width="382" height="713"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     <color key="sectionIndexBackgroundColor" red="0.31372549020000001" green="0.41176470590000003" blue="0.72156862749999995" alpha="1" colorSpace="calibratedRGB"/>
                 </tableView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UxU-WN-0u0" customClass="NotFound" customModule="MyMoneeApp" customModuleProvider="target">
+                    <rect key="frame" x="87" y="384" width="240" height="128"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="128" id="Yes-J8-AR9"/>
+                        <constraint firstAttribute="width" constant="240" id="dQc-kx-Auy"/>
+                    </constraints>
+                </view>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" red="0.94117647058823528" green="0.94901960784313721" blue="0.97254901960784312" alpha="1" colorSpace="calibratedRGB"/>
@@ -71,9 +79,11 @@
                 <constraint firstItem="q9c-6U-RCc" firstAttribute="leading" secondItem="nSw-Qw-fdW" secondAttribute="leading" id="EUz-SR-dze"/>
                 <constraint firstItem="q9c-6U-RCc" firstAttribute="trailing" secondItem="w86-Ko-cWx" secondAttribute="trailing" id="EkK-Wp-O9I"/>
                 <constraint firstItem="wi4-6P-HJk" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="16" id="KBO-Mv-qB2"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="q9c-6U-RCc" secondAttribute="bottom" constant="70" id="dcL-or-IUu"/>
+                <constraint firstItem="UxU-WN-0u0" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="UUw-0d-03w"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="q9c-6U-RCc" secondAttribute="bottom" constant="26" id="dcL-or-IUu"/>
                 <constraint firstItem="q9c-6U-RCc" firstAttribute="top" secondItem="nSw-Qw-fdW" secondAttribute="bottom" constant="33" id="i3O-fc-1zB"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="wi4-6P-HJk" secondAttribute="trailing" constant="16" id="pyw-6Q-65U"/>
+                <constraint firstItem="UxU-WN-0u0" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="qpF-1f-Pd7"/>
             </constraints>
             <point key="canvasLocation" x="139" y="109"/>
         </view>

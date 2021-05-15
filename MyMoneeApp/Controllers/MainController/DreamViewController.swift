@@ -9,18 +9,21 @@ import UIKit
 
 class DreamViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
    
-    @IBOutlet weak var impianTableView: UITableView!
+    @IBOutlet var notFound: NotFound!
+    @IBOutlet weak var dreamTableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.backgroundColor = appColor.mainBG
 
         let nib = UINib(nibName: String(describing: DreamTableViewCell.self), bundle: nil)
         
-        impianTableView.register(nib, forCellReuseIdentifier: String(describing: DreamTableViewCell.self))
-        impianTableView.backgroundColor = appColor.mainBG
-        impianTableView.delegate = self
-        impianTableView.dataSource = self
-
+        notFound.isHidden = true
+        dreamTableView.register(nib, forCellReuseIdentifier: String(describing: DreamTableViewCell.self))
+        dreamTableView.backgroundColor = appColor.mainBG
+        dreamTableView.delegate = self
+        dreamTableView.dataSource = self
+        
     }
     
     @IBAction func addImpian(_ sender: Any) {
@@ -56,7 +59,14 @@ class DreamViewController: UIViewController, UITableViewDelegate, UITableViewDat
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return dreams.count
+        if dreams.count > 0 {
+            return dreams.count
+        } else {
+            self.dreamTableView.isHidden = true
+            self.notFound.isHidden = false
+            return 0
+        }
+        
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -75,6 +85,7 @@ class DreamViewController: UIViewController, UITableViewDelegate, UITableViewDat
         let progress = setProgress(indexPath)
         
         dataCell.progressBar.progress = progress
+        
         
         return dataCell
     }

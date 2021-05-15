@@ -18,7 +18,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        view.backgroundColor = appColor.mainBG
         schedulerGreetingText()
         transactionTableView.delegate = self
         transactionTableView.dataSource = self

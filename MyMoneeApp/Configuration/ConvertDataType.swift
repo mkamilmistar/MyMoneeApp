@@ -28,7 +28,7 @@ func anotherSetDecimalToStringCurrency(amountValue: Decimal) -> String {
 
      if let formatterStr: String = formatter.string(from: NSDecimalNumber(decimal: amountValue))  {
       return formatterStr
-    }else {
+    } else {
       return "0.0"
     }
 }
@@ -41,7 +41,7 @@ func setDecimalToString(amountValue: Decimal) -> String {
 
      if let formatterStr: String = formatter.string(from: NSDecimalNumber(decimal: amountValue))  {
       return formatterStr
-    }else {
+    } else {
       return "0.0"
     }
 }

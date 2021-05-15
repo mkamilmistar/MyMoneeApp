@@ -65,6 +65,8 @@
 		FAD7EC14264BD2A7000E752D /* EditProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD7EC12264BD2A7000E752D /* EditProfileViewController.swift */; };
 		FAD7EC15264BD2A7000E752D /* EditProfileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FAD7EC13264BD2A7000E752D /* EditProfileViewController.xib */; };
 		FADFA9CD264F618100965CD8 /* Customer.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADFA9CC264F618100965CD8 /* Customer.swift */; };
+		FADFA9D1264F657A00965CD8 /* NotFound.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADFA9D0264F657A00965CD8 /* NotFound.swift */; };
+		FADFA9D5264F658900965CD8 /* NotFound.xib in Resources */ = {isa = PBXBuildFile; fileRef = FADFA9D4264F658900965CD8 /* NotFound.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -128,6 +130,8 @@
 		FAD7EC12264BD2A7000E752D /* EditProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileViewController.swift; sourceTree = "<group>"; };
 		FAD7EC13264BD2A7000E752D /* EditProfileViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EditProfileViewController.xib; sourceTree = "<group>"; };
 		FADFA9CC264F618100965CD8 /* Customer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Customer.swift; sourceTree = "<group>"; };
+		FADFA9D0264F657A00965CD8 /* NotFound.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotFound.swift; sourceTree = "<group>"; };
+		FADFA9D4264F658900965CD8 /* NotFound.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NotFound.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -354,6 +358,7 @@
 		FAD7EBF7264BBFC5000E752D /* Component */ = {
 			isa = PBXGroup;
 			children = (
+				FADFA9CF264F654B00965CD8 /* NotFound */,
 				FAD7EBB5264B82CE000E752D /* DreamTableCell */,
 				FA15F422264ADBE3001B15D9 /* TransactionTableCell */,
 				FA9AF016264D0E2D00EC9109 /* UsageTypeCell */,
@@ -389,6 +394,15 @@
 				FAD7EBF5264BBF0B000E752D /* Usage */,
 			);
 			path = Pages;
+			sourceTree = "<group>";
+		};
+		FADFA9CF264F654B00965CD8 /* NotFound */ = {
+			isa = PBXGroup;
+			children = (
+				FADFA9D0264F657A00965CD8 /* NotFound.swift */,
+				FADFA9D4264F658900965CD8 /* NotFound.xib */,
+			);
+			path = NotFound;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -453,6 +467,7 @@
 				FA15F40E264AD024001B15D9 /* Poppins-BlackItalic.ttf in Resources */,
 				FA15F40F264AD024001B15D9 /* Poppins-Bold.ttf in Resources */,
 				FAD7EBC6264B90B5000E752D /* DetailUsageViewController.xib in Resources */,
+				FADFA9D5264F658900965CD8 /* NotFound.xib in Resources */,
 				FAD7EBD8264B9FD7000E752D /* AddUsageViewController.xib in Resources */,
 				FAD7EC0D264BD06A000E752D /* EditDreamViewController.xib in Resources */,
 				FAD7EBBE264B82FE000E752D /* DreamTableViewCell.xib in Resources */,
@@ -494,6 +509,7 @@
 			files = (
 				FA2F878E264EE79400B8BF30 /* Shadow.swift in Sources */,
 				FA15F3CB264AC888001B15D9 /* ProfileViewController.swift in Sources */,
+				FADFA9D1264F657A00965CD8 /* NotFound.swift in Sources */,
 				FA15F3C4264AC86E001B15D9 /* DreamViewController.swift in Sources */,
 				FADFA9CD264F618100965CD8 /* Customer.swift in Sources */,
 				FAD7EBB2264AE29D000E752D /* Usage.swift in Sources */,
