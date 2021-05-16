@@ -16,7 +16,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DreamViewController" customModule="MyMoneeApp" customModuleProvider="target">
             <connections>
                 <outlet property="dreamTableView" destination="q9c-6U-RCc" id="Abz-Zf-ytE"/>
-                <outlet property="notFound" destination="UxU-WN-0u0" id="wpI-Wi-RyX"/>
+                <outlet property="notFound" destination="nfZ-8M-Ylm" id="yln-Fn-lxw"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -52,7 +52,7 @@
                                         </userDefinedRuntimeAttribute>
                                     </userDefinedRuntimeAttributes>
                                     <connections>
-                                        <action selector="addImpian:" destination="-1" eventType="touchUpInside" id="30r-2p-wLE"/>
+                                        <action selector="goAddDream:" destination="-1" eventType="touchUpInside" id="30r-2p-wLE"/>
                                     </connections>
                                 </button>
                             </subviews>
@@ -64,11 +64,11 @@
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     <color key="sectionIndexBackgroundColor" red="0.31372549020000001" green="0.41176470590000003" blue="0.72156862749999995" alpha="1" colorSpace="calibratedRGB"/>
                 </tableView>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UxU-WN-0u0" customClass="NotFound" customModule="MyMoneeApp" customModuleProvider="target">
-                    <rect key="frame" x="87" y="384" width="240" height="128"/>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nfZ-8M-Ylm" customClass="NotFound" customModule="MyMoneeApp" customModuleProvider="target">
+                    <rect key="frame" x="16" y="336.5" width="382" height="233"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="128" id="Yes-J8-AR9"/>
-                        <constraint firstAttribute="width" constant="240" id="dQc-kx-Auy"/>
+                        <constraint firstAttribute="height" constant="233" id="LaM-Lr-VUU"/>
+                        <constraint firstAttribute="width" constant="382" id="kex-82-JO7"/>
                     </constraints>
                 </view>
             </subviews>
@@ -76,16 +76,16 @@
             <color key="backgroundColor" red="0.94117647058823528" green="0.94901960784313721" blue="0.97254901960784312" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
                 <constraint firstItem="wi4-6P-HJk" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="20" id="8YV-Ky-Apf"/>
+                <constraint firstItem="nfZ-8M-Ylm" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="Diz-qo-m5n"/>
                 <constraint firstItem="q9c-6U-RCc" firstAttribute="leading" secondItem="nSw-Qw-fdW" secondAttribute="leading" id="EUz-SR-dze"/>
                 <constraint firstItem="q9c-6U-RCc" firstAttribute="trailing" secondItem="w86-Ko-cWx" secondAttribute="trailing" id="EkK-Wp-O9I"/>
                 <constraint firstItem="wi4-6P-HJk" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="16" id="KBO-Mv-qB2"/>
-                <constraint firstItem="UxU-WN-0u0" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="UUw-0d-03w"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="q9c-6U-RCc" secondAttribute="bottom" constant="26" id="dcL-or-IUu"/>
+                <constraint firstItem="nfZ-8M-Ylm" firstAttribute="centerY" secondItem="fnl-2z-Ty3" secondAttribute="centerY" id="eL7-zd-YwG"/>
                 <constraint firstItem="q9c-6U-RCc" firstAttribute="top" secondItem="nSw-Qw-fdW" secondAttribute="bottom" constant="33" id="i3O-fc-1zB"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="wi4-6P-HJk" secondAttribute="trailing" constant="16" id="pyw-6Q-65U"/>
-                <constraint firstItem="UxU-WN-0u0" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="qpF-1f-Pd7"/>
             </constraints>
-            <point key="canvasLocation" x="139" y="109"/>
+            <point key="canvasLocation" x="137.68115942028987" y="108.48214285714285"/>
         </view>
     </objects>
     <resources>

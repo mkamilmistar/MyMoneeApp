@@ -10,7 +10,7 @@ import UIKit
 class NotFound: UIView {
 
     @IBOutlet var mainContent: UIView!
-    @IBOutlet var notFoundImage: UIImageView!
+    @IBOutlet var addButton: UIButton!
     @IBOutlet var notFoundLabel: UILabel!
     
     //Constructor dengan programatically
@@ -30,5 +30,10 @@ class NotFound: UIView {
         addSubview(mainContent)
         mainContent.frame = self.bounds
         mainContent.autoresizingMask = [.flexibleHeight, .flexibleWidth]
+        
+        
+        enabledMainButton(addButton)
+        
+        notFoundLabel.textColor = UIColor(red: 79.0/255.0, green: 79.0/255.0, blue: 79.0/255.0, alpha: 1.0)
     }
 }

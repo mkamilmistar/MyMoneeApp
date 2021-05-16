@@ -8,12 +8,14 @@
 import UIKit
 
 func enabledMainButton(_ button: UIButton) {
+    button.layer.cornerRadius = 20
     button.isUserInteractionEnabled = true
     button.isEnabled = true
     button.backgroundColor = AppColor.mainPurple
 }
 
 func disabledMainButton(_ button: UIButton) {
+    button.layer.cornerRadius = 20
     button.isUserInteractionEnabled = false
     button.isEnabled = false
     button.backgroundColor = AppColor.disabledButton

@@ -16,11 +16,11 @@ class DreamViewController: UIViewController, UITableViewDelegate, UITableViewDat
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = AppColor.mainBG
-
-        let nib = UINib(nibName: String(describing: DreamTableViewCell.self), bundle: nil)
         
-        notFound.isHidden = true
+        //View Style 
+        setViewStyle()
+        
+        let nib = UINib(nibName: String(describing: DreamTableViewCell.self), bundle: nil)
         
         dreamTableView.register(nib, forCellReuseIdentifier: String(describing: DreamTableViewCell.self))
         dreamTableView.backgroundColor = AppColor.mainBG
@@ -29,7 +29,7 @@ class DreamViewController: UIViewController, UITableViewDelegate, UITableViewDat
         
     }
     
-    @IBAction func addImpian(_ sender: Any) {
+    @IBAction func goAddDream(_ sender: Any) {
         let addImpianView = AddDreamViewController(nibName: String(describing: AddDreamViewController.self), bundle: nil)
         
         addImpianView.modalPresentationStyle = .fullScreen
@@ -62,6 +62,8 @@ class DreamViewController: UIViewController, UITableViewDelegate, UITableViewDat
         } else {
             self.dreamTableView.isHidden = true
             self.notFound.isHidden = false
+            self.notFound.addButton.isHidden = false
+            
             return 0
         }
         
@@ -102,4 +104,13 @@ extension DreamViewController {
         }
         
     }
+    
+    fileprivate func setViewStyle() {
+        view.backgroundColor = AppColor.mainBG
+        notFound.isHidden = true
+        notFound.addButton.isHidden = true
+        notFound.addButton.setTitle("Tambah Penggunaan", for: .normal)
+        notFound.addButton.addTarget(self, action: #selector(self.goAddDream(_:)), for: .touchUpInside)
+    }
+    
 }

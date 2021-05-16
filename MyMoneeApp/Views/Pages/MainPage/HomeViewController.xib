@@ -25,6 +25,7 @@
                 <outlet property="balanceView" destination="GKn-Fj-0uj" id="Qbw-Ss-1hO"/>
                 <outlet property="greetingLabel" destination="Bw9-B0-8J2" id="AZz-hC-GeD"/>
                 <outlet property="notFound" destination="utO-Gf-LpR" id="ybn-za-3d4"/>
+                <outlet property="riwayatPenggunaanLabel" destination="nrB-VJ-pvZ" id="vQi-OX-Lac"/>
                 <outlet property="totalUsageIn" destination="UiB-Yb-nIf" id="8Ma-1x-FNb"/>
                 <outlet property="totalUsageOut" destination="EnM-AR-zLb" id="9sf-UA-Vza"/>
                 <outlet property="usagesTableView" destination="e94-Df-Xyt" id="d1d-Hw-cZ0"/>
@@ -226,21 +227,21 @@
                             <color key="sectionIndexBackgroundColor" red="0.31372549020000001" green="0.41176470590000003" blue="0.72156862749999995" alpha="1" colorSpace="calibratedRGB"/>
                         </tableView>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="utO-Gf-LpR" customClass="NotFound" customModule="MyMoneeApp" customModuleProvider="target">
-                            <rect key="frame" x="87" y="198" width="240" height="128"/>
+                            <rect key="frame" x="46" y="65.5" width="322" height="195"/>
                             <constraints>
-                                <constraint firstAttribute="width" constant="240" id="8cq-Jk-Tk5"/>
-                                <constraint firstAttribute="height" constant="128" id="LHU-ej-Z7d"/>
+                                <constraint firstAttribute="height" constant="195" id="MJL-MS-N9m"/>
                             </constraints>
                         </view>
                     </subviews>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     <constraints>
+                        <constraint firstItem="utO-Gf-LpR" firstAttribute="top" secondItem="nrB-VJ-pvZ" secondAttribute="bottom" constant="20" id="2tg-qC-VvF"/>
                         <constraint firstItem="e94-Df-Xyt" firstAttribute="leading" secondItem="xAi-lM-naH" secondAttribute="leading" constant="16" id="3uN-Om-bL4"/>
                         <constraint firstItem="nrB-VJ-pvZ" firstAttribute="top" secondItem="xAi-lM-naH" secondAttribute="top" constant="23" id="9LX-Rp-Oe0"/>
-                        <constraint firstItem="utO-Gf-LpR" firstAttribute="centerY" secondItem="xAi-lM-naH" secondAttribute="centerY" id="JRS-Nc-D7H"/>
-                        <constraint firstItem="utO-Gf-LpR" firstAttribute="centerX" secondItem="xAi-lM-naH" secondAttribute="centerX" id="R6E-Y6-ndu"/>
+                        <constraint firstItem="utO-Gf-LpR" firstAttribute="leading" secondItem="xAi-lM-naH" secondAttribute="leading" constant="46" id="FfT-MX-FDh"/>
                         <constraint firstItem="e94-Df-Xyt" firstAttribute="top" secondItem="nrB-VJ-pvZ" secondAttribute="bottom" constant="12" id="RUM-ug-Z7O"/>
                         <constraint firstItem="nrB-VJ-pvZ" firstAttribute="leading" secondItem="xAi-lM-naH" secondAttribute="leading" constant="17" id="aPB-cA-ZcI"/>
+                        <constraint firstAttribute="trailing" secondItem="utO-Gf-LpR" secondAttribute="trailing" constant="46" id="ri8-wE-62y"/>
                         <constraint firstAttribute="bottom" secondItem="e94-Df-Xyt" secondAttribute="bottom" id="uLT-LZ-OTZ"/>
                         <constraint firstAttribute="trailing" secondItem="e94-Df-Xyt" secondAttribute="trailing" constant="16" id="yCH-42-stT"/>
                     </constraints>

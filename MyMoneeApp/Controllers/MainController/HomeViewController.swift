@@ -17,15 +17,15 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     @IBOutlet var balanceLabel: UILabel!
     @IBOutlet var totalUsageIn: UILabel!
     @IBOutlet var totalUsageOut: UILabel!
-
+    @IBOutlet var riwayatPenggunaanLabel: UILabel!
+    
     var userData: User = AuthUser.data
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        view.backgroundColor = AppColor.mainBG
-        balanceView.backgroundColor = AppColor.mainPurple
-        notFound.isHidden = true
+        //Set View Style
+        setViewStyle()
         
         userName.text = userData.name
         let balance =  setDecimalToString(amountValue: userData.balance)
@@ -60,19 +60,6 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         usagesTableView.register(uiNib, forCellReuseIdentifier: String(describing: UsageTableViewCell.self))
     }
     
-    //Scheduler the Greeting Text
-    func schedulerGreetingText(){
-        let time = Date().hour
-        
-        switch time {
-        case 1..<12: self.greetingLabel.text = "Selamat Pagi,"
-        case 12..<15: self.greetingLabel.text = "Selamat Siang,"
-        case 15..<18: self.greetingLabel.text = "Selamat Sore,"
-        case 18..<24: self.greetingLabel.text = "Selamat Malam,"
-        default:self.greetingLabel.text = "Selamat Dini Hari,"
-        }
-    }
-    
     @IBAction func goAddUsageView(_ sender: UIButton) {
         let addUsageVC = AddUsageViewController(nibName: String(describing: AddUsageViewController.self), bundle: nil)
         
@@ -104,6 +91,9 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         } else {
             self.usagesTableView.isHidden = true
             self.notFound.isHidden = false
+            self.notFound.addButton.isHidden = false
+            self.riwayatPenggunaanLabel.isHidden = true
+            
             return 0
         }
     }
@@ -133,6 +123,31 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         }
         
         return trans
+    }
+    
+}
+
+extension HomeViewController {
+    fileprivate func setViewStyle() {
+        view.backgroundColor = AppColor.mainBG
+        balanceView.backgroundColor = AppColor.mainPurple
+        notFound.isHidden = true
+        notFound.addButton.isHidden = true
+        notFound.addButton.setTitle("Tambah Penggunaan", for: .normal)
+        notFound.addButton.addTarget(self, action: #selector(self.goAddUsageView(_:)), for: .touchUpInside)
+    }
+    
+    //Scheduler the Greeting Text
+    fileprivate func schedulerGreetingText(){
+        let time = Date().hour
+        
+        switch time {
+        case 1..<12: self.greetingLabel.text = "Selamat Pagi,"
+        case 12..<15: self.greetingLabel.text = "Selamat Siang,"
+        case 15..<18: self.greetingLabel.text = "Selamat Sore,"
+        case 18..<24: self.greetingLabel.text = "Selamat Malam,"
+        default:self.greetingLabel.text = "Selamat Dini Hari,"
+        }
     }
     
 }

@@ -7,15 +7,18 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
-        <array key="Poppins-Regular.ttf">
-            <string>Poppins-Regular</string>
+        <array key="Poppins-Medium.ttf">
+            <string>Poppins-Medium</string>
+        </array>
+        <array key="Poppins-SemiBold.ttf">
+            <string>Poppins-SemiBold</string>
         </array>
     </customFonts>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="NotFound" customModule="MyMoneeApp" customModuleProvider="target">
             <connections>
-                <outlet property="mainContent" destination="iN0-l3-epB" id="9sx-qx-8Do"/>
-                <outlet property="notFoundImage" destination="jen-ax-ppu" id="Pm8-qd-goF"/>
+                <outlet property="addButton" destination="Wko-44-vKm" id="Ox8-ZJ-yUL"/>
+                <outlet property="mainContent" destination="iN0-l3-epB" id="TqB-Ae-7XT"/>
                 <outlet property="notFoundLabel" destination="Wxm-V4-t6e" id="Rlu-5O-Ndd"/>
             </connections>
         </placeholder>
@@ -24,38 +27,48 @@
             <rect key="frame" x="0.0" y="0.0" width="280" height="246"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="NotFound" translatesAutoresizingMaskIntoConstraints="NO" id="jen-ax-ppu">
-                    <rect key="frame" x="91" y="60" width="98" height="98"/>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="v83-Sg-KOQ">
+                    <rect key="frame" x="0.0" y="44" width="280" height="202"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" pointerInteraction="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Wko-44-vKm">
+                            <rect key="frame" x="24" y="125.5" width="231" height="43"/>
+                            <color key="backgroundColor" red="0.31372549020000001" green="0.41176470590000003" blue="0.72156862749999995" alpha="1" colorSpace="calibratedRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="43" id="COl-31-a9u"/>
+                                <constraint firstAttribute="width" constant="231" id="rFT-XY-lFE"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" name="Poppins-SemiBold" family="Poppins" pointSize="14"/>
+                            <state key="normal" title="Button">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </state>
+                        </button>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wxm-V4-t6e">
+                            <rect key="frame" x="-1" y="51" width="280.5" height="50.5"/>
+                            <string key="text">Data kamu kosong,
+Yuk mulai buat Catatan kamu!</string>
+                            <fontDescription key="fontDescription" name="Poppins-Medium" family="Poppins" pointSize="18"/>
+                            <color key="textColor" red="0.30980392156862746" green="0.30980392156862746" blue="0.30980392156862746" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
                     <constraints>
-                        <constraint firstAttribute="height" constant="98" id="KFS-jQ-5Vn"/>
-                        <constraint firstAttribute="width" constant="98" id="KS7-2K-oVB"/>
-                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="98" id="NV0-Ax-yOw"/>
-                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="98" id="XVC-TL-x4d"/>
+                        <constraint firstItem="Wxm-V4-t6e" firstAttribute="leading" secondItem="v83-Sg-KOQ" secondAttribute="leading" constant="-1" id="Ko6-KN-K3G"/>
+                        <constraint firstItem="Wxm-V4-t6e" firstAttribute="top" secondItem="v83-Sg-KOQ" secondAttribute="top" constant="51" id="Mxe-ZZ-PWr"/>
+                        <constraint firstItem="Wko-44-vKm" firstAttribute="centerX" secondItem="Wxm-V4-t6e" secondAttribute="centerX" id="grr-yP-d2B"/>
+                        <constraint firstAttribute="trailing" secondItem="Wxm-V4-t6e" secondAttribute="trailing" constant="0.5" id="mCV-EI-FcQ"/>
+                        <constraint firstItem="Wko-44-vKm" firstAttribute="top" secondItem="Wxm-V4-t6e" secondAttribute="bottom" constant="24" id="wPu-dL-RHw"/>
                     </constraints>
-                </imageView>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Wah! Data tidak ditemukan" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wxm-V4-t6e">
-                    <rect key="frame" x="72.5" y="168" width="135" height="40"/>
-                    <constraints>
-                        <constraint firstAttribute="width" constant="135" id="DJU-iP-Rm8"/>
-                        <constraint firstAttribute="height" constant="40" id="rB3-EA-THi"/>
-                    </constraints>
-                    <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="14"/>
-                    <color key="textColor" red="0.50980392159999999" green="0.50980392159999999" blue="0.50980392159999999" alpha="1" colorSpace="calibratedRGB"/>
-                    <nil key="highlightedColor"/>
-                </label>
+                </view>
             </subviews>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <constraints>
-                <constraint firstItem="jen-ax-ppu" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="0sS-qV-wLg"/>
-                <constraint firstItem="Wxm-V4-t6e" firstAttribute="top" secondItem="jen-ax-ppu" secondAttribute="bottom" constant="10" id="0td-9J-aHR"/>
-                <constraint firstItem="jen-ax-ppu" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="16" id="mbb-3g-HxZ"/>
-                <constraint firstItem="Wxm-V4-t6e" firstAttribute="centerX" secondItem="jen-ax-ppu" secondAttribute="centerX" id="o9g-ej-oMi"/>
+                <constraint firstItem="v83-Sg-KOQ" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="895-hJ-2I3"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="v83-Sg-KOQ" secondAttribute="trailing" id="CPY-0Q-7FH"/>
+                <constraint firstItem="v83-Sg-KOQ" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="Y8f-Ic-NW8"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="v83-Sg-KOQ" secondAttribute="bottom" id="sVo-ka-QTW"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <point key="canvasLocation" x="8.6956521739130448" y="-133.25892857142856"/>
         </view>
     </objects>
-    <resources>
-        <image name="NotFound" width="98" height="98"/>
-    </resources>
 </document>
