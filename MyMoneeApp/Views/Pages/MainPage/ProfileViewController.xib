@@ -3,7 +3,6 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
-        <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -23,11 +22,12 @@
             <connections>
                 <outlet property="blueBg" destination="QyX-RL-18I" id="oiE-d9-sHw"/>
                 <outlet property="controlLabel" destination="YEi-bH-ayi" id="Dx9-XP-Hoy"/>
-                <outlet property="editNameIcon" destination="eKo-Pi-FeZ" id="H6d-Im-BUI"/>
+                <outlet property="editNameTap" destination="Wbe-v2-lGY" id="Bu1-j2-jbV"/>
                 <outlet property="editPhotoButton" destination="ez5-jb-Nsc" id="hdk-rz-GG2"/>
+                <outlet property="nameLabel" destination="LUd-Kj-aTh" id="Qxn-Xg-DWM"/>
                 <outlet property="statusUsage" destination="kSo-Ta-tsF" id="xTJ-Ow-DLn"/>
+                <outlet property="tapButtonPhotoAction" destination="OPg-iV-DzL" id="NzP-JX-OIx"/>
                 <outlet property="userImage" destination="XVY-V9-Bdc" id="kAz-wJ-0wV"/>
-                <outlet property="userNameField" destination="t22-Ck-jdb" id="TMy-gU-bHv"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -51,32 +51,37 @@
                                     <real key="value" value="50.5"/>
                                 </userDefinedRuntimeAttribute>
                             </userDefinedRuntimeAttributes>
+                            <connections>
+                                <outletCollection property="gestureRecognizers" destination="OPg-iV-DzL" appends="YES" id="3ey-Vo-2RZ"/>
+                            </connections>
                         </imageView>
                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="veJ-5a-AZG" userLabel="Text">
-                            <rect key="frame" x="66" y="220" width="382" height="59"/>
+                            <rect key="frame" x="66" y="220" width="382" height="68.5"/>
                             <subviews>
                                 <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="ahY-dD-zbh" userLabel="Stack Name">
-                                    <rect key="frame" x="141" y="0.0" width="100" height="16"/>
+                                    <rect key="frame" x="136.5" y="0.0" width="109.5" height="25.5"/>
                                     <subviews>
-                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" text="M. Kamil" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="t22-Ck-jdb">
-                                            <rect key="frame" x="0.0" y="0.0" width="79" height="16"/>
-                                            <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="My Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LUd-Kj-aTh">
+                                            <rect key="frame" x="0.0" y="0.0" width="87" height="25.5"/>
                                             <fontDescription key="fontDescription" name="Poppins-SemiBold" family="Poppins" pointSize="18"/>
-                                            <textInputTraits key="textInputTraits"/>
-                                        </textField>
-                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="eKo-Pi-FeZ">
-                                            <rect key="frame" x="84" y="0.5" width="16" height="15.5"/>
+                                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wbe-v2-lGY">
+                                            <rect key="frame" x="92" y="0.0" width="17.5" height="25.5"/>
+                                            <gestureRecognizers/>
                                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                            <constraints>
-                                                <constraint firstAttribute="width" constant="16" id="jZI-hn-ZzA"/>
-                                                <constraint firstAttribute="height" constant="16" id="jcW-z6-cMI"/>
-                                            </constraints>
-                                            <imageReference key="image" image="pencil" catalog="system" symbolScale="large"/>
-                                        </imageView>
+                                            <state key="normal" image="pencil" catalog="system">
+                                                <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </state>
+                                            <connections>
+                                                <outletCollection property="gestureRecognizers" destination="eU4-1z-8GP" appends="YES" id="Gfn-oH-zB8"/>
+                                            </connections>
+                                        </button>
                                     </subviews>
                                 </stackView>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bagus! Pengeluaranmu lebih sedikit dari Pemasukan" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kSo-Ta-tsF">
-                                    <rect key="frame" x="78.5" y="24" width="225" height="35"/>
+                                    <rect key="frame" x="78.5" y="33.5" width="225" height="35"/>
                                     <constraints>
                                         <constraint firstAttribute="width" constant="225" id="CZM-zX-q4P"/>
                                         <constraint firstAttribute="height" constant="35" id="vhZ-nA-bb1"/>
@@ -99,11 +104,15 @@
                         </label>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ez5-jb-Nsc">
                             <rect key="frame" x="283.5" y="167" width="24" height="24"/>
+                            <gestureRecognizers/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="24" id="IKt-GO-ex7"/>
                                 <constraint firstAttribute="width" constant="24" id="QMB-ZT-JQR"/>
                             </constraints>
                             <state key="normal" image="Edit_Profile"/>
+                            <connections>
+                                <outletCollection property="gestureRecognizers" destination="OYU-Dg-QoL" appends="YES" id="5zK-ec-Zyq"/>
+                            </connections>
                         </button>
                     </subviews>
                     <color key="backgroundColor" red="0.31372549019607843" green="0.41176470588235292" blue="0.72156862745098038" alpha="1" colorSpace="calibratedRGB"/>
@@ -130,9 +139,24 @@
             </constraints>
             <point key="canvasLocation" x="-146.37681159420291" y="108.48214285714285"/>
         </view>
-        <tapGestureRecognizer id="GJX-zK-cvx">
+        <tapGestureRecognizer id="GJX-zK-cvx" userLabel="Tap Label Control">
             <connections>
                 <action selector="goEditProfile:" destination="-1" id="WDc-NY-WPQ"/>
+            </connections>
+        </tapGestureRecognizer>
+        <tapGestureRecognizer id="OPg-iV-DzL" userLabel="Photo Tap">
+            <connections>
+                <action selector="tapPhotoAction:" destination="-1" id="YNR-4b-8t3"/>
+            </connections>
+        </tapGestureRecognizer>
+        <tapGestureRecognizer id="eU4-1z-8GP" userLabel="Tap Edit Name">
+            <connections>
+                <action selector="editNameActionTap:" destination="-1" id="AXr-d8-00p"/>
+            </connections>
+        </tapGestureRecognizer>
+        <tapGestureRecognizer id="OYU-Dg-QoL" userLabel="Tap Icon Photo Edit">
+            <connections>
+                <action selector="tapPhotoAction:" destination="-1" id="0n2-6q-Cuo"/>
             </connections>
         </tapGestureRecognizer>
     </objects>

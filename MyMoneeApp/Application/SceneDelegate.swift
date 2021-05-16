@@ -17,11 +17,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let _ = (scene as? UIWindowScene) else { return }
         
         guard let windowScene = (scene as? UIWindowScene) else { return }
-//        let tempViewController = EditProfileViewController(nibName: "EditProfileViewController", bundle: nil)
         window = UIWindow(frame: windowScene.coordinateSpace.bounds)
         window?.windowScene = windowScene
         window?.rootViewController = MainTabController(nibName: String(describing: MainTabController.self), bundle: nil)
-//        window?.rootViewController = tempViewController
         window?.makeKeyAndVisible()
     }
 

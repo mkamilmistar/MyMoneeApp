@@ -49,22 +49,22 @@ class EditDreamViewController: UIViewController, UITextFieldDelegate {
     
     @IBAction func updateButton(_ sender: UIButton) {
         updateDreamData()
-        goToDreamView()
+        self.present(goToMainTabByIndex(1), animated: false, completion: nil)
     }
     
     @IBAction func deleteAction(_ sender: UITapGestureRecognizer) {
         let alert = UIAlertController(title: "Menghapus Impian", message: "Apakah anda yakin ingin menghapus impian \"\(dreams[passIndex].title)\" ?", preferredStyle: .alert)
-            
-            let deleteButton = UIAlertAction(title: "Hapus", style: .destructive) { (_) -> Void in
-                self.deleteDream()
-            }
-            
-            let cancelButton = UIAlertAction(title: "Batal", style: .cancel)
-            
-            alert.addAction(cancelButton)
-            alert.addAction(deleteButton)
-            
-            present(alert, animated: true, completion: nil)
+        
+        let deleteButton = UIAlertAction(title: "Hapus", style: .destructive) { (_) -> Void in
+            self.deleteDream()
+        }
+        
+        let cancelButton = UIAlertAction(title: "Batal", style: .cancel)
+        
+        alert.addAction(cancelButton)
+        alert.addAction(deleteButton)
+        
+        present(alert, animated: true, completion: nil)
     }
     
     
@@ -74,7 +74,7 @@ class EditDreamViewController: UIViewController, UITextFieldDelegate {
     
     func deleteDream() {
         dreams.remove(at: passIndex!)
-        goToDreamView()
+        self.present(goToMainTabByIndex(1), animated: false, completion: nil)
         
     }
     
@@ -87,14 +87,5 @@ class EditDreamViewController: UIViewController, UITextFieldDelegate {
         
     }
     
-    func goToDreamView() {
-        let impianTabView = MainTabController(nibName: String(describing: MainTabController.self), bundle: nil)
-        
-        impianTabView.modalPresentationStyle = .fullScreen
-        impianTabView.modalTransitionStyle = .crossDissolve
-        impianTabView.selectedIndex = 1
-
-        self.present(impianTabView, animated: false, completion: nil)
-    }
-  
+    
 }

@@ -48,10 +48,6 @@ class AddDreamViewController: UIViewController, UITextFieldDelegate {
         
         dreams.append(Dream(id: id, title: title, targetAmount: targetAmount))
         
-        let dreamVC = MainTabController(nibName: String(describing: MainTabController.self), bundle: nil)
-        dreamVC.modalPresentationStyle = .fullScreen
-        dreamVC.selectedIndex = 1
-        
-        self.present(dreamVC, animated: false, completion: nil)
+        self.present(goToMainTabByIndex(1), animated: false, completion: nil)
     }
 }

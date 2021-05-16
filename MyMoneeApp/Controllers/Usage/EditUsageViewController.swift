@@ -67,7 +67,7 @@ class EditUsageViewController: UIViewController, UICollectionViewDelegate, UICol
     
     @IBAction func updateButton(_ sender: Any) {
         updateUsage()
-        goBackToHome()
+        self.present(goToMainTabByIndex(0), animated: false, completion: nil)
     }
     
     @IBAction func deleteAction(_ gesture: UITapGestureRecognizer) {
@@ -104,16 +104,7 @@ class EditUsageViewController: UIViewController, UICollectionViewDelegate, UICol
     
     func deleteUsage(){
         usages.remove(at: passIndex)
-        goBackToHome()
-    }
-    
-    func goBackToHome() {
-        let mainTabViewController = MainTabController(nibName: String(describing: MainTabController.self), bundle: nil)
-        
-        mainTabViewController.modalPresentationStyle = .fullScreen
-        mainTabViewController.modalTransitionStyle = .crossDissolve
-        
-        self.present(mainTabViewController, animated: false, completion: nil)
+        self.present(goToMainTabByIndex(0), animated: false, completion: nil)
     }
     
     //when select

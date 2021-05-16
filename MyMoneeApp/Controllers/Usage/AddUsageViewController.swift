@@ -66,25 +66,17 @@ class AddUsageViewController: UIViewController, UICollectionViewDelegate, UIColl
         
         debitBalance(status, price)
         
-        backNavigation()
+        self.present(goToMainTabByIndex(0), animated: false, completion: nil)
+        
     }
 
-    fileprivate func debitBalance(_ status: UsageType, _ price: Decimal) {
+    func debitBalance(_ status: UsageType, _ price: Decimal) {
         //Akumulasi
         if status == .pengeluaran {
             dataUser.balance = dataUser.balance - price
         } else {
             dataUser.balance = dataUser.balance + price
         }
-    }
-    
-    func backNavigation(){
-        let mainTabViewController = MainTabController(nibName: String(describing: MainTabController.self), bundle: nil)
-        
-        mainTabViewController.modalPresentationStyle = .fullScreen
-        mainTabViewController.modalTransitionStyle = .crossDissolve
-        
-        self.present(mainTabViewController, animated: false, completion: nil)
     }
     
     //when select
@@ -99,8 +91,6 @@ class AddUsageViewController: UIViewController, UICollectionViewDelegate, UIColl
         if (titleTxtField.text != "") && (amountTxtField.text != "") {
             enabledMainButton(saveButton)
         }
-        
-//        print(usageTypeData!)
         
     }
     

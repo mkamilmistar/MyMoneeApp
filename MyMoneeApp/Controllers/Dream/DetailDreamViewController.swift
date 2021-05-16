@@ -73,13 +73,7 @@ class DetailDreamViewController: UIViewController {
     @IBAction func confirmButton(_ sender: Any) {
         dreams.remove(at: passIndex ?? 0)
         
-        let mainTabVC = MainTabController(nibName: String(describing: MainTabController.self), bundle: nil)
-        
-        mainTabVC.modalPresentationStyle = .fullScreen
-        mainTabVC.modalTransitionStyle = .crossDissolve
-        mainTabVC.selectedIndex = 1
-        
-        self.present(mainTabVC, animated: false, completion: nil)
+        self.present(goToMainTabByIndex(1), animated: false, completion: nil)
     }
     
     @IBAction func backButton(_ sender: Any) {

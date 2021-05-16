@@ -7,6 +7,8 @@
 
 import Foundation
 
+//============================================ DECIMAL CONVERT
+
 func setDecimalToStringCurrency(amountValue: Decimal) -> String {
     let formatter = NumberFormatter()
     formatter.currencyCode = "IDR"
@@ -59,3 +61,26 @@ func setDecimalToDouble(value: Decimal) -> Double {
    
     return formatterDouble
 }
+
+//============================================ END OF DECIMAL CONVERT
+
+
+
+//============================================ DATE CONVERT
+func getDateByString(date:String)->Date{
+    let formatter = DateFormatter()
+    formatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+    formatter.timeZone = TimeZone(abbreviation: "WIT")
+    formatter.locale = NSLocale(localeIdentifier: "id") as Locale
+    return formatter.date(from: date)!
+}
+
+func setDateToString(_ date: Date) -> String {
+    let outputFormat = DateFormatter()
+    outputFormat.locale = NSLocale(localeIdentifier:"id") as Locale
+    outputFormat.timeZone = TimeZone(abbreviation: "WIT")
+    outputFormat.dateFormat = "dd MMMM yyyy' - 'HH:mm"
+    return outputFormat.string(from: date as Date)
+    
+}
+//============================================ END OF DATE CONVERT
