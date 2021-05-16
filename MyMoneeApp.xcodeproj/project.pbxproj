@@ -164,8 +164,8 @@
 		FA15F382264AA7F9001B15D9 /* MyMoneeApp */ = {
 			isa = PBXGroup;
 			children = (
-				FA2F8782264E987500B8BF30 /* Configuration */,
 				FA15F3A8264AC6FA001B15D9 /* Application */,
+				FA2F8782264E987500B8BF30 /* Configuration */,
 				FA15F3A7264AC6E9001B15D9 /* Controllers */,
 				FA15F3AB264AC725001B15D9 /* Models */,
 				FA15F3A9264AC712001B15D9 /* Resources */,

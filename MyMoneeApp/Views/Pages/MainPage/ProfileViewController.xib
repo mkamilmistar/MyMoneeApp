@@ -39,7 +39,7 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QyX-RL-18I" userLabel="Blue BG">
                     <rect key="frame" x="-50" y="-16" width="514" height="311"/>
                     <subviews>
-                        <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Emil" translatesAutoresizingMaskIntoConstraints="NO" id="XVY-V9-Bdc" userLabel="Photo">
+                        <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Profile_Photo" translatesAutoresizingMaskIntoConstraints="NO" id="XVY-V9-Bdc" userLabel="Photo">
                             <rect key="frame" x="206.5" y="90" width="101" height="101"/>
                             <gestureRecognizers/>
                             <constraints>
@@ -162,7 +162,7 @@
     </objects>
     <resources>
         <image name="Edit_Profile" width="24" height="24"/>
-        <image name="Emil" width="1144" height="1140"/>
+        <image name="Profile_Photo" width="1144" height="1140"/>
         <image name="pencil" catalog="system" width="128" height="113"/>
     </resources>
 </document>

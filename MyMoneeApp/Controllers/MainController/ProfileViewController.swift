@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Photos
 
 class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
@@ -62,10 +63,11 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
             
         alert.addTextField()
         alert.textFields![0].placeholder = "Masukkan nama"
+        alert.textFields![0].text = nameLabel.text
 
         let cancelButton = UIAlertAction(title: "Batal", style: .cancel)
         let updateButton = UIAlertAction(title: "Update", style: .default, handler: {_ in (
-            self.updateProfileData(alert.textFields![0].text ?? "")
+            self.updateProfileData(alert.textFields![0].text ?? self.dataUser.name)
         )})
         
         alert.addAction(cancelButton)
@@ -75,8 +77,13 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
     }
     
     func updateProfileData(_ editedData: String) {
-        dataUser.name = editedData
-        nameLabel.text = editedData
+        if editedData.isEmpty || editedData == "" {
+            dataUser.name = dataUser.name
+        } else {
+            dataUser.name = editedData
+            nameLabel.text = editedData
+        }
+       
     }
     
     func editMode() {
@@ -98,11 +105,24 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-           picker.dismiss(animated: true, completion: nil)
-           if let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
-               userImage.image = image
-           }
+        
+        if let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
+            userImage.image = image
+//            print(image)
+        }
+        
+//        let photo = info[.phAsset] as? PHAsset
+//        let filename = photo?.value(forKey: "filename") as? String ?? ""
+//          print(filename)
 
-       }
+        
+        if let url = info[UIImagePickerController.InfoKey.imageURL] as? URL {
+            let fileName = url.lastPathComponent
+            let fileType = url.pathExtension
+            print("fileName = \(fileName)\nfileType = \(fileType)\n")
+        }
+        
+        picker.dismiss(animated: true, completion: nil)
+    }
     
 }
