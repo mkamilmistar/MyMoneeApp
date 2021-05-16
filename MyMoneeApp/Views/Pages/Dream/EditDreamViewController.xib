@@ -34,7 +34,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="U7a-kz-ec8" userLabel="HeaderComponent">
-                    <rect key="frame" x="16" y="54" width="382" height="25"/>
+                    <rect key="frame" x="16" y="64" width="382" height="25"/>
                     <subviews>
                         <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" spacing="14" translatesAutoresizingMaskIntoConstraints="NO" id="EXl-hA-edH">
                             <rect key="frame" x="5" y="3" width="115.5" height="19"/>
@@ -65,7 +65,7 @@
                     </constraints>
                 </view>
                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="9" translatesAutoresizingMaskIntoConstraints="NO" id="ORf-2v-HaO" userLabel="Form">
-                    <rect key="frame" x="16" y="107" width="382" height="110"/>
+                    <rect key="frame" x="16" y="117" width="382" height="110"/>
                     <subviews>
                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="-5" translatesAutoresizingMaskIntoConstraints="NO" id="bEc-YU-qXc" userLabel="Judul">
                             <rect key="frame" x="0.0" y="0.0" width="382" height="50.5"/>
@@ -155,7 +155,7 @@
                 <constraint firstItem="0oH-pG-U1q" firstAttribute="leading" secondItem="Fai-V9-uaz" secondAttribute="leading" id="Gx5-sA-LnH"/>
                 <constraint firstItem="HKP-mE-dyw" firstAttribute="trailing" secondItem="ORf-2v-HaO" secondAttribute="trailing" constant="16" id="JjQ-XS-kXJ"/>
                 <constraint firstItem="ORf-2v-HaO" firstAttribute="leading" secondItem="HKP-mE-dyw" secondAttribute="leading" constant="16" id="M3K-sX-5pl"/>
-                <constraint firstItem="U7a-kz-ec8" firstAttribute="top" secondItem="HKP-mE-dyw" secondAttribute="top" constant="10" id="N2N-az-sUU"/>
+                <constraint firstItem="U7a-kz-ec8" firstAttribute="top" secondItem="HKP-mE-dyw" secondAttribute="top" constant="20" id="N2N-az-sUU"/>
                 <constraint firstItem="Fai-V9-uaz" firstAttribute="leading" secondItem="HKP-mE-dyw" secondAttribute="leading" constant="17" id="T2u-7f-tNd"/>
                 <constraint firstItem="0oH-pG-U1q" firstAttribute="trailing" secondItem="Fai-V9-uaz" secondAttribute="trailing" id="lCT-6y-OOn"/>
                 <constraint firstItem="0oH-pG-U1q" firstAttribute="top" secondItem="Fai-V9-uaz" secondAttribute="bottom" constant="16" id="ncY-p8-ppg"/>

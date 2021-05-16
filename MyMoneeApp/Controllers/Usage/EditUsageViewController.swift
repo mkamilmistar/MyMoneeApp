@@ -94,17 +94,14 @@ class EditUsageViewController: UIViewController, UICollectionViewDelegate, UICol
         let amount = setStringToDecimal(
             amountValue: priceTxtField.text?.replacingOccurrences(of: ".", with: "") ?? "")
         let date = usages[passIndex].date
-        let status: UsageType
+        let status = usages[passIndex].status
         
-        if usageTypeData == 0 {
-            status = .moneyIn
+        if status == .moneyIn {
             passBalance = userData.balance - usages[passIndex].amount
             userData.balance = passBalance + amount
         } else {
-            status = .moneyOut
             passBalance = userData.balance + usages[passIndex].amount
             userData.balance = passBalance - amount
-
         }
 
         usages[passIndex] = Usage(id: id, title: title, price: amount, date: date, status: status, UserId: userData.id)
@@ -112,7 +109,17 @@ class EditUsageViewController: UIViewController, UICollectionViewDelegate, UICol
     }
     
     func deleteUsage(){
+        //Balance Conditional
+        if usages[passIndex].status == .moneyIn {
+            userData.balance -= usages[passIndex].amount
+        } else {
+            userData.balance += usages[passIndex].amount
+        }
+        
+        //Delete
         usages.remove(at: passIndex)
+        
+        //Navigate
         self.present(goToMainTabByIndex(0), animated: false, completion: nil)
     }
     

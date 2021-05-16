@@ -37,7 +37,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QyX-RL-18I" userLabel="Blue BG">
-                    <rect key="frame" x="-50" y="-16" width="514" height="311"/>
+                    <rect key="frame" x="-50" y="-16" width="514" height="347"/>
                     <subviews>
                         <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Profile_Photo" translatesAutoresizingMaskIntoConstraints="NO" id="XVY-V9-Bdc" userLabel="Photo">
                             <rect key="frame" x="206.5" y="90" width="101" height="101"/>
@@ -53,7 +53,7 @@
                             </userDefinedRuntimeAttributes>
                         </imageView>
                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="veJ-5a-AZG" userLabel="Text">
-                            <rect key="frame" x="66" y="220" width="382" height="68.5"/>
+                            <rect key="frame" x="66" y="221" width="382" height="68.5"/>
                             <subviews>
                                 <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="ahY-dD-zbh" userLabel="Stack Name">
                                     <rect key="frame" x="136.5" y="0.0" width="109.5" height="25.5"/>
@@ -117,8 +117,8 @@
                         <constraint firstItem="ez5-jb-Nsc" firstAttribute="bottom" secondItem="XVY-V9-Bdc" secondAttribute="bottom" id="7az-oL-Wlf"/>
                         <constraint firstItem="XVY-V9-Bdc" firstAttribute="top" secondItem="QyX-RL-18I" secondAttribute="top" constant="90" id="Aab-Hk-tvL"/>
                         <constraint firstItem="ez5-jb-Nsc" firstAttribute="trailing" secondItem="XVY-V9-Bdc" secondAttribute="trailing" id="eym-fg-aSu"/>
-                        <constraint firstAttribute="height" constant="311" id="n4O-7b-6Vr"/>
-                        <constraint firstItem="veJ-5a-AZG" firstAttribute="top" secondItem="XVY-V9-Bdc" secondAttribute="bottom" constant="29" id="raQ-Wi-KHB"/>
+                        <constraint firstAttribute="height" constant="347" id="n4O-7b-6Vr"/>
+                        <constraint firstItem="veJ-5a-AZG" firstAttribute="top" secondItem="XVY-V9-Bdc" secondAttribute="bottom" constant="30" id="raQ-Wi-KHB"/>
                     </constraints>
                 </view>
             </subviews>

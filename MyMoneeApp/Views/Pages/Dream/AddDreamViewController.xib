@@ -33,7 +33,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JHZ-Ta-nbP" userLabel="HeaderComponent">
-                    <rect key="frame" x="16" y="54" width="382" height="25"/>
+                    <rect key="frame" x="16" y="64" width="382" height="25"/>
                     <subviews>
                         <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" spacing="14" translatesAutoresizingMaskIntoConstraints="NO" id="Mf0-eU-cUH">
                             <rect key="frame" x="5" y="3" width="137.5" height="19"/>
@@ -86,7 +86,7 @@
                     </connections>
                 </button>
                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="9" translatesAutoresizingMaskIntoConstraints="NO" id="6st-H9-EEj" userLabel="Form">
-                    <rect key="frame" x="16" y="107" width="382" height="110"/>
+                    <rect key="frame" x="16" y="117" width="382" height="110"/>
                     <subviews>
                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="-5" translatesAutoresizingMaskIntoConstraints="NO" id="yyj-RL-7NT" userLabel="Judul">
                             <rect key="frame" x="0.0" y="0.0" width="382" height="50.5"/>
@@ -132,7 +132,7 @@
                 <constraint firstItem="JHZ-Ta-nbP" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="16" id="4sB-PR-cgr"/>
                 <constraint firstItem="6st-H9-EEj" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="16" id="CMy-WQ-c0M"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="d8l-jp-aAT" secondAttribute="trailing" constant="18" id="JCi-RJ-Cpq"/>
-                <constraint firstItem="JHZ-Ta-nbP" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="10" id="McF-Aa-15Y"/>
+                <constraint firstItem="JHZ-Ta-nbP" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="20" id="McF-Aa-15Y"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="JHZ-Ta-nbP" secondAttribute="trailing" constant="16" id="Wcm-5P-vku"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="d8l-jp-aAT" secondAttribute="bottom" constant="68" id="hw2-go-rKm"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="yyj-RL-7NT" secondAttribute="trailing" constant="16" id="ikI-jq-wGE"/>
