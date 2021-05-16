@@ -18,6 +18,7 @@ class DetailUsageViewController: UIViewController {
     @IBOutlet var dateUsage: UILabel!
     
     var passIndex: Int = 0
+    var dataUser: User = AuthUser.data
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,7 +29,7 @@ class DetailUsageViewController: UIViewController {
         titleUsage.text = usages[passIndex].title
         let stringPrice = setDecimalToString(amountValue: usages[passIndex].price)
         
-        if usages[passIndex].status == .pemasukan {
+        if usages[passIndex].status == .moneyIn {
             iconStatus.image = UIImage(named: "Arrow_Up_BG")
             status.text = "Pemasukan"
             price.textColor = AppColor.mainGreen

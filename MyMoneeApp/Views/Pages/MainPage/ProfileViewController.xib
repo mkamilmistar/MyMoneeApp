@@ -51,9 +51,6 @@
                                     <real key="value" value="50.5"/>
                                 </userDefinedRuntimeAttribute>
                             </userDefinedRuntimeAttributes>
-                            <connections>
-                                <outletCollection property="gestureRecognizers" destination="OPg-iV-DzL" appends="YES" id="3ey-Vo-2RZ"/>
-                            </connections>
                         </imageView>
                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="veJ-5a-AZG" userLabel="Text">
                             <rect key="frame" x="66" y="220" width="382" height="68.5"/>

@@ -19,8 +19,9 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
     @IBOutlet var tapButtonPhotoAction: UITapGestureRecognizer!
     @IBOutlet var blueBg: UIView!
     
-    var dataUser: User = AuthUser.data
-    var walletUser: Wallet = AuthUser.wallet
+    var userData: User = AuthUser.data
+    var passAllMoneyIn: Decimal = 0
+    var passAllMoneyOut: Decimal = 0
     
     var imagePicker = UIImagePickerController()
     var updateName: String? = ""
@@ -28,32 +29,36 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        //Set View Properties
+        setView()
+        
+        editNameTap.isHidden = true
+        editPhotoButton.isHidden = true
+        tapButtonPhotoAction.isEnabled = false
+        imagePicker.delegate = self
+
+        print(passAllMoneyIn)
+    }
+    
+    fileprivate func setView() {
         //Set Properties View
+        nameLabel.text = userData.name
+        userImage.image = UIImage(named: userData.imageProfile)
+        
         view.backgroundColor = AppColor.mainBG
         blueBg.layer.backgroundColor = AppColor.mainPurple.cgColor
         
-        if (walletUser.usageIn) >= (walletUser.UsageOut) {
+        if (passAllMoneyIn) >= (passAllMoneyOut) {
             statusUsage.text = "Bagus! Pengeluaranmu lebih sedikit dari Pemasukan"
         } else {
             statusUsage.text = "Duh! Pengeluaranmu lebih besar dari Pemasukan"
         }
-        
-        nameLabel.text = dataUser.name
-        editNameTap.isHidden = true
-        editPhotoButton.isHidden = true
-        tapButtonPhotoAction.isEnabled = false
-
     }
+    
     
     @IBAction func tapPhotoAction(_ sender: UITapGestureRecognizer) {
         //Pick Galery
-        if UIImagePickerController.isSourceTypeAvailable(.photoLibrary){
-            imagePicker.delegate = self
-            imagePicker.sourceType = .photoLibrary
-            imagePicker.allowsEditing = false
-            
-            present(imagePicker, animated: true, completion: nil)
-        }
+        selectPickType()
     }
     
     @IBAction func goEditProfile(_ gesture: UITapGestureRecognizer) {
@@ -66,7 +71,7 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
     }
     
     @IBAction func editNameActionTap(_ sender: UITapGestureRecognizer) {
-        let alert = UIAlertController(title: "Ubah Nama", message: "Masukkan nama yang ingin diedit", preferredStyle: .alert)
+        let alert = UIAlertController(title: "Ubah Nama", message: "Masukkan data yang ingin diupdate", preferredStyle: .alert)
             
         alert.addTextField()
         alert.textFields![0].placeholder = "Masukkan nama"
@@ -74,7 +79,7 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
 
         let cancelButton = UIAlertAction(title: "Batal", style: .cancel)
         let updateButton = UIAlertAction(title: "Update", style: .default, handler: {_ in (
-            self.updateProfileData(alert.textFields![0].text ?? self.dataUser.name)
+            self.updateProfileData(alert.textFields![0].text ?? self.userData.name)
         )})
         
         alert.addAction(cancelButton)
@@ -85,9 +90,9 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
     
     func updateProfileData(_ editedData: String) {
         if editedData.isEmpty || editedData == "" {
-            dataUser.name = dataUser.name
+            userData.name = userData.name
         } else {
-            dataUser.name = editedData
+            userData.name = editedData
             nameLabel.text = editedData
         }
        
@@ -115,21 +120,51 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
         
         if let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
             userImage.image = image
-//            print(image)
         }
         
-//        let photo = info[.phAsset] as? PHAsset
-//        let filename = photo?.value(forKey: "filename") as? String ?? ""
-//          print(filename)
-
-        
-        if let url = info[UIImagePickerController.InfoKey.imageURL] as? URL {
-            let fileName = url.lastPathComponent
-            let fileType = url.pathExtension
-            print("fileName = \(fileName)\nfileType = \(fileType)\n")
-        }
+//        if let url = info[UIImagePickerController.InfoKey.imageURL] as? URL {
+//            let fileName = url.lastPathComponent
+//            let fileType = url.pathExtension
+//            print("fileName = \(fileName)\nfileType = \(fileType)\n")
+//        }
         
         picker.dismiss(animated: true, completion: nil)
+    }
+    
+    func selectPickType() {
+        let alert = UIAlertController(title: "Pilih Gambar", message: nil, preferredStyle: .actionSheet)
+
+        let cameraAction = UIAlertAction(title: "Kamera", style: UIAlertAction.Style.default, handler: {_ in (
+            self.openCamera()
+        )})
+        
+        let galleryAction = UIAlertAction(title: "Galeri", style: UIAlertAction.Style.default, handler: {_ in (
+            self.openGallery()
+        )})
+        
+        let cancelAction = UIAlertAction(title: "Batal", style: UIAlertAction.Style.cancel)
+        
+        alert.addAction(cameraAction)
+        alert.addAction(galleryAction)
+        alert.addAction(cancelAction)
+        
+        self.present(alert, animated: true, completion: nil)
+    }
+    
+    func openCamera(){
+        if UIImagePickerController.isSourceTypeAvailable(UIImagePickerController.SourceType.camera) {
+            imagePicker.sourceType = UIImagePickerController.SourceType.camera
+            self.present(imagePicker, animated: true, completion: nil)
+        } else {
+            let alert = UIAlertController(title: "Peringatan", message: "Kamu tidak punya kamera!", preferredStyle: .alert)
+            let cancelButton = UIAlertAction(title: "OK", style: .default)
+            alert.addAction(cancelButton)
+            present(alert, animated: true, completion: nil)
+        }
+    }
+    func openGallery() {
+        imagePicker.sourceType = UIImagePickerController.SourceType.photoLibrary
+        self.present(imagePicker, animated: true, completion: nil)
     }
     
 }

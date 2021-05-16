@@ -354,8 +354,8 @@
 		FAD7EBF7264BBFC5000E752D /* Component */ = {
 			isa = PBXGroup;
 			children = (
-				FADFA9CF264F654B00965CD8 /* NotFound */,
 				FAD7EBB5264B82CE000E752D /* DreamTableCell */,
+				FADFA9CF264F654B00965CD8 /* NotFound */,
 				FA15F422264ADBE3001B15D9 /* UsageTableCell */,
 				FA9AF016264D0E2D00EC9109 /* UsageTypeCell */,
 			);

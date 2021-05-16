@@ -14,8 +14,7 @@ class AddUsageViewController: UIViewController, UICollectionViewDelegate, UIColl
     @IBOutlet var titleTxtField: UITextField!
     @IBOutlet var amountTxtField: UITextField!
     var usageTypeData: Int? = nil
-    var dataUser: User = AuthUser.data
-    var userWallet: Wallet = AuthUser.wallet
+    var userData: User = AuthUser.data
         
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -46,6 +45,7 @@ class AddUsageViewController: UIViewController, UICollectionViewDelegate, UIColl
         return true
     }
     
+    
     @IBAction func BackToHome(_ sender: UITapGestureRecognizer) {
         self.dismiss(animated: true, completion: nil)
     }
@@ -57,27 +57,18 @@ class AddUsageViewController: UIViewController, UICollectionViewDelegate, UIColl
         let status: UsageType
         
         if usageTypeData == 0 {
-            status = .pemasukan
+            status = .moneyIn
+            userData.balance += price
         } else {
-            status = .pengeluaran
+            status = .moneyOut
+            userData.balance -= price
         }
         
         //Input To Array
-        usages.append(Usage(id: id, title: title, price: price, date: Date(), status: status))
-        
-        debitBalance(status, price)
+        usages.append(Usage(id: id, title: title, price: price, date: Date(), status: status, UserId: userData.id))
         
         self.present(goToMainTabByIndex(0), animated: false, completion: nil)
         
-    }
-
-    func debitBalance(_ status: UsageType, _ price: Decimal) {
-        //Akumulasi
-        if status == .pengeluaran {
-            userWallet.balance = userWallet.balance - price
-        } else {
-            userWallet.balance = userWallet.balance + price
-        }
     }
     
     //when select
@@ -113,7 +104,7 @@ class AddUsageViewController: UIViewController, UICollectionViewDelegate, UIColl
         
         cell.title.text = categoryUsage[indexPath.row].label
         
-        if categoryUsage[indexPath.row].type == .pemasukan {
+        if categoryUsage[indexPath.row].type == .moneyIn {
             cell.imageStatus.image = UIImage(named: categoryUsage[indexPath.row].icon)
         } else {
             cell.imageStatus.image = UIImage(named: categoryUsage[indexPath.row].icon)
@@ -127,17 +118,4 @@ class AddUsageViewController: UIViewController, UICollectionViewDelegate, UIColl
         return CGSize(width: collectionView.frame.width / 2 - 10, height: 75)
     }
     
-}
-
-extension String {
-    static func random(length: Int = 6) -> String {
-        let base = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
-        var randomString: String = ""
-
-        for _ in 0..<length {
-            let randomValue = arc4random_uniform(UInt32(base.count))
-            randomString += "\(base[base.index(base.startIndex, offsetBy: Int(randomValue))])"
-        }
-        return "MM-\(randomString)"
-    }
 }

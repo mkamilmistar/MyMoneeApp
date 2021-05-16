@@ -19,13 +19,11 @@ class DetailDreamViewController: UIViewController {
     @IBOutlet var progressAmount: UILabel!
     @IBOutlet var progressBar: UIProgressView!
     @IBOutlet var percentProgress: UILabel!
-
     
     //Data
     var passIndex: Int!
     var passProgressData: Float? = 0.0
     var userData: User = AuthUser.data
-    var userWallet: Wallet = AuthUser.wallet
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -45,7 +43,7 @@ class DetailDreamViewController: UIViewController {
         }
         
         //Set View Variable
-        let currentAmountConv = setDecimalToStringCurrency(amountValue: userWallet.balance)
+        let currentAmountConv = setDecimalToStringCurrency(amountValue: userData.balance)
         let targetAmountConv = setDecimalToStringCurrency(amountValue: dreams[passIndex].targetAmount)
         
         dreamTitle.text = dreams[passIndex].title
@@ -92,16 +90,16 @@ class DetailDreamViewController: UIViewController {
         let id: String = String.random()
         let title: String = dreams[passIndex].title
         let price: Decimal = dreams[passIndex].targetAmount
-        let status: UsageType = .pengeluaran
+        let status: UsageType = .moneyOut
         
         //Input To Array
-        usages.append(Usage(id: id, title: title, price: price, date: Date(), status: status))
+        usages.append(Usage(id: id, title: title, price: price, date: Date(), status: status, UserId: userData.id))
         
         //Delete From Dream
         dreams.remove(at: passIndex ?? 0)
         
         //Subtract Balance
-        userWallet.balance = userWallet.balance - price
+        userData.balance -= price
         
         //Navigate
         self.present(goToMainTabByIndex(1), animated: false, completion: nil)

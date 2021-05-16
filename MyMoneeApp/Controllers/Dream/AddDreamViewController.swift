@@ -13,6 +13,8 @@ class AddDreamViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet var targetAmountField: UITextField!
     @IBOutlet var saveButton: UIButton!
     
+    var userData: User = AuthUser.data
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         disabledMainButton(saveButton)
@@ -41,12 +43,11 @@ class AddDreamViewController: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func saveButton(_ sender: UIButton) {
-        let lastIndex = dreams.endIndex
-        let id: Int = lastIndex + 1
+        let id: String = NSUUID().uuidString
         let title: String = titleField.text ?? ""
         let targetAmount: Decimal = setStringToDecimal(amountValue: targetAmountField.text ?? "")
         
-        dreams.append(Dream(id: id, title: title, targetAmount: targetAmount))
+        dreams.append(Dream(id: id, title: title, targetAmount: targetAmount, userId: userData.id))
         
         self.present(goToMainTabByIndex(1), animated: false, completion: nil)
     }

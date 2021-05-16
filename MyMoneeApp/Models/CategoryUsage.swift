@@ -20,6 +20,6 @@ class CategoryUsage {
 }
 
 let categoryUsage: [CategoryUsage] = [
-    CategoryUsage(icon: "Arrow_Up", label: "Pemasukan", type: .pemasukan),
-    CategoryUsage(icon: "Arrow_Down", label: "Pengeluaran", type: .pengeluaran)
+    CategoryUsage(icon: "Arrow_Up", label: "Pemasukan", type: .moneyIn),
+    CategoryUsage(icon: "Arrow_Down", label: "Pengeluaran", type: .moneyOut)
 ]

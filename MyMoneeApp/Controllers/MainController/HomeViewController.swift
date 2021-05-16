@@ -18,8 +18,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     @IBOutlet var totalUsageIn: UILabel!
     @IBOutlet var totalUsageOut: UILabel!
 
-    var dataUser: User = AuthUser.data
-    var userWallet: Wallet = AuthUser.wallet
+    var userData: User = AuthUser.data
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,24 +27,26 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         balanceView.backgroundColor = AppColor.mainPurple
         notFound.isHidden = true
         
+        userName.text = userData.name
+        let balance =  setDecimalToString(amountValue: userData.balance)
+        balanceLabel.text = "Rp \(balance)"
+        
         //Get All Data In and Out
-        let dataIn = usages.filter({$0.status == .pemasukan})
-        let dataOut = usages.filter({$0.status == .pengeluaran})
+        let getAllDataIn = usages.filter({$0.status == .moneyIn}).map({$0.price}).reduce(0, +)
+        let getAllDataOut = usages.filter({$0.status == .moneyOut}).map({$0.price}).reduce(0, +)
+
+        let dataUsageIn = anotherSetDecimalToStringCurrency(amountValue: getAllDataIn)
+        let dataUsageOut = anotherSetDecimalToStringCurrency(amountValue: getAllDataOut)
         
-        //Asign To Wallet
-        userWallet.usageIn = dataIn.map({$0.price}).reduce(0, +)
-        userWallet.UsageOut = dataOut.map({$0.price}).reduce(0, +)
-        
-        let dataUsageIn = anotherSetDecimalToStringCurrency(amountValue: userWallet.usageIn)
-        let dataUsageOut = anotherSetDecimalToStringCurrency(amountValue: userWallet.UsageOut)
+        //Pass Data In/Out To Profile Tab Menu
+        let navVC = tabBarController?.viewControllers![2] as! UINavigationController
+        let profileVC = navVC.topViewController as! ProfileViewController
+        profileVC.passAllMoneyIn = getAllDataIn
+        profileVC.passAllMoneyOut = getAllDataOut
         
         //Set Data Show
         totalUsageIn.text = "Rp. \(dataUsageIn)"
         totalUsageOut.text = "Rp. \(dataUsageOut)"
-        
-        userName.text = dataUser.name
-        let balance =  setDecimalToString(amountValue: userWallet.balance)
-        balanceLabel.text = "Rp \(balance)"
         
         //Set Data Greeting
         schedulerGreetingText()
@@ -120,7 +121,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         trans.date.text = setDateToString(usages[indexPath.row].date)
         let price = setDecimalToString(amountValue: usages[indexPath.row].price)
        
-        if usages[indexPath.row].status == .pengeluaran {
+        if usages[indexPath.row].status == .moneyOut {
             trans.imageStatus.image = UIImage(named: "Arrow_Down_BG")
             trans.price.textColor = AppColor.mainRed
             trans.price.text = "-Rp \(price)"

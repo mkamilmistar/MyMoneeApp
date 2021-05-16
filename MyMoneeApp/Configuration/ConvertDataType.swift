@@ -84,3 +84,17 @@ func setDateToString(_ date: Date) -> String {
     
 }
 //============================================ END OF DATE CONVERT
+
+
+extension String {
+    static func random(length: Int = 6) -> String {
+        let base = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
+        var randomString: String = ""
+
+        for _ in 0..<length {
+            let randomValue = arc4random_uniform(UInt32(base.count))
+            randomString += "\(base[base.index(base.startIndex, offsetBy: Int(randomValue))])"
+        }
+        return "MM-\(randomString)"
+    }
+}

@@ -17,8 +17,8 @@ class EditUsageViewController: UIViewController, UICollectionViewDelegate, UICol
     private var usageTypeData: Int? 
     
     var passIndex: Int!
-    var dataUser: User = AuthUser.data
-    var userWallet: Wallet = AuthUser.wallet
+    var userData: User = AuthUser.data
+    var passBalance: Decimal = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,7 +41,8 @@ class EditUsageViewController: UIViewController, UICollectionViewDelegate, UICol
         titleTxtField.text = usages[passIndex].title
         priceTxtField.text = setDecimalToString(amountValue: usages[passIndex].price)
         
-        if usages[passIndex].status == .pemasukan {
+        //Initialize Selected Value
+        if usages[passIndex].status == .moneyIn {
             usageTypeData = 0
         } else {
             usageTypeData = 1
@@ -87,23 +88,26 @@ class EditUsageViewController: UIViewController, UICollectionViewDelegate, UICol
         present(alert, animated: true, completion: nil)
     }
     
-    func updateUsage(){
+    func updateUsage() {
         let id = usages[passIndex].id
         let title = titleTxtField.text ?? ""
-        let price = setStringToDecimal(
+        let amount = setStringToDecimal(
             amountValue: priceTxtField.text?.replacingOccurrences(of: ".", with: "") ?? "")
         let date = usages[passIndex].date
         let status: UsageType
         
         if usageTypeData == 0 {
-            status = .pemasukan
-            userWallet.balance = userWallet.balance + price
+            status = .moneyIn
+            passBalance = userData.balance - usages[passIndex].price
+            userData.balance = passBalance + amount
         } else {
-            status = .pengeluaran
-            userWallet.balance = userWallet.balance - price
+            status = .moneyOut
+            passBalance = userData.balance + usages[passIndex].price
+            userData.balance = passBalance - amount
+
         }
 
-        usages[passIndex] = Usage(id: id, title: title, price: price, date: date, status: status)
+        usages[passIndex] = Usage(id: id, title: title, price: amount, date: date, status: status, UserId: userData.id)
         
     }
     
@@ -158,10 +162,10 @@ class EditUsageViewController: UIViewController, UICollectionViewDelegate, UICol
         
         cell.title.text = categoryUsage[indexPath.row].label
         
-        if categoryUsage[indexPath.row].type == .pemasukan {
+        if categoryUsage[indexPath.row].type == .moneyIn {
             cell.imageStatus.image = UIImage(named: "Arrow_Up")
         }
-        else if categoryUsage[indexPath.row].type == .pengeluaran{
+        else if categoryUsage[indexPath.row].type == .moneyOut{
             cell.imageStatus.image = UIImage(named: "Arrow_Down")
         }
         

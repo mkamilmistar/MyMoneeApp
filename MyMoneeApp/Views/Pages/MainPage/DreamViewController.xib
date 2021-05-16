@@ -45,7 +45,7 @@
                                         <constraint firstAttribute="height" constant="36" id="gft-oc-5Bg"/>
                                     </constraints>
                                     <color key="tintColor" red="0.31372549020000001" green="0.41176470590000003" blue="0.72156862749999995" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
-                                    <state key="normal" image="plus" catalog="system"/>
+                                    <state key="normal" image="Plus_Main"/>
                                     <userDefinedRuntimeAttributes>
                                         <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
                                             <integer key="value" value="18"/>
@@ -89,7 +89,7 @@
         </view>
     </objects>
     <resources>
-        <image name="plus" catalog="system" width="128" height="113"/>
+        <image name="Plus_Main" width="18" height="18"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
