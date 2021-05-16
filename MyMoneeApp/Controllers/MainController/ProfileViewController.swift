@@ -36,8 +36,6 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
         editPhotoButton.isHidden = true
         tapButtonPhotoAction.isEnabled = false
         imagePicker.delegate = self
-
-        print(passAllMoneyIn)
     }
     
     fileprivate func setView() {
