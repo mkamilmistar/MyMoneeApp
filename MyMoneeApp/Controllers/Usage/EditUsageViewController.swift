@@ -39,7 +39,7 @@ class EditUsageViewController: UIViewController, UICollectionViewDelegate, UICol
         
         //Set Value
         titleTxtField.text = usages[passIndex].title
-        priceTxtField.text = setDecimalToString(amountValue: usages[passIndex].price)
+        priceTxtField.text = setDecimalToString(amountValue: usages[passIndex].amount)
         
         //Initialize Selected Value
         if usages[passIndex].status == .moneyIn {
@@ -98,11 +98,11 @@ class EditUsageViewController: UIViewController, UICollectionViewDelegate, UICol
         
         if usageTypeData == 0 {
             status = .moneyIn
-            passBalance = userData.balance - usages[passIndex].price
+            passBalance = userData.balance - usages[passIndex].amount
             userData.balance = passBalance + amount
         } else {
             status = .moneyOut
-            passBalance = userData.balance + usages[passIndex].price
+            passBalance = userData.balance + usages[passIndex].amount
             userData.balance = passBalance - amount
 
         }

@@ -16,14 +16,14 @@ class Usage {
     var id: String
     var title: String
     var date: Date
-    var price: Decimal
+    var amount: Decimal
     var status: UsageType
     var userId: Int
     
     init(id: String, title: String, price: Decimal, date: Date, status: UsageType, UserId: Int) {
         self.id = id
         self.title = title
-        self.price = price
+        self.amount = price
         self.date = date
         self.status = status
         self.userId = UserId

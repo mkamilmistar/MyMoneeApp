@@ -32,8 +32,8 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         balanceLabel.text = "Rp \(balance)"
         
         //Get All Data In and Out
-        let getAllDataIn = usages.filter({$0.status == .moneyIn}).map({$0.price}).reduce(0, +)
-        let getAllDataOut = usages.filter({$0.status == .moneyOut}).map({$0.price}).reduce(0, +)
+        let getAllDataIn = usages.filter({$0.status == .moneyIn}).map({$0.amount}).reduce(0, +)
+        let getAllDataOut = usages.filter({$0.status == .moneyOut}).map({$0.amount}).reduce(0, +)
 
         let dataUsageIn = anotherSetDecimalToStringCurrency(amountValue: getAllDataIn)
         let dataUsageOut = anotherSetDecimalToStringCurrency(amountValue: getAllDataOut)
@@ -119,7 +119,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         //Set Data Cell
         trans.title.text = usages[indexPath.row].title
         trans.date.text = setDateToString(usages[indexPath.row].date)
-        let price = setDecimalToString(amountValue: usages[indexPath.row].price)
+        let price = setDecimalToString(amountValue: usages[indexPath.row].amount)
        
         if usages[indexPath.row].status == .moneyOut {
             trans.imageStatus.image = UIImage(named: "Arrow_Down_BG")
