@@ -30,3 +30,14 @@ func mainNoBackgroundButton(_ button: UIButton) {
     button.layer.borderWidth = 3.0
     button.layer.borderColor = AppColor.mainPurple.cgColor
 }
+
+func selectBorder(_ object: AnyObject) {
+    object.layer.borderColor = AppColor.mainPurple.cgColor
+    object.layer.borderWidth = 3.0
+    object.layer.cornerRadius = 8.0
+}
+
+func deselectBorder(_ object: AnyObject) {
+    object.layer.borderWidth = 0
+    object.layer.borderColor = UIColor.white.cgColor
+}

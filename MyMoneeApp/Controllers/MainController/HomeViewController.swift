@@ -21,11 +21,9 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        print(usages[0].date)
-        
         view.backgroundColor = AppColor.mainBG
         balanceView.backgroundColor = AppColor.mainPurple
-        self.notFound.isHidden = true
+        notFound.isHidden = true
         
         userName.text = dataUser.name
         let balance =  setDecimalToString(amountValue: dataUser.balance)

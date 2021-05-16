@@ -12,6 +12,7 @@ class DreamViewController: UIViewController, UITableViewDelegate, UITableViewDat
     @IBOutlet var notFound: NotFound!
     @IBOutlet weak var dreamTableView: UITableView!
     var userData: User = AuthUser.data
+    var progressBarData: Float = 0.0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -48,6 +49,7 @@ class DreamViewController: UIViewController, UITableViewDelegate, UITableViewDat
         
         //Passing Data
         detailDreamVC.passIndex = indexPath.row
+        detailDreamVC.passProgressData = setProgress(indexPath)
         
         self.present(detailDreamVC, animated: true, completion: nil)
         
@@ -90,12 +92,13 @@ extension DreamViewController {
         
         let targetDouble = setDecimalToDouble(value: dreams[indexPath.row].targetAmount)
         
-        dreams[indexPath.row].progress = Float(currentDouble / targetDouble)
+        progressBarData = Float(currentDouble / targetDouble)
         
-        if dreams[indexPath.row].progress > 1 {
+        //Conditional Progress Bar Data
+        if progressBarData > 1 {
             return 1
         } else {
-            return dreams[indexPath.row].progress
+            return progressBarData
         }
         
     }

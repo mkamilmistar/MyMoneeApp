@@ -23,7 +23,7 @@ func setDateToString(_ date: Date) -> String {
     let outputFormat = DateFormatter()
     outputFormat.locale = NSLocale(localeIdentifier:"id") as Locale
     outputFormat.timeZone = TimeZone(abbreviation: "WIT")
-    outputFormat.dateFormat = "dd MMMM yyyy' - 'HH:mm:ss"
+    outputFormat.dateFormat = "dd MMMM yyyy' - 'HH:mm"
     return outputFormat.string(from: date as Date)
     
 }

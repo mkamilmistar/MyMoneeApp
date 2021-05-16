@@ -23,20 +23,21 @@ class DetailDreamViewController: UIViewController {
     
     //Data
     var passIndex: Int!
+    var passProgressData: Float? = 0.0
     var userData: User = AuthUser.data
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         //Set Properties of Component
         setShadow(heartLogo)
         setShadow(progressBackground)
         mainNoBackgroundButton(backButton)
         
         //Conditional Button Confirm
-        let progress = Int(setProgress(passIndex) * 100)
+        let percentProgressData = Int((passProgressData ?? 0.0) * 100)
         
-        if progress != 100 {
+        if percentProgressData != 100 {
             disabledMainButton(confirmButton)
         } else {
             enabledMainButton(confirmButton)
@@ -47,12 +48,12 @@ class DetailDreamViewController: UIViewController {
         let targetAmountConv = setDecimalToStringCurrency(amountValue: dreams[passIndex].targetAmount)
         
         dreamTitle.text = dreams[passIndex].title
-        percentProgress.text = "\(progress)%"
+        percentProgress.text = "\(percentProgressData)%"
         
         let amount = anotherSetDecimalToStringCurrency(amountValue: dreams[passIndex].targetAmount)
         targetAmount.text = "Rp \(amount)"
         progressAmount.text = "\(currentAmountConv) / \(targetAmountConv)"
-        progressBar.progress = dreams[passIndex].progress
+        progressBar.progress = passProgressData ?? 0.0
         
     }
     
@@ -84,22 +85,6 @@ class DetailDreamViewController: UIViewController {
     @IBAction func backButton(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
     }
-    
-    
-    func setProgress(_ passIndex: Int) -> Float {
-        let currentDouble = setDecimalToDouble(value: userData.balance)
-        
-        let targetDouble = setDecimalToDouble(value: dreams[passIndex].targetAmount)
-        
-        dreams[passIndex].progress = Float(currentDouble / targetDouble)
-        
-        if dreams[passIndex].progress > 1 {
-            return 1
-        } else {
-            return dreams[passIndex].progress
-        }
-    }
-    
    
 }
 

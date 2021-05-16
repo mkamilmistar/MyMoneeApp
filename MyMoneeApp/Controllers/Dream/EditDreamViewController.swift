@@ -82,9 +82,8 @@ class EditDreamViewController: UIViewController, UITextFieldDelegate {
         let title = titleField.text ?? ""
         let targetAmount = setStringToDecimal(
             amountValue: targetAmountField.text?.replacingOccurrences(of: ".", with: "") ?? "")
-        let progress = dreams[passIndex].progress
         
-        dreams[passIndex!] = Dream(id: passIndex, title: title, targetAmount: targetAmount, progress: progress)
+        dreams[passIndex!] = Dream(id: passIndex, title: title, targetAmount: targetAmount)
         
     }
     

@@ -46,7 +46,7 @@ class AddDreamViewController: UIViewController, UITextFieldDelegate {
         let title: String = titleField.text ?? ""
         let targetAmount: Decimal = setStringToDecimal(amountValue: targetAmountField.text ?? "")
         
-        dreams.append(Dream(id: id, title: title, targetAmount: targetAmount, progress: 0.0))
+        dreams.append(Dream(id: id, title: title, targetAmount: targetAmount))
         
         let dreamVC = MainTabController(nibName: String(describing: MainTabController.self), bundle: nil)
         dreamVC.modalPresentationStyle = .fullScreen

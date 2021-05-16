@@ -9,7 +9,7 @@ import UIKit
 
 class EditUsageViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, UITextFieldDelegate {
 
-    @IBOutlet var pemasukanTypeCollection: UICollectionView!
+    @IBOutlet var usageTypeCollection: UICollectionView!
     @IBOutlet weak var deleteButton: UIButton!
     @IBOutlet var titleTxtField: UITextField!
     @IBOutlet var priceTxtField: UITextField!
@@ -25,12 +25,12 @@ class EditUsageViewController: UIViewController, UICollectionViewDelegate, UICol
         enabledMainButton(updateButton)
         mainDeleteButton(deleteButton)
         
-        pemasukanTypeCollection.delegate = self
-        pemasukanTypeCollection.dataSource = self
-        pemasukanTypeCollection.allowsMultipleSelection = false
+        usageTypeCollection.delegate = self
+        usageTypeCollection.dataSource = self
+        usageTypeCollection.allowsMultipleSelection = false
         
         let uiNib = UINib(nibName: String(describing: UsageTypeCell.self), bundle: nil)
-        pemasukanTypeCollection.register(uiNib, forCellWithReuseIdentifier: String(describing: UsageTypeCell.self))
+        usageTypeCollection.register(uiNib, forCellWithReuseIdentifier: String(describing: UsageTypeCell.self))
         
         titleTxtField.delegate = self
         priceTxtField.delegate = self
@@ -93,9 +93,9 @@ class EditUsageViewController: UIViewController, UICollectionViewDelegate, UICol
         let date = usages[passIndex].date
         let status: UsageType
         if usageTypeData == 0 {
-            status = categoryUsage[usageTypeData ?? 0].type
+            status = .pemasukan
         } else {
-            status = categoryUsage[usageTypeData ?? 0].type
+            status = .pengeluaran
         }
 
         usages[passIndex] = Usage(id: id, title: title, price: price, date: date, status: status)
@@ -138,7 +138,7 @@ class EditUsageViewController: UIViewController, UICollectionViewDelegate, UICol
         let cell = collectionView.cellForItem(at: indexPath)
         cell?.layer.borderWidth = 0
         cell?.layer.borderColor = UIColor.white.cgColor
-        pemasukanTypeCollection.deselectItem(at: indexPath, animated: false)
+        usageTypeCollection.deselectItem(at: indexPath, animated: false)
 
     }
     
@@ -147,17 +147,14 @@ class EditUsageViewController: UIViewController, UICollectionViewDelegate, UICol
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = pemasukanTypeCollection.dequeueReusableCell(withReuseIdentifier: String(describing: UsageTypeCell.self), for: indexPath) as! UsageTypeCell
+        let cell = usageTypeCollection.dequeueReusableCell(withReuseIdentifier: String(describing: UsageTypeCell.self), for: indexPath) as! UsageTypeCell
         
         //Selected in First Show
         if indexPath.row == usageTypeData {
-            pemasukanTypeCollection.selectItem(at: indexPath, animated: true, scrollPosition: .centeredHorizontally)
-            cell.layer.borderColor = AppColor.mainPurple.cgColor
-            cell.layer.borderWidth = 3.0
-            cell.layer.cornerRadius = 8.0
+            usageTypeCollection.selectItem(at: indexPath, animated: true, scrollPosition: .centeredHorizontally)
+            selectBorder(cell)
         } else {
-            cell.layer.borderWidth = 0
-            cell.layer.borderColor = UIColor.white.cgColor
+           deselectBorder(cell)
         }
         
         //Shadow View
