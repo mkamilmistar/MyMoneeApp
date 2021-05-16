@@ -11,13 +11,16 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
 
     @IBOutlet var notFound: NotFound!
     @IBOutlet var greetingLabel: UILabel!
-    @IBOutlet weak var transactionTableView: UITableView!
+    @IBOutlet var usagesTableView: UITableView!
     @IBOutlet var userName: UILabel!
     @IBOutlet var balanceView: UIView!
     @IBOutlet var balanceLabel: UILabel!
-    
+    @IBOutlet var totalUsageIn: UILabel!
+    @IBOutlet var totalUsageOut: UILabel!
+
     var dataUser: User = AuthUser.data
-    
+    var userWallet: Wallet = AuthUser.wallet
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -25,19 +28,35 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         balanceView.backgroundColor = AppColor.mainPurple
         notFound.isHidden = true
         
+        //Get All Data In and Out
+        let dataIn = usages.filter({$0.status == .pemasukan})
+        let dataOut = usages.filter({$0.status == .pengeluaran})
+        
+        //Asign To Wallet
+        userWallet.usageIn = dataIn.map({$0.price}).reduce(0, +)
+        userWallet.UsageOut = dataOut.map({$0.price}).reduce(0, +)
+        
+        let dataUsageIn = anotherSetDecimalToStringCurrency(amountValue: userWallet.usageIn)
+        let dataUsageOut = anotherSetDecimalToStringCurrency(amountValue: userWallet.UsageOut)
+        
+        //Set Data Show
+        totalUsageIn.text = "Rp. \(dataUsageIn)"
+        totalUsageOut.text = "Rp. \(dataUsageOut)"
+        
         userName.text = dataUser.name
-        let balance =  setDecimalToString(amountValue: dataUser.balance)
+        let balance =  setDecimalToString(amountValue: userWallet.balance)
         balanceLabel.text = "Rp \(balance)"
         
+        //Set Data Greeting
         schedulerGreetingText()
         
-        transactionTableView.delegate = self
-        transactionTableView.dataSource = self
-        transactionTableView.separatorStyle = .none
-        transactionTableView.backgroundColor = .white
+        usagesTableView.delegate = self
+        usagesTableView.dataSource = self
+        usagesTableView.separatorStyle = .none
+        usagesTableView.backgroundColor = .white
         
         let uiNib = UINib(nibName: String(describing: UsageTableViewCell.self), bundle: nil)
-        transactionTableView.register(uiNib, forCellReuseIdentifier: String(describing: UsageTableViewCell.self))
+        usagesTableView.register(uiNib, forCellReuseIdentifier: String(describing: UsageTableViewCell.self))
     }
     
     //Scheduler the Greeting Text
@@ -82,7 +101,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         if usages.count > 0 {
             return usages.count
         } else {
-            self.transactionTableView.isHidden = true
+            self.usagesTableView.isHidden = true
             self.notFound.isHidden = false
             return 0
         }

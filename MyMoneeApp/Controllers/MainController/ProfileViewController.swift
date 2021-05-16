@@ -12,24 +12,31 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
     
     @IBOutlet var userImage: UIImageView!
     @IBOutlet var statusUsage: UILabel!
-    
     @IBOutlet var nameLabel: UILabel!
-    
     @IBOutlet var editNameTap: UIButton!
-    
     @IBOutlet var editPhotoButton: UIButton!
     @IBOutlet var controlLabel: UILabel!
     @IBOutlet var tapButtonPhotoAction: UITapGestureRecognizer!
     @IBOutlet var blueBg: UIView!
     
     var dataUser: User = AuthUser.data
+    var walletUser: Wallet = AuthUser.wallet
+    
     var imagePicker = UIImagePickerController()
     var updateName: String? = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        //Set Properties View
         view.backgroundColor = AppColor.mainBG
         blueBg.layer.backgroundColor = AppColor.mainPurple.cgColor
+        
+        if (walletUser.usageIn) >= (walletUser.UsageOut) {
+            statusUsage.text = "Bagus! Pengeluaranmu lebih sedikit dari Pemasukan"
+        } else {
+            statusUsage.text = "Duh! Pengeluaranmu lebih besar dari Pemasukan"
+        }
         
         nameLabel.text = dataUser.name
         editNameTap.isHidden = true

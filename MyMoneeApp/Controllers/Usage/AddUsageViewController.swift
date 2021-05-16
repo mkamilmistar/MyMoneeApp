@@ -15,6 +15,7 @@ class AddUsageViewController: UIViewController, UICollectionViewDelegate, UIColl
     @IBOutlet var amountTxtField: UITextField!
     var usageTypeData: Int? = nil
     var dataUser: User = AuthUser.data
+    var userWallet: Wallet = AuthUser.wallet
         
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -73,9 +74,9 @@ class AddUsageViewController: UIViewController, UICollectionViewDelegate, UIColl
     func debitBalance(_ status: UsageType, _ price: Decimal) {
         //Akumulasi
         if status == .pengeluaran {
-            dataUser.balance = dataUser.balance - price
+            userWallet.balance = userWallet.balance - price
         } else {
-            dataUser.balance = dataUser.balance + price
+            userWallet.balance = userWallet.balance + price
         }
     }
     

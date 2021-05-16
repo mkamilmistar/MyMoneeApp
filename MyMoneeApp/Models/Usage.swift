@@ -29,8 +29,8 @@ class Usage {
 }
 
 var usages: [Usage] = [
-    Usage(id: "MM-128371", title: "Bayar Listrik", price: 256000, date: getDateByString(date: "2021-05-1 19:30:27"), status: .pengeluaran),
-    Usage(id: "MM-584933", title: "Gaji", price: 1250000, date: getDateByString(date: "2021-05-1 08:00:27"), status: .pemasukan),
+//    Usage(id: "MM-128371", title: "Bayar Listrik", price: 256000, date: getDateByString(date: "2021-05-1 19:30:27"), status: .pengeluaran),
+//    Usage(id: "MM-584933", title: "Gaji", price: 1250000, date: getDateByString(date: "2021-05-1 08:00:27"), status: .pemasukan),
 ]
 
 var usages2: [Usage] = [

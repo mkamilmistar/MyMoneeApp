@@ -17,6 +17,8 @@ class EditUsageViewController: UIViewController, UICollectionViewDelegate, UICol
     private var usageTypeData: Int? 
     
     var passIndex: Int!
+    var dataUser: User = AuthUser.data
+    var userWallet: Wallet = AuthUser.wallet
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -92,10 +94,13 @@ class EditUsageViewController: UIViewController, UICollectionViewDelegate, UICol
             amountValue: priceTxtField.text?.replacingOccurrences(of: ".", with: "") ?? "")
         let date = usages[passIndex].date
         let status: UsageType
+        
         if usageTypeData == 0 {
             status = .pemasukan
+            userWallet.balance = userWallet.balance + price
         } else {
             status = .pengeluaran
+            userWallet.balance = userWallet.balance - price
         }
 
         usages[passIndex] = Usage(id: id, title: title, price: price, date: date, status: status)

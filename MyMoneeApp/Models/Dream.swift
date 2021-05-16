@@ -19,9 +19,9 @@ struct Dream {
 }
 
 var dreams: [Dream] = [
-    Dream(id: 0, title: "Membeli Mobil", targetAmount: 200000000.0),
-    Dream(id: 1, title: "Membeli Airpods Baru", targetAmount: 1500000.0),
-    Dream(id: 2, title: "Membeli Sepatu Adidas", targetAmount: 500000.0)
+//    Dream(id: 0, title: "Membeli Mobil", targetAmount: 200000000.0),
+//    Dream(id: 1, title: "Membeli Airpods Baru", targetAmount: 1500000.0),
+//    Dream(id: 2, title: "Membeli Sepatu Adidas", targetAmount: 500000.0)
 ]
 
 var dreams2: [Dream] = [

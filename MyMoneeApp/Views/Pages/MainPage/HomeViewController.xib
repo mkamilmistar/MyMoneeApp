@@ -25,7 +25,9 @@
                 <outlet property="balanceView" destination="GKn-Fj-0uj" id="Qbw-Ss-1hO"/>
                 <outlet property="greetingLabel" destination="Bw9-B0-8J2" id="AZz-hC-GeD"/>
                 <outlet property="notFound" destination="utO-Gf-LpR" id="ybn-za-3d4"/>
-                <outlet property="transactionTableView" destination="e94-Df-Xyt" id="d1d-Hw-cZ0"/>
+                <outlet property="totalUsageIn" destination="UiB-Yb-nIf" id="8Ma-1x-FNb"/>
+                <outlet property="totalUsageOut" destination="EnM-AR-zLb" id="9sf-UA-Vza"/>
+                <outlet property="usagesTableView" destination="e94-Df-Xyt" id="d1d-Hw-cZ0"/>
                 <outlet property="userName" destination="KY7-6T-3gh" id="Wc3-Zh-5sp"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>

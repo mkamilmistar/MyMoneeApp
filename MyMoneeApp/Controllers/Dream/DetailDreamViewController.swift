@@ -25,6 +25,7 @@ class DetailDreamViewController: UIViewController {
     var passIndex: Int!
     var passProgressData: Float? = 0.0
     var userData: User = AuthUser.data
+    var userWallet: Wallet = AuthUser.wallet
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,7 +45,7 @@ class DetailDreamViewController: UIViewController {
         }
         
         //Set View Variable
-        let currentAmountConv = setDecimalToStringCurrency(amountValue: userData.balance)
+        let currentAmountConv = setDecimalToStringCurrency(amountValue: userWallet.balance)
         let targetAmountConv = setDecimalToStringCurrency(amountValue: dreams[passIndex].targetAmount)
         
         dreamTitle.text = dreams[passIndex].title
@@ -71,8 +72,38 @@ class DetailDreamViewController: UIViewController {
     }
     
     @IBAction func confirmButton(_ sender: Any) {
+        let alert = UIAlertController(title: "Konfirmasi Mimpi", message: "Apakah anda yakin ingin mengkonfirmasi mimpi \"\(dreams[passIndex].title)\" ?", preferredStyle: .alert)
+        
+        let deleteButton = UIAlertAction(title: "Konfirmasi", style: .default) { (_) -> Void in
+            self.confirmAction()
+        }
+        
+        let cancelButton = UIAlertAction(title: "Batal", style: .cancel)
+        
+        alert.addAction(cancelButton)
+        alert.addAction(deleteButton)
+        
+        present(alert, animated: true, completion: nil)
+        
+    }
+    
+    func confirmAction() {
+        //Save To Usage
+        let id: String = String.random()
+        let title: String = dreams[passIndex].title
+        let price: Decimal = dreams[passIndex].targetAmount
+        let status: UsageType = .pengeluaran
+        
+        //Input To Array
+        usages.append(Usage(id: id, title: title, price: price, date: Date(), status: status))
+        
+        //Delete From Dream
         dreams.remove(at: passIndex ?? 0)
         
+        //Subtract Balance
+        userWallet.balance = userWallet.balance - price
+        
+        //Navigate
         self.present(goToMainTabByIndex(1), animated: false, completion: nil)
     }
     

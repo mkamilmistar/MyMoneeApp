@@ -12,6 +12,7 @@ class DreamViewController: UIViewController, UITableViewDelegate, UITableViewDat
     @IBOutlet var notFound: NotFound!
     @IBOutlet weak var dreamTableView: UITableView!
     var userData: User = AuthUser.data
+    var userWallet: Wallet = AuthUser.wallet
     var progressBarData: Float = 0.0
     
     override func viewDidLoad() {
@@ -78,7 +79,7 @@ class DreamViewController: UIViewController, UITableViewDelegate, UITableViewDat
         dataCell.title.text = dreams[indexPath.row].title
         dataCell.targetAmount.text = setDecimalToStringCurrency(amountValue: dreams[indexPath.row].targetAmount)
         
-        dataCell.balance.text = setDecimalToStringCurrency(amountValue: userData.balance)
+        dataCell.balance.text = setDecimalToStringCurrency(amountValue: userWallet.balance)
         dataCell.progressBar.progress = setProgress(indexPath)
         
         return dataCell
@@ -88,7 +89,7 @@ class DreamViewController: UIViewController, UITableViewDelegate, UITableViewDat
 
 extension DreamViewController {
     fileprivate func setProgress(_ indexPath: IndexPath) -> Float {
-        let currentDouble = setDecimalToDouble(value: userData.balance)
+        let currentDouble = setDecimalToDouble(value: userWallet.balance)
         
         let targetDouble = setDecimalToDouble(value: dreams[indexPath.row].targetAmount)
         
