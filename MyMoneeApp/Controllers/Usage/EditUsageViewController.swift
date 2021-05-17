@@ -94,14 +94,30 @@ class EditUsageViewController: UIViewController, UICollectionViewDelegate, UICol
         let amount = setStringToDecimal(
             amountValue: priceTxtField.text?.replacingOccurrences(of: ".", with: "") ?? "")
         let date = usages[passIndex].date
-        let status = usages[passIndex].status
+        var status: UsageType
         
-        if status == .moneyIn {
+        if usageTypeData == 0 {
+            status = .moneyIn
             passBalance = userData.balance - usages[passIndex].amount
-            userData.balance = passBalance + amount
+          
+            
+            if status != usages[passIndex].status {
+                userData.balance += amount
+            } else {
+                userData.balance = passBalance + amount
+            }
+            
+            
         } else {
+            status = .moneyOut
             passBalance = userData.balance + usages[passIndex].amount
-            userData.balance = passBalance - amount
+            
+            if status != usages[passIndex].status {
+                userData.balance -= amount
+            } else {
+                userData.balance = passBalance - amount
+            }
+            
         }
 
         usages[passIndex] = Usage(id: id, title: title, price: amount, date: date, status: status, UserId: userData.id)
