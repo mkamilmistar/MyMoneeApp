@@ -7,7 +7,8 @@
 
 import UIKit
 
-class HomeViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class HomeViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, NotFoundDelegate {
+  
 
     @IBOutlet var notFound: NotFound!
     @IBOutlet var greetingLabel: UILabel!
@@ -34,6 +35,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         usagesTableView.register(uiNib, forCellReuseIdentifier: String(describing: UsageTableViewCell.self))
         usagesTableView.delegate = self
         usagesTableView.dataSource = self
+        notFound.delegate = self
        
     }
     
@@ -62,15 +64,14 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
 
     }
     
-    @IBAction func goAddUsageView(_ sender: UIButton) {
-        let addUsageVC = AddUsageViewController(nibName: String(describing: AddUsageViewController.self), bundle: nil)
-        
-        addUsageVC.modalPresentationStyle = .fullScreen
-        addUsageVC.modalTransitionStyle = .coverVertical
-        
-        self.navigationController?.pushViewController(addUsageVC, animated: true)
+    func buttonAction() {
+        addData()
     }
     
+    @IBAction func goAddUsageView(_ sender: UIButton) {
+        addData()
+    }
+   
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         //deselect row animation
         tableView.deselectRow(at: indexPath, animated: false)
@@ -161,7 +162,7 @@ extension HomeViewController {
         notFound.isHidden = true
         notFound.addButton.isHidden = true
         notFound.addButton.setTitle("Tambah Penggunaan", for: .normal)
-        notFound.addButton.addTarget(self, action: #selector(self.goAddUsageView(_:)), for: .touchUpInside)
+
     }
     
     //Scheduler the Greeting Text
@@ -175,6 +176,16 @@ extension HomeViewController {
         case 18..<24: self.greetingLabel.text = "Selamat Malam,"
         default:self.greetingLabel.text = "Selamat Dini Hari,"
         }
+    }
+    
+    
+    func addData() {
+        let addUsageVC = AddUsageViewController(nibName: String(describing: AddUsageViewController.self), bundle: nil)
+        
+        addUsageVC.modalPresentationStyle = .fullScreen
+        addUsageVC.modalTransitionStyle = .coverVertical
+        
+        self.navigationController?.pushViewController(addUsageVC, animated: true)
     }
     
 }

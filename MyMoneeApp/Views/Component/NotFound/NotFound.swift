@@ -7,11 +7,17 @@
 
 import UIKit
 
+protocol NotFoundDelegate {
+    func buttonAction()
+}
+
 class NotFound: UIView {
 
     @IBOutlet var mainContent: UIView!
     @IBOutlet var addButton: UIButton!
     @IBOutlet var notFoundLabel: UILabel!
+    
+    var delegate: NotFoundDelegate?
     
     //Constructor dengan programatically
     override init(frame: CGRect) {
@@ -36,4 +42,10 @@ class NotFound: UIView {
         
         notFoundLabel.textColor = UIColor(red: 79.0/255.0, green: 79.0/255.0, blue: 79.0/255.0, alpha: 1.0)
     }
+    
+    @IBAction func addButtonAction(_ sender: Any) {
+        self.delegate?.buttonAction()
+        
+    }
+    
 }

@@ -7,7 +7,7 @@
 
 import UIKit
 
-class DreamViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class DreamViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, NotFoundDelegate {
    
     @IBOutlet var notFound: NotFound!
     @IBOutlet weak var dreamTableView: UITableView!
@@ -26,6 +26,7 @@ class DreamViewController: UIViewController, UITableViewDelegate, UITableViewDat
         dreamTableView.backgroundColor = AppColor.mainBG
         dreamTableView.delegate = self
         dreamTableView.dataSource = self
+        notFound.delegate = self
         
     }
     
@@ -41,13 +42,13 @@ class DreamViewController: UIViewController, UITableViewDelegate, UITableViewDat
         }
     }
     
+    func buttonAction() {
+        goAddDreamView()
+    }
+    
+    
     @IBAction func goAddDream(_ sender: Any) {
-        let addImpianView = AddDreamViewController(nibName: String(describing: AddDreamViewController.self), bundle: nil)
-        
-        addImpianView.modalPresentationStyle = .fullScreen
-        addImpianView.modalTransitionStyle = .coverVertical
-        
-        self.navigationController?.pushViewController(addImpianView, animated: true)
+        goAddDreamView()
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -117,8 +118,16 @@ extension DreamViewController {
     
     fileprivate func setViewStyle() {
         view.backgroundColor = AppColor.mainBG
-        notFound.addButton.setTitle("Tambah Penggunaan", for: .normal)
-        notFound.addButton.addTarget(self, action: #selector(self.goAddDream(_:)), for: .touchUpInside)
+        notFound.addButton.setTitle("Tambah Impian", for: .normal)
+    }
+    
+    func goAddDreamView() {
+        let addImpianView = AddDreamViewController(nibName: String(describing: AddDreamViewController.self), bundle: nil)
+        
+        addImpianView.modalPresentationStyle = .fullScreen
+        addImpianView.modalTransitionStyle = .coverVertical
+        
+        self.navigationController?.pushViewController(addImpianView, animated: true)
     }
     
 }
