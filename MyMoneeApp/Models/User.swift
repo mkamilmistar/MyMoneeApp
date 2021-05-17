@@ -21,7 +21,7 @@ class User {
 }
 
 var users: [User] = [
-    User(id: 0, name: "M. Kamil", imageProfile: "Profile_Photo", balance: 999000.0),
+    User(id: 0, name: "M. Kamil", imageProfile: "Profile_Photo", balance: 2500000.0),
     User(id: 1, name: "Melia Suspariana", imageProfile: "Profile_Photo2", balance: 999000.0),
     User(id: 2, name: "Maudy Abdila", imageProfile: "Profile_Photo3", balance: 999000.0)
 ]

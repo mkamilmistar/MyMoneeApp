@@ -100,20 +100,18 @@ class EditUsageViewController: UIViewController, UICollectionViewDelegate, UICol
             status = .moneyIn
             passBalance = userData.balance - usages[passIndex].amount
           
-            
             if status != usages[passIndex].status {
-                userData.balance += amount
+                userData.balance = userData.balance + (amount*2)
             } else {
                 userData.balance = passBalance + amount
-            }
-            
+            }   
             
         } else {
             status = .moneyOut
             passBalance = userData.balance + usages[passIndex].amount
             
             if status != usages[passIndex].status {
-                userData.balance -= amount
+                userData.balance = userData.balance - (amount*2)
             } else {
                 userData.balance = passBalance - amount
             }

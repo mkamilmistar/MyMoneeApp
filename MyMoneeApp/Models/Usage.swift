@@ -31,6 +31,6 @@ class Usage {
 }
 
 var usages: [Usage] = [
-    Usage(id: String.random(), title: "Bayar Listrik", price: 251000, date: getDateByString(date: "2021-05-1 19:30:27"), status: .moneyOut, UserId: 0),
-    Usage(id: String.random(), title: "Gaji", price: 1250000, date: getDateByString(date: "2021-05-1 08:00:27"), status: .moneyIn, UserId: 0)
+//    Usage(id: String.random(), title: "Bayar Listrik", price: 251000, date: getDateByString(date: "2021-05-1 19:30:27"), status: .moneyOut, UserId: 0),
+//    Usage(id: String.random(), title: "Gaji", price: 1250000, date: getDateByString(date: "2021-05-1 08:00:27"), status: .moneyIn, UserId: 0)
 ]
