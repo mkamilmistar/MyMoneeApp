@@ -65,12 +65,12 @@ class EditUsageViewController: UIViewController, UICollectionViewDelegate, UICol
     
     
     @IBAction func backToDetailUsage(_ sender: UITapGestureRecognizer) {
-        self.dismiss(animated: false, completion: nil)
+        self.navigationController?.popViewController(animated: true)
     }
     
     @IBAction func updateButton(_ sender: Any) {
         updateUsage()
-        self.present(goToMainTabByIndex(0), animated: false, completion: nil)
+        self.navigationController?.popToRootViewController(animated: true)
     }
     
     @IBAction func deleteAction(_ gesture: UITapGestureRecognizer) {
@@ -134,7 +134,7 @@ class EditUsageViewController: UIViewController, UICollectionViewDelegate, UICol
         usages.remove(at: passIndex)
         
         //Navigate
-        self.present(goToMainTabByIndex(0), animated: false, completion: nil)
+        self.navigationController?.popToRootViewController(animated: true)
     }
     
     //when select

@@ -29,13 +29,25 @@ class DreamViewController: UIViewController, UITableViewDelegate, UITableViewDat
         
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        dreamTableView.reloadData()
+        if dreams.count > 0 {
+            self.dreamTableView.isHidden = false
+            
+            self.notFound.isHidden = true
+            self.notFound.addButton.isHidden = true
+        }
+    }
+    
     @IBAction func goAddDream(_ sender: Any) {
         let addImpianView = AddDreamViewController(nibName: String(describing: AddDreamViewController.self), bundle: nil)
         
         addImpianView.modalPresentationStyle = .fullScreen
         addImpianView.modalTransitionStyle = .coverVertical
         
-        self.present(addImpianView, animated: true, completion: nil)
+        self.navigationController?.pushViewController(addImpianView, animated: true)
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -51,7 +63,7 @@ class DreamViewController: UIViewController, UITableViewDelegate, UITableViewDat
         detailDreamVC.passIndex = indexPath.row
         detailDreamVC.passProgressData = setProgress(indexPath)
         
-        self.present(detailDreamVC, animated: true, completion: nil)
+        self.navigationController?.pushViewController(detailDreamVC, animated: true)
         
     }
 
@@ -73,9 +85,7 @@ class DreamViewController: UIViewController, UITableViewDelegate, UITableViewDat
         let dataCell = tableView.dequeueReusableCell(withIdentifier: String(describing: DreamTableViewCell.self), for: indexPath) as! DreamTableViewCell
         
         //change selected color
-        let backgroundView = UIView()
-        backgroundView.backgroundColor = .systemGray5
-        dataCell.selectedBackgroundView = backgroundView
+        dataCell.selectionStyle = .none
         
         dataCell.title.text = dreams[indexPath.row].title
         dataCell.targetAmount.text = setDecimalToStringCurrency(amountValue: dreams[indexPath.row].targetAmount)
@@ -107,8 +117,6 @@ extension DreamViewController {
     
     fileprivate func setViewStyle() {
         view.backgroundColor = AppColor.mainBG
-        notFound.isHidden = true
-        notFound.addButton.isHidden = true
         notFound.addButton.setTitle("Tambah Penggunaan", for: .normal)
         notFound.addButton.addTarget(self, action: #selector(self.goAddDream(_:)), for: .touchUpInside)
     }

@@ -49,7 +49,7 @@ class EditDreamViewController: UIViewController, UITextFieldDelegate {
     
     @IBAction func updateButton(_ sender: UIButton) {
         updateDreamData()
-        self.present(goToMainTabByIndex(1), animated: false, completion: nil)
+        self.navigationController?.popToRootViewController(animated: true)
     }
     
     @IBAction func deleteAction(_ sender: UITapGestureRecognizer) {
@@ -69,12 +69,12 @@ class EditDreamViewController: UIViewController, UITextFieldDelegate {
     
     
     @IBAction func backButton(_ sender: UITapGestureRecognizer) {
-        self.dismiss(animated: false, completion: nil)
+        self.navigationController?.popViewController(animated: true)
     }
     
     func deleteDream() {
         dreams.remove(at: passIndex!)
-        self.present(goToMainTabByIndex(1), animated: false, completion: nil)
+        self.navigationController?.popToRootViewController(animated: true)
         
     }
     

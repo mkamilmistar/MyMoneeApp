@@ -70,7 +70,7 @@ func setDecimalToDouble(value: Decimal) -> Double {
 func getDateByString(date:String)->Date{
     let formatter = DateFormatter()
     formatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
-    formatter.timeZone = TimeZone(abbreviation: "WIT")
+    formatter.timeZone = TimeZone(abbreviation: "WIB")
     formatter.locale = NSLocale(localeIdentifier: "id") as Locale
     return formatter.date(from: date)!
 }

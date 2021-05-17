@@ -20,44 +20,46 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     @IBOutlet var riwayatPenggunaanLabel: UILabel!
     
     var userData: User = AuthUser.data
-
+    var totalMoneyIn: Decimal = 0.0
+    var totalMoneyOut: Decimal = 0.0
+ 
     override func viewDidLoad() {
         super.viewDidLoad()
         
         //Set View Style
         setViewStyle()
         
+        //Register Table
+        let uiNib = UINib(nibName: String(describing: UsageTableViewCell.self), bundle: nil)
+        usagesTableView.register(uiNib, forCellReuseIdentifier: String(describing: UsageTableViewCell.self))
+        usagesTableView.delegate = self
+        usagesTableView.dataSource = self
+       
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
         userName.text = userData.name
         let balance =  setDecimalToString(amountValue: userData.balance)
         balanceLabel.text = "Rp \(balance)"
-        
-        //Get All Data In and Out
-        let getAllDataIn = usages.filter({$0.status == .moneyIn}).map({$0.amount}).reduce(0, +)
-        let getAllDataOut = usages.filter({$0.status == .moneyOut}).map({$0.amount}).reduce(0, +)
-
-        let dataUsageIn = anotherSetDecimalToStringCurrency(amountValue: getAllDataIn)
-        let dataUsageOut = anotherSetDecimalToStringCurrency(amountValue: getAllDataOut)
-        
-        //Pass Data In/Out To Profile Tab Menu
-        let navVC = tabBarController?.viewControllers![2] as! UINavigationController
-        let profileVC = navVC.topViewController as! ProfileViewController
-        profileVC.passAllMoneyIn = getAllDataIn
-        profileVC.passAllMoneyOut = getAllDataOut
-        
-        //Set Data Show
-        totalUsageIn.text = "Rp. \(dataUsageIn)"
-        totalUsageOut.text = "Rp. \(dataUsageOut)"
-        
+       
         //Set Data Greeting
         schedulerGreetingText()
         
-        usagesTableView.delegate = self
-        usagesTableView.dataSource = self
-        usagesTableView.separatorStyle = .none
-        usagesTableView.backgroundColor = .white
+        //Money In Out
+        calcualateMoneyByType()
+        passingDataToProfile()
         
-        let uiNib = UINib(nibName: String(describing: UsageTableViewCell.self), bundle: nil)
-        usagesTableView.register(uiNib, forCellReuseIdentifier: String(describing: UsageTableViewCell.self))
+        //Data Transaction Conditional
+        usagesTableView.reloadData()
+        if usages.count > 0 {
+            self.usagesTableView.isHidden = false
+            self.notFound.isHidden = true
+            self.notFound.addButton.isHidden = true
+            self.riwayatPenggunaanLabel.isHidden = false
+        }
+
     }
     
     @IBAction func goAddUsageView(_ sender: UIButton) {
@@ -66,7 +68,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         addUsageVC.modalPresentationStyle = .fullScreen
         addUsageVC.modalTransitionStyle = .coverVertical
         
-        self.present(addUsageVC, animated: true, completion: nil)
+        self.navigationController?.pushViewController(addUsageVC, animated: true)
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -81,7 +83,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         //PassingData
         detailUsageVC.passIndex = indexPath.row
         
-        self.present(detailUsageVC, animated: true, completion: nil)
+        self.navigationController?.pushViewController(detailUsageVC, animated: true)
     
     }
     
@@ -128,7 +130,32 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
 }
 
 extension HomeViewController {
+    fileprivate func calcualateMoneyByType() {
+        //Get All Data In and Out
+        totalMoneyIn = usages.filter({$0.status == .moneyIn}).map({$0.amount}).reduce(0, +)
+        totalMoneyOut = usages.filter({$0.status == .moneyOut}).map({$0.amount}).reduce(0, +)
+
+        let dataUsageIn = anotherSetDecimalToStringCurrency(amountValue: totalMoneyIn)
+        let dataUsageOut = anotherSetDecimalToStringCurrency(amountValue: totalMoneyOut)
+        
+        //Set Data Show
+        totalUsageIn.text = "Rp. \(dataUsageIn)"
+        totalUsageOut.text = "Rp. \(dataUsageOut)"
+    }
+    
+    fileprivate func passingDataToProfile() {
+        //Pass Data In/Out To Profile Tab Menu
+        let navVC = tabBarController?.viewControllers![2] as! UINavigationController
+        let profileVC = navVC.topViewController as! ProfileViewController
+        profileVC.passAllMoneyIn = totalMoneyIn
+        profileVC.passAllMoneyOut = totalMoneyOut
+    }
+    
+    
     fileprivate func setViewStyle() {
+        usagesTableView.separatorStyle = .none
+        usagesTableView.backgroundColor = .white
+        
         view.backgroundColor = AppColor.mainBG
         balanceView.backgroundColor = AppColor.mainPurple
         notFound.isHidden = true

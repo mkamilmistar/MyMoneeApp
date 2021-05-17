@@ -29,30 +29,17 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        imagePicker.delegate = self
+        imagePicker.allowsEditing = true
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
         //Set View Properties
         setView()
         
-        editNameTap.isHidden = true
-        editPhotoButton.isHidden = true
-        tapButtonPhotoAction.isEnabled = false
-        imagePicker.delegate = self
     }
-    
-    fileprivate func setView() {
-        //Set Properties View
-        nameLabel.text = userData.name
-        userImage.image = UIImage(named: userData.imageProfile)
-        
-        view.backgroundColor = AppColor.mainBG
-        blueBg.layer.backgroundColor = AppColor.mainPurple.cgColor
-        
-        if (passAllMoneyIn) >= (passAllMoneyOut) {
-            statusUsage.text = "Bagus! Pengeluaranmu lebih sedikit dari Pemasukan"
-        } else {
-            statusUsage.text = "Duh! Pengeluaranmu lebih besar dari Pemasukan"
-        }
-    }
-    
     
     @IBAction func tapPhotoAction(_ sender: UITapGestureRecognizer) {
         //Pick Galery
@@ -110,22 +97,16 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
         tapButtonPhotoAction.isEnabled = false
         
         //Navigate
-        self.present(goToMainTabByIndex(2), animated: false, completion: nil)
+        self.navigationController?.popToRootViewController(animated: false)
 
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         
-        if let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
+        if let image = info[UIImagePickerController.InfoKey(rawValue: "UIImagePickerControllerEditedImage")] as? UIImage {
             userImage.image = image
         }
-        
-//        if let url = info[UIImagePickerController.InfoKey.imageURL] as? URL {
-//            let fileName = url.lastPathComponent
-//            let fileType = url.pathExtension
-//            print("fileName = \(fileName)\nfileType = \(fileType)\n")
-//        }
-        
+
         picker.dismiss(animated: true, completion: nil)
     }
     
@@ -160,9 +141,31 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
             present(alert, animated: true, completion: nil)
         }
     }
+    
     func openGallery() {
         imagePicker.sourceType = UIImagePickerController.SourceType.photoLibrary
         self.present(imagePicker, animated: true, completion: nil)
     }
     
+}
+
+extension ProfileViewController {
+    fileprivate func setView() {
+        //init show data
+        editNameTap.isHidden = true
+        editPhotoButton.isHidden = true
+        tapButtonPhotoAction.isEnabled = false
+        
+        //Set Properties View
+        nameLabel.text = userData.name
+        
+        view.backgroundColor = AppColor.mainBG
+        blueBg.layer.backgroundColor = AppColor.mainPurple.cgColor
+        
+        if (passAllMoneyIn) >= (passAllMoneyOut) {
+            statusUsage.text = "Bagus! Pengeluaranmu lebih sedikit dari Pemasukan"
+        } else {
+            statusUsage.text = "Duh! Pengeluaranmu lebih besar dari Pemasukan"
+        }
+    }
 }

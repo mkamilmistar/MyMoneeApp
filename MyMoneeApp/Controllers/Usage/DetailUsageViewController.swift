@@ -45,7 +45,6 @@ class DetailUsageViewController: UIViewController {
         
         dateUsage.text = setDateToString(usages[passIndex].date)
        
-        
     }
     
     @IBAction func goEditUsage(_ sender: UIButton) {
@@ -57,12 +56,12 @@ class DetailUsageViewController: UIViewController {
         //Pass Data
         editUsageVC.passIndex = self.passIndex
         
-        self.present(editUsageVC, animated: false)
+        self.navigationController?.pushViewController(editUsageVC, animated: true)
     }
     
     @IBAction func backToHome(_ sender: UITapGestureRecognizer){
         
-        self.dismiss(animated: true, completion: nil)
+        self.navigationController?.popToRootViewController(animated: true)
     }
 
 }

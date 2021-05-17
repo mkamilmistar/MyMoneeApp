@@ -66,7 +66,7 @@ class DetailDreamViewController: UIViewController {
         //Pass Data To Edit
         editDreamVC.passIndex = passIndex
         
-        self.present(editDreamVC, animated: false, completion: nil)
+        self.navigationController?.pushViewController(editDreamVC, animated: true)
     }
     
     @IBAction func confirmButton(_ sender: Any) {
@@ -102,11 +102,11 @@ class DetailDreamViewController: UIViewController {
         userData.balance -= price
         
         //Navigate
-        self.present(goToMainTabByIndex(1), animated: false, completion: nil)
+        self.navigationController?.popToRootViewController(animated: true)
     }
     
     @IBAction func backButton(_ sender: Any) {
-        self.dismiss(animated: true, completion: nil)
+        self.navigationController?.popToRootViewController(animated: true)
     }
    
 }

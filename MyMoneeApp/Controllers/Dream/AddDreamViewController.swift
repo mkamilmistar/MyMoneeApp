@@ -39,7 +39,7 @@ class AddDreamViewController: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func backButton(_ sender: UITapGestureRecognizer) {
-        self.dismiss(animated: true, completion: nil)
+        self.navigationController?.popToRootViewController(animated: true)
     }
     
     @IBAction func saveButton(_ sender: UIButton) {
@@ -49,6 +49,6 @@ class AddDreamViewController: UIViewController, UITextFieldDelegate {
         
         dreams.append(Dream(id: id, title: title, targetAmount: targetAmount, userId: userData.id))
         
-        self.present(goToMainTabByIndex(1), animated: false, completion: nil)
+        self.navigationController?.popToRootViewController(animated: true)
     }
 }

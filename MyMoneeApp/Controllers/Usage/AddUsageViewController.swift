@@ -45,9 +45,8 @@ class AddUsageViewController: UIViewController, UICollectionViewDelegate, UIColl
         return true
     }
     
-    
     @IBAction func BackToHome(_ sender: UITapGestureRecognizer) {
-        self.dismiss(animated: true, completion: nil)
+        self.navigationController?.popToRootViewController(animated: true)
     }
     
     @IBAction func saveUsage(_ sender: UIButton) {
@@ -67,8 +66,7 @@ class AddUsageViewController: UIViewController, UICollectionViewDelegate, UIColl
         //Input To Array
         usages.append(Usage(id: id, title: title, price: price, date: Date(), status: status, UserId: userData.id))
         
-        self.present(goToMainTabByIndex(0), animated: false, completion: nil)
-        
+        self.navigationController?.popToRootViewController(animated: true)
     }
     
     //when select
@@ -80,6 +78,7 @@ class AddUsageViewController: UIViewController, UICollectionViewDelegate, UIColl
         
         //Asign data usageTypeData
         usageTypeData = indexPath.row
+        
         if (titleTxtField.text != "") && (amountTxtField.text != "") {
             enabledMainButton(saveButton)
         }
