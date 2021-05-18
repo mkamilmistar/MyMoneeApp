@@ -44,6 +44,8 @@
 		FA2F8784264E987E00B8BF30 /* ConvertDataType.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2F8783264E987E00B8BF30 /* ConvertDataType.swift */; };
 		FA2F878B264EE58700B8BF30 /* ButtonConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2F878A264EE58700B8BF30 /* ButtonConfig.swift */; };
 		FA2F878E264EE79400B8BF30 /* Shadow.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2F878D264EE79400B8BF30 /* Shadow.swift */; };
+		FA8A3E732653612E006D4983 /* Header.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8A3E722653612E006D4983 /* Header.swift */; };
+		FA8A3E792653613E006D4983 /* Header.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA8A3E782653613E006D4983 /* Header.xib */; };
 		FA9AF01A264D0E8200EC9109 /* UsageTypeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9AF018264D0E8200EC9109 /* UsageTypeCell.swift */; };
 		FA9AF01B264D0E8200EC9109 /* UsageTypeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA9AF019264D0E8200EC9109 /* UsageTypeCell.xib */; };
 		FA9AF01E264D104400EC9109 /* CategoryUsage.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9AF01D264D104400EC9109 /* CategoryUsage.swift */; };
@@ -110,6 +112,8 @@
 		FA2F8783264E987E00B8BF30 /* ConvertDataType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConvertDataType.swift; sourceTree = "<group>"; };
 		FA2F878A264EE58700B8BF30 /* ButtonConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonConfig.swift; sourceTree = "<group>"; };
 		FA2F878D264EE79400B8BF30 /* Shadow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Shadow.swift; sourceTree = "<group>"; };
+		FA8A3E722653612E006D4983 /* Header.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Header.swift; sourceTree = "<group>"; };
+		FA8A3E782653613E006D4983 /* Header.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Header.xib; sourceTree = "<group>"; };
 		FA9AF018264D0E8200EC9109 /* UsageTypeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsageTypeCell.swift; sourceTree = "<group>"; };
 		FA9AF019264D0E8200EC9109 /* UsageTypeCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UsageTypeCell.xib; sourceTree = "<group>"; };
 		FA9AF01D264D104400EC9109 /* CategoryUsage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryUsage.swift; sourceTree = "<group>"; };
@@ -303,6 +307,15 @@
 			path = Configuration;
 			sourceTree = "<group>";
 		};
+		FA8A3E712653610D006D4983 /* Header */ = {
+			isa = PBXGroup;
+			children = (
+				FA8A3E722653612E006D4983 /* Header.swift */,
+				FA8A3E782653613E006D4983 /* Header.xib */,
+			);
+			path = Header;
+			sourceTree = "<group>";
+		};
 		FA9AF016264D0E2D00EC9109 /* UsageTypeCell */ = {
 			isa = PBXGroup;
 			children = (
@@ -354,6 +367,7 @@
 		FAD7EBF7264BBFC5000E752D /* Component */ = {
 			isa = PBXGroup;
 			children = (
+				FA8A3E712653610D006D4983 /* Header */,
 				FAD7EBB5264B82CE000E752D /* DreamTableCell */,
 				FADFA9CF264F654B00965CD8 /* NotFound */,
 				FA15F422264ADBE3001B15D9 /* UsageTableCell */,
@@ -460,6 +474,7 @@
 				FAD7EBBE264B82FE000E752D /* DreamTableViewCell.xib in Resources */,
 				FA15F410264AD024001B15D9 /* Poppins-BoldItalic.ttf in Resources */,
 				FA15F411264AD024001B15D9 /* Poppins-ExtraBold.ttf in Resources */,
+				FA8A3E792653613E006D4983 /* Header.xib in Resources */,
 				FA15F412264AD024001B15D9 /* Poppins-ExtraBoldItalic.ttf in Resources */,
 				FA15F413264AD024001B15D9 /* Poppins-ExtraLight.ttf in Resources */,
 				FA15F414264AD024001B15D9 /* Poppins-ExtraLightItalic.ttf in Resources */,
@@ -517,6 +532,7 @@
 				FA9AF01A264D0E8200EC9109 /* UsageTypeCell.swift in Sources */,
 				FAD7EBF2264BBEF6000E752D /* DetailDreamViewController.swift in Sources */,
 				FA15F3BE264AC7D2001B15D9 /* HomeViewController.swift in Sources */,
+				FA8A3E732653612E006D4983 /* Header.swift in Sources */,
 				FAD7EC06264BCDE2000E752D /* AddDreamViewController.swift in Sources */,
 				FAD7EC0C264BD06A000E752D /* EditDreamViewController.swift in Sources */,
 				FAD7EBC5264B90B5000E752D /* DetailUsageViewController.swift in Sources */,

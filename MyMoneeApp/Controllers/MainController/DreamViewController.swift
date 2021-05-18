@@ -7,10 +7,11 @@
 
 import UIKit
 
-class DreamViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, NotFoundDelegate {
+class DreamViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, NotFoundDelegate, HeaderDelegate {
    
     @IBOutlet var notFound: NotFound!
     @IBOutlet weak var dreamTableView: UITableView!
+    @IBOutlet var headerView: Header!
     var userData: User = AuthUser.data
     var progressBarData: Float = 0.0
     
@@ -27,6 +28,7 @@ class DreamViewController: UIViewController, UITableViewDelegate, UITableViewDat
         dreamTableView.delegate = self
         dreamTableView.dataSource = self
         notFound.delegate = self
+        headerView.delegate = self
         
     }
     
@@ -40,15 +42,6 @@ class DreamViewController: UIViewController, UITableViewDelegate, UITableViewDat
             self.notFound.isHidden = true
             self.notFound.addButton.isHidden = true
         }
-    }
-    
-    func buttonAction() {
-        goAddDreamView()
-    }
-    
-    
-    @IBAction func goAddDream(_ sender: Any) {
-        goAddDreamView()
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -97,6 +90,16 @@ class DreamViewController: UIViewController, UITableViewDelegate, UITableViewDat
         return dataCell
     }
     
+    //Navigation
+    func notFoundButtonAction() {
+        goAddDreamView()
+    }
+    
+    func headerButtonAction() {
+        goAddDreamView()
+    }
+   
+    
 }
 
 extension DreamViewController {
@@ -119,6 +122,9 @@ extension DreamViewController {
     fileprivate func setViewStyle() {
         view.backgroundColor = AppColor.mainBG
         notFound.addButton.setTitle("Tambah Impian", for: .normal)
+        
+        headerView.headerLabel.text = "Impian"
+    
     }
     
     func goAddDreamView() {

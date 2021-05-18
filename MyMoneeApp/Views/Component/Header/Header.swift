@@ -7,17 +7,18 @@
 
 import UIKit
 
-protocol NotFoundDelegate {
-    func notFoundButtonAction()
+protocol HeaderDelegate {
+    func headerButtonAction()
+    
 }
 
-class NotFound: UIView {
+class Header: UIView {
 
     @IBOutlet var mainContent: UIView!
     @IBOutlet var addButton: UIButton!
-    @IBOutlet var notFoundLabel: UILabel!
+    @IBOutlet var headerLabel: UILabel!
     
-    var delegate: NotFoundDelegate?
+    var delegate: HeaderDelegate?
     
     //Constructor dengan programatically
     override init(frame: CGRect) {
@@ -32,19 +33,15 @@ class NotFound: UIView {
     }
     
     private func commonInit() {
-        Bundle.main.loadNibNamed("NotFound", owner: self, options: nil)
+        Bundle.main.loadNibNamed("Header", owner: self, options: nil)
         addSubview(mainContent)
         mainContent.frame = self.bounds
         mainContent.autoresizingMask = [.flexibleHeight, .flexibleWidth]
         
-        
-        enabledMainButton(addButton)
-        
-        notFoundLabel.textColor = UIColor(red: 79.0/255.0, green: 79.0/255.0, blue: 79.0/255.0, alpha: 1.0)
     }
     
     @IBAction func addButtonAction(_ sender: Any) {
-        self.delegate?.notFoundButtonAction()
+        self.delegate?.headerButtonAction()
         
     }
     

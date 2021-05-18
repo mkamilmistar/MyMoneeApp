@@ -7,11 +7,9 @@
 
 import UIKit
 
-class HomeViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, NotFoundDelegate {
-  
-
+class HomeViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, NotFoundDelegate, HeaderDelegate {
+   
     @IBOutlet var notFound: NotFound!
-    @IBOutlet var greetingLabel: UILabel!
     @IBOutlet var usagesTableView: UITableView!
     @IBOutlet var userName: UILabel!
     @IBOutlet var balanceView: UIView!
@@ -19,6 +17,9 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     @IBOutlet var totalUsageIn: UILabel!
     @IBOutlet var totalUsageOut: UILabel!
     @IBOutlet var riwayatPenggunaanLabel: UILabel!
+    @IBOutlet var contentView: UIView!
+    @IBOutlet var historyBackground: UIView!
+    @IBOutlet var headerView: Header!
     
     var userData: User = AuthUser.data
     var totalMoneyIn: Decimal = 0.0
@@ -36,6 +37,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         usagesTableView.delegate = self
         usagesTableView.dataSource = self
         notFound.delegate = self
+        headerView.delegate = self
        
     }
     
@@ -64,14 +66,6 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
 
     }
     
-    func buttonAction() {
-        addData()
-    }
-    
-    @IBAction func goAddUsageView(_ sender: UIButton) {
-        addData()
-    }
-   
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         //deselect row animation
         tableView.deselectRow(at: indexPath, animated: false)
@@ -128,6 +122,15 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         return trans
     }
     
+    func headerButtonAction() {
+        addData()
+        print("kontol")
+    }
+    
+    func notFoundButtonAction() {
+        addData()
+    }
+
 }
 
 extension HomeViewController {
@@ -157,6 +160,12 @@ extension HomeViewController {
         usagesTableView.separatorStyle = .none
         usagesTableView.backgroundColor = .white
         
+        historyBackground.layer.cornerRadius = 20
+        historyBackground.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
+        
+        headerView.headerLabel.text = "Selamat Pagi"
+
+        contentView.backgroundColor = AppColor.mainBG
         view.backgroundColor = AppColor.mainBG
         balanceView.backgroundColor = AppColor.mainPurple
         notFound.isHidden = true
@@ -170,11 +179,11 @@ extension HomeViewController {
         let time = Date().hour
         
         switch time {
-        case 1..<12: self.greetingLabel.text = "Selamat Pagi,"
-        case 12..<15: self.greetingLabel.text = "Selamat Siang,"
-        case 15..<18: self.greetingLabel.text = "Selamat Sore,"
-        case 18..<24: self.greetingLabel.text = "Selamat Malam,"
-        default:self.greetingLabel.text = "Selamat Dini Hari,"
+        case 1..<12: self.headerView.headerLabel.text = "Selamat Pagi,"
+        case 12..<15: self.headerView.headerLabel.text = "Selamat Siang,"
+        case 15..<18: self.headerView.headerLabel.text = "Selamat Sore,"
+        case 18..<24: self.headerView.headerLabel.text = "Selamat Malam,"
+        default:self.headerView.headerLabel.text = "Selamat Dini Hari,"
         }
     }
     
