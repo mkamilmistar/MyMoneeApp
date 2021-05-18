@@ -56,7 +56,7 @@ class DreamViewController: UIViewController, UITableViewDelegate, UITableViewDat
         //Passing Data
         detailDreamVC.passIndex = indexPath.row
         detailDreamVC.passProgressData = setProgress(indexPath)
-        
+        detailDreamVC.hidesBottomBarWhenPushed = true
         self.navigationController?.pushViewController(detailDreamVC, animated: true)
         
     }
@@ -132,7 +132,7 @@ extension DreamViewController {
         
         addImpianView.modalPresentationStyle = .fullScreen
         addImpianView.modalTransitionStyle = .coverVertical
-        
+        addImpianView.hidesBottomBarWhenPushed = true
         self.navigationController?.pushViewController(addImpianView, animated: true)
     }
     

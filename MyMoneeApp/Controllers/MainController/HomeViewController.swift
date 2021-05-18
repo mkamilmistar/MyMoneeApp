@@ -77,7 +77,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         //PassingData
         detailUsageVC.passIndex = indexPath.row
-        
+        detailUsageVC.hidesBottomBarWhenPushed = true
         self.navigationController?.pushViewController(detailUsageVC, animated: true)
     
     }
@@ -173,6 +173,15 @@ extension HomeViewController {
 
     }
     
+    func addData() {
+        let addUsageVC = AddUsageViewController(nibName: String(describing: AddUsageViewController.self), bundle: nil)
+        
+        addUsageVC.modalPresentationStyle = .fullScreen
+        addUsageVC.modalTransitionStyle = .coverVertical
+        addUsageVC.hidesBottomBarWhenPushed = true
+        self.navigationController?.pushViewController(addUsageVC, animated: true)
+    }
+    
     //Scheduler the Greeting Text
     fileprivate func schedulerGreetingText(){
         let time = Date().hour
@@ -184,16 +193,6 @@ extension HomeViewController {
         case 18..<24: self.headerView.headerLabel.text = "Selamat Malam,"
         default:self.headerView.headerLabel.text = "Selamat Dini Hari,"
         }
-    }
-    
-    
-    func addData() {
-        let addUsageVC = AddUsageViewController(nibName: String(describing: AddUsageViewController.self), bundle: nil)
-        
-        addUsageVC.modalPresentationStyle = .fullScreen
-        addUsageVC.modalTransitionStyle = .coverVertical
-        
-        self.navigationController?.pushViewController(addUsageVC, animated: true)
     }
     
 }

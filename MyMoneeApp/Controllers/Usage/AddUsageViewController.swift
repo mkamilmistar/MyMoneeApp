@@ -111,6 +111,7 @@ class AddUsageViewController: UIViewController, UICollectionViewDelegate, UIColl
 
 extension AddUsageViewController {
     @IBAction func BackToHome(_ sender: UITapGestureRecognizer) {
+        
         self.navigationController?.popToRootViewController(animated: true)
     }
    
