@@ -70,6 +70,10 @@
 		FADFA9D1264F657A00965CD8 /* NotFound.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADFA9D0264F657A00965CD8 /* NotFound.swift */; };
 		FADFA9D5264F658900965CD8 /* NotFound.xib in Resources */ = {isa = PBXBuildFile; fileRef = FADFA9D4264F658900965CD8 /* NotFound.xib */; };
 		FADFA9DB264FA16B00965CD8 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADFA9DA264FA16B00965CD8 /* Config.swift */; };
+		FAF256582653690200533263 /* CustomButton.xib in Resources */ = {isa = PBXBuildFile; fileRef = FAF256572653690200533263 /* CustomButton.xib */; };
+		FAF2565B2653691600533263 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF2565A2653691600533263 /* CustomButton.swift */; };
+		FAF2566326537ED900533263 /* AnotherButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF2566226537ED900533263 /* AnotherButton.swift */; };
+		FAF2566626537EE300533263 /* AnotherButton.xib in Resources */ = {isa = PBXBuildFile; fileRef = FAF2566526537EE300533263 /* AnotherButton.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -138,6 +142,10 @@
 		FADFA9D0264F657A00965CD8 /* NotFound.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotFound.swift; sourceTree = "<group>"; };
 		FADFA9D4264F658900965CD8 /* NotFound.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NotFound.xib; sourceTree = "<group>"; };
 		FADFA9DA264FA16B00965CD8 /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
+		FAF256572653690200533263 /* CustomButton.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomButton.xib; sourceTree = "<group>"; };
+		FAF2565A2653691600533263 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
+		FAF2566226537ED900533263 /* AnotherButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnotherButton.swift; sourceTree = "<group>"; };
+		FAF2566526537EE300533263 /* AnotherButton.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AnotherButton.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -298,11 +306,11 @@
 			isa = PBXGroup;
 			children = (
 				FA2F878A264EE58700B8BF30 /* ButtonConfig.swift */,
-				FA2F8783264E987E00B8BF30 /* ConvertDataType.swift */,
 				FAD7EBD2264B9D47000E752D /* ColorConfig.swift */,
-				FA2F878D264EE79400B8BF30 /* Shadow.swift */,
 				FADFA9DA264FA16B00965CD8 /* Config.swift */,
+				FA2F8783264E987E00B8BF30 /* ConvertDataType.swift */,
 				FA034C212650E06D0055A39E /* NavConfig.swift */,
+				FA2F878D264EE79400B8BF30 /* Shadow.swift */,
 			);
 			path = Configuration;
 			sourceTree = "<group>";
@@ -367,8 +375,9 @@
 		FAD7EBF7264BBFC5000E752D /* Component */ = {
 			isa = PBXGroup;
 			children = (
-				FA8A3E712653610D006D4983 /* Header */,
+				FAF2566026537EB200533263 /* Button */,
 				FAD7EBB5264B82CE000E752D /* DreamTableCell */,
+				FA8A3E712653610D006D4983 /* Header */,
 				FADFA9CF264F654B00965CD8 /* NotFound */,
 				FA15F422264ADBE3001B15D9 /* UsageTableCell */,
 				FA9AF016264D0E2D00EC9109 /* UsageTypeCell */,
@@ -404,6 +413,33 @@
 				FADFA9D4264F658900965CD8 /* NotFound.xib */,
 			);
 			path = NotFound;
+			sourceTree = "<group>";
+		};
+		FAF25656265368CE00533263 /* CustomButton */ = {
+			isa = PBXGroup;
+			children = (
+				FAF256572653690200533263 /* CustomButton.xib */,
+				FAF2565A2653691600533263 /* CustomButton.swift */,
+			);
+			path = CustomButton;
+			sourceTree = "<group>";
+		};
+		FAF2566026537EB200533263 /* Button */ = {
+			isa = PBXGroup;
+			children = (
+				FAF2566126537EB900533263 /* AnotherButton */,
+				FAF25656265368CE00533263 /* CustomButton */,
+			);
+			path = Button;
+			sourceTree = "<group>";
+		};
+		FAF2566126537EB900533263 /* AnotherButton */ = {
+			isa = PBXGroup;
+			children = (
+				FAF2566226537ED900533263 /* AnotherButton.swift */,
+				FAF2566526537EE300533263 /* AnotherButton.xib */,
+			);
+			path = AnotherButton;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -476,8 +512,10 @@
 				FA15F411264AD024001B15D9 /* Poppins-ExtraBold.ttf in Resources */,
 				FA8A3E792653613E006D4983 /* Header.xib in Resources */,
 				FA15F412264AD024001B15D9 /* Poppins-ExtraBoldItalic.ttf in Resources */,
+				FAF2566626537EE300533263 /* AnotherButton.xib in Resources */,
 				FA15F413264AD024001B15D9 /* Poppins-ExtraLight.ttf in Resources */,
 				FA15F414264AD024001B15D9 /* Poppins-ExtraLightItalic.ttf in Resources */,
+				FAF256582653690200533263 /* CustomButton.xib in Resources */,
 				FA15F415264AD024001B15D9 /* Poppins-Italic.ttf in Resources */,
 				FA15F416264AD024001B15D9 /* Poppins-Light.ttf in Resources */,
 				FA15F417264AD024001B15D9 /* Poppins-LightItalic.ttf in Resources */,
@@ -512,6 +550,7 @@
 				FA15F3CB264AC888001B15D9 /* ProfileViewController.swift in Sources */,
 				FADFA9D1264F657A00965CD8 /* NotFound.swift in Sources */,
 				FA15F3C4264AC86E001B15D9 /* DreamViewController.swift in Sources */,
+				FAF2565B2653691600533263 /* CustomButton.swift in Sources */,
 				FADFA9CD264F618100965CD8 /* User.swift in Sources */,
 				FADFA9DB264FA16B00965CD8 /* Config.swift in Sources */,
 				FAD7EBB2264AE29D000E752D /* Usage.swift in Sources */,
@@ -526,6 +565,7 @@
 				FA034C26265111CB0055A39E /* Wallet.swift in Sources */,
 				FAD7EBB7264B82E6000E752D /* Dream.swift in Sources */,
 				FA9AF01E264D104400EC9109 /* CategoryUsage.swift in Sources */,
+				FAF2566326537ED900533263 /* AnotherButton.swift in Sources */,
 				FA2F8784264E987E00B8BF30 /* ConvertDataType.swift in Sources */,
 				FA15F386264AA7F9001B15D9 /* SceneDelegate.swift in Sources */,
 				FA15F425264ADC1E001B15D9 /* UsageTableViewCell.swift in Sources */,

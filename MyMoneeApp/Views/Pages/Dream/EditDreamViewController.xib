@@ -21,10 +21,9 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="EditDreamViewController" customModule="MyMoneeApp" customModuleProvider="target">
             <connections>
-                <outlet property="deleteButton" destination="0oH-pG-U1q" id="JBA-Cs-G7Q"/>
+                <outlet property="button" destination="y4m-jT-009" id="DFx-3S-nJy"/>
                 <outlet property="targetAmountField" destination="Qzz-Dl-68g" id="b6y-qV-kfo"/>
                 <outlet property="titleField" destination="quI-Pr-xap" id="Xro-Rn-xtk"/>
-                <outlet property="updateButton" destination="Fai-V9-uaz" id="3io-Jk-fDy"/>
                 <outlet property="view" destination="cFr-Hp-dfk" id="0vZ-w2-ohD"/>
             </connections>
         </placeholder>
@@ -103,79 +102,30 @@
                         </stackView>
                     </subviews>
                 </stackView>
-                <button clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fai-V9-uaz" userLabel="UpdateButton">
-                    <rect key="frame" x="17" y="692" width="381" height="44"/>
-                    <color key="backgroundColor" red="0.31372549020000001" green="0.41176470590000003" blue="0.72156862749999995" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="y4m-jT-009" customClass="AnotherButton" customModule="MyMoneeApp" customModuleProvider="target">
+                    <rect key="frame" x="16" y="688" width="382" height="106"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     <constraints>
-                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="338" id="JX1-a7-BIc"/>
-                        <constraint firstAttribute="height" constant="44" id="peT-id-H17"/>
+                        <constraint firstAttribute="height" constant="106" id="s0e-hV-XAy"/>
                     </constraints>
-                    <directionalEdgeInsets key="directionalLayoutMargins" top="8" leading="8" bottom="8" trailing="8"/>
-                    <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="14"/>
-                    <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                    <state key="normal" title="Perbarui">
-                        <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                    </state>
-                    <userDefinedRuntimeAttributes>
-                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                            <integer key="value" value="20"/>
-                        </userDefinedRuntimeAttribute>
-                    </userDefinedRuntimeAttributes>
-                    <connections>
-                        <action selector="updateButton:" destination="-1" eventType="touchUpInside" id="JvS-Gp-LnG"/>
-                    </connections>
-                </button>
-                <button clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0oH-pG-U1q" userLabel="DeleteButton">
-                    <rect key="frame" x="17" y="752" width="381" height="44"/>
-                    <gestureRecognizers/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="44" id="HPF-8w-a12"/>
-                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="338" id="IF9-me-5A0"/>
-                    </constraints>
-                    <directionalEdgeInsets key="directionalLayoutMargins" top="8" leading="8" bottom="8" trailing="8"/>
-                    <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="14"/>
-                    <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                    <state key="normal" title="Hapus">
-                        <color key="titleColor" red="0.92156862750000001" green="0.3411764706" blue="0.3411764706" alpha="1" colorSpace="calibratedRGB"/>
-                    </state>
-                    <userDefinedRuntimeAttributes>
-                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                            <integer key="value" value="20"/>
-                        </userDefinedRuntimeAttribute>
-                    </userDefinedRuntimeAttributes>
-                    <connections>
-                        <outletCollection property="gestureRecognizers" destination="Fds-Jo-BVe" appends="YES" id="t58-Y5-Q4H"/>
-                    </connections>
-                </button>
+                </view>
             </subviews>
             <viewLayoutGuide key="safeArea" id="HKP-mE-dyw"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
-                <constraint firstItem="HKP-mE-dyw" firstAttribute="trailing" secondItem="Fai-V9-uaz" secondAttribute="trailing" constant="16" id="Gnl-d7-WPY"/>
-                <constraint firstItem="0oH-pG-U1q" firstAttribute="leading" secondItem="Fai-V9-uaz" secondAttribute="leading" id="Gx5-sA-LnH"/>
+                <constraint firstItem="y4m-jT-009" firstAttribute="leading" secondItem="HKP-mE-dyw" secondAttribute="leading" constant="16" id="E37-mc-Cxk"/>
                 <constraint firstItem="HKP-mE-dyw" firstAttribute="trailing" secondItem="ORf-2v-HaO" secondAttribute="trailing" constant="16" id="JjQ-XS-kXJ"/>
                 <constraint firstItem="ORf-2v-HaO" firstAttribute="leading" secondItem="HKP-mE-dyw" secondAttribute="leading" constant="16" id="M3K-sX-5pl"/>
                 <constraint firstItem="U7a-kz-ec8" firstAttribute="top" secondItem="HKP-mE-dyw" secondAttribute="top" constant="20" id="N2N-az-sUU"/>
-                <constraint firstItem="Fai-V9-uaz" firstAttribute="leading" secondItem="HKP-mE-dyw" secondAttribute="leading" constant="17" id="T2u-7f-tNd"/>
-                <constraint firstItem="0oH-pG-U1q" firstAttribute="trailing" secondItem="Fai-V9-uaz" secondAttribute="trailing" id="lCT-6y-OOn"/>
-                <constraint firstItem="0oH-pG-U1q" firstAttribute="top" secondItem="Fai-V9-uaz" secondAttribute="bottom" constant="16" id="ncY-p8-ppg"/>
-                <constraint firstItem="HKP-mE-dyw" firstAttribute="bottom" secondItem="Fai-V9-uaz" secondAttribute="bottom" constant="126" id="nfW-3B-2CP"/>
+                <constraint firstItem="HKP-mE-dyw" firstAttribute="bottom" secondItem="y4m-jT-009" secondAttribute="bottom" constant="68" id="gHA-TU-A72"/>
+                <constraint firstItem="HKP-mE-dyw" firstAttribute="trailing" secondItem="y4m-jT-009" secondAttribute="trailing" constant="16" id="hfO-s1-0Uf"/>
                 <constraint firstItem="HKP-mE-dyw" firstAttribute="trailing" secondItem="U7a-kz-ec8" secondAttribute="trailing" constant="16" id="qBO-8x-f8u"/>
                 <constraint firstItem="ORf-2v-HaO" firstAttribute="top" secondItem="U7a-kz-ec8" secondAttribute="bottom" constant="28" id="uMN-Rx-HDf"/>
                 <constraint firstItem="U7a-kz-ec8" firstAttribute="leading" secondItem="HKP-mE-dyw" secondAttribute="leading" constant="16" id="ztZ-od-W0P"/>
             </constraints>
             <point key="canvasLocation" x="139" y="85"/>
         </view>
-        <tapGestureRecognizer id="gJC-sA-3UO" userLabel="BackTap">
-            <connections>
-                <action selector="backButton:" destination="-1" id="nkA-cb-ROp"/>
-            </connections>
-        </tapGestureRecognizer>
-        <tapGestureRecognizer id="Fds-Jo-BVe" userLabel="DeleteTap">
-            <connections>
-                <action selector="deleteAction:" destination="-1" id="UfK-WY-bjn"/>
-            </connections>
-        </tapGestureRecognizer>
+        <tapGestureRecognizer id="gJC-sA-3UO" userLabel="BackTap"/>
     </objects>
     <resources>
         <image name="Arrow_Back" width="44" height="76"/>

@@ -21,7 +21,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DetailUsageViewController" customModule="MyMoneeApp" customModuleProvider="target">
             <connections>
-                <outlet property="backButton" destination="TpE-4P-ACP" id="7gk-0M-O1o"/>
+                <outlet property="customButton" destination="4Lc-Zu-OEx" id="xBI-pv-cKj"/>
                 <outlet property="dateUsage" destination="VrZ-Wr-IL7" id="Xhp-Ky-Bx2"/>
                 <outlet property="iconStatus" destination="MDY-Sk-6Tg" id="YfX-yq-xmZ"/>
                 <outlet property="idUsage" destination="gbq-B6-yOw" id="yEs-j1-tnc"/>
@@ -116,33 +116,27 @@
                             <color key="textColor" red="0.92156862745098034" green="0.3411764705882353" blue="0.3411764705882353" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TpE-4P-ACP">
-                            <rect key="frame" x="16" y="638" width="382" height="43"/>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4Lc-Zu-OEx" customClass="CustomButton" customModule="MyMoneeApp" customModuleProvider="target">
+                            <rect key="frame" x="16" y="637" width="382" height="44"/>
+                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             <constraints>
-                                <constraint firstAttribute="height" constant="43" id="fcw-qV-pkB"/>
+                                <constraint firstAttribute="height" constant="44" id="GpT-0Z-Pu8"/>
                             </constraints>
-                            <fontDescription key="fontDescription" name="Poppins-SemiBold" family="Poppins" pointSize="14"/>
-                            <state key="normal" title="Kembali">
-                                <color key="titleColor" red="0.31372549020000001" green="0.41176470590000003" blue="0.72156862749999995" alpha="1" colorSpace="calibratedRGB"/>
-                            </state>
-                            <connections>
-                                <action selector="backToHome:" destination="-1" eventType="touchUpInside" id="E1d-yF-mAa"/>
-                            </connections>
-                        </button>
+                        </view>
                     </subviews>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     <constraints>
                         <constraint firstItem="MDY-Sk-6Tg" firstAttribute="centerX" secondItem="nKh-2M-IWj" secondAttribute="centerX" id="3vo-e0-Xp2"/>
                         <constraint firstItem="KpD-ds-T3B" firstAttribute="top" secondItem="MDY-Sk-6Tg" secondAttribute="bottom" constant="24" id="AXr-ZU-lXj"/>
                         <constraint firstItem="Y09-Bt-Zel" firstAttribute="top" secondItem="KpD-ds-T3B" secondAttribute="bottom" constant="4" id="EEX-ug-4BE"/>
+                        <constraint firstAttribute="trailing" secondItem="4Lc-Zu-OEx" secondAttribute="trailing" constant="16" id="YFi-rO-70u"/>
                         <constraint firstItem="IiT-Ye-9Zx" firstAttribute="centerX" secondItem="Y09-Bt-Zel" secondAttribute="centerX" id="aCd-Xe-GMf"/>
                         <constraint firstItem="IiT-Ye-9Zx" firstAttribute="top" secondItem="Y09-Bt-Zel" secondAttribute="bottom" constant="8" id="cHJ-1w-8fF"/>
-                        <constraint firstItem="TpE-4P-ACP" firstAttribute="leading" secondItem="nKh-2M-IWj" secondAttribute="leading" constant="16" id="ceP-A1-4QU"/>
                         <constraint firstItem="KpD-ds-T3B" firstAttribute="centerX" secondItem="MDY-Sk-6Tg" secondAttribute="centerX" id="eO4-GB-qNQ"/>
                         <constraint firstItem="oc2-YN-eCk" firstAttribute="top" secondItem="IiT-Ye-9Zx" secondAttribute="bottom" constant="65" id="f5p-GD-zlB"/>
                         <constraint firstItem="oc2-YN-eCk" firstAttribute="leading" secondItem="nKh-2M-IWj" secondAttribute="leading" constant="17" id="fhI-ll-rjT"/>
                         <constraint firstItem="Y09-Bt-Zel" firstAttribute="centerX" secondItem="KpD-ds-T3B" secondAttribute="centerX" id="lAu-W5-4Y5"/>
-                        <constraint firstAttribute="trailing" secondItem="TpE-4P-ACP" secondAttribute="trailing" constant="16" id="nJx-Kk-4yb"/>
+                        <constraint firstItem="4Lc-Zu-OEx" firstAttribute="leading" secondItem="nKh-2M-IWj" secondAttribute="leading" constant="16" id="pew-8m-9HT"/>
                         <constraint firstItem="MDY-Sk-6Tg" firstAttribute="top" secondItem="nKh-2M-IWj" secondAttribute="top" constant="-30" id="qq0-zR-mXz"/>
                         <constraint firstAttribute="trailing" secondItem="oc2-YN-eCk" secondAttribute="trailing" constant="17" id="yOF-Pf-6dq"/>
                     </constraints>
@@ -157,7 +151,7 @@
             <color key="backgroundColor" red="0.94117647058823528" green="0.94901960784313721" blue="0.97254901960784312" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
                 <constraint firstItem="nKh-2M-IWj" firstAttribute="bottom" secondItem="fnl-2z-Ty3" secondAttribute="bottom" constant="34" id="9Ky-MB-erI"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="TpE-4P-ACP" secondAttribute="bottom" constant="68" id="9u1-IT-TfB"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="4Lc-Zu-OEx" secondAttribute="bottom" constant="68" id="Asw-0O-kbe"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="JyR-pi-6Cf" secondAttribute="trailing" constant="16" id="CBO-c7-be9"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="nKh-2M-IWj" secondAttribute="trailing" id="GfC-hX-HNg"/>
                 <constraint firstItem="nKh-2M-IWj" firstAttribute="top" secondItem="JyR-pi-6Cf" secondAttribute="bottom" constant="23" id="KaB-Eb-hGJ"/>
@@ -168,7 +162,7 @@
         </view>
     </objects>
     <resources>
-        <image name="Arrow_Down_BG" width="40" height="40"/>
+        <image name="Arrow_Down_BG" width="512" height="512"/>
         <image name="Edit" width="36" height="36"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

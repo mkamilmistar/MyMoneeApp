@@ -21,7 +21,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AddDreamViewController" customModule="MyMoneeApp" customModuleProvider="target">
             <connections>
-                <outlet property="saveButton" destination="d8l-jp-aAT" id="eqy-ug-uU0"/>
+                <outlet property="customButton" destination="Y3a-SI-Njl" id="M4r-xA-HWh"/>
                 <outlet property="targetAmountField" destination="lkv-qm-GaO" id="5aA-9e-eeT"/>
                 <outlet property="titleField" destination="IV4-Tb-D5b" id="gud-x0-x95"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -63,28 +63,6 @@
                         <constraint firstAttribute="height" constant="25" id="dWM-GX-7dU"/>
                     </constraints>
                 </view>
-                <button clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d8l-jp-aAT" userLabel="SaveButton">
-                    <rect key="frame" x="18" y="750" width="378" height="44"/>
-                    <color key="backgroundColor" red="0.31372549020000001" green="0.41176470590000003" blue="0.72156862749999995" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
-                    <constraints>
-                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="338" id="lnY-db-Hba"/>
-                        <constraint firstAttribute="height" constant="44" id="ofx-Cr-ExA"/>
-                    </constraints>
-                    <directionalEdgeInsets key="directionalLayoutMargins" top="8" leading="8" bottom="8" trailing="8"/>
-                    <fontDescription key="fontDescription" name="Poppins-SemiBold" family="Poppins" pointSize="14"/>
-                    <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                    <state key="normal" title="Simpan">
-                        <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                    </state>
-                    <userDefinedRuntimeAttributes>
-                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                            <integer key="value" value="20"/>
-                        </userDefinedRuntimeAttribute>
-                    </userDefinedRuntimeAttributes>
-                    <connections>
-                        <action selector="saveButton:" destination="-1" eventType="touchUpInside" id="knt-Je-H4Y"/>
-                    </connections>
-                </button>
                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="9" translatesAutoresizingMaskIntoConstraints="NO" id="6st-H9-EEj" userLabel="Form">
                     <rect key="frame" x="16" y="117" width="382" height="110"/>
                     <subviews>
@@ -124,17 +102,24 @@
                         </stackView>
                     </subviews>
                 </stackView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Y3a-SI-Njl" customClass="CustomButton" customModule="MyMoneeApp" customModuleProvider="target">
+                    <rect key="frame" x="16" y="750" width="382" height="44"/>
+                    <color key="backgroundColor" systemColor="systemIndigoColor"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="44" id="Vtj-Ej-GYt"/>
+                    </constraints>
+                </view>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
-                <constraint firstItem="d8l-jp-aAT" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="18" id="1wo-aW-sdk"/>
+                <constraint firstItem="Y3a-SI-Njl" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="16" id="1h4-cn-CbO"/>
                 <constraint firstItem="JHZ-Ta-nbP" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="16" id="4sB-PR-cgr"/>
                 <constraint firstItem="6st-H9-EEj" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="16" id="CMy-WQ-c0M"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="d8l-jp-aAT" secondAttribute="trailing" constant="18" id="JCi-RJ-Cpq"/>
                 <constraint firstItem="JHZ-Ta-nbP" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="20" id="McF-Aa-15Y"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="Y3a-SI-Njl" secondAttribute="bottom" constant="68" id="OUi-nf-Brt"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="JHZ-Ta-nbP" secondAttribute="trailing" constant="16" id="Wcm-5P-vku"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="d8l-jp-aAT" secondAttribute="bottom" constant="68" id="hw2-go-rKm"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="Y3a-SI-Njl" secondAttribute="trailing" constant="16" id="bin-8e-Fue"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="yyj-RL-7NT" secondAttribute="trailing" constant="16" id="ikI-jq-wGE"/>
                 <constraint firstItem="6st-H9-EEj" firstAttribute="top" secondItem="JHZ-Ta-nbP" secondAttribute="bottom" constant="28" id="zqe-sv-NW9"/>
             </constraints>
@@ -150,6 +135,9 @@
         <image name="Arrow_Back" width="44" height="76"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemIndigoColor">
+            <color red="0.34509803921568627" green="0.33725490196078434" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

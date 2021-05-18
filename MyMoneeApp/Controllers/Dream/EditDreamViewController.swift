@@ -11,21 +11,27 @@ class EditDreamViewController: UIViewController, UITextFieldDelegate {
 
     var passIndex: Int!
     var userData: User = AuthUser.data
-    
-    @IBOutlet var updateButton: UIButton!
-    @IBOutlet weak var deleteButton: UIButton!
+    var updateButton: UIButton!
+    var deleteButton: UIButton!
+   
     @IBOutlet var titleField: UITextField!
     @IBOutlet var targetAmountField: UITextField!
+    @IBOutlet var button: AnotherButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         //Set Style
+        deleteButton = button.secondButton
+        deleteButton.setTitle("Hapus", for: .normal)
         mainDeleteButton(deleteButton)
+        updateButton = button.firstButton
+        updateButton.setTitle("Perbarui", for: .normal)
         enabledMainButton(updateButton)
         
         titleField.delegate = self
         targetAmountField.delegate = self
+        button.delegate = self
         
         //Set Value
         titleField.text = dreams[passIndex].title
@@ -46,29 +52,7 @@ class EditDreamViewController: UIViewController, UITextFieldDelegate {
         
         return true
     }
-    
-    @IBAction func updateButton(_ sender: UIButton) {
-        updateDreamData()
-        self.navigationController?.popToRootViewController(animated: true)
-    }
-    
-    @IBAction func deleteAction(_ sender: UITapGestureRecognizer) {
-        let alert = UIAlertController(title: "Menghapus Impian", message: "Apakah anda yakin ingin menghapus impian \"\(dreams[passIndex].title)\" ?", preferredStyle: .alert)
-        
-        let deleteButton = UIAlertAction(title: "Hapus", style: .destructive) { (_) -> Void in
-            self.deleteDream()
-        }
-        
-        let cancelButton = UIAlertAction(title: "Batal", style: .cancel)
-        
-        alert.addAction(cancelButton)
-        alert.addAction(deleteButton)
-        
-        present(alert, animated: true, completion: nil)
-    }
-    
-    
-    @IBAction func backButton(_ sender: UITapGestureRecognizer) {
+    func backButton(_ sender: UITapGestureRecognizer) {
         self.navigationController?.popViewController(animated: true)
     }
     
@@ -84,7 +68,28 @@ class EditDreamViewController: UIViewController, UITextFieldDelegate {
             amountValue: targetAmountField.text?.replacingOccurrences(of: ".", with: "") ?? "")
         
         dreams[passIndex!] = Dream(id: dreams[passIndex].id, title: title, targetAmount: targetAmount, userId: userData.id)
+    }
+}
+
+extension EditDreamViewController: AnotherButtonDelegate {
+    func firstBtnAction() {
+        updateDreamData()
+        self.navigationController?.popToRootViewController(animated: true)
+    }
+    
+    func secondBtnAction() {
+        let alert = UIAlertController(title: "Menghapus Impian", message: "Apakah anda yakin ingin menghapus impian \"\(dreams[passIndex].title)\" ?", preferredStyle: .alert)
         
+        let deleteButton = UIAlertAction(title: "Hapus", style: .destructive) { (_) -> Void in
+            self.deleteDream()
+        }
+        
+        let cancelButton = UIAlertAction(title: "Batal", style: .cancel)
+        
+        alert.addAction(cancelButton)
+        alert.addAction(deleteButton)
+        
+        present(alert, animated: true, completion: nil)
     }
     
     

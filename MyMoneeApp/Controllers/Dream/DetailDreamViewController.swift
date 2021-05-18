@@ -11,19 +11,20 @@ class DetailDreamViewController: UIViewController {
 
     @IBOutlet weak var heartLogo: UIView!
     @IBOutlet weak var progressBackground: UIView!
-    @IBOutlet weak var backButton: UIButton!
-    @IBOutlet var confirmButton: UIButton!
-    
     @IBOutlet var dreamTitle: UILabel!
     @IBOutlet var targetAmount: UILabel!
     @IBOutlet var progressAmount: UILabel!
     @IBOutlet var progressBar: UIProgressView!
     @IBOutlet var percentProgress: UILabel!
+    @IBOutlet var button: AnotherButton!
     
     //Data
     var passIndex: Int!
     var passProgressData: Float? = 0.0
     var userData: User = AuthUser.data
+    var backButton: UIButton!
+    var confirmButton: UIButton!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,6 +32,11 @@ class DetailDreamViewController: UIViewController {
         //Set Properties of Component
         setShadow(heartLogo)
         setShadow(progressBackground)
+        button.delegate = self
+        confirmButton = button.firstButton
+        confirmButton.setTitle("Konfirmasi Tercapai", for: .normal)
+        backButton = button.secondButton
+        backButton.setTitle("Kembali", for: .normal)
         mainNoBackgroundButton(backButton)
         
         //Conditional Button Confirm
@@ -69,22 +75,6 @@ class DetailDreamViewController: UIViewController {
         self.navigationController?.pushViewController(editDreamVC, animated: true)
     }
     
-    @IBAction func confirmButton(_ sender: Any) {
-        let alert = UIAlertController(title: "Konfirmasi Mimpi", message: "Apakah anda yakin ingin mengkonfirmasi mimpi \"\(dreams[passIndex].title)\" ?", preferredStyle: .alert)
-        
-        let deleteButton = UIAlertAction(title: "Konfirmasi", style: .default) { (_) -> Void in
-            self.confirmAction()
-        }
-        
-        let cancelButton = UIAlertAction(title: "Batal", style: .cancel)
-        
-        alert.addAction(cancelButton)
-        alert.addAction(deleteButton)
-        
-        present(alert, animated: true, completion: nil)
-        
-    }
-    
     func confirmAction() {
         //Save To Usage
         let id: String = String.random()
@@ -104,10 +94,27 @@ class DetailDreamViewController: UIViewController {
         //Navigate
         self.navigationController?.popToRootViewController(animated: true)
     }
-    
-    @IBAction func backButton(_ sender: Any) {
-        self.navigationController?.popToRootViewController(animated: true)
-    }
-   
+
 }
 
+extension DetailDreamViewController: AnotherButtonDelegate {
+    func firstBtnAction() {
+        let alert = UIAlertController(title: "Konfirmasi Mimpi", message: "Apakah anda yakin ingin mengkonfirmasi mimpi \"\(dreams[passIndex].title)\" ?", preferredStyle: .alert)
+        
+        let deleteButton = UIAlertAction(title: "Konfirmasi", style: .default) { (_) -> Void in
+            self.confirmAction()
+        }
+        
+        let cancelButton = UIAlertAction(title: "Batal", style: .cancel)
+        
+        alert.addAction(cancelButton)
+        alert.addAction(deleteButton)
+        
+        present(alert, animated: true, completion: nil)    }
+    
+    func secondBtnAction() {
+        self.navigationController?.popToRootViewController(animated: true)
+    }
+    
+    
+}

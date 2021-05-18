@@ -9,19 +9,26 @@ import UIKit
 
 class DetailUsageViewController: UIViewController {
 
-    @IBOutlet weak var backButton: UIButton!
+  
     @IBOutlet var idUsage: UILabel!
     @IBOutlet var iconStatus: UIImageView!
     @IBOutlet var titleUsage: UILabel!
     @IBOutlet var status: UILabel!
     @IBOutlet var price: UILabel!
     @IBOutlet var dateUsage: UILabel!
+    @IBOutlet var customButton: CustomButton!
     
     var passIndex: Int = 0
     var dataUser: User = AuthUser.data
+    var backButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+       
+        //SetStyle
+        customButton.delegate = self
+        backButton = customButton.mainButton
+        backButton.setTitle("Kembali", for: .normal)
         mainNoBackgroundButton(backButton)
         
         //setViewVariable
@@ -58,10 +65,16 @@ class DetailUsageViewController: UIViewController {
         
         self.navigationController?.pushViewController(editUsageVC, animated: true)
     }
+
+}
+
+extension DetailUsageViewController: CustomButtonDelegate {
+    func anotherCustomBtnAction() {
+        //
+    }
     
-    @IBAction func backToHome(_ sender: UITapGestureRecognizer){
-        
+    func customButtonAction() {
         self.navigationController?.popToRootViewController(animated: true)
     }
-
+    
 }

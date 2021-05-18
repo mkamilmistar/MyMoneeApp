@@ -11,16 +11,21 @@ class AddDreamViewController: UIViewController, UITextFieldDelegate {
 
     @IBOutlet var titleField: UITextField!
     @IBOutlet var targetAmountField: UITextField!
-    @IBOutlet var saveButton: UIButton!
+    @IBOutlet var customButton: CustomButton!
+    var saveButton: UIButton!
     
     var userData: User = AuthUser.data
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        saveButton = customButton.mainButton
+        saveButton.setTitle("Simpan", for: .normal)
         disabledMainButton(saveButton)
 
         titleField.delegate = self
         targetAmountField.delegate = self
+        customButton.delegate = self
         
     }
     
@@ -41,8 +46,15 @@ class AddDreamViewController: UIViewController, UITextFieldDelegate {
     @IBAction func backButton(_ sender: UITapGestureRecognizer) {
         self.navigationController?.popToRootViewController(animated: true)
     }
+       
+}
+
+extension AddDreamViewController: CustomButtonDelegate {
+    func anotherCustomBtnAction() {
+        //
+    }
     
-    @IBAction func saveButton(_ sender: UIButton) {
+    func customButtonAction() {
         let id: String = NSUUID().uuidString
         let title: String = titleField.text ?? ""
         let targetAmount: Decimal = setStringToDecimal(amountValue: targetAmountField.text ?? "")
@@ -51,4 +63,7 @@ class AddDreamViewController: UIViewController, UITextFieldDelegate {
         
         self.navigationController?.popToRootViewController(animated: true)
     }
+    
+    
+
 }

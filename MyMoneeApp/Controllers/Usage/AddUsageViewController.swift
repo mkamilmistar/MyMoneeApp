@@ -10,15 +10,22 @@ import UIKit
 class AddUsageViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, UITextFieldDelegate {
 
     @IBOutlet var usagesTypeCollection: UICollectionView!
-    @IBOutlet var saveButton: UIButton!
     @IBOutlet var titleTxtField: UITextField!
     @IBOutlet var amountTxtField: UITextField!
+    @IBOutlet var customButton: CustomButton!
+    
     var usageTypeData: Int? = nil
     var userData: User = AuthUser.data
+    var saveButton: UIButton!
         
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        //Set Button
+        saveButton = customButton.mainButton
+        saveButton.setTitle("Simpan", for: .normal)
         disabledMainButton(saveButton)
+        
         usagesTypeCollection.delegate = self
         usagesTypeCollection.dataSource = self
         usagesTypeCollection.allowsMultipleSelection = false
@@ -28,6 +35,7 @@ class AddUsageViewController: UIViewController, UICollectionViewDelegate, UIColl
         
         titleTxtField.delegate = self
         amountTxtField.delegate = self
+        customButton.delegate = self
         
     }
     
@@ -43,30 +51,6 @@ class AddUsageViewController: UIViewController, UICollectionViewDelegate, UIColl
         }
         
         return true
-    }
-    
-    @IBAction func BackToHome(_ sender: UITapGestureRecognizer) {
-        self.navigationController?.popToRootViewController(animated: true)
-    }
-    
-    @IBAction func saveUsage(_ sender: UIButton) {
-        let id: String = String.random()
-        let title: String = titleTxtField.text ?? ""
-        let price: Decimal = setStringToDecimal(amountValue: amountTxtField.text ?? "")
-        let status: UsageType
-        
-        if usageTypeData == 0 {
-            status = .moneyIn
-            userData.balance += price
-        } else {
-            status = .moneyOut
-            userData.balance -= price
-        }
-        
-        //Input To Array
-        usages.append(Usage(id: id, title: title, price: price, date: Date(), status: status, UserId: userData.id))
-        
-        self.navigationController?.popToRootViewController(animated: true)
     }
     
     //when select
@@ -116,5 +100,42 @@ class AddUsageViewController: UIViewController, UICollectionViewDelegate, UIColl
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: collectionView.frame.width / 2 - 10, height: 75)
     }
+    
+}
+
+extension AddUsageViewController {
+    @IBAction func BackToHome(_ sender: UITapGestureRecognizer) {
+        self.navigationController?.popToRootViewController(animated: true)
+    }
+   
+}
+
+extension AddUsageViewController: CustomButtonDelegate {
+    func anotherCustomBtnAction() {
+        //
+    }
+    
+    
+    //SAVE
+    func customButtonAction() {
+        let id: String = String.random()
+        let title: String = titleTxtField.text ?? ""
+        let price: Decimal = setStringToDecimal(amountValue: amountTxtField.text ?? "")
+        let status: UsageType
+        
+        if usageTypeData == 0 {
+            status = .moneyIn
+            userData.balance += price
+        } else {
+            status = .moneyOut
+            userData.balance -= price
+        }
+        
+        //Input To Array
+        usages.append(Usage(id: id, title: title, price: price, date: Date(), status: status, UserId: userData.id))
+        
+        self.navigationController?.popToRootViewController(animated: true)
+    }
+    
     
 }

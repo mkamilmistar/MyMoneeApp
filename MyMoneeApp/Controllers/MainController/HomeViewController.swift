@@ -124,7 +124,6 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     func headerButtonAction() {
         addData()
-        print("kontol")
     }
     
     func notFoundButtonAction() {
