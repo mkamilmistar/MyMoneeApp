@@ -156,11 +156,12 @@ extension HomeViewController {
     
     
     fileprivate func setViewStyle() {
+        
         usagesTableView.separatorStyle = .none
         usagesTableView.backgroundColor = .white
-        
-        historyBackground.layer.cornerRadius = 20
         historyBackground.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
+        setShadow(historyBackground)
+        historyBackground.layer.cornerRadius = 24
         
         headerView.headerLabel.text = "Selamat Pagi"
 

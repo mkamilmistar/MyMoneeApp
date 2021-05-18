@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -22,6 +23,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DetailDreamViewController" customModule="MyMoneeApp" customModuleProvider="target">
             <connections>
                 <outlet property="button" destination="61S-0r-qrB" id="8pb-oh-MTi"/>
+                <outlet property="detailBG" destination="Bla-rb-hye" id="uGy-BO-ifT"/>
                 <outlet property="dreamTitle" destination="ysi-Mk-6GH" id="gOb-Fn-wIT"/>
                 <outlet property="heartLogo" destination="heC-7c-L1i" id="0fQ-ma-964"/>
                 <outlet property="percentProgress" destination="Ffy-pB-rxJ" id="twZ-xH-CV7"/>
@@ -158,11 +160,6 @@
                         <constraint firstItem="heC-7c-L1i" firstAttribute="top" secondItem="Bla-rb-hye" secondAttribute="top" constant="-30" id="xIB-Jv-pg2"/>
                         <constraint firstItem="ysi-Mk-6GH" firstAttribute="top" secondItem="heC-7c-L1i" secondAttribute="bottom" constant="24" id="z1h-FW-pqF"/>
                     </constraints>
-                    <userDefinedRuntimeAttributes>
-                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                            <integer key="value" value="24"/>
-                        </userDefinedRuntimeAttribute>
-                    </userDefinedRuntimeAttributes>
                 </view>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>

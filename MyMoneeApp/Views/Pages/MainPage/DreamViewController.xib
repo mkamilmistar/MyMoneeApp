@@ -22,7 +22,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="q9c-6U-RCc">
-                    <rect key="frame" x="16" y="153" width="382" height="683"/>
+                    <rect key="frame" x="16" y="143" width="382" height="693"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     <color key="sectionIndexBackgroundColor" red="0.31372549020000001" green="0.41176470590000003" blue="0.72156862749999995" alpha="1" colorSpace="calibratedRGB"/>
                 </tableView>
@@ -34,7 +34,7 @@
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hYy-nU-kCG" userLabel="Header" customClass="Header" customModule="MyMoneeApp" customModuleProvider="target">
-                    <rect key="frame" x="0.0" y="64" width="414" height="35"/>
+                    <rect key="frame" x="0.0" y="54" width="414" height="35"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="35" id="aLg-MP-eF1"/>
                     </constraints>
@@ -51,7 +51,7 @@
                 <constraint firstItem="hYy-nU-kCG" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="gPv-2B-U6N"/>
                 <constraint firstItem="q9c-6U-RCc" firstAttribute="top" secondItem="hYy-nU-kCG" secondAttribute="bottom" constant="54" id="h5m-iY-jwD"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="q9c-6U-RCc" secondAttribute="trailing" constant="16" id="jQi-VP-DNM"/>
-                <constraint firstItem="hYy-nU-kCG" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="20" id="nqy-Db-0Zf"/>
+                <constraint firstItem="hYy-nU-kCG" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="10" id="nqy-Db-0Zf"/>
             </constraints>
             <point key="canvasLocation" x="137.68115942028987" y="108.48214285714285"/>
         </view>

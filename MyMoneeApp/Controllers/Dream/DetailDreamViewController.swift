@@ -17,6 +17,7 @@ class DetailDreamViewController: UIViewController {
     @IBOutlet var progressBar: UIProgressView!
     @IBOutlet var percentProgress: UILabel!
     @IBOutlet var button: AnotherButton!
+    @IBOutlet var detailBG: UIView!
     
     //Data
     var passIndex: Int!
@@ -25,19 +26,11 @@ class DetailDreamViewController: UIViewController {
     var backButton: UIButton!
     var confirmButton: UIButton!
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         //Set Properties of Component
-        setShadow(heartLogo)
-        setShadow(progressBackground)
-        button.delegate = self
-        confirmButton = button.firstButton
-        confirmButton.setTitle("Konfirmasi Tercapai", for: .normal)
-        backButton = button.secondButton
-        backButton.setTitle("Kembali", for: .normal)
-        mainNoBackgroundButton(backButton)
+        initProperties()
         
         //Conditional Button Confirm
         let percentProgressData = Int((passProgressData ?? 0.0) * 100)
@@ -83,7 +76,7 @@ class DetailDreamViewController: UIViewController {
         let status: UsageType = .moneyOut
         
         //Input To Array
-        usages.append(Usage(id: id, title: title, price: price, date: Date(), status: status, UserId: userData.id))
+        usages.append(Usage(id: id, title: title, price: price, date: Date(), status: status, UserId: userData.userId))
         
         //Delete From Dream
         dreams.remove(at: passIndex ?? 0)
@@ -97,7 +90,26 @@ class DetailDreamViewController: UIViewController {
 
 }
 
+extension DetailDreamViewController {
+    
+    fileprivate func initProperties() {
+        
+        setShadow(detailBG)
+        detailBG.layer.cornerRadius = 24
+        setShadow(heartLogo)
+        setShadow(progressBackground)
+        button.delegate = self
+        confirmButton = button.firstButton
+        confirmButton.setTitle("Konfirmasi Tercapai", for: .normal)
+        backButton = button.secondButton
+        backButton.setTitle("Kembali", for: .normal)
+        mainNoBackgroundButton(backButton)
+    }
+    
+}
+
 extension DetailDreamViewController: AnotherButtonDelegate {
+    
     func firstBtnAction() {
         let alert = UIAlertController(title: "Konfirmasi Mimpi", message: "Apakah anda yakin ingin mengkonfirmasi mimpi \"\(dreams[passIndex].title)\" ?", preferredStyle: .alert)
         

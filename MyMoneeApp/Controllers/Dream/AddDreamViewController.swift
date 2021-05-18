@@ -64,7 +64,7 @@ extension AddDreamViewController: CustomButtonDelegate {
         let title: String = titleField.text ?? ""
         let targetAmount: Decimal = setStringToDecimal(amountValue: targetAmountField.text ?? "")
         
-        dreams.append(Dream(id: id, title: title, targetAmount: targetAmount, userId: userData.id))
+        dreams.append(Dream(id: id, title: title, targetAmount: targetAmount, userId: userData.userId))
         
         self.navigationController?.popToRootViewController(animated: true)
     }

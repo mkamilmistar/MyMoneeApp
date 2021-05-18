@@ -17,6 +17,7 @@ class DetailUsageViewController: UIViewController {
     @IBOutlet var price: UILabel!
     @IBOutlet var dateUsage: UILabel!
     @IBOutlet var customButton: CustomButton!
+    @IBOutlet var detailBG: UIView!
     
     var passIndex: Int = 0
     var dataUser: User = AuthUser.data
@@ -24,12 +25,9 @@ class DetailUsageViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-       
+        
         //SetStyle
-        customButton.delegate = self
-        backButton = customButton.mainButton
-        backButton.setTitle("Kembali", for: .normal)
-        mainNoBackgroundButton(backButton)
+        initViewStyle()
         
         //setViewVariable
         idUsage.text = usages[passIndex].id
@@ -68,7 +66,21 @@ class DetailUsageViewController: UIViewController {
 
 }
 
+extension DetailUsageViewController {
+    
+    fileprivate func initViewStyle() {
+        setShadow(detailBG)
+        detailBG.layer.cornerRadius = 24
+        customButton.delegate = self
+        backButton = customButton.mainButton
+        backButton.setTitle("Kembali", for: .normal)
+        mainNoBackgroundButton(backButton)
+    }
+   
+}
+
 extension DetailUsageViewController: CustomButtonDelegate {
+    
     func anotherCustomBtnAction() {
         //
     }

@@ -176,7 +176,7 @@ extension EditUsageViewController {
             
         }
 
-        usages[passIndex] = Usage(id: id, title: title, price: amount, date: date, status: status, UserId: userData.id)
+        usages[passIndex] = Usage(id: id, title: title, price: amount, date: date, status: status, UserId: userData.userId)
         
     }
     

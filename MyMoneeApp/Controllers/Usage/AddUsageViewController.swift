@@ -139,7 +139,7 @@ extension AddUsageViewController: CustomButtonDelegate {
         }
         
         //Input To Array
-        usages.append(Usage(id: id, title: title, price: price, date: Date(), status: status, UserId: userData.id))
+        usages.append(Usage(id: id, title: title, price: price, date: Date(), status: status, UserId: userData.userId))
         
         self.navigationController?.popToRootViewController(animated: true)
     }
