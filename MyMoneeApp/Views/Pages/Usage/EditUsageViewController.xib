@@ -14,16 +14,12 @@
         <array key="Poppins-Regular.ttf">
             <string>Poppins-Regular</string>
         </array>
-        <array key="Poppins-SemiBold.ttf">
-            <string>Poppins-SemiBold</string>
-        </array>
     </customFonts>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="EditUsageViewController" customModule="MyMoneeApp" customModuleProvider="target">
             <connections>
                 <outlet property="customBtn" destination="mhX-yU-mxh" id="rn8-Iq-hI3"/>
-                <outlet property="priceTxtField" destination="tsq-fV-83J" id="JhO-gv-QVh"/>
-                <outlet property="titleTxtField" destination="lqs-ve-0L3" id="7ke-Go-gJd"/>
+                <outlet property="formInput" destination="e3n-8p-JA6" id="3wi-6f-fhx"/>
                 <outlet property="usageTypeCollection" destination="VqN-In-ldh" id="txR-QZ-L57"/>
                 <outlet property="view" destination="zIJ-eE-WT7" id="XRX-ci-2PW"/>
             </connections>
@@ -64,56 +60,14 @@
                         <constraint firstAttribute="height" constant="25" id="pD9-dK-dwn"/>
                     </constraints>
                 </view>
-                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="9" translatesAutoresizingMaskIntoConstraints="NO" id="qRs-Y0-VWK" userLabel="Form">
-                    <rect key="frame" x="16" y="107" width="382" height="108.5"/>
-                    <subviews>
-                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="-5" translatesAutoresizingMaskIntoConstraints="NO" id="GYu-cU-t6Q" userLabel="Judul">
-                            <rect key="frame" x="0.0" y="0.0" width="382" height="50.5"/>
-                            <subviews>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Judul" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WxE-gA-mss">
-                                    <rect key="frame" x="0.0" y="0.0" width="382" height="20"/>
-                                    <fontDescription key="fontDescription" name="Poppins-Medium" family="Poppins" pointSize="14"/>
-                                    <color key="textColor" red="0.30980392159999998" green="0.30980392159999998" blue="0.30980392159999998" alpha="1" colorSpace="calibratedRGB"/>
-                                    <nil key="highlightedColor"/>
-                                </label>
-                                <textField opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="249" verticalCompressionResistancePriority="751" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Gaji" placeholder="Isi Judul" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lqs-ve-0L3">
-                                    <rect key="frame" x="0.0" y="15" width="382" height="35.5"/>
-                                    <color key="textColor" red="0.30980392159999998" green="0.30980392159999998" blue="0.30980392159999998" alpha="1" colorSpace="calibratedRGB"/>
-                                    <fontDescription key="fontDescription" name="Poppins-SemiBold" family="Poppins" pointSize="24"/>
-                                    <textInputTraits key="textInputTraits" textContentType="name"/>
-                                </textField>
-                            </subviews>
-                        </stackView>
-                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="-5" translatesAutoresizingMaskIntoConstraints="NO" id="18Q-h8-shs" userLabel="Jumlah">
-                            <rect key="frame" x="0.0" y="59.5" width="382" height="49"/>
-                            <subviews>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Jumlah (Rp)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3RW-1i-LdP">
-                                    <rect key="frame" x="0.0" y="0.0" width="382" height="20"/>
-                                    <fontDescription key="fontDescription" name="Poppins-Medium" family="Poppins" pointSize="14"/>
-                                    <color key="textColor" red="0.30980392159999998" green="0.30980392159999998" blue="0.30980392159999998" alpha="1" colorSpace="calibratedRGB"/>
-                                    <nil key="highlightedColor"/>
-                                </label>
-                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="1.250.000" placeholder="Isi Jumlah" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="tsq-fV-83J">
-                                    <rect key="frame" x="0.0" y="15" width="382" height="34"/>
-                                    <color key="textColor" red="0.30980392159999998" green="0.30980392159999998" blue="0.30980392159999998" alpha="1" colorSpace="calibratedRGB"/>
-                                    <fontDescription key="fontDescription" name="Poppins-SemiBold" family="Poppins" pointSize="24"/>
-                                    <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
-                                </textField>
-                            </subviews>
-                            <constraints>
-                                <constraint firstAttribute="bottom" secondItem="3RW-1i-LdP" secondAttribute="bottom" constant="29" id="oFv-nZ-pQF"/>
-                            </constraints>
-                        </stackView>
-                    </subviews>
-                </stackView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Kategori Penggunaan" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1B3-7U-rIx">
-                    <rect key="frame" x="16" y="229.5" width="155" height="20"/>
+                    <rect key="frame" x="16" y="229" width="155" height="20"/>
                     <fontDescription key="fontDescription" name="Poppins-Medium" family="Poppins" pointSize="14"/>
                     <color key="textColor" red="0.30980392159999998" green="0.30980392159999998" blue="0.30980392159999998" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="VqN-In-ldh">
-                    <rect key="frame" x="16" y="265.5" width="382" height="150"/>
+                    <rect key="frame" x="16" y="265" width="382" height="150"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="150" id="i2I-2c-fon"/>
@@ -125,11 +79,19 @@
                         <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                     </collectionViewFlowLayout>
                 </collectionView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="e3n-8p-JA6" customClass="FormInput" customModule="MyMoneeApp" customModuleProvider="target">
+                    <rect key="frame" x="16" y="101" width="382" height="128"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <constraints>
+                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="128" id="QDC-Ua-DJD"/>
+                        <constraint firstAttribute="height" constant="128" id="frx-dH-eLL"/>
+                    </constraints>
+                </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mhX-yU-mxh" userLabel="Button" customClass="AnotherButton" customModule="MyMoneeApp" customModuleProvider="target">
-                    <rect key="frame" x="16" y="750" width="382" height="44"/>
+                    <rect key="frame" x="16" y="688" width="382" height="106"/>
                     <color key="backgroundColor" systemColor="systemIndigoColor"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="44" id="thY-d8-glY"/>
+                        <constraint firstAttribute="height" constant="106" id="OBd-9Q-o2z"/>
                     </constraints>
                 </view>
             </subviews>
@@ -137,19 +99,19 @@
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
                 <constraint firstItem="4w5-vn-iiV" firstAttribute="top" secondItem="MzO-gr-SM5" secondAttribute="top" constant="-10" id="6f5-Nq-cwO"/>
-                <constraint firstItem="4w5-vn-iiV" firstAttribute="trailing" secondItem="mhX-yU-mxh" secondAttribute="trailing" constant="16" id="DD1-XW-IrL"/>
+                <constraint firstItem="1B3-7U-rIx" firstAttribute="top" secondItem="e3n-8p-JA6" secondAttribute="bottom" id="Bp7-jB-rbh"/>
                 <constraint firstItem="VqN-In-ldh" firstAttribute="top" secondItem="1B3-7U-rIx" secondAttribute="bottom" constant="16" id="LGB-2y-YgE"/>
-                <constraint firstItem="4w5-vn-iiV" firstAttribute="trailing" secondItem="qRs-Y0-VWK" secondAttribute="trailing" constant="16" id="MYJ-RN-0XB"/>
-                <constraint firstItem="mhX-yU-mxh" firstAttribute="leading" secondItem="4w5-vn-iiV" secondAttribute="leading" constant="16" id="UME-NC-g0p"/>
-                <constraint firstItem="qRs-Y0-VWK" firstAttribute="top" secondItem="MzO-gr-SM5" secondAttribute="bottom" constant="28" id="YYa-5h-N7h"/>
+                <constraint firstItem="4w5-vn-iiV" firstAttribute="trailing" secondItem="e3n-8p-JA6" secondAttribute="trailing" constant="16" id="Nrm-ct-FaL"/>
+                <constraint firstItem="e3n-8p-JA6" firstAttribute="leading" secondItem="4w5-vn-iiV" secondAttribute="leading" constant="16" id="ZEM-Ag-Qgz"/>
+                <constraint firstItem="4w5-vn-iiV" firstAttribute="bottom" secondItem="mhX-yU-mxh" secondAttribute="bottom" constant="68" id="ZOW-6I-8Z3"/>
+                <constraint firstItem="e3n-8p-JA6" firstAttribute="top" secondItem="MzO-gr-SM5" secondAttribute="bottom" constant="22" id="boc-Wc-gI7"/>
                 <constraint firstItem="4w5-vn-iiV" firstAttribute="trailing" secondItem="VqN-In-ldh" secondAttribute="trailing" constant="16" id="cIg-8B-uIE"/>
-                <constraint firstItem="1B3-7U-rIx" firstAttribute="leading" secondItem="tsq-fV-83J" secondAttribute="leading" id="eBO-8S-lcx"/>
+                <constraint firstItem="1B3-7U-rIx" firstAttribute="leading" secondItem="e3n-8p-JA6" secondAttribute="leading" id="e0n-0V-MH6"/>
                 <constraint firstItem="4w5-vn-iiV" firstAttribute="trailing" secondItem="MzO-gr-SM5" secondAttribute="trailing" constant="16" id="fq7-qQ-eUi"/>
-                <constraint firstItem="1B3-7U-rIx" firstAttribute="top" secondItem="tsq-fV-83J" secondAttribute="bottom" constant="14" id="hBq-2P-Zv5"/>
-                <constraint firstItem="4w5-vn-iiV" firstAttribute="bottom" secondItem="mhX-yU-mxh" secondAttribute="bottom" constant="68" id="k5p-p1-fYl"/>
                 <constraint firstItem="VqN-In-ldh" firstAttribute="leading" secondItem="4w5-vn-iiV" secondAttribute="leading" constant="16" id="lNo-qo-v8k"/>
+                <constraint firstItem="mhX-yU-mxh" firstAttribute="leading" secondItem="4w5-vn-iiV" secondAttribute="leading" constant="16" id="ltl-EB-1bn"/>
                 <constraint firstItem="MzO-gr-SM5" firstAttribute="leading" secondItem="4w5-vn-iiV" secondAttribute="leading" constant="16" id="sKN-PX-0gA"/>
-                <constraint firstItem="qRs-Y0-VWK" firstAttribute="leading" secondItem="MzO-gr-SM5" secondAttribute="leading" id="vsR-Xj-BTK"/>
+                <constraint firstItem="4w5-vn-iiV" firstAttribute="trailing" secondItem="mhX-yU-mxh" secondAttribute="trailing" constant="16" id="ygD-aG-s5h"/>
             </constraints>
             <point key="canvasLocation" x="137.68115942028987" y="84.375"/>
         </view>

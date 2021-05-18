@@ -9,21 +9,26 @@ import UIKit
 
 class AddDreamViewController: UIViewController, UITextFieldDelegate {
 
-    @IBOutlet var titleField: UITextField!
-    @IBOutlet var targetAmountField: UITextField!
     @IBOutlet var customButton: CustomButton!
-    var saveButton: UIButton!
+    @IBOutlet var formInput: FormInput!
     
+    var saveButton: UIButton!
+    var titleField: UITextField!
+    var targetAmountField: UITextField!
     var userData: User = AuthUser.data
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        formInput.titleLabel.text = "Judul"
+        formInput.amountLabel.text = "Target Capaian (Rp)"
         saveButton = customButton.mainButton
         saveButton.setTitle("Simpan", for: .normal)
         disabledMainButton(saveButton)
-
+        
+        titleField = formInput.titleField
         titleField.delegate = self
+        targetAmountField = formInput.AmountField
         targetAmountField.delegate = self
         customButton.delegate = self
         

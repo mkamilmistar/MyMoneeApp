@@ -10,13 +10,14 @@ import UIKit
 class EditUsageViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, UITextFieldDelegate {
 
     @IBOutlet var usageTypeCollection: UICollectionView!
-    @IBOutlet var titleTxtField: UITextField!
-    @IBOutlet var priceTxtField: UITextField!
+   
     @IBOutlet var customBtn: AnotherButton!
+    @IBOutlet var formInput: FormInput!
     
     var updateButton: UIButton!
     var deleteButton: UIButton!
-    
+    var titleTxtField: UITextField!
+    var priceTxtField: UITextField!
     private var usageTypeData: Int? 
     
     var passIndex: Int!
@@ -43,7 +44,12 @@ class EditUsageViewController: UIViewController, UICollectionViewDelegate, UICol
         let uiNib = UINib(nibName: String(describing: UsageTypeCell.self), bundle: nil)
         usageTypeCollection.register(uiNib, forCellWithReuseIdentifier: String(describing: UsageTypeCell.self))
         
+        formInput.titleLabel.text = "Judul"
+        titleTxtField = formInput.titleField
         titleTxtField.delegate = self
+        
+        formInput.amountLabel.text = "Jumlah (Rp)"
+        priceTxtField = formInput.AmountField
         priceTxtField.delegate = self
         customBtn.delegate = self
         

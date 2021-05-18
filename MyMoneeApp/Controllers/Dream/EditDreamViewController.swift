@@ -13,10 +13,11 @@ class EditDreamViewController: UIViewController, UITextFieldDelegate {
     var userData: User = AuthUser.data
     var updateButton: UIButton!
     var deleteButton: UIButton!
-   
-    @IBOutlet var titleField: UITextField!
-    @IBOutlet var targetAmountField: UITextField!
+    var titleField: UITextField!
+    var targetAmountField: UITextField!
+    
     @IBOutlet var button: AnotherButton!
+    @IBOutlet var formInput: FormInput!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,8 +30,14 @@ class EditDreamViewController: UIViewController, UITextFieldDelegate {
         updateButton.setTitle("Perbarui", for: .normal)
         enabledMainButton(updateButton)
         
+        titleField = formInput.titleField
+        formInput.titleLabel.text = "Judul"
         titleField.delegate = self
+        
+        targetAmountField = formInput.AmountField
+        formInput.amountLabel.text = "Target Capaian (Rp)"
         targetAmountField.delegate = self
+        
         button.delegate = self
         
         //Set Value
@@ -52,9 +59,9 @@ class EditDreamViewController: UIViewController, UITextFieldDelegate {
         
         return true
     }
-    func backButton(_ sender: UITapGestureRecognizer) {
-        self.navigationController?.popViewController(animated: true)
-    }
+    
+    @IBAction func backTapAction(_ sender: UITapGestureRecognizer) {
+        self.navigationController?.popViewController(animated: true)    }
     
     func deleteDream() {
         dreams.remove(at: passIndex!)
@@ -72,6 +79,7 @@ class EditDreamViewController: UIViewController, UITextFieldDelegate {
 }
 
 extension EditDreamViewController: AnotherButtonDelegate {
+    
     func firstBtnAction() {
         updateDreamData()
         self.navigationController?.popToRootViewController(animated: true)

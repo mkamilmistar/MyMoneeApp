@@ -74,6 +74,8 @@
 		FAF2565B2653691600533263 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF2565A2653691600533263 /* CustomButton.swift */; };
 		FAF2566326537ED900533263 /* AnotherButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF2566226537ED900533263 /* AnotherButton.swift */; };
 		FAF2566626537EE300533263 /* AnotherButton.xib in Resources */ = {isa = PBXBuildFile; fileRef = FAF2566526537EE300533263 /* AnotherButton.xib */; };
+		FAF2566A26538A8800533263 /* FormInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF2566926538A8800533263 /* FormInput.swift */; };
+		FAF2567026538A9C00533263 /* FormInput.xib in Resources */ = {isa = PBXBuildFile; fileRef = FAF2566F26538A9C00533263 /* FormInput.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -146,6 +148,8 @@
 		FAF2565A2653691600533263 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 		FAF2566226537ED900533263 /* AnotherButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnotherButton.swift; sourceTree = "<group>"; };
 		FAF2566526537EE300533263 /* AnotherButton.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AnotherButton.xib; sourceTree = "<group>"; };
+		FAF2566926538A8800533263 /* FormInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormInput.swift; sourceTree = "<group>"; };
+		FAF2566F26538A9C00533263 /* FormInput.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FormInput.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -375,6 +379,7 @@
 		FAD7EBF7264BBFC5000E752D /* Component */ = {
 			isa = PBXGroup;
 			children = (
+				FAF2566826538A7F00533263 /* FormInput */,
 				FAF2566026537EB200533263 /* Button */,
 				FAD7EBB5264B82CE000E752D /* DreamTableCell */,
 				FA8A3E712653610D006D4983 /* Header */,
@@ -442,6 +447,15 @@
 			path = AnotherButton;
 			sourceTree = "<group>";
 		};
+		FAF2566826538A7F00533263 /* FormInput */ = {
+			isa = PBXGroup;
+			children = (
+				FAF2566926538A8800533263 /* FormInput.swift */,
+				FAF2566F26538A9C00533263 /* FormInput.xib */,
+			);
+			path = FormInput;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -507,6 +521,7 @@
 				FADFA9D5264F658900965CD8 /* NotFound.xib in Resources */,
 				FAD7EBD8264B9FD7000E752D /* AddUsageViewController.xib in Resources */,
 				FAD7EC0D264BD06A000E752D /* EditDreamViewController.xib in Resources */,
+				FAF2567026538A9C00533263 /* FormInput.xib in Resources */,
 				FAD7EBBE264B82FE000E752D /* DreamTableViewCell.xib in Resources */,
 				FA15F410264AD024001B15D9 /* Poppins-BoldItalic.ttf in Resources */,
 				FA15F411264AD024001B15D9 /* Poppins-ExtraBold.ttf in Resources */,
@@ -563,6 +578,7 @@
 				FAD7EBE5264BAF7E000E752D /* EditUsageViewController.swift in Sources */,
 				FA2F878B264EE58700B8BF30 /* ButtonConfig.swift in Sources */,
 				FA034C26265111CB0055A39E /* Wallet.swift in Sources */,
+				FAF2566A26538A8800533263 /* FormInput.swift in Sources */,
 				FAD7EBB7264B82E6000E752D /* Dream.swift in Sources */,
 				FA9AF01E264D104400EC9109 /* CategoryUsage.swift in Sources */,
 				FAF2566326537ED900533263 /* AnotherButton.swift in Sources */,

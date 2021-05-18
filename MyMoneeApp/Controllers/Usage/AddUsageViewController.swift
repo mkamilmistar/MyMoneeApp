@@ -10,13 +10,14 @@ import UIKit
 class AddUsageViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, UITextFieldDelegate {
 
     @IBOutlet var usagesTypeCollection: UICollectionView!
-    @IBOutlet var titleTxtField: UITextField!
-    @IBOutlet var amountTxtField: UITextField!
     @IBOutlet var customButton: CustomButton!
+    @IBOutlet var formInput: FormInput!
     
     var usageTypeData: Int? = nil
     var userData: User = AuthUser.data
     var saveButton: UIButton!
+    var titleTxtField: UITextField!
+    var amountTxtField: UITextField!
         
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,7 +34,12 @@ class AddUsageViewController: UIViewController, UICollectionViewDelegate, UIColl
         let uiNib = UINib(nibName: String(describing: UsageTypeCell.self), bundle: nil)
         usagesTypeCollection.register(uiNib, forCellWithReuseIdentifier: String(describing: UsageTypeCell.self))
         
+        formInput.titleLabel.text = "Judul"
+        titleTxtField = formInput.titleField
         titleTxtField.delegate = self
+        
+        formInput.amountLabel.text = "Jumlah (Rp)"
+        amountTxtField = formInput.AmountField
         amountTxtField.delegate = self
         customButton.delegate = self
         
