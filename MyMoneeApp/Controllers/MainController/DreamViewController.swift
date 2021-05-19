@@ -78,18 +78,18 @@ extension DreamViewController {
         self.navigationController?.pushViewController(addImpianView, animated: true)
     }
     
-    func confirmAction() {
+    func confirmAction(_ tag: Int) {
         //Save To Usage
         let id: String = String.randomCapitalizeWithNumber()
-        let title: String = dreams[passIndex].title
-        let price: Decimal = dreams[passIndex].targetAmount
+        let title: String = dreams[tag].title
+        let price: Decimal = dreams[tag].targetAmount
         let status: UsageType = .moneyOut
         
         //Input To Array
         usages.append(Usage(id: id, title: title, price: price, date: Date(), status: status, UserId: userData.userId))
         
         //Delete From Dream
-        dreams.remove(at: passIndex)
+        dreams.remove(at: tag)
         
         //Subtract Balance
         userData.balance -= price
@@ -157,13 +157,11 @@ extension DreamViewController: UITableViewDelegate, UITableViewDataSource {
 }
 
 extension DreamViewController: DreamTableDelegate {
-    
     func confirmButton(_ tag: Int) {
-        
         let alert = UIAlertController(title: "Konfirmasi Mimpi", message: "Apakah anda yakin ingin mengkonfirmasi mimpi \"\(dreams[tag].title)\" ?", preferredStyle: .alert)
         
         let deleteButton = UIAlertAction(title: "Konfirmasi", style: .default) { (_) -> Void in
-            self.confirmAction()
+            self.confirmAction(tag)
             self.dreamTableView.reloadData()
         }
         
@@ -173,10 +171,6 @@ extension DreamViewController: DreamTableDelegate {
         alert.addAction(deleteButton)
         
         present(alert, animated: true, completion: nil)
-    }
-    
-    func canConfirmButton() {
-        
     }
     
     func deleteButton(_ tag: Int) {
