@@ -56,6 +56,7 @@ class HomeViewController: UIViewController {
         
         //Data Transaction Conditional
         usagesTableView.reloadData()
+        
         if usages.count > 0 {
             self.usagesTableView.isHidden = false
             self.notFound.isHidden = true

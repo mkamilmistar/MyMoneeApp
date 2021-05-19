@@ -25,9 +25,3 @@ var users: [User] = [
     User(id: 1, name: "Melia Suspariana", imageProfile: "Profile_Photo2", balance: 999000.0),
     User(id: 2, name: "Maudy Abdila", imageProfile: "Profile_Photo3", balance: 999000.0)
 ]
-//
-//class UDM {
-//
-//    static let shared = UDM()
-//    let defaults = UserDefaults(suiteName: "com.myMonee.data")
-//}

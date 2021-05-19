@@ -8,8 +8,8 @@
 import UIKit
 
 protocol DreamTableDelegate {
-    func confirmButton(_ index: Int)
-    func deleteButton(_ index: Int)
+    func confirmButton(_ tag: Int)
+    func deleteButton(_ tag: Int)
 }
 
 class DreamTableViewCell: UITableViewCell {

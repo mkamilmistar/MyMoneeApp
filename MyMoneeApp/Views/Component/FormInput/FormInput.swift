@@ -30,7 +30,6 @@ class FormInput: UIView {
         addSubview(mainContent)
         mainContent.frame = self.bounds
         mainContent.autoresizingMask = [.flexibleHeight, .flexibleWidth]
-        
     }
     
 }

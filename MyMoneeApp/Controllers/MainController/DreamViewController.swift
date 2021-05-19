@@ -139,7 +139,9 @@ extension DreamViewController: UITableViewDelegate, UITableViewDataSource {
         dataCell.progressBar.progress = setProgress(indexPath)
         
         dataCell.delegate = self
+        
         dataCell.confirmButton.tag = indexPath.row
+        
         passIndex = indexPath.row
         
         if setProgress(indexPath) < 1.0 {
@@ -156,11 +158,11 @@ extension DreamViewController: UITableViewDelegate, UITableViewDataSource {
 }
 
 extension DreamViewController: DreamTableDelegate {
-    func confirmButton(_ index: Int) {
-        let alert = UIAlertController(title: "Konfirmasi Mimpi", message: "Apakah anda yakin ingin mengkonfirmasi mimpi \"\(dreams[index].title)\" ?", preferredStyle: .alert)
+    func confirmButton(_ tag: Int) {
+        let alert = UIAlertController(title: "Konfirmasi Mimpi", message: "Apakah anda yakin ingin mengkonfirmasi mimpi \"\(dreams[tag].title)\" ?", preferredStyle: .alert)
         
         let deleteButton = UIAlertAction(title: "Konfirmasi", style: .default) { (_) -> Void in
-            self.confirmAction(index)
+            self.confirmAction(tag)
             self.dreamTableView.reloadData()
         }
         
@@ -172,12 +174,12 @@ extension DreamViewController: DreamTableDelegate {
         present(alert, animated: true, completion: nil)
     }
     
-    func deleteButton(_ index: Int) {
+    func deleteButton(_ tag: Int) {
         //Delete From Dream
-        let alert = UIAlertController(title: "Menghapus Impian", message: "Apakah anda yakin ingin menghapus impian \"\(dreams[index].title)\" ?", preferredStyle: .alert)
+        let alert = UIAlertController(title: "Menghapus Impian", message: "Apakah anda yakin ingin menghapus impian \"\(dreams[tag].title)\" ?", preferredStyle: .alert)
         
         let deleteButton = UIAlertAction(title: "Hapus", style: .destructive) { (_) -> Void in
-            dreams.remove(at: index)
+            dreams.remove(at: tag)
             self.dreamTableView.reloadData()
         }
         
