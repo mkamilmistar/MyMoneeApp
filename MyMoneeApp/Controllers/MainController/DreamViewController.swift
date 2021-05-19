@@ -37,7 +37,6 @@ class DreamViewController: UIViewController {
         dreamTableView.reloadData()
         if dreams.count > 0 {
             self.dreamTableView.isHidden = false
-            
             self.notFound.isHidden = true
             self.notFound.addButton.isHidden = true
         }
@@ -45,15 +44,14 @@ class DreamViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        
         dreamTableView.reloadData()
     }
 }
 
 extension DreamViewController {
     fileprivate func setProgress(_ indexPath: IndexPath) -> Float {
-        let currentDouble = Double.setDecimalToDouble(value: userData.balance)
-        let targetDouble = Double.setDecimalToDouble(value: dreams[indexPath.row].targetAmount)
+        let currentDouble = userData.balance.setDecimalToDouble
+        let targetDouble = dreams[indexPath.row].targetAmount.setDecimalToDouble
         progressBarData = Float(currentDouble / targetDouble)
         
         //Conditional Progress Bar Data
@@ -78,18 +76,18 @@ extension DreamViewController {
         self.navigationController?.pushViewController(addImpianView, animated: true)
     }
     
-    func confirmAction(_ tag: Int) {
+    func confirmAction(_ index: Int) {
         //Save To Usage
         let id: String = String.randomCapitalizeWithNumber()
-        let title: String = dreams[tag].title
-        let price: Decimal = dreams[tag].targetAmount
+        let title: String = dreams[index].title
+        let price: Decimal = dreams[index].targetAmount
         let status: UsageType = .moneyOut
         
         //Input To Array
         usages.append(Usage(id: id, title: title, price: price, date: Date(), status: status, UserId: userData.userId))
         
         //Delete From Dream
-        dreams.remove(at: tag)
+        dreams.remove(at: index)
         
         //Subtract Balance
         userData.balance -= price
@@ -134,9 +132,10 @@ extension DreamViewController: UITableViewDelegate, UITableViewDataSource {
         dataCell.selectionStyle = .none
         
         dataCell.title.text = dreams[indexPath.row].title
-        dataCell.targetAmount.text = String.setDecimalToStringCurrencyWithIDR(amountValue: dreams[indexPath.row].targetAmount)
         
-        dataCell.balance.text = String.setDecimalToStringCurrencyWithIDR(amountValue: userData.balance)
+        dataCell.targetAmount.text = dreams[indexPath.row].targetAmount.setDecimalToStringCurrencyWithIDR
+            
+        dataCell.balance.text = userData.balance.setDecimalToStringCurrencyWithIDR
         dataCell.progressBar.progress = setProgress(indexPath)
         
         dataCell.delegate = self
@@ -157,11 +156,11 @@ extension DreamViewController: UITableViewDelegate, UITableViewDataSource {
 }
 
 extension DreamViewController: DreamTableDelegate {
-    func confirmButton(_ tag: Int) {
-        let alert = UIAlertController(title: "Konfirmasi Mimpi", message: "Apakah anda yakin ingin mengkonfirmasi mimpi \"\(dreams[tag].title)\" ?", preferredStyle: .alert)
+    func confirmButton(_ index: Int) {
+        let alert = UIAlertController(title: "Konfirmasi Mimpi", message: "Apakah anda yakin ingin mengkonfirmasi mimpi \"\(dreams[index].title)\" ?", preferredStyle: .alert)
         
         let deleteButton = UIAlertAction(title: "Konfirmasi", style: .default) { (_) -> Void in
-            self.confirmAction(tag)
+            self.confirmAction(index)
             self.dreamTableView.reloadData()
         }
         
@@ -173,12 +172,12 @@ extension DreamViewController: DreamTableDelegate {
         present(alert, animated: true, completion: nil)
     }
     
-    func deleteButton(_ tag: Int) {
+    func deleteButton(_ index: Int) {
         //Delete From Dream
-        let alert = UIAlertController(title: "Menghapus Impian", message: "Apakah anda yakin ingin menghapus impian \"\(dreams[tag].title)\" ?", preferredStyle: .alert)
+        let alert = UIAlertController(title: "Menghapus Impian", message: "Apakah anda yakin ingin menghapus impian \"\(dreams[index].title)\" ?", preferredStyle: .alert)
         
         let deleteButton = UIAlertAction(title: "Hapus", style: .destructive) { (_) -> Void in
-            dreams.remove(at: tag)
+            dreams.remove(at: index)
             self.dreamTableView.reloadData()
         }
         

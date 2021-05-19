@@ -71,7 +71,7 @@ extension AddUsageViewController: CustomButtonDelegate {
     func customButtonAction() {
         let id: String = String.randomCapitalizeWithNumber()
         let title: String = titleTxtField.text ?? ""
-        let price: Decimal = Decimal.setStringToDecimal(amountValue: amountTxtField.text ?? "")
+        let price: Decimal = (amountTxtField.text ?? "").setStringToDecimal
         let status: UsageType
         
         if usageTypeData == 0 {

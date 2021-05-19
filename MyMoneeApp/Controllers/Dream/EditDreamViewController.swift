@@ -34,7 +34,7 @@ class EditDreamViewController: UIViewController {
         
         //Set Value
         titleField.text = dreams[passIndex].title
-        targetAmountField.text = String.setDecimalToString(amountValue: dreams[passIndex].targetAmount)
+        targetAmountField.text = dreams[passIndex].targetAmount.setDecimalToStringCurrency
         
     }
     
@@ -46,8 +46,7 @@ class EditDreamViewController: UIViewController {
     
     func updateDreamData() {
         let title = titleField.text ?? ""
-        let targetAmount = Decimal.setStringToDecimal(
-            amountValue: targetAmountField.text?.replacingOccurrences(of: ".", with: "") ?? "")
+        let targetAmount = (targetAmountField.text?.replacingOccurrences(of: ".", with: "") ?? "").setStringToDecimal
         
         dreams[passIndex!] = Dream(id: dreams[passIndex].id, title: title, targetAmount: targetAmount, userId: userData.userId)
     }

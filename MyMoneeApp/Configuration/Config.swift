@@ -9,5 +9,4 @@ import UIKit
 
 struct AuthUser {
     static var data: User = users[0]
-//    static var wallet: Wallet = wallets[data.id]
 }

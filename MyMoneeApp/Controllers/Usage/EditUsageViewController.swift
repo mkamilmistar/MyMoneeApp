@@ -62,7 +62,7 @@ extension EditUsageViewController {
         
         //Set Value
         titleTxtField.text = usages[passIndex].title
-        priceTxtField.text = String.setDecimalToString(amountValue: usages[passIndex].amount)
+        priceTxtField.text = usages[passIndex].amount.setDecimalToStringCurrency
         
         //Initialize Selected Value
         if usages[passIndex].status == .moneyIn {
@@ -75,8 +75,7 @@ extension EditUsageViewController {
     func updateUsage() {
         let id = usages[passIndex].id
         let title = titleTxtField.text ?? ""
-        let amount = Decimal.setStringToDecimal(
-            amountValue: priceTxtField.text?.replacingOccurrences(of: ".", with: "") ?? "")
+        let amount = (priceTxtField.text?.replacingOccurrences(of: ".", with: "") ?? "").setStringToDecimal
         let date = usages[passIndex].date
         var status: UsageType
         

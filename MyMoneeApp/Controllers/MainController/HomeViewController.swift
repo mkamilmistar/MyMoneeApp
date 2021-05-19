@@ -44,7 +44,7 @@ class HomeViewController: UIViewController {
         super.viewWillAppear(animated)
         
         userName.text = userData.name
-        let balance =  String.setDecimalToString(amountValue: userData.balance)
+        let balance =  userData.balance.setDecimalToStringCurrency
         balanceLabel.text = "Rp \(balance)"
        
         //Set Data Greeting
@@ -71,8 +71,8 @@ extension HomeViewController {
         totalMoneyIn = usages.filter({$0.status == .moneyIn}).map({$0.amount}).reduce(0, +)
         totalMoneyOut = usages.filter({$0.status == .moneyOut}).map({$0.amount}).reduce(0, +)
 
-        let dataUsageIn = String.setDecimalToStringCurrency(amountValue: totalMoneyIn)
-        let dataUsageOut = String.setDecimalToStringCurrency(amountValue: totalMoneyOut)
+        let dataUsageIn = totalMoneyIn.setDecimalToStringCurrency
+        let dataUsageOut = totalMoneyOut.setDecimalToStringCurrency
         
         //Set Data Show
         totalUsageIn.text = "Rp. \(dataUsageIn)"
@@ -167,8 +167,8 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         
         //Set Data Cell
         trans.title.text = usages[indexPath.row].title
-        trans.date.text = Date.setDateToString(usages[indexPath.row].date)
-        let price = String.setDecimalToString(amountValue: usages[indexPath.row].amount)
+        trans.date.text = usages[indexPath.row].date.setDateToString
+        let price = usages[indexPath.row].amount.setDecimalToStringCurrency
        
         if usages[indexPath.row].status == .moneyOut {
             trans.imageStatus.image = UIImage(named: "Arrow_Down_BG")

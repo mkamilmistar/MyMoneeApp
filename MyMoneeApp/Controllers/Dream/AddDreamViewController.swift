@@ -42,7 +42,7 @@ extension AddDreamViewController: CustomButtonDelegate {
     func customButtonAction() {
         let id: String = NSUUID().uuidString
         let title: String = titleField.text ?? ""
-        let targetAmount: Decimal = Decimal.setStringToDecimal(amountValue: targetAmountField.text ?? "")
+        let targetAmount: Decimal = (targetAmountField.text ?? "").setStringToDecimal
         
         dreams.append(Dream(id: id, title: title, targetAmount: targetAmount, userId: userData.userId))
         

@@ -32,7 +32,7 @@ class DetailUsageViewController: UIViewController {
         //setViewVariable
         idUsage.text = usages[passIndex].id
         titleUsage.text = usages[passIndex].title
-        let stringPrice = String.setDecimalToString(amountValue: usages[passIndex].amount)
+        let stringPrice = usages[passIndex].amount.setDecimalToStringCurrency
         
         if usages[passIndex].status == .moneyIn {
             iconStatus.image = UIImage(named: "Arrow_Up_BG")
@@ -46,7 +46,7 @@ class DetailUsageViewController: UIViewController {
             price.text = "-Rp \(stringPrice)"
         }
         
-        dateUsage.text = Date.setDateToString(usages[passIndex].date)
+        dateUsage.text = usages[passIndex].date.setDateToString
     }
     
     @IBAction func goEditUsage(_ sender: UIButton) {

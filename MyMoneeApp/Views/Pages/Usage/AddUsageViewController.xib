@@ -29,7 +29,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BZA-jk-bON" customClass="NavigationBar" customModule="MyMoneeApp" customModuleProvider="target">
-                    <rect key="frame" x="16" y="54" width="382" height="18"/>
+                    <rect key="frame" x="16" y="54" width="382" height="24"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                 </view>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Kategori Penggunaan" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6ln-Jh-Miz">
@@ -81,7 +81,7 @@
                 <constraint firstItem="6ln-Jh-Miz" firstAttribute="leading" secondItem="N0v-Li-Ks4" secondAttribute="leading" id="YUF-UI-uHd"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="BZA-jk-bON" secondAttribute="trailing" constant="16" id="juo-DF-d5u"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="N0v-Li-Ks4" secondAttribute="trailing" constant="16" id="kmR-MA-B7a"/>
-                <constraint firstItem="N0v-Li-Ks4" firstAttribute="top" secondItem="BZA-jk-bON" secondAttribute="bottom" constant="29" id="qtu-QD-cBC"/>
+                <constraint firstItem="N0v-Li-Ks4" firstAttribute="top" secondItem="BZA-jk-bON" secondAttribute="bottom" constant="23" id="qtu-QD-cBC"/>
                 <constraint firstItem="BZA-jk-bON" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="10" id="uQl-CM-Gs4"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="HzG-31-kYI" secondAttribute="trailing" constant="16" id="yUx-hY-zqW"/>
             </constraints>

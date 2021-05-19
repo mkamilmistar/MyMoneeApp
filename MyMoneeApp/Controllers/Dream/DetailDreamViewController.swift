@@ -42,15 +42,15 @@ class DetailDreamViewController: UIViewController {
         }
         
         //Set View Variable
-        let currentAmountConv = String.setDecimalToStringCurrencyWithIDR(amountValue: userData.balance)
-        let targetAmountConv = String.setDecimalToStringCurrencyWithIDR(amountValue: dreams[passIndex].targetAmount)
+        let currentAmountConv = userData.balance.setDecimalToStringCurrency
+        let targetAmountConv = dreams[passIndex].targetAmount.setDecimalToStringCurrency
         
         dreamTitle.text = dreams[passIndex].title
         percentProgress.text = "\(percentProgressData)%"
         
-        let amount = String.setDecimalToStringCurrency(amountValue: dreams[passIndex].targetAmount)
+        let amount = dreams[passIndex].targetAmount.setDecimalToStringCurrency
         targetAmount.text = "Rp \(amount)"
-        progressAmount.text = "\(currentAmountConv) / \(targetAmountConv)"
+        progressAmount.text = "IDR \(currentAmountConv) / IDR \(targetAmountConv)"
         progressBar.progress = passProgressData ?? 0.0
         
     }

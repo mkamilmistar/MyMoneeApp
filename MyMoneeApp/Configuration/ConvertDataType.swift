@@ -7,52 +7,39 @@
 
 import Foundation
 
-//============================================ TYPE CONVERT
+//============================================ CURRENCY TYPE CONVERT
 
-extension String {
-    static func setDecimalToStringCurrencyWithIDR(amountValue: Decimal) -> String {
+extension Decimal {
+    var setDecimalToStringCurrencyWithIDR: String {
         let formatter = NumberFormatter()
         formatter.currencyCode = "IDR"
         formatter.groupingSeparator = "."
         formatter.numberStyle = NumberFormatter.Style.currencyISOCode
 
-         if let formatterStr: String = formatter.string(from: NSDecimalNumber(decimal: amountValue))  {
+        if let formatterStr: String = formatter.string(from: NSDecimalNumber(decimal: self))  {
           return formatterStr
         } else {
           return "0.0"
         }
     }
     
-    static func setDecimalToStringCurrency(amountValue: Decimal) -> String {
+    var setDecimalToStringCurrency: String {
         let formatter = NumberFormatter()
-
+        
         formatter.groupingSeparator = "."
         formatter.numberStyle = NumberFormatter.Style.decimal
-
-         if let formatterStr: String = formatter.string(from: NSDecimalNumber(decimal: amountValue))  {
-          return formatterStr
+        
+        if let formatterStr: String = formatter.string(from: NSDecimalNumber(decimal: self))  {
+            return formatterStr
         } else {
-          return "0.0"
-        }
-    }
-    
-    static func setDecimalToString(amountValue: Decimal) -> String {
-        let formatter = NumberFormatter()
-
-        formatter.groupingSeparator = "."
-        formatter.numberStyle = .decimal
-
-         if let formatterStr: String = formatter.string(from: NSDecimalNumber(decimal: amountValue))  {
-          return formatterStr
-        } else {
-          return "0.0"
+            return "0.0"
         }
     }
 }
 
-extension Decimal {
-    static func setStringToDecimal(amountValue: String) -> Decimal {
-        if let formatterDecimal: Decimal = Decimal(string: amountValue) {
+extension String {
+    var setStringToDecimal: Decimal {
+        if let formatterDecimal: Decimal = Decimal(string: self) {
             return formatterDecimal
         } else {
             return 0.0
@@ -60,34 +47,36 @@ extension Decimal {
     }
 }
 
-extension Double {
-    static func setDecimalToDouble(value: Decimal) -> Double {
-        let formatterDouble = Double(truncating: value as NSNumber)
-       
+extension Decimal {
+    var setDecimalToDouble: Double {
+        let formatterDouble = Double(truncating: self as NSNumber)
         return formatterDouble
     }
 }
 
-//============================================ END OF TYPE CONVERT
-
+//============================================ END OF CURRENCY TYPE CONVERT
 
 
 //============================================ DATE CONVERT
 extension Date {
-    static func getDateByString(date:String) -> Date {
+    var setDateToString: String {
+        let outputFormat = DateFormatter()
+        outputFormat.locale = NSLocale(localeIdentifier:"id") as Locale
+        outputFormat.timeZone = TimeZone(abbreviation: "WIB")
+        outputFormat.dateFormat = "dd MMMM yyyy' - 'HH:mm"
+        return outputFormat.string(from: self as Date)
+    }
+    
+    var hour: Int { return Calendar.current.component(.hour, from: self) }
+}
+
+extension String {
+    var setStringToDate: Date {
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
         formatter.timeZone = TimeZone(abbreviation: "WIB")
         formatter.locale = NSLocale(localeIdentifier: "id") as Locale
-        return formatter.date(from: date)!
-    }
-
-    static func setDateToString(_ date: Date) -> String {
-        let outputFormat = DateFormatter()
-        outputFormat.locale = NSLocale(localeIdentifier:"id") as Locale
-        outputFormat.timeZone = TimeZone(abbreviation: "WIT")
-        outputFormat.dateFormat = "dd MMMM yyyy' - 'HH:mm"
-        return outputFormat.string(from: date as Date)
+        return formatter.date(from: self)!
     }
 }
 
@@ -105,8 +94,4 @@ extension String {
         }
         return "MM-\(randomString)"
     }
-}
-
-extension Date {
-    var hour: Int { return Calendar.current.component(.hour, from: self) }
 }
