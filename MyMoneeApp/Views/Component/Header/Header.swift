@@ -7,7 +7,7 @@
 
 import UIKit
 
-protocol HeaderDelegate {
+protocol HeaderDelegate: AnyObject {
     func headerButtonAction()
     
 }
@@ -18,15 +18,15 @@ class Header: UIView {
     @IBOutlet var addButton: UIButton!
     @IBOutlet var headerLabel: UILabel!
     
-    var delegate: HeaderDelegate?
+    weak var delegate: HeaderDelegate?
     
-    //Constructor dengan programatically
+    // Constructor dengan programatically
     override init(frame: CGRect) {
         super.init(frame: frame)
         self.commonInit()
     }
     
-    //consturctor dengan interface builder (storyBoard)
+    // consturctor dengan interface builder (storyBoard)
     required init?(coder: NSCoder) {
         super.init(coder: coder)
         self.commonInit()

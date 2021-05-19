@@ -7,7 +7,7 @@
 
 import Foundation
 
-//============================================ CURRENCY TYPE CONVERT
+// ============================================ CURRENCY TYPE CONVERT
 
 extension Decimal {
     var setDecimalToStringCurrencyWithIDR: String {
@@ -15,11 +15,12 @@ extension Decimal {
         formatter.currencyCode = "IDR"
         formatter.groupingSeparator = "."
         formatter.numberStyle = NumberFormatter.Style.currencyISOCode
-
-        if let formatterStr: String = formatter.string(from: NSDecimalNumber(decimal: self))  {
-          return formatterStr
+        
+        if let formatterStr: String = formatter.string(
+            from: NSDecimalNumber(decimal: self)) {
+            return formatterStr
         } else {
-          return "0.0"
+            return "0.0"
         }
     }
     
@@ -29,7 +30,8 @@ extension Decimal {
         formatter.groupingSeparator = "."
         formatter.numberStyle = NumberFormatter.Style.decimal
         
-        if let formatterStr: String = formatter.string(from: NSDecimalNumber(decimal: self))  {
+        if let formatterStr: String = formatter.string(
+            from: NSDecimalNumber(decimal: self)) {
             return formatterStr
         } else {
             return "0.0"
@@ -54,14 +56,13 @@ extension Decimal {
     }
 }
 
-//============================================ END OF CURRENCY TYPE CONVERT
+// ============================================ END OF CURRENCY TYPE CONVERT
 
-
-//============================================ DATE CONVERT
+// ============================================ DATE CONVERT
 extension Date {
     var setDateToString: String {
         let outputFormat = DateFormatter()
-        outputFormat.locale = NSLocale(localeIdentifier:"id") as Locale
+        outputFormat.locale = NSLocale(localeIdentifier: "id") as Locale
         outputFormat.timeZone = TimeZone(abbreviation: "WIB")
         outputFormat.dateFormat = "dd MMMM yyyy' - 'HH:mm"
         return outputFormat.string(from: self as Date)
@@ -80,14 +81,13 @@ extension String {
     }
 }
 
-
-//============================================ END OF DATE CONVERT
+// ============================================ END OF DATE CONVERT
 
 extension String {
     static func randomCapitalizeWithNumber(length: Int = 6) -> String {
         let base = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
         var randomString: String = ""
-
+        
         for _ in 0..<length {
             let randomValue = arc4random_uniform(UInt32(base.count))
             randomString += "\(base[base.index(base.startIndex, offsetBy: Int(randomValue))])"

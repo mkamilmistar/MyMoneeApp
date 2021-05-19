@@ -29,7 +29,7 @@ class AddDreamViewController: UIViewController {
         
         titleField = formInput.titleField
         titleField.delegate = self
-        targetAmountField = formInput.AmountField
+        targetAmountField = formInput.amountField
         targetAmountField.delegate = self
         customButton.delegate = self
         navigationBar.delegate = self
@@ -40,19 +40,22 @@ class AddDreamViewController: UIViewController {
 
 extension AddDreamViewController: CustomButtonDelegate {
     func customButtonAction() {
-        let id: String = NSUUID().uuidString
+        let dreamId: String = NSUUID().uuidString
         let title: String = titleField.text ?? ""
         let targetAmount: Decimal = (targetAmountField.text ?? "").setStringToDecimal
         
-        dreams.append(Dream(id: id, title: title, targetAmount: targetAmount, userId: userData.userId))
+        dreams.append(Dream(dreamId: dreamId, title: title,
+                            targetAmount: targetAmount, userId: userData.userId))
         
         self.navigationController?.popToRootViewController(animated: true)
     }
 }
 
 extension AddDreamViewController: UITextFieldDelegate {
-    //button condition
-    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+    // button condition
+    func textField(_ textField: UITextField,
+                   shouldChangeCharactersIn range: NSRange,
+                   replacementString string: String) -> Bool {
 
         let txtField = (textField.text! as NSString).replacingCharacters(in: range, with: string)
         

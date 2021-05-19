@@ -34,13 +34,13 @@ class ProfileViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        //Set View Properties
+        // Set View Properties
         setView()
         
     }
     
     @IBAction func tapPhotoAction(_ sender: UITapGestureRecognizer) {
-        //Pick Galery
+        // Pick Galery
         selectPickType()
     }
     
@@ -53,7 +53,9 @@ class ProfileViewController: UIViewController {
     }
     
     @IBAction func editNameActionTap(_ sender: UITapGestureRecognizer) {
-        let alert = UIAlertController(title: "Ubah Nama", message: "Masukkan data yang ingin diupdate", preferredStyle: .alert)
+        let alert = UIAlertController(title: "Ubah Nama",
+                                      message: "Masukkan data yang ingin diupdate",
+                                      preferredStyle: .alert)
             
         alert.addTextField()
         alert.textFields![0].placeholder = "Masukkan nama"
@@ -92,23 +94,23 @@ class ProfileViewController: UIViewController {
         controlLabel.text = "Edit"
         tapButtonPhotoAction.isEnabled = false
         
-        //Navigate
+        // Navigate
         self.navigationController?.popToRootViewController(animated: false)
     }
 }
 
 extension ProfileViewController {
     fileprivate func setView() {
-        //init show data
+        // init show data
         editNameTap.isHidden = true
         editPhotoButton.isHidden = true
         tapButtonPhotoAction.isEnabled = false
         
-        //Set Properties View
+        // Set Properties View
         nameLabel.text = userData.name
         
-        view.backgroundColor = AppColor.mainBG
-        blueBg.layer.backgroundColor = AppColor.mainPurple.cgColor
+        view.backgroundColor = UIColor.mainBG()
+        blueBg.layer.backgroundColor = UIColor.mainPurple().cgColor
         
         if (passAllMoneyIn) >= (passAllMoneyOut) {
             statusUsage.text = "Bagus! Pengeluaranmu lebih sedikit dari Pemasukan"
@@ -119,9 +121,12 @@ extension ProfileViewController {
 }
 
 extension ProfileViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+    func imagePickerController(_ picker: UIImagePickerController,
+                               didFinishPickingMediaWithInfo info: [
+                                UIImagePickerController.InfoKey: Any]) {
         
-        if let image = info[UIImagePickerController.InfoKey(rawValue: "UIImagePickerControllerEditedImage")] as? UIImage {
+        if let image = info[UIImagePickerController.InfoKey(
+                                rawValue: "UIImagePickerControllerEditedImage")] as? UIImage {
             userImage.image = image
         }
         picker.dismiss(animated: true, completion: nil)
@@ -147,12 +152,14 @@ extension ProfileViewController: UIImagePickerControllerDelegate, UINavigationCo
         self.present(alert, animated: true, completion: nil)
     }
     
-    func openCamera(){
+    func openCamera() {
         if UIImagePickerController.isSourceTypeAvailable(UIImagePickerController.SourceType.camera) {
             imagePicker.sourceType = UIImagePickerController.SourceType.camera
             self.present(imagePicker, animated: true, completion: nil)
         } else {
-            let alert = UIAlertController(title: "Peringatan", message: "Kamu tidak punya kamera!", preferredStyle: .alert)
+            let alert = UIAlertController(title: "Peringatan",
+                                          message: "Kamu tidak punya kamera!",
+                                          preferredStyle: .alert)
             let cancelButton = UIAlertAction(title: "OK", style: .default)
             alert.addAction(cancelButton)
             present(alert, animated: true, completion: nil)

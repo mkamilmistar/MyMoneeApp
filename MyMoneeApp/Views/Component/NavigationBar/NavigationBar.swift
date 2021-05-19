@@ -6,7 +6,7 @@
 //
 
 import UIKit
-protocol NavigationBarDelegate {
+protocol NavigationBarDelegate: AnyObject {
     func backBtnAction()
 }
 
@@ -15,15 +15,15 @@ class NavigationBar: UIView {
     @IBOutlet var mainView: UIView!
     @IBOutlet var navigationLabel: UILabel!
     
-    var delegate: NavigationBarDelegate?
+    weak var delegate: NavigationBarDelegate?
     
-    //Constructor dengan programatically
+    // Constructor dengan programatically
     override init(frame: CGRect) {
         super.init(frame: frame)
         self.commonInit()
     }
     
-    //consturctor dengan interface builder (storyBoard)
+    // consturctor dengan interface builder (storyBoard)
     required init?(coder: NSCoder) {
         super.init(coder: coder)
         self.commonInit()

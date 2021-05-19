@@ -19,7 +19,7 @@ class DetailDreamViewController: UIViewController {
     @IBOutlet var button: AnotherButton!
     @IBOutlet var detailBG: UIView!
     
-    //Data
+    // Data
     var passIndex: Int!
     var passProgressData: Float? = 0.0
     var userData: User = AuthUser.data
@@ -29,10 +29,10 @@ class DetailDreamViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //Set Properties of Component
+        // Set Properties of Component
         initProperties()
         
-        //Conditional Button Confirm
+        // Conditional Button Confirm
         let percentProgressData = Int((passProgressData ?? 0.0) * 100)
         
         if percentProgressData != 100 {
@@ -41,7 +41,7 @@ class DetailDreamViewController: UIViewController {
             enabledMainButton(confirmButton)
         }
         
-        //Set View Variable
+        // Set View Variable
         let currentAmountConv = userData.balance.setDecimalToStringCurrency
         let targetAmountConv = dreams[passIndex].targetAmount.setDecimalToStringCurrency
         
@@ -56,34 +56,37 @@ class DetailDreamViewController: UIViewController {
     }
     
     @IBAction func goEditImpian(_ sender: Any) {
-        let editDreamVC = EditDreamViewController(nibName: String(describing: EditDreamViewController.self), bundle: nil)
+        let editDreamVC = EditDreamViewController(
+            nibName: String(describing: EditDreamViewController.self),
+            bundle: nil)
         
         editDreamVC.modalPresentationStyle = .fullScreen
         editDreamVC.modalTransitionStyle = .coverVertical
         
-        //Pass Data To Edit
+        // Pass Data To Edit
         editDreamVC.passIndex = passIndex
         
         self.navigationController?.pushViewController(editDreamVC, animated: true)
     }
     
     func confirmAction() {
-        //Save To Usage
-        let id: String = String.randomCapitalizeWithNumber()
+        // Save To Usage
+        let usageId: String = String.randomCapitalizeWithNumber()
         let title: String = dreams[passIndex].title
         let price: Decimal = dreams[passIndex].targetAmount
         let status: UsageType = .moneyOut
         
-        //Input To Array
-        usages.append(Usage(id: id, title: title, price: price, date: Date(), status: status, UserId: userData.userId))
+        // Input To Array
+        usages.append(Usage(usageId: usageId, title: title, price: price, date: Date(),
+                            status: status, userId: userData.userId))
         
-        //Delete From Dream
+        // Delete From Dream
         dreams.remove(at: passIndex ?? 0)
         
-        //Subtract Balance
+        // Subtract Balance
         userData.balance -= price
         
-        //Navigate
+        // Navigate
         self.navigationController?.popToRootViewController(animated: true)
     }
 }
@@ -106,7 +109,10 @@ extension DetailDreamViewController {
 
 extension DetailDreamViewController: AnotherButtonDelegate {
     func firstBtnAction() {
-        let alert = UIAlertController(title: "Konfirmasi Mimpi", message: "Apakah anda yakin ingin mengkonfirmasi mimpi \"\(dreams[passIndex].title)\" ?", preferredStyle: .alert)
+        let alert = UIAlertController(
+            title: "Konfirmasi Mimpi",
+            message: "Apakah anda yakin ingin mengkonfirmasi mimpi \"\(dreams[passIndex].title)\" ?",
+            preferredStyle: .alert)
         
         let deleteButton = UIAlertAction(title: "Konfirmasi", style: .default) { (_) -> Void in
             self.confirmAction()

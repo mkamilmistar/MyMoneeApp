@@ -9,7 +9,6 @@ import UIKit
 
 class DetailUsageViewController: UIViewController {
 
-  
     @IBOutlet var idUsage: UILabel!
     @IBOutlet var iconStatus: UIImageView!
     @IBOutlet var titleUsage: UILabel!
@@ -26,23 +25,23 @@ class DetailUsageViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //SetStyle
+        // SetStyle
         initViewStyle()
         
-        //setViewVariable
-        idUsage.text = usages[passIndex].id
+        // setViewVariable
+        idUsage.text = usages[passIndex].usageId
         titleUsage.text = usages[passIndex].title
         let stringPrice = usages[passIndex].amount.setDecimalToStringCurrency
         
         if usages[passIndex].status == .moneyIn {
             iconStatus.image = UIImage(named: "Arrow_Up_BG")
             status.text = "Pemasukan"
-            price.textColor = AppColor.mainGreen
+            price.textColor = UIColor.mainGreen()
             price.text = "+Rp \(stringPrice)"
         } else {
             iconStatus.image = UIImage(named: "Arrow_Down_BG")
             status.text = "Pengeluaran"
-            price.textColor = AppColor.mainRed
+            price.textColor = UIColor.mainRed()
             price.text = "-Rp \(stringPrice)"
         }
         
@@ -50,12 +49,14 @@ class DetailUsageViewController: UIViewController {
     }
     
     @IBAction func goEditUsage(_ sender: UIButton) {
-        let editUsageVC = EditUsageViewController(nibName: String(describing: String(describing: EditUsageViewController.self)), bundle: nil)
+        let editUsageVC = EditUsageViewController(
+            nibName: String(describing: String(describing: EditUsageViewController.self)),
+            bundle: nil)
         
         editUsageVC.modalPresentationStyle = .fullScreen
         editUsageVC.modalTransitionStyle = .coverVertical
         
-        //Pass Data
+        // Pass Data
         editUsageVC.passIndex = self.passIndex
         
         self.navigationController?.pushViewController(editUsageVC, animated: true)

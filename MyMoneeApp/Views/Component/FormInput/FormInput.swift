@@ -13,7 +13,7 @@ class FormInput: UIView {
     @IBOutlet var titleLabel: UILabel!
     @IBOutlet var titleField: UITextField!
     @IBOutlet var amountLabel: UILabel!
-    @IBOutlet var AmountField: UITextField!
+    @IBOutlet var amountField: UITextField!
     
     override init(frame: CGRect) {
         super.init(frame: frame)

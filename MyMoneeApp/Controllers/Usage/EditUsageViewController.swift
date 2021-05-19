@@ -26,7 +26,7 @@ class EditUsageViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //set Style init
+        // set Style init
         initStyleView()
         
         usageTypeCollection.delegate = self
@@ -58,13 +58,13 @@ extension EditUsageViewController {
         titleTxtField = formInput.titleField
         
         formInput.amountLabel.text = "Jumlah (Rp)"
-        priceTxtField = formInput.AmountField
+        priceTxtField = formInput.amountField
         
-        //Set Value
+        // Set Value
         titleTxtField.text = usages[passIndex].title
         priceTxtField.text = usages[passIndex].amount.setDecimalToStringCurrency
         
-        //Initialize Selected Value
+        // Initialize Selected Value
         if usages[passIndex].status == .moneyIn {
             usageTypeData = 0
         } else {
@@ -73,7 +73,7 @@ extension EditUsageViewController {
     }
     
     func updateUsage() {
-        let id = usages[passIndex].id
+        let usageId = usages[passIndex].usageId
         let title = titleTxtField.text ?? ""
         let amount = (priceTxtField.text?.replacingOccurrences(of: ".", with: "") ?? "").setStringToDecimal
         let date = usages[passIndex].date
@@ -84,7 +84,7 @@ extension EditUsageViewController {
             passBalance = userData.balance - usages[passIndex].amount
           
             if status != usages[passIndex].status {
-                userData.balance = userData.balance + (amount*2)
+                userData.balance += amount * 2
             } else {
                 userData.balance = passBalance + amount
             }
@@ -93,34 +93,36 @@ extension EditUsageViewController {
             passBalance = userData.balance + usages[passIndex].amount
             
             if status != usages[passIndex].status {
-                userData.balance = userData.balance - (amount*2)
+                userData.balance -= amount * 2
             } else {
                 userData.balance = passBalance - amount
             }
         }
 
-        usages[passIndex] = Usage(id: id, title: title, price: amount, date: date, status: status, UserId: userData.userId)
+        usages[passIndex] = Usage(usageId: usageId, title: title, price: amount,
+                                  date: date, status: status, userId: userData.userId)
     }
     
-    func deleteUsage(){
-        //Balance Conditional
+    func deleteUsage() {
+        // Balance Conditional
         if usages[passIndex].status == .moneyIn {
             userData.balance -= usages[passIndex].amount
         } else {
             userData.balance += usages[passIndex].amount
         }
         
-        //Delete
+        // Delete
         usages.remove(at: passIndex)
         
-        //Navigate
+        // Navigate
         self.navigationController?.popToRootViewController(animated: true)
     }
 }
 
 extension EditUsageViewController: UITextFieldDelegate {
-    //button condition
-    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+    // button condition
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange,
+                   replacementString string: String) -> Bool {
 
         let txtField = (textField.text! as NSString).replacingCharacters(in: range, with: string)
 
@@ -140,7 +142,11 @@ extension EditUsageViewController: AnotherButtonDelegate {
     }
     
     func secondBtnAction() {
-        let alert = UIAlertController(title: "Menghapus Penggunaan", message: "Apakah anda yakin ingin menghapus penggunaan \"\(usages[passIndex].title)\" ?", preferredStyle: .alert)
+        let alert = UIAlertController(
+            title: "Menghapus Penggunaan",
+            message: "Apakah anda yakin ingin menghapus penggunaan \"\(usages[passIndex].title)\" ?",
+            preferredStyle: .alert
+        )
         
         let deleteButton = UIAlertAction(title: "Hapus", style: .destructive) { (_) -> Void in
             self.deleteUsage()
@@ -156,12 +162,13 @@ extension EditUsageViewController: AnotherButtonDelegate {
     
 }
 
-extension EditUsageViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
-    //when select
+extension EditUsageViewController: UICollectionViewDelegate,
+                                   UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+    // when select
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let cell = collectionView.cellForItem(at: indexPath)
     
-        cell?.layer.borderColor = AppColor.mainPurple.cgColor
+        cell?.layer.borderColor = UIColor.mainPurple().cgColor
         cell?.layer.borderWidth = 3.0
         cell?.layer.cornerRadius = 8.0
         
@@ -172,7 +179,7 @@ extension EditUsageViewController: UICollectionViewDelegate, UICollectionViewDat
         }
     }
     
-    //when deselect
+    // when deselect
     func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
         let cell = collectionView.cellForItem(at: indexPath)
         cell?.layer.borderWidth = 0
@@ -184,10 +191,13 @@ extension EditUsageViewController: UICollectionViewDelegate, UICollectionViewDat
         return categoryUsage.count
     }
     
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = usageTypeCollection.dequeueReusableCell(withReuseIdentifier: String(describing: UsageTypeCell.self), for: indexPath) as! UsageTypeCell
+    func collectionView(_ collectionView: UICollectionView,
+                        cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = usageTypeCollection.dequeueReusableCell(
+            withReuseIdentifier: String(describing: UsageTypeCell.self),
+            for: indexPath) as! UsageTypeCell
         
-        //Selected in First Show
+        // Selected in First Show
         if indexPath.row == usageTypeData {
             usageTypeCollection.selectItem(at: indexPath, animated: true, scrollPosition: .centeredHorizontally)
             selectBorder(cell)
@@ -195,22 +205,23 @@ extension EditUsageViewController: UICollectionViewDelegate, UICollectionViewDat
            deselectBorder(cell)
         }
         
-        //Shadow View
+        // Shadow View
         setShadow(cell)
         
         cell.title.text = categoryUsage[indexPath.row].label
         
         if categoryUsage[indexPath.row].type == .moneyIn {
             cell.imageStatus.image = UIImage(named: "Arrow_Up")
-        }
-        else if categoryUsage[indexPath.row].type == .moneyOut{
+        } else if categoryUsage[indexPath.row].type == .moneyOut {
             cell.imageStatus.image = UIImage(named: "Arrow_Down")
         }
         
         return cell
     }
     
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+    func collectionView(_ collectionView: UICollectionView,
+                        layout collectionViewLayout: UICollectionViewLayout,
+                        sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: collectionView.frame.width / 2 - 10, height: 75)
     }
     

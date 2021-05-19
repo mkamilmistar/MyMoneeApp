@@ -7,7 +7,7 @@
 
 import UIKit
 
-protocol NotFoundDelegate {
+protocol NotFoundDelegate: AnyObject {
     func notFoundButtonAction()
 }
 
@@ -17,15 +17,15 @@ class NotFound: UIView {
     @IBOutlet var addButton: UIButton!
     @IBOutlet var notFoundLabel: UILabel!
     
-    var delegate: NotFoundDelegate?
+    weak var delegate: NotFoundDelegate?
     
-    //Constructor dengan programatically
+    // Constructor dengan programatically
     override init(frame: CGRect) {
         super.init(frame: frame)
         self.commonInit()
     }
     
-    //consturctor dengan interface builder (storyBoard)
+    // consturctor dengan interface builder (storyBoard)
     required init?(coder: NSCoder) {
         super.init(coder: coder)
         self.commonInit()
@@ -36,7 +36,6 @@ class NotFound: UIView {
         addSubview(mainContent)
         mainContent.frame = self.bounds
         mainContent.autoresizingMask = [.flexibleHeight, .flexibleWidth]
-        
         
         enabledMainButton(addButton)
         

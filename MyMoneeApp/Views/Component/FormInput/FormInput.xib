@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -18,7 +17,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="FormInput" customModule="MyMoneeApp" customModuleProvider="target">
             <connections>
-                <outlet property="AmountField" destination="4Gz-AD-lWz" id="8Tk-wK-pHr"/>
+                <outlet property="amountField" destination="4Gz-AD-lWz" id="8Tk-wK-pHr"/>
                 <outlet property="amountLabel" destination="2pF-f0-aHZ" id="uPZ-kt-EJo"/>
                 <outlet property="mainContent" destination="iN0-l3-epB" id="YqR-jL-8lQ"/>
                 <outlet property="titleField" destination="Ohv-rF-8Hz" id="F8y-kP-MIr"/>
@@ -31,19 +30,19 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="9" translatesAutoresizingMaskIntoConstraints="NO" id="MCF-dF-T1B" userLabel="Form">
-                    <rect key="frame" x="0.0" y="44" width="414" height="110"/>
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="110"/>
                     <subviews>
                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="-5" translatesAutoresizingMaskIntoConstraints="NO" id="BHT-rs-zFz" userLabel="Judul">
-                            <rect key="frame" x="0.0" y="0.0" width="414" height="50.5"/>
+                            <rect key="frame" x="0.0" y="0.0" width="414" height="49.5"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nMg-0u-0Yv">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="20"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="16.5"/>
                                     <fontDescription key="fontDescription" name="Poppins-Medium" family="Poppins" pointSize="14"/>
                                     <color key="textColor" red="0.30980392159999998" green="0.30980392159999998" blue="0.30980392159999998" alpha="1" colorSpace="calibratedRGB"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <textField opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="249" verticalCompressionResistancePriority="751" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Isi Judul" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ohv-rF-8Hz">
-                                    <rect key="frame" x="0.0" y="15" width="414" height="35.5"/>
+                                    <rect key="frame" x="0.0" y="11.5" width="414" height="38"/>
                                     <color key="textColor" red="0.30980392159999998" green="0.30980392159999998" blue="0.30980392159999998" alpha="1" colorSpace="calibratedRGB"/>
                                     <fontDescription key="fontDescription" name="Poppins-SemiBold" family="Poppins" pointSize="24"/>
                                     <textInputTraits key="textInputTraits"/>
@@ -51,16 +50,16 @@
                             </subviews>
                         </stackView>
                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="-5" translatesAutoresizingMaskIntoConstraints="NO" id="x1b-JI-nnk" userLabel="TargetAmount">
-                            <rect key="frame" x="0.0" y="59.5" width="414" height="50.5"/>
+                            <rect key="frame" x="0.0" y="58.5" width="414" height="51.5"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title Amount" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2pF-f0-aHZ">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="20"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="16.5"/>
                                     <fontDescription key="fontDescription" name="Poppins-Medium" family="Poppins" pointSize="14"/>
                                     <color key="textColor" red="0.30980392159999998" green="0.30980392159999998" blue="0.30980392159999998" alpha="1" colorSpace="calibratedRGB"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <textField opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="751" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Isi Jumlah" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4Gz-AD-lWz">
-                                    <rect key="frame" x="0.0" y="15" width="414" height="35.5"/>
+                                    <rect key="frame" x="0.0" y="11.5" width="414" height="40"/>
                                     <color key="textColor" red="0.30980392159999998" green="0.30980392159999998" blue="0.30980392159999998" alpha="1" colorSpace="calibratedRGB"/>
                                     <fontDescription key="fontDescription" name="Poppins-SemiBold" family="Poppins" pointSize="24"/>
                                     <textInputTraits key="textInputTraits"/>

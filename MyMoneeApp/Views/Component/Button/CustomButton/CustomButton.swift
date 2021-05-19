@@ -7,7 +7,7 @@
 
 import UIKit
 
-protocol CustomButtonDelegate {
+protocol CustomButtonDelegate: AnyObject {
     func customButtonAction()
 }
 
@@ -16,7 +16,7 @@ class CustomButton: UIView {
     @IBOutlet var mainButton: UIButton!
     @IBOutlet var mainContent: UIView!
     
-    var delegate: CustomButtonDelegate?
+    weak var delegate: CustomButtonDelegate?
     
     override init(frame: CGRect) {
         super.init(frame: frame)

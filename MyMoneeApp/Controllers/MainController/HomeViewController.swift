@@ -28,10 +28,10 @@ class HomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //Set View Style
+        // Set View Style
         setViewStyle()
         
-        //Register Table
+        // Register Table
         let uiNib = UINib(nibName: String(describing: UsageTableViewCell.self), bundle: nil)
         usagesTableView.register(uiNib, forCellReuseIdentifier: String(describing: UsageTableViewCell.self))
         usagesTableView.delegate = self
@@ -47,14 +47,14 @@ class HomeViewController: UIViewController {
         let balance =  userData.balance.setDecimalToStringCurrency
         balanceLabel.text = "Rp \(balance)"
        
-        //Set Data Greeting
+        // Set Data Greeting
         schedulerGreetingText()
         
-        //Money In Out
+        // Money In Out
         calcualateMoneyByType()
         passingDataToProfile()
         
-        //Data Transaction Conditional
+        // Data Transaction Conditional
         usagesTableView.reloadData()
         
         if usages.count > 0 {
@@ -68,26 +68,25 @@ class HomeViewController: UIViewController {
 
 extension HomeViewController {
     fileprivate func calcualateMoneyByType() {
-        //Get All Data In and Out
+        // Get All Data In and Out
         totalMoneyIn = usages.filter({$0.status == .moneyIn}).map({$0.amount}).reduce(0, +)
         totalMoneyOut = usages.filter({$0.status == .moneyOut}).map({$0.amount}).reduce(0, +)
 
         let dataUsageIn = totalMoneyIn.setDecimalToStringCurrency
         let dataUsageOut = totalMoneyOut.setDecimalToStringCurrency
         
-        //Set Data Show
+        // Set Data Show
         totalUsageIn.text = "Rp. \(dataUsageIn)"
         totalUsageOut.text = "Rp. \(dataUsageOut)"
     }
     
     fileprivate func passingDataToProfile() {
-        //Pass Data In/Out To Profile Tab Menu
+        // Pass Data In/Out To Profile Tab Menu
         let navVC = tabBarController?.viewControllers![2] as! UINavigationController
         let profileVC = navVC.topViewController as! ProfileViewController
         profileVC.passAllMoneyIn = totalMoneyIn
         profileVC.passAllMoneyOut = totalMoneyOut
     }
-    
     
     fileprivate func setViewStyle() {
         usagesTableView.separatorStyle = .none
@@ -98,9 +97,9 @@ extension HomeViewController {
         
         headerView.headerLabel.text = "Selamat Pagi"
 
-        contentView.backgroundColor = AppColor.mainBG
-        view.backgroundColor = AppColor.mainBG
-        balanceView.backgroundColor = AppColor.mainPurple
+        contentView.backgroundColor = UIColor.mainBG()
+        view.backgroundColor = UIColor.mainBG()
+        balanceView.backgroundColor = UIColor.mainPurple()
         notFound.isHidden = true
         notFound.addButton.isHidden = true
         notFound.addButton.setTitle("Tambah Penggunaan", for: .normal)
@@ -115,8 +114,8 @@ extension HomeViewController {
         self.navigationController?.pushViewController(addUsageVC, animated: true)
     }
     
-    //Scheduler the Greeting Text
-    fileprivate func schedulerGreetingText(){
+    // Scheduler the Greeting Text
+    fileprivate func schedulerGreetingText() {
         let time = Date().hour
         
         switch time {
@@ -131,15 +130,17 @@ extension HomeViewController {
 
 extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        //deselect row animation
+        // deselect row animation
         tableView.deselectRow(at: indexPath, animated: false)
         
-        let detailUsageVC = DetailUsageViewController(nibName: String(describing: DetailUsageViewController.self), bundle: nil)
+        let detailUsageVC = DetailUsageViewController(
+            nibName: String(describing: DetailUsageViewController.self),
+            bundle: nil)
         
         detailUsageVC.modalPresentationStyle = .fullScreen
         detailUsageVC.modalTransitionStyle = .coverVertical
         
-        //PassingData
+        // PassingData
         detailUsageVC.passIndex = indexPath.row
         detailUsageVC.hidesBottomBarWhenPushed = true
         self.navigationController?.pushViewController(detailUsageVC, animated: true)
@@ -159,26 +160,28 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let trans = tableView.dequeueReusableCell(withIdentifier: String(describing: UsageTableViewCell.self), for: indexPath) as! UsageTableViewCell
+        let trans = tableView.dequeueReusableCell(
+            withIdentifier: String(describing: UsageTableViewCell.self),
+            for: indexPath) as! UsageTableViewCell
         
-        //change selected color
+        // change selected color
         let backgroundView = UIView()
         backgroundView.backgroundColor = .systemGray5
         trans.selectedBackgroundView = backgroundView
         
-        //Set Data Cell
+        // Set Data Cell
         trans.title.text = usages[indexPath.row].title
         trans.date.text = usages[indexPath.row].date.setDateToString
         let price = usages[indexPath.row].amount.setDecimalToStringCurrency
        
         if usages[indexPath.row].status == .moneyOut {
             trans.imageStatus.image = UIImage(named: "Arrow_Down_BG")
-            trans.price.textColor = AppColor.mainRed
+            trans.price.textColor = UIColor.mainRed()
             trans.price.text = "-Rp \(price)"
         } else {
             trans.price.textColor = UIColor.systemGreen
             trans.imageStatus.image = UIImage(named: "Arrow_Up_BG")
-            trans.price.textColor = AppColor.mainGreen
+            trans.price.textColor = UIColor.mainGreen()
             trans.price.text = "+Rp \(price)"
         }
         return trans

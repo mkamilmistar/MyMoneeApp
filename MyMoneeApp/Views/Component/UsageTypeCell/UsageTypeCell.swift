@@ -9,11 +9,9 @@ import UIKit
 
 class UsageTypeCell: UICollectionViewCell {
 
-    
     @IBOutlet var imageStatus: UIImageView!
     @IBOutlet var title: UILabel!
     @IBOutlet var background: UIView!
-    
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -24,7 +22,4 @@ class UsageTypeCell: UICollectionViewCell {
         background.layer.shadowOpacity = 0.3
         background.layer.shadowOffset = CGSize(width: 0, height: 1)
     }
-    
-    
-
 }

@@ -14,7 +14,7 @@ class AddUsageViewController: UIViewController {
     @IBOutlet var formInput: FormInput!
     @IBOutlet var navigationBar: NavigationBar!
     
-    var usageTypeData: Int? = nil
+    var usageTypeData: Int?
     var userData: User = AuthUser.data
     var saveButton: UIButton!
     var titleTxtField: UITextField!
@@ -23,7 +23,7 @@ class AddUsageViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //Set Button
+        // Set Button
         saveButton = customButton.mainButton
         saveButton.setTitle("Simpan", for: .normal)
         disabledMainButton(saveButton)
@@ -40,7 +40,7 @@ class AddUsageViewController: UIViewController {
         titleTxtField.delegate = self
         
         formInput.amountLabel.text = "Jumlah (Rp)"
-        amountTxtField = formInput.AmountField
+        amountTxtField = formInput.amountField
         amountTxtField.delegate = self
         customButton.delegate = self
         navigationBar.delegate = self
@@ -51,8 +51,9 @@ class AddUsageViewController: UIViewController {
 }
 
 extension AddUsageViewController: UITextFieldDelegate {
-    //button condition
-    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+    // button condition
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange,
+                   replacementString string: String) -> Bool {
 
         let txtField = (textField.text! as NSString).replacingCharacters(in: range, with: string)
 
@@ -67,9 +68,9 @@ extension AddUsageViewController: UITextFieldDelegate {
 }
 
 extension AddUsageViewController: CustomButtonDelegate {
-    //SAVE
+    // SAVE
     func customButtonAction() {
-        let id: String = String.randomCapitalizeWithNumber()
+        let usageId: String = String.randomCapitalizeWithNumber()
         let title: String = titleTxtField.text ?? ""
         let price: Decimal = (amountTxtField.text ?? "").setStringToDecimal
         let status: UsageType
@@ -82,22 +83,24 @@ extension AddUsageViewController: CustomButtonDelegate {
             userData.balance -= price
         }
         
-        //Input To Array
-        usages.append(Usage(id: id, title: title, price: price, date: Date(), status: status, UserId: userData.userId))
+        // Input To Array
+        usages.append(Usage(usageId: usageId, title: title, price: price, date: Date(),
+                            status: status, userId: userData.userId))
         
         self.navigationController?.popToRootViewController(animated: true)
     }
 }
 
-extension AddUsageViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
-    //when select
+extension AddUsageViewController: UICollectionViewDelegate,
+                                  UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+    // when select
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let cell = collectionView.cellForItem(at: indexPath)
-        cell?.layer.borderColor = AppColor.mainPurple.cgColor
+        cell?.layer.borderColor = UIColor.mainPurple().cgColor
         cell?.layer.borderWidth = 3.0
         cell?.layer.cornerRadius = 8.0
         
-        //Asign data usageTypeData
+        // Asign data usageTypeData
         usageTypeData = indexPath.row
         
         if (titleTxtField.text != "") && (amountTxtField.text != "") {
@@ -106,7 +109,7 @@ extension AddUsageViewController: UICollectionViewDelegate, UICollectionViewData
         
     }
     
-    //when deselect
+    // when deselect
     func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
         let cell = collectionView.cellForItem(at: indexPath)
         cell?.layer.borderWidth = 0
@@ -117,9 +120,12 @@ extension AddUsageViewController: UICollectionViewDelegate, UICollectionViewData
         return categoryUsage.count
     }
     
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = usagesTypeCollection.dequeueReusableCell(withReuseIdentifier: String(describing: UsageTypeCell.self), for: indexPath) as! UsageTypeCell
-        
+    func collectionView(_ collectionView: UICollectionView,
+                        cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = usagesTypeCollection.dequeueReusableCell(
+            withReuseIdentifier: String(describing: UsageTypeCell.self),
+            for: indexPath) as! UsageTypeCell
+
         setShadow(cell)
         
         cell.title.text = categoryUsage[indexPath.row].label
@@ -134,7 +140,9 @@ extension AddUsageViewController: UICollectionViewDelegate, UICollectionViewData
 
     }
     
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+    func collectionView(_ collectionView: UICollectionView,
+                        layout collectionViewLayout: UICollectionViewLayout,
+                        sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: collectionView.frame.width / 2 - 10, height: 75)
     }
 }

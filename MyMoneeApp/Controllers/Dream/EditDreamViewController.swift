@@ -23,7 +23,7 @@ class EditDreamViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //Set Style
+        // Set Style
         initStyleView()
         
         button.delegate = self
@@ -32,7 +32,7 @@ class EditDreamViewController: UIViewController {
         navigationBar.delegate = self
         navigationBar.navigationLabel.text = "Ubah Impian"
         
-        //Set Value
+        // Set Value
         titleField.text = dreams[passIndex].title
         targetAmountField.text = dreams[passIndex].targetAmount.setDecimalToStringCurrency
         
@@ -48,7 +48,9 @@ class EditDreamViewController: UIViewController {
         let title = titleField.text ?? ""
         let targetAmount = (targetAmountField.text?.replacingOccurrences(of: ".", with: "") ?? "").setStringToDecimal
         
-        dreams[passIndex!] = Dream(id: dreams[passIndex].id, title: title, targetAmount: targetAmount, userId: userData.userId)
+        dreams[passIndex!] = Dream(dreamId: dreams[passIndex].dreamId,
+                                   title: title, targetAmount: targetAmount,
+                                   userId: userData.userId)
     }
 }
 
@@ -64,7 +66,7 @@ extension EditDreamViewController {
         titleField = formInput.titleField
         formInput.titleLabel.text = "Judul"
         
-        targetAmountField = formInput.AmountField
+        targetAmountField = formInput.amountField
         formInput.amountLabel.text = "Target Capaian (Rp)"
     }
 }
@@ -77,7 +79,10 @@ extension EditDreamViewController: AnotherButtonDelegate {
     }
     
     func secondBtnAction() {
-        let alert = UIAlertController(title: "Menghapus Impian", message: "Apakah anda yakin ingin menghapus impian \"\(dreams[passIndex].title)\" ?", preferredStyle: .alert)
+        let alert = UIAlertController(
+            title: "Menghapus Impian",
+            message: "Apakah anda yakin ingin menghapus impian \"\(dreams[passIndex].title)\" ?",
+            preferredStyle: .alert)
         
         let deleteButton = UIAlertAction(title: "Hapus", style: .destructive) { (_) -> Void in
             self.deleteDream()
@@ -93,8 +98,10 @@ extension EditDreamViewController: AnotherButtonDelegate {
 }
 
 extension EditDreamViewController: UITextFieldDelegate {
-    //button condition
-    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+    // button condition
+    func textField(_ textField: UITextField,
+                   shouldChangeCharactersIn range: NSRange,
+                   replacementString string: String) -> Bool {
 
         let txtField = (textField.text! as NSString).replacingCharacters(in: range, with: string)
         

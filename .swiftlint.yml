@@ -1,0 +1,7 @@
+disabled_rules:
+  - comma
+  - force_cast
+  - large_tuple
+  - nesting
+  - function_parameter_count
+  - trailing_whitespace

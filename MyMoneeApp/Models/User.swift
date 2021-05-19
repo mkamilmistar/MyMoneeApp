@@ -12,8 +12,8 @@ class User {
     var imageProfile: String
     var balance: Decimal
 
-    init(id: Int, name: String, imageProfile: String, balance: Decimal) {
-        self.userId = id
+    init(userId: Int, name: String, imageProfile: String, balance: Decimal) {
+        self.userId = userId
         self.name = name
         self.imageProfile = imageProfile
         self.balance = balance
@@ -21,7 +21,7 @@ class User {
 }
 
 var users: [User] = [
-    User(id: 0, name: "M. Kamil", imageProfile: "Profile_Photo", balance: 0.0),
-    User(id: 1, name: "Melia Suspariana", imageProfile: "Profile_Photo2", balance: 999000.0),
-    User(id: 2, name: "Maudy Abdila", imageProfile: "Profile_Photo3", balance: 999000.0)
+    User(userId: 0, name: "M. Kamil", imageProfile: "Profile_Photo", balance: 0.0),
+    User(userId: 1, name: "Melia Suspariana", imageProfile: "Profile_Photo2", balance: 999000.0),
+    User(userId: 2, name: "Maudy Abdila", imageProfile: "Profile_Photo3", balance: 999000.0)
 ]

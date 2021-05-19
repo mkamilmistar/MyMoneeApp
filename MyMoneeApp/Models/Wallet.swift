@@ -8,19 +8,19 @@
 import Foundation
 
 class Wallet {
-    var id: Int
+    var walletId: Int
     var balance: Decimal
     var userId: Int
     
-    init(id: Int, balance: Decimal, userId: Int) {
-        self.id = id
+    init(walletId: Int, balance: Decimal, userId: Int) {
+        self.walletId = walletId
         self.balance = balance
         self.userId = userId
     }
 }
 
 var wallets: [Wallet] = [
-    Wallet(id: 0, balance: 5000000.0, userId: 0),
-    Wallet(id: 1, balance: 5000000.0, userId: 1),
-    Wallet(id: 2, balance: 5000000.0, userId: 2)
+    Wallet(walletId: 0, balance: 5000000.0, userId: 0),
+    Wallet(walletId: 1, balance: 5000000.0, userId: 1),
+    Wallet(walletId: 2, balance: 5000000.0, userId: 2)
 ]

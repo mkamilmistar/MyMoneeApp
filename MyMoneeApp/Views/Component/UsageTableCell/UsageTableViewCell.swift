@@ -9,7 +9,6 @@ import UIKit
 
 class UsageTableViewCell: UITableViewCell {
 
-   
     @IBOutlet weak var mainView: UIView!
     @IBOutlet weak var imageStatus: UIImageView!
     @IBOutlet weak var title: UILabel!
@@ -24,6 +23,6 @@ class UsageTableViewCell: UITableViewCell {
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-        date.textColor = AppColor.mainGrey
+        date.textColor = UIColor.mainGrey()
     }
 }

@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-protocol AnotherButtonDelegate {
+protocol AnotherButtonDelegate: AnyObject {
     func firstBtnAction()
     func secondBtnAction()
 }
@@ -18,7 +18,7 @@ class AnotherButton: UIView {
     @IBOutlet var firstButton: UIButton!
     @IBOutlet var secondButton: UIButton!
     
-    var delegate: AnotherButtonDelegate?
+    weak var delegate: AnotherButtonDelegate?
     
     override init(frame: CGRect) {
         super.init(frame: frame)

@@ -7,7 +7,7 @@
 
 import UIKit
 
-protocol DreamTableDelegate {
+protocol DreamTableDelegate: AnyObject {
     func confirmButton(_ tag: Int)
     func deleteButton(_ tag: Int)
 }
@@ -22,20 +22,19 @@ class DreamTableViewCell: UITableViewCell {
     @IBOutlet var confirmButton: UIButton!
     @IBOutlet var deleteButton: UIButton!
     
-    var delegate: DreamTableDelegate?
+    weak var delegate: DreamTableDelegate?
     
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
         progressBar.trackTintColor = UIColor(red: 80.0/255.0, green: 105.0/255.0, blue: 184.0/255.0, alpha: 0.33)
-        progressBar.progressTintColor = AppColor.mainPurple
+        progressBar.progressTintColor = UIColor.mainPurple()
         
-        //no Select background
+        // no Select background
         self.selectionStyle = .none
         
         mainView.layer.cornerRadius = 4
         
-//        confirmButton = self.delegate?.confirmButtonStyle
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

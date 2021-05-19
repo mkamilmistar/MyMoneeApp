@@ -21,13 +21,13 @@ class DreamViewController: UIViewController {
         
         let nib = UINib(nibName: String(describing: DreamTableViewCell.self), bundle: nil)
         dreamTableView.register(nib, forCellReuseIdentifier: String(describing: DreamTableViewCell.self))
-        dreamTableView.backgroundColor = AppColor.mainBG
+        dreamTableView.backgroundColor = UIColor.mainBG()
         dreamTableView.delegate = self
         dreamTableView.dataSource = self
         notFound.delegate = self
         headerView.delegate = self
         
-        //View Style
+        // View Style
         setViewStyle()
     }
     
@@ -54,7 +54,7 @@ extension DreamViewController {
         let targetDouble = dreams[indexPath.row].targetAmount.setDecimalToDouble
         progressBarData = Float(currentDouble / targetDouble)
         
-        //Conditional Progress Bar Data
+        // Conditional Progress Bar Data
         if progressBarData > 1 {
             return 1
         } else {
@@ -63,13 +63,15 @@ extension DreamViewController {
     }
     
     fileprivate func setViewStyle() {
-        view.backgroundColor = AppColor.mainBG
+        view.backgroundColor = UIColor.mainBG()
         notFound.addButton.setTitle("Tambah Impian", for: .normal)
         headerView.headerLabel.text = "Impian"
     }
     
     func goAddDreamView() {
-        let addImpianView = AddDreamViewController(nibName: String(describing: AddDreamViewController.self), bundle: nil)
+        let addImpianView = AddDreamViewController(
+            nibName: String(describing: AddDreamViewController.self),
+            bundle: nil)
         addImpianView.modalPresentationStyle = .fullScreen
         addImpianView.modalTransitionStyle = .coverVertical
         addImpianView.hidesBottomBarWhenPushed = true
@@ -77,37 +79,40 @@ extension DreamViewController {
     }
     
     func confirmAction(_ index: Int) {
-        //Save To Usage
-        let id: String = String.randomCapitalizeWithNumber()
+        // Save To Usage
+        let usageId: String = String.randomCapitalizeWithNumber()
         let title: String = dreams[index].title
         let price: Decimal = dreams[index].targetAmount
         let status: UsageType = .moneyOut
         
-        //Input To Array
-        usages.append(Usage(id: id, title: title, price: price, date: Date(), status: status, UserId: userData.userId))
+        // Input To Array
+        usages.append(Usage(usageId: usageId, title: title, price: price, date: Date(),
+                            status: status, userId: userData.userId))
         
-        //Delete From Dream
+        // Delete From Dream
         dreams.remove(at: index)
         
-        //Subtract Balance
+        // Subtract Balance
         userData.balance -= price
         
-        //Navigate
+        // Navigate
         self.navigationController?.popToRootViewController(animated: true)
     }
 }
 
 extension DreamViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        //deselect row animation
+        // deselect row animation
         tableView.deselectRow(at: indexPath, animated: false)
         
-        let detailDreamVC = DetailDreamViewController(nibName: String(describing: DetailDreamViewController.self), bundle: nil)
+        let detailDreamVC = DetailDreamViewController(
+            nibName: String(describing: DetailDreamViewController.self),
+            bundle: nil)
         
         detailDreamVC.modalPresentationStyle = .fullScreen
         detailDreamVC.modalTransitionStyle = .coverVertical
         
-        //Passing Data
+        // Passing Data
         detailDreamVC.passIndex = indexPath.row
         detailDreamVC.passProgressData = setProgress(indexPath)
         detailDreamVC.hidesBottomBarWhenPushed = true
@@ -126,9 +131,11 @@ extension DreamViewController: UITableViewDelegate, UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let dataCell = tableView.dequeueReusableCell(withIdentifier: String(describing: DreamTableViewCell.self), for: indexPath) as! DreamTableViewCell
+        let dataCell = tableView.dequeueReusableCell(
+            withIdentifier: String(describing: DreamTableViewCell.self),
+            for: indexPath) as! DreamTableViewCell
         
-        //change selected color
+        // change selected color
         dataCell.selectionStyle = .none
         
         dataCell.title.text = dreams[indexPath.row].title
@@ -159,7 +166,10 @@ extension DreamViewController: UITableViewDelegate, UITableViewDataSource {
 
 extension DreamViewController: DreamTableDelegate {
     func confirmButton(_ tag: Int) {
-        let alert = UIAlertController(title: "Konfirmasi Mimpi", message: "Apakah anda yakin ingin mengkonfirmasi mimpi \"\(dreams[tag].title)\" ?", preferredStyle: .alert)
+        let alert = UIAlertController(
+            title: "Konfirmasi Mimpi", message:
+                "Apakah anda yakin ingin mengkonfirmasi mimpi \"\(dreams[tag].title)\" ?",
+            preferredStyle: .alert)
         
         let deleteButton = UIAlertAction(title: "Konfirmasi", style: .default) { (_) -> Void in
             self.confirmAction(tag)
@@ -175,8 +185,11 @@ extension DreamViewController: DreamTableDelegate {
     }
     
     func deleteButton(_ tag: Int) {
-        //Delete From Dream
-        let alert = UIAlertController(title: "Menghapus Impian", message: "Apakah anda yakin ingin menghapus impian \"\(dreams[tag].title)\" ?", preferredStyle: .alert)
+        // Delete From Dream
+        let alert = UIAlertController(
+            title: "Menghapus Impian", message:
+                "Apakah anda yakin ingin menghapus impian \"\(dreams[tag].title)\" ?",
+            preferredStyle: .alert)
         
         let deleteButton = UIAlertAction(title: "Hapus", style: .destructive) { (_) -> Void in
             dreams.remove(at: tag)
