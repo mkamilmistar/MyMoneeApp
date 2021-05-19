@@ -12,6 +12,7 @@ class EditUsageViewController: UIViewController {
     @IBOutlet var usageTypeCollection: UICollectionView!
     @IBOutlet var customBtn: AnotherButton!
     @IBOutlet var formInput: FormInput!
+    @IBOutlet var navigationBar: NavigationBar!
     
     var updateButton: UIButton!
     var deleteButton: UIButton!
@@ -34,6 +35,8 @@ class EditUsageViewController: UIViewController {
         priceTxtField.delegate = self
         titleTxtField.delegate = self
         customBtn.delegate = self
+        navigationBar.delegate = self
+        navigationBar.navigationLabel.text = "Ubah Penggunaan"
         
         let uiNib = UINib(nibName: String(describing: UsageTypeCell.self), bundle: nil)
         usageTypeCollection.register(uiNib, forCellWithReuseIdentifier: String(describing: UsageTypeCell.self))
@@ -67,10 +70,6 @@ extension EditUsageViewController {
         } else {
             usageTypeData = 1
         }
-    }
-    
-    @IBAction func backToDetailUsage(_ sender: UITapGestureRecognizer) {
-        self.navigationController?.popViewController(animated: true)
     }
     
     func updateUsage() {
@@ -216,4 +215,10 @@ extension EditUsageViewController: UICollectionViewDelegate, UICollectionViewDat
         return CGSize(width: collectionView.frame.width / 2 - 10, height: 75)
     }
     
+}
+
+extension EditUsageViewController: NavigationBarDelegate {
+    func backBtnAction() {
+        self.navigationController?.popViewController(animated: true)
+    }
 }

@@ -12,6 +12,7 @@ class AddUsageViewController: UIViewController {
     @IBOutlet var usagesTypeCollection: UICollectionView!
     @IBOutlet var customButton: CustomButton!
     @IBOutlet var formInput: FormInput!
+    @IBOutlet var navigationBar: NavigationBar!
     
     var usageTypeData: Int? = nil
     var userData: User = AuthUser.data
@@ -42,12 +43,11 @@ class AddUsageViewController: UIViewController {
         amountTxtField = formInput.AmountField
         amountTxtField.delegate = self
         customButton.delegate = self
+        navigationBar.delegate = self
+        navigationBar.navigationLabel.text = "Tambah Penggunaan"
         
     }
-    
-    @IBAction func backHome(_ sender: Any) {
-        self.navigationController?.popToRootViewController(animated: true)
-    }
+  
 }
 
 extension AddUsageViewController: UITextFieldDelegate {
@@ -136,5 +136,11 @@ extension AddUsageViewController: UICollectionViewDelegate, UICollectionViewData
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: collectionView.frame.width / 2 - 10, height: 75)
+    }
+}
+
+extension AddUsageViewController: NavigationBarDelegate {
+    func backBtnAction() {
+        self.navigationController?.popToRootViewController(animated: true)
     }
 }

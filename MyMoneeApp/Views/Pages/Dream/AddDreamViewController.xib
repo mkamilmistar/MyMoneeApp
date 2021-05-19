@@ -2,21 +2,18 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
-    <customFonts key="customFonts">
-        <array key="Poppins-Regular.ttf">
-            <string>Poppins-Regular</string>
-        </array>
-    </customFonts>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AddDreamViewController" customModule="MyMoneeApp" customModuleProvider="target">
             <connections>
                 <outlet property="customButton" destination="Y3a-SI-Njl" id="M4r-xA-HWh"/>
                 <outlet property="formInput" destination="mXh-CX-O14" id="Fva-28-bXa"/>
+                <outlet property="navigationBar" destination="4Qp-tD-aza" id="nL7-Lv-jPU"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -25,37 +22,6 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JHZ-Ta-nbP" userLabel="HeaderComponent">
-                    <rect key="frame" x="16" y="64" width="382" height="25"/>
-                    <subviews>
-                        <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" spacing="14" translatesAutoresizingMaskIntoConstraints="NO" id="Mf0-eU-cUH">
-                            <rect key="frame" x="5" y="3" width="137.5" height="19"/>
-                            <subviews>
-                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Arrow_Back" translatesAutoresizingMaskIntoConstraints="NO" id="vwK-cE-BVG">
-                                    <rect key="frame" x="0.0" y="0.0" width="11" height="19"/>
-                                    <constraints>
-                                        <constraint firstAttribute="width" constant="10.779999999999999" id="7by-uf-b8R"/>
-                                        <constraint firstAttribute="height" constant="18.760000000000002" id="Dbf-fL-XdS"/>
-                                    </constraints>
-                                </imageView>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tambah Impian" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Adq-ly-h6l">
-                                    <rect key="frame" x="25" y="0.0" width="112.5" height="19"/>
-                                    <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="14"/>
-                                    <color key="textColor" red="0.30980392159999998" green="0.30980392159999998" blue="0.30980392159999998" alpha="1" colorSpace="calibratedRGB"/>
-                                    <nil key="highlightedColor"/>
-                                </label>
-                            </subviews>
-                            <gestureRecognizers/>
-                            <connections>
-                                <outletCollection property="gestureRecognizers" destination="3tc-lH-pRx" appends="YES" id="8JQ-zx-Avo"/>
-                            </connections>
-                        </stackView>
-                    </subviews>
-                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="25" id="dWM-GX-7dU"/>
-                    </constraints>
-                </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Y3a-SI-Njl" customClass="CustomButton" customModule="MyMoneeApp" customModuleProvider="target">
                     <rect key="frame" x="16" y="750" width="382" height="44"/>
                     <color key="backgroundColor" systemColor="systemIndigoColor"/>
@@ -70,30 +36,29 @@
                         <constraint firstAttribute="height" constant="128" id="2Di-uZ-ylp"/>
                     </constraints>
                 </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4Qp-tD-aza" customClass="NavigationBar" customModule="MyMoneeApp" customModuleProvider="target">
+                    <rect key="frame" x="16" y="54" width="382" height="18"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                </view>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
                 <constraint firstItem="Y3a-SI-Njl" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="16" id="1h4-cn-CbO"/>
-                <constraint firstItem="JHZ-Ta-nbP" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="16" id="4sB-PR-cgr"/>
-                <constraint firstItem="JHZ-Ta-nbP" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="20" id="McF-Aa-15Y"/>
+                <constraint firstItem="4Qp-tD-aza" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="16" id="Bor-3d-AJ9"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="4Qp-tD-aza" secondAttribute="trailing" constant="16" id="HLa-0x-qgo"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="Y3a-SI-Njl" secondAttribute="bottom" constant="68" id="OUi-nf-Brt"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="JHZ-Ta-nbP" secondAttribute="trailing" constant="16" id="Wcm-5P-vku"/>
+                <constraint firstItem="mXh-CX-O14" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="111" id="YXu-Dv-KLQ"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="Y3a-SI-Njl" secondAttribute="trailing" constant="16" id="bin-8e-Fue"/>
-                <constraint firstItem="mXh-CX-O14" firstAttribute="top" secondItem="JHZ-Ta-nbP" secondAttribute="bottom" constant="22" id="ed1-WS-JB9"/>
+                <constraint firstItem="4Qp-tD-aza" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="10" id="cho-hs-oVM"/>
+                <constraint firstItem="mXh-CX-O14" firstAttribute="top" secondItem="4Qp-tD-aza" secondAttribute="bottom" constant="39" id="qL5-QW-rq3"/>
                 <constraint firstItem="mXh-CX-O14" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="16" id="rb6-fP-bhR"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="mXh-CX-O14" secondAttribute="trailing" constant="16" id="vfM-vd-1MR"/>
             </constraints>
             <point key="canvasLocation" x="139" y="85"/>
         </view>
-        <tapGestureRecognizer id="3tc-lH-pRx">
-            <connections>
-                <action selector="backButton:" destination="-1" id="tub-6D-gg9"/>
-            </connections>
-        </tapGestureRecognizer>
     </objects>
     <resources>
-        <image name="Arrow_Back" width="44" height="76"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

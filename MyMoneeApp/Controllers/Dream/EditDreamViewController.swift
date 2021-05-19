@@ -18,36 +18,25 @@ class EditDreamViewController: UIViewController {
     
     @IBOutlet var button: AnotherButton!
     @IBOutlet var formInput: FormInput!
+    @IBOutlet var navigationBar: NavigationBar!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         //Set Style
-        deleteButton = button.secondButton
-        deleteButton.setTitle("Hapus", for: .normal)
-        mainDeleteButton(deleteButton)
-        updateButton = button.firstButton
-        updateButton.setTitle("Perbarui", for: .normal)
-        enabledMainButton(updateButton)
-        
-        titleField = formInput.titleField
-        formInput.titleLabel.text = "Judul"
-        titleField.delegate = self
-        
-        targetAmountField = formInput.AmountField
-        formInput.amountLabel.text = "Target Capaian (Rp)"
-        targetAmountField.delegate = self
+        initStyleView()
         
         button.delegate = self
+        titleField.delegate = self
+        targetAmountField.delegate = self
+        navigationBar.delegate = self
+        navigationBar.navigationLabel.text = "Ubah Impian"
         
         //Set Value
         titleField.text = dreams[passIndex].title
         targetAmountField.text = String.setDecimalToString(amountValue: dreams[passIndex].targetAmount)
         
     }
-  
-    @IBAction func backTapAction(_ sender: UITapGestureRecognizer) {
-        self.navigationController?.popViewController(animated: true)    }
     
     func deleteDream() {
         dreams.remove(at: passIndex!)
@@ -61,6 +50,23 @@ class EditDreamViewController: UIViewController {
             amountValue: targetAmountField.text?.replacingOccurrences(of: ".", with: "") ?? "")
         
         dreams[passIndex!] = Dream(id: dreams[passIndex].id, title: title, targetAmount: targetAmount, userId: userData.userId)
+    }
+}
+
+extension EditDreamViewController {
+    fileprivate func initStyleView() {
+        deleteButton = button.secondButton
+        deleteButton.setTitle("Hapus", for: .normal)
+        mainDeleteButton(deleteButton)
+        updateButton = button.firstButton
+        updateButton.setTitle("Perbarui", for: .normal)
+        enabledMainButton(updateButton)
+        
+        titleField = formInput.titleField
+        formInput.titleLabel.text = "Judul"
+        
+        targetAmountField = formInput.AmountField
+        formInput.amountLabel.text = "Target Capaian (Rp)"
     }
 }
 
@@ -100,5 +106,11 @@ extension EditDreamViewController: UITextFieldDelegate {
         }
         
         return true
+    }
+}
+
+extension EditDreamViewController: NavigationBarDelegate {
+    func backBtnAction() {
+        self.navigationController?.popViewController(animated: true) 
     }
 }

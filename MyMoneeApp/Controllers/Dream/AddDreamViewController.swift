@@ -11,6 +11,7 @@ class AddDreamViewController: UIViewController {
 
     @IBOutlet var customButton: CustomButton!
     @IBOutlet var formInput: FormInput!
+    @IBOutlet var navigationBar: NavigationBar!
     
     var saveButton: UIButton!
     var titleField: UITextField!
@@ -31,13 +32,10 @@ class AddDreamViewController: UIViewController {
         targetAmountField = formInput.AmountField
         targetAmountField.delegate = self
         customButton.delegate = self
+        navigationBar.delegate = self
+        navigationBar.navigationLabel.text = "Tambah Impian"
         
     }
-    
-    @IBAction func backButton(_ sender: UITapGestureRecognizer) {
-        self.navigationController?.popToRootViewController(animated: true)
-    }
-       
 }
 
 extension AddDreamViewController: CustomButtonDelegate {
@@ -65,5 +63,11 @@ extension AddDreamViewController: UITextFieldDelegate {
         }
         
         return true
+    }
+}
+
+extension AddDreamViewController: NavigationBarDelegate {
+    func backBtnAction() {
+        self.navigationController?.popToRootViewController(animated: true)
     }
 }

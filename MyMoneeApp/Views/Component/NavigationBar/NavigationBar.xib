@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Poppins-Regular.ttf">
+            <string>Poppins-Regular</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="NavigationBar" customModule="MyMoneeApp" customModuleProvider="target">
+            <connections>
+                <outlet property="mainView" destination="iN0-l3-epB" id="zW8-Vq-aN0"/>
+                <outlet property="navigationLabel" destination="jfC-By-NzY" id="q2u-pR-tqi"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="398" height="99"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EIO-yq-iTq" userLabel="HeaderComponent">
+                    <rect key="frame" x="0.0" y="44" width="398" height="25"/>
+                    <subviews>
+                        <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" spacing="14" translatesAutoresizingMaskIntoConstraints="NO" id="iF6-9Q-Qzc">
+                            <rect key="frame" x="0.0" y="3" width="179" height="19"/>
+                            <subviews>
+                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Arrow_Back" translatesAutoresizingMaskIntoConstraints="NO" id="GXV-NQ-M2U">
+                                    <rect key="frame" x="0.0" y="0.0" width="11" height="19"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="10.779999999999999" id="8N9-f9-zjO"/>
+                                        <constraint firstAttribute="height" constant="18.760000000000002" id="IIR-KI-e9v"/>
+                                    </constraints>
+                                </imageView>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tambah Penggunaan" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jfC-By-NzY">
+                                    <rect key="frame" x="25" y="0.0" width="154" height="19"/>
+                                    <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="14"/>
+                                    <color key="textColor" red="0.30980392159999998" green="0.30980392159999998" blue="0.30980392159999998" alpha="1" colorSpace="calibratedRGB"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                            <gestureRecognizers/>
+                            <connections>
+                                <outletCollection property="gestureRecognizers" destination="YhG-Qq-spp" appends="YES" id="Aoe-i1-y9n"/>
+                            </connections>
+                        </stackView>
+                    </subviews>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="25" id="wPM-JN-mLq"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="EIO-yq-iTq" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="Pcb-Eq-mvg"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="EIO-yq-iTq" secondAttribute="trailing" id="Szw-4K-Ron"/>
+                <constraint firstItem="EIO-yq-iTq" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="Zzq-2a-P63"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="-157.97101449275362" y="-163.05803571428569"/>
+        </view>
+        <tapGestureRecognizer id="YhG-Qq-spp">
+            <connections>
+                <action selector="backButton:" destination="-1" id="N6r-uZ-EfH"/>
+            </connections>
+        </tapGestureRecognizer>
+    </objects>
+    <resources>
+        <image name="Arrow_Back" width="44" height="76"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
