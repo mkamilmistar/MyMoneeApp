@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -25,52 +27,67 @@
                         <rect key="frame" x="0.0" y="0.0" width="342" height="81"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="rTj-gG-OVa">
-                                <rect key="frame" x="10" y="10" width="322" height="61"/>
+                                <rect key="frame" x="16" y="10" width="310" height="61"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RFJ-dL-HWp">
-                                        <rect key="frame" x="0.0" y="0.0" width="34.5" height="16.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="37.5" height="20"/>
                                         <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="14"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="5Z7-J7-wsY">
-                                        <rect key="frame" x="0.0" y="16.5" width="315" height="31.5"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="5Z7-J7-wsY" userLabel="Progress">
+                                        <rect key="frame" x="0.0" y="20" width="310" height="32"/>
                                         <subviews>
                                             <progressView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="Ohu-3o-0LR">
-                                                <rect key="frame" x="0.0" y="14" width="291" height="4"/>
+                                                <rect key="frame" x="0.0" y="14" width="217" height="4"/>
                                                 <color key="progressTintColor" red="0.31372549020000001" green="0.41176470590000003" blue="0.72156862749999995" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                                 <color key="trackTintColor" red="0.31372549020000001" green="0.41176470590000003" blue="0.72156862749999995" alpha="0.29999999999999999" colorSpace="calibratedRGB"/>
                                             </progressView>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Arrow_Left" translatesAutoresizingMaskIntoConstraints="NO" id="4hv-Wg-2aK">
-                                                <rect key="frame" x="307" y="8" width="8" height="16"/>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jyC-nF-Etb">
+                                                <rect key="frame" x="234" y="0.0" width="32" height="32"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="16" id="1Uu-gL-jJJ"/>
-                                                    <constraint firstAttribute="width" constant="8" id="SEm-jw-LK0"/>
+                                                    <constraint firstAttribute="width" constant="32" id="W6J-37-TZ3"/>
+                                                    <constraint firstAttribute="height" constant="32" id="b5a-hj-bMd"/>
                                                 </constraints>
-                                            </imageView>
+                                                <connections>
+                                                    <action selector="confirmBtnAction:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="wyo-KI-RXx"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PdV-8p-Hvy">
+                                                <rect key="frame" x="278" y="0.0" width="32" height="32"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="32" id="64H-LK-ttY"/>
+                                                    <constraint firstAttribute="width" constant="32" id="fCC-cY-p77"/>
+                                                </constraints>
+                                                <state key="normal" image="Delete_IC"/>
+                                                <connections>
+                                                    <action selector="deleteBtnAction:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="DUi-Lk-JCT"/>
+                                                </connections>
+                                            </button>
                                         </subviews>
                                         <constraints>
                                             <constraint firstItem="Ohu-3o-0LR" firstAttribute="leading" secondItem="5Z7-J7-wsY" secondAttribute="leading" id="Boa-u7-VF6"/>
-                                            <constraint firstItem="4hv-Wg-2aK" firstAttribute="leading" secondItem="Ohu-3o-0LR" secondAttribute="trailing" constant="16" id="ZqX-Tv-Typ"/>
+                                            <constraint firstItem="jyC-nF-Etb" firstAttribute="leading" secondItem="Ohu-3o-0LR" secondAttribute="trailing" constant="17" id="ByT-Zq-298"/>
+                                            <constraint firstItem="PdV-8p-Hvy" firstAttribute="leading" secondItem="jyC-nF-Etb" secondAttribute="trailing" constant="12" id="Wfl-cC-yND"/>
                                         </constraints>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="4xB-qx-U9b" userLabel="Amount">
-                                        <rect key="frame" x="0.0" y="48" width="315" height="13"/>
+                                        <rect key="frame" x="0.0" y="52" width="103" height="9"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" text="500.000" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mVE-w1-z8g" userLabel="500.000">
-                                                <rect key="frame" x="0.0" y="0.0" width="40" height="13"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="44" height="9"/>
                                                 <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="11"/>
                                                 <color key="textColor" red="0.74117647060000003" green="0.74117647060000003" blue="0.74117647060000003" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" text="/" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="19o-cb-kLt" userLabel="/">
-                                                <rect key="frame" x="42" y="0.0" width="4" height="13"/>
+                                                <rect key="frame" x="46" y="0.0" width="5.5" height="9"/>
                                                 <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="11"/>
                                                 <color key="textColor" red="0.74117647060000003" green="0.74117647060000003" blue="0.74117647060000003" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" text="1.250.000" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MaA-vD-BcY" userLabel="TargetAmount">
-                                                <rect key="frame" x="48" y="0.0" width="267" height="13"/>
+                                                <rect key="frame" x="53.5" y="0.0" width="49.5" height="9"/>
                                                 <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="11"/>
                                                 <color key="textColor" red="0.74117647060000003" green="0.74117647060000003" blue="0.74117647060000003" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
@@ -83,20 +100,19 @@
                                     </stackView>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="5Z7-J7-wsY" secondAttribute="trailing" constant="7" id="7ZX-Qn-gKL"/>
+                                    <constraint firstAttribute="trailing" secondItem="5Z7-J7-wsY" secondAttribute="trailing" id="7ZX-Qn-gKL"/>
                                     <constraint firstItem="5Z7-J7-wsY" firstAttribute="leading" secondItem="rTj-gG-OVa" secondAttribute="leading" id="Ffs-9J-ni0"/>
                                     <constraint firstItem="4xB-qx-U9b" firstAttribute="leading" secondItem="Ohu-3o-0LR" secondAttribute="leading" id="MWf-ys-yUQ"/>
-                                    <constraint firstItem="4xB-qx-U9b" firstAttribute="trailing" secondItem="4hv-Wg-2aK" secondAttribute="trailing" id="wh6-Ze-VPz"/>
                                 </constraints>
                             </stackView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="81" id="WbR-Fh-zAC"/>
-                            <constraint firstAttribute="trailing" secondItem="rTj-gG-OVa" secondAttribute="trailing" constant="10" id="g8J-AH-HD9"/>
+                            <constraint firstAttribute="trailing" secondItem="rTj-gG-OVa" secondAttribute="trailing" constant="16" id="g8J-AH-HD9"/>
                             <constraint firstAttribute="bottom" secondItem="rTj-gG-OVa" secondAttribute="bottom" constant="10" id="imJ-MG-N2g"/>
                             <constraint firstItem="rTj-gG-OVa" firstAttribute="top" secondItem="fGd-PH-cX6" secondAttribute="top" constant="10" id="qaA-VF-nuc"/>
-                            <constraint firstItem="rTj-gG-OVa" firstAttribute="leading" secondItem="fGd-PH-cX6" secondAttribute="leading" constant="10" id="vpx-D0-kc3"/>
+                            <constraint firstItem="rTj-gG-OVa" firstAttribute="leading" secondItem="fGd-PH-cX6" secondAttribute="leading" constant="16" id="vpx-D0-kc3"/>
                         </constraints>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
@@ -116,8 +132,9 @@
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="balance" destination="mVE-w1-z8g" id="nq6-X2-yr5"/>
+                <outlet property="confirmButton" destination="jyC-nF-Etb" id="PAQ-Br-5K8"/>
+                <outlet property="deleteButton" destination="PdV-8p-Hvy" id="nVB-9D-vKR"/>
                 <outlet property="mainView" destination="fGd-PH-cX6" id="hl2-6z-Ifl"/>
-                <outlet property="menuAction" destination="4hv-Wg-2aK" id="8tb-Mw-7Y0"/>
                 <outlet property="progressBar" destination="Ohu-3o-0LR" id="FCH-5z-GZe"/>
                 <outlet property="targetAmount" destination="MaA-vD-BcY" id="Yqo-kl-HCu"/>
                 <outlet property="title" destination="RFJ-dL-HWp" id="VLT-6L-zBx"/>
@@ -126,7 +143,7 @@
         </tableViewCell>
     </objects>
     <resources>
-        <image name="Arrow_Left" width="10" height="18"/>
+        <image name="Delete_IC" width="512" height="512"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

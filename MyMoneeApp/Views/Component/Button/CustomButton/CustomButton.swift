@@ -33,7 +33,6 @@ class CustomButton: UIView {
         addSubview(mainContent)
         mainContent.frame = self.bounds
         mainContent.autoresizingMask = [.flexibleHeight, .flexibleWidth]
-        
     }
     
     @IBAction func mainButton(_ sender: Any) {

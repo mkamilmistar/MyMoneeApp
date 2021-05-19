@@ -7,7 +7,7 @@
 
 import UIKit
 
-class EditDreamViewController: UIViewController, UITextFieldDelegate {
+class EditDreamViewController: UIViewController {
 
     var passIndex: Int!
     var userData: User = AuthUser.data
@@ -42,24 +42,10 @@ class EditDreamViewController: UIViewController, UITextFieldDelegate {
         
         //Set Value
         titleField.text = dreams[passIndex].title
-        targetAmountField.text = setDecimalToString(amountValue: dreams[passIndex].targetAmount)
+        targetAmountField.text = String.setDecimalToString(amountValue: dreams[passIndex].targetAmount)
         
     }
-    
-    //button condition
-    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-
-        let txtField = (textField.text! as NSString).replacingCharacters(in: range, with: string)
-        
-        if txtField.isEmpty || titleField.text == "" || targetAmountField.text == "" {
-            disabledMainButton(updateButton)
-        } else {
-            enabledMainButton(updateButton)
-        }
-        
-        return true
-    }
-    
+  
     @IBAction func backTapAction(_ sender: UITapGestureRecognizer) {
         self.navigationController?.popViewController(animated: true)    }
     
@@ -71,7 +57,7 @@ class EditDreamViewController: UIViewController, UITextFieldDelegate {
     
     func updateDreamData() {
         let title = titleField.text ?? ""
-        let targetAmount = setStringToDecimal(
+        let targetAmount = Decimal.setStringToDecimal(
             amountValue: targetAmountField.text?.replacingOccurrences(of: ".", with: "") ?? "")
         
         dreams[passIndex!] = Dream(id: dreams[passIndex].id, title: title, targetAmount: targetAmount, userId: userData.userId)
@@ -99,6 +85,20 @@ extension EditDreamViewController: AnotherButtonDelegate {
         
         present(alert, animated: true, completion: nil)
     }
-    
-    
+}
+
+extension EditDreamViewController: UITextFieldDelegate {
+    //button condition
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+
+        let txtField = (textField.text! as NSString).replacingCharacters(in: range, with: string)
+        
+        if txtField.isEmpty || titleField.text == "" || targetAmountField.text == "" {
+            disabledMainButton(updateButton)
+        } else {
+            enabledMainButton(updateButton)
+        }
+        
+        return true
+    }
 }

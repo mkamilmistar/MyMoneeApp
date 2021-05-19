@@ -7,14 +7,23 @@
 
 import UIKit
 
+protocol DreamTableDelegate {
+    func confirmButton(_ tag: Int)
+    func deleteButton(_ tag: Int)
+//    var confirmButtonStyle: UIButton { get set }
+}
+
 class DreamTableViewCell: UITableViewCell {
     
     @IBOutlet weak var mainView: UIView!
     @IBOutlet weak var title: UILabel!
     @IBOutlet weak var progressBar: UIProgressView!
-    @IBOutlet weak var menuAction: UIImageView!
     @IBOutlet var balance: UILabel!
     @IBOutlet var targetAmount: UILabel!
+    @IBOutlet var confirmButton: UIButton!
+    @IBOutlet var deleteButton: UIButton!
+    
+    var delegate: DreamTableDelegate?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -25,14 +34,20 @@ class DreamTableViewCell: UITableViewCell {
         //no Select background
         self.selectionStyle = .none
         
-        //set border specific side
-//        mainView.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
+        mainView.layer.cornerRadius = 4
+        
+//        confirmButton = self.delegate?.confirmButtonStyle
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
     }
     
+    @IBAction func confirmBtnAction(_ sender: UIButton) {
+        self.delegate?.confirmButton(sender.tag)
+    }
+    
+    @IBAction func deleteBtnAction(_ sender: UIButton) {
+        self.delegate?.deleteButton(sender.tag)
+    }
 }

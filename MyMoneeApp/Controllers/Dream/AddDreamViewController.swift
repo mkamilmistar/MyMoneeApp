@@ -7,7 +7,7 @@
 
 import UIKit
 
-class AddDreamViewController: UIViewController, UITextFieldDelegate {
+class AddDreamViewController: UIViewController {
 
     @IBOutlet var customButton: CustomButton!
     @IBOutlet var formInput: FormInput!
@@ -34,6 +34,25 @@ class AddDreamViewController: UIViewController, UITextFieldDelegate {
         
     }
     
+    @IBAction func backButton(_ sender: UITapGestureRecognizer) {
+        self.navigationController?.popToRootViewController(animated: true)
+    }
+       
+}
+
+extension AddDreamViewController: CustomButtonDelegate {
+    func customButtonAction() {
+        let id: String = NSUUID().uuidString
+        let title: String = titleField.text ?? ""
+        let targetAmount: Decimal = Decimal.setStringToDecimal(amountValue: targetAmountField.text ?? "")
+        
+        dreams.append(Dream(id: id, title: title, targetAmount: targetAmount, userId: userData.userId))
+        
+        self.navigationController?.popToRootViewController(animated: true)
+    }
+}
+
+extension AddDreamViewController: UITextFieldDelegate {
     //button condition
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
 
@@ -47,28 +66,4 @@ class AddDreamViewController: UIViewController, UITextFieldDelegate {
         
         return true
     }
-    
-    @IBAction func backButton(_ sender: UITapGestureRecognizer) {
-        self.navigationController?.popToRootViewController(animated: true)
-    }
-       
-}
-
-extension AddDreamViewController: CustomButtonDelegate {
-    func anotherCustomBtnAction() {
-        //
-    }
-    
-    func customButtonAction() {
-        let id: String = NSUUID().uuidString
-        let title: String = titleField.text ?? ""
-        let targetAmount: Decimal = setStringToDecimal(amountValue: targetAmountField.text ?? "")
-        
-        dreams.append(Dream(id: id, title: title, targetAmount: targetAmount, userId: userData.userId))
-        
-        self.navigationController?.popToRootViewController(animated: true)
-    }
-    
-    
-
 }

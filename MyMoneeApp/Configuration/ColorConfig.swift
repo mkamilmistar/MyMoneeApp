@@ -15,5 +15,4 @@ struct AppColor {
     static let mainGrey = UIColor(red: 189.0/255.0, green: 189.0/255.0, blue: 189.0/255.0, alpha: 1.0)
     static let selectedColor = UIColor(red: 240.0/255.0, green: 242.0/255.0, blue: 248.0/255.0, alpha: 1.0)
     static let disabledButton = UIColor(red: 189.0/255.0, green: 189.0/255.0, blue: 189.0/255.0, alpha: 1.0)
-
 }

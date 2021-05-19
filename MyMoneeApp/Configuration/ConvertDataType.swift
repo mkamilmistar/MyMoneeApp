@@ -7,87 +7,95 @@
 
 import Foundation
 
-//============================================ DECIMAL CONVERT
+//============================================ TYPE CONVERT
 
-func setDecimalToStringCurrency(amountValue: Decimal) -> String {
-    let formatter = NumberFormatter()
-    formatter.currencyCode = "IDR"
-    formatter.groupingSeparator = "."
-    formatter.numberStyle = NumberFormatter.Style.currencyISOCode
+extension String {
+    static func setDecimalToStringCurrencyWithIDR(amountValue: Decimal) -> String {
+        let formatter = NumberFormatter()
+        formatter.currencyCode = "IDR"
+        formatter.groupingSeparator = "."
+        formatter.numberStyle = NumberFormatter.Style.currencyISOCode
 
-     if let formatterStr: String = formatter.string(from: NSDecimalNumber(decimal: amountValue))  {
-      return formatterStr
-    } else {
-      return "0.0"
+         if let formatterStr: String = formatter.string(from: NSDecimalNumber(decimal: amountValue))  {
+          return formatterStr
+        } else {
+          return "0.0"
+        }
+    }
+    
+    static func setDecimalToStringCurrency(amountValue: Decimal) -> String {
+        let formatter = NumberFormatter()
+
+        formatter.groupingSeparator = "."
+        formatter.numberStyle = NumberFormatter.Style.decimal
+
+         if let formatterStr: String = formatter.string(from: NSDecimalNumber(decimal: amountValue))  {
+          return formatterStr
+        } else {
+          return "0.0"
+        }
+    }
+    
+    static func setDecimalToString(amountValue: Decimal) -> String {
+        let formatter = NumberFormatter()
+
+        formatter.groupingSeparator = "."
+        formatter.numberStyle = .decimal
+
+         if let formatterStr: String = formatter.string(from: NSDecimalNumber(decimal: amountValue))  {
+          return formatterStr
+        } else {
+          return "0.0"
+        }
     }
 }
 
-func anotherSetDecimalToStringCurrency(amountValue: Decimal) -> String {
-    let formatter = NumberFormatter()
-
-    formatter.groupingSeparator = "."
-    formatter.numberStyle = NumberFormatter.Style.decimal
-
-     if let formatterStr: String = formatter.string(from: NSDecimalNumber(decimal: amountValue))  {
-      return formatterStr
-    } else {
-      return "0.0"
+extension Decimal {
+    static func setStringToDecimal(amountValue: String) -> Decimal {
+        if let formatterDecimal: Decimal = Decimal(string: amountValue) {
+            return formatterDecimal
+        } else {
+            return 0.0
+        }
     }
 }
 
-func setDecimalToString(amountValue: Decimal) -> String {
-    let formatter = NumberFormatter()
-
-    formatter.groupingSeparator = "."
-    formatter.numberStyle = .decimal
-
-     if let formatterStr: String = formatter.string(from: NSDecimalNumber(decimal: amountValue))  {
-      return formatterStr
-    } else {
-      return "0.0"
+extension Double {
+    static func setDecimalToDouble(value: Decimal) -> Double {
+        let formatterDouble = Double(truncating: value as NSNumber)
+       
+        return formatterDouble
     }
 }
 
-func setStringToDecimal(amountValue: String) -> Decimal {
-    if let formatterDecimal: Decimal = Decimal(string: amountValue) {
-        return formatterDecimal
-    } else {
-        return 0.0
-    }
-}
-
-func setDecimalToDouble(value: Decimal) -> Double {
-    let formatterDouble = Double(truncating: value as NSNumber)
-   
-    return formatterDouble
-}
-
-//============================================ END OF DECIMAL CONVERT
+//============================================ END OF TYPE CONVERT
 
 
 
 //============================================ DATE CONVERT
-func getDateByString(date:String)->Date{
-    let formatter = DateFormatter()
-    formatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
-    formatter.timeZone = TimeZone(abbreviation: "WIB")
-    formatter.locale = NSLocale(localeIdentifier: "id") as Locale
-    return formatter.date(from: date)!
+extension Date {
+    static func getDateByString(date:String) -> Date {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+        formatter.timeZone = TimeZone(abbreviation: "WIB")
+        formatter.locale = NSLocale(localeIdentifier: "id") as Locale
+        return formatter.date(from: date)!
+    }
+
+    static func setDateToString(_ date: Date) -> String {
+        let outputFormat = DateFormatter()
+        outputFormat.locale = NSLocale(localeIdentifier:"id") as Locale
+        outputFormat.timeZone = TimeZone(abbreviation: "WIT")
+        outputFormat.dateFormat = "dd MMMM yyyy' - 'HH:mm"
+        return outputFormat.string(from: date as Date)
+    }
 }
 
-func setDateToString(_ date: Date) -> String {
-    let outputFormat = DateFormatter()
-    outputFormat.locale = NSLocale(localeIdentifier:"id") as Locale
-    outputFormat.timeZone = TimeZone(abbreviation: "WIT")
-    outputFormat.dateFormat = "dd MMMM yyyy' - 'HH:mm"
-    return outputFormat.string(from: date as Date)
-    
-}
+
 //============================================ END OF DATE CONVERT
 
-
 extension String {
-    static func random(length: Int = 6) -> String {
+    static func randomCapitalizeWithNumber(length: Int = 6) -> String {
         let base = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
         var randomString: String = ""
 
@@ -97,4 +105,8 @@ extension String {
         }
         return "MM-\(randomString)"
     }
+}
+
+extension Date {
+    var hour: Int { return Calendar.current.component(.hour, from: self) }
 }

@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		FA034C222650E06D0055A39E /* NavConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA034C212650E06D0055A39E /* NavConfig.swift */; };
 		FA034C26265111CB0055A39E /* Wallet.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA034C25265111CB0055A39E /* Wallet.swift */; };
 		FA15F384264AA7F9001B15D9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA15F383264AA7F9001B15D9 /* AppDelegate.swift */; };
 		FA15F386264AA7F9001B15D9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA15F385264AA7F9001B15D9 /* SceneDelegate.swift */; };
@@ -79,7 +78,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		FA034C212650E06D0055A39E /* NavConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavConfig.swift; sourceTree = "<group>"; };
 		FA034C25265111CB0055A39E /* Wallet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Wallet.swift; sourceTree = "<group>"; };
 		FA15F380264AA7F9001B15D9 /* MyMoneeApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyMoneeApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA15F383264AA7F9001B15D9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -313,7 +311,6 @@
 				FAD7EBD2264B9D47000E752D /* ColorConfig.swift */,
 				FADFA9DA264FA16B00965CD8 /* Config.swift */,
 				FA2F8783264E987E00B8BF30 /* ConvertDataType.swift */,
-				FA034C212650E06D0055A39E /* NavConfig.swift */,
 				FA2F878D264EE79400B8BF30 /* Shadow.swift */,
 			);
 			path = Configuration;
@@ -379,9 +376,9 @@
 		FAD7EBF7264BBFC5000E752D /* Component */ = {
 			isa = PBXGroup;
 			children = (
-				FAF2566826538A7F00533263 /* FormInput */,
 				FAF2566026537EB200533263 /* Button */,
 				FAD7EBB5264B82CE000E752D /* DreamTableCell */,
+				FAF2566826538A7F00533263 /* FormInput */,
 				FA8A3E712653610D006D4983 /* Header */,
 				FADFA9CF264F654B00965CD8 /* NotFound */,
 				FA15F422264ADBE3001B15D9 /* UsageTableCell */,
@@ -594,7 +591,6 @@
 				FAD7EBD3264B9D47000E752D /* ColorConfig.swift in Sources */,
 				FA15F3A2264AC5BE001B15D9 /* MainTabController.swift in Sources */,
 				FAD7EBD7264B9FD7000E752D /* AddUsageViewController.swift in Sources */,
-				FA034C222650E06D0055A39E /* NavConfig.swift in Sources */,
 				FAD7EBBD264B82FE000E752D /* DreamTableViewCell.swift in Sources */,
 				FAD7EBE5264BAF7E000E752D /* EditUsageViewController.swift in Sources */,
 				FA2F878B264EE58700B8BF30 /* ButtonConfig.swift in Sources */,
@@ -754,7 +750,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = M8XS2W68DL;
 				INFOPLIST_FILE = "$(SRCROOT)/MyMoneeApp/Application/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -774,7 +770,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = M8XS2W68DL;
 				INFOPLIST_FILE = "$(SRCROOT)/MyMoneeApp/Application/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

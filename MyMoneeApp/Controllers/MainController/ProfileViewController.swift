@@ -8,7 +8,7 @@
 import UIKit
 import Photos
 
-class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class ProfileViewController: UIViewController {
     
     @IBOutlet var userImage: UIImageView!
     @IBOutlet var statusUsage: UILabel!
@@ -22,13 +22,11 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
     var userData: User = AuthUser.data
     var passAllMoneyIn: Decimal = 0
     var passAllMoneyOut: Decimal = 0
-    
     var imagePicker = UIImagePickerController()
     var updateName: String? = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
         imagePicker.delegate = self
         imagePicker.allowsEditing = true
     }
@@ -52,7 +50,6 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
         } else {
             showMode()
         }
-        
     }
     
     @IBAction func editNameActionTap(_ sender: UITapGestureRecognizer) {
@@ -80,7 +77,6 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
             userData.name = editedData
             nameLabel.text = editedData
         }
-       
     }
     
     func editMode() {
@@ -98,15 +94,36 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
         
         //Navigate
         self.navigationController?.popToRootViewController(animated: false)
-
     }
-    
+}
+
+extension ProfileViewController {
+    fileprivate func setView() {
+        //init show data
+        editNameTap.isHidden = true
+        editPhotoButton.isHidden = true
+        tapButtonPhotoAction.isEnabled = false
+        
+        //Set Properties View
+        nameLabel.text = userData.name
+        
+        view.backgroundColor = AppColor.mainBG
+        blueBg.layer.backgroundColor = AppColor.mainPurple.cgColor
+        
+        if (passAllMoneyIn) >= (passAllMoneyOut) {
+            statusUsage.text = "Bagus! Pengeluaranmu lebih sedikit dari Pemasukan"
+        } else {
+            statusUsage.text = "Duh! Pengeluaranmu lebih besar dari Pemasukan"
+        }
+    }
+}
+
+extension ProfileViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         
         if let image = info[UIImagePickerController.InfoKey(rawValue: "UIImagePickerControllerEditedImage")] as? UIImage {
             userImage.image = image
         }
-
         picker.dismiss(animated: true, completion: nil)
     }
     
@@ -145,27 +162,5 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
     func openGallery() {
         imagePicker.sourceType = UIImagePickerController.SourceType.photoLibrary
         self.present(imagePicker, animated: true, completion: nil)
-    }
-    
-}
-
-extension ProfileViewController {
-    fileprivate func setView() {
-        //init show data
-        editNameTap.isHidden = true
-        editPhotoButton.isHidden = true
-        tapButtonPhotoAction.isEnabled = false
-        
-        //Set Properties View
-        nameLabel.text = userData.name
-        
-        view.backgroundColor = AppColor.mainBG
-        blueBg.layer.backgroundColor = AppColor.mainPurple.cgColor
-        
-        if (passAllMoneyIn) >= (passAllMoneyOut) {
-            statusUsage.text = "Bagus! Pengeluaranmu lebih sedikit dari Pemasukan"
-        } else {
-            statusUsage.text = "Duh! Pengeluaranmu lebih besar dari Pemasukan"
-        }
     }
 }

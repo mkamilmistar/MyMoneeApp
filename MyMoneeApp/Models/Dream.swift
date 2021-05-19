@@ -21,9 +21,9 @@ struct Dream {
 }
 
 var dreams: [Dream] = [
-//    Dream(id: NSUUID().uuidString, title: "Membeli Mobil", targetAmount: 200000000.0, userId: 0),
-//    Dream(id: NSUUID().uuidString, title: "Membeli Airpods Baru", targetAmount: 1500000.0, userId: 0),
-//    Dream(id: NSUUID().uuidString, title: "Membeli Sepatu Adidas", targetAmount: 500000.0, userId: 0)
+    Dream(id: NSUUID().uuidString, title: "Membeli Mobil", targetAmount: 200000000.0, userId: 0),
+    Dream(id: NSUUID().uuidString, title: "Membeli Airpods Baru", targetAmount: 1500000.0, userId: 0),
+    Dream(id: NSUUID().uuidString, title: "Membeli Sepatu Adidas", targetAmount: 500000.0, userId: 0)
 ]
 
 var dreams2: [Dream] = [

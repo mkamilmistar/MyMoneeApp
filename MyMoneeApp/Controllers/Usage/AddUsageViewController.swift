@@ -7,7 +7,7 @@
 
 import UIKit
 
-class AddUsageViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, UITextFieldDelegate {
+class AddUsageViewController: UIViewController {
 
     @IBOutlet var usagesTypeCollection: UICollectionView!
     @IBOutlet var customButton: CustomButton!
@@ -45,6 +45,12 @@ class AddUsageViewController: UIViewController, UICollectionViewDelegate, UIColl
         
     }
     
+    @IBAction func backHome(_ sender: Any) {
+        self.navigationController?.popToRootViewController(animated: true)
+    }
+}
+
+extension AddUsageViewController: UITextFieldDelegate {
     //button condition
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
 
@@ -58,7 +64,32 @@ class AddUsageViewController: UIViewController, UICollectionViewDelegate, UIColl
         
         return true
     }
-    
+}
+
+extension AddUsageViewController: CustomButtonDelegate {
+    //SAVE
+    func customButtonAction() {
+        let id: String = String.randomCapitalizeWithNumber()
+        let title: String = titleTxtField.text ?? ""
+        let price: Decimal = Decimal.setStringToDecimal(amountValue: amountTxtField.text ?? "")
+        let status: UsageType
+        
+        if usageTypeData == 0 {
+            status = .moneyIn
+            userData.balance += price
+        } else {
+            status = .moneyOut
+            userData.balance -= price
+        }
+        
+        //Input To Array
+        usages.append(Usage(id: id, title: title, price: price, date: Date(), status: status, UserId: userData.userId))
+        
+        self.navigationController?.popToRootViewController(animated: true)
+    }
+}
+
+extension AddUsageViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     //when select
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let cell = collectionView.cellForItem(at: indexPath)
@@ -106,43 +137,4 @@ class AddUsageViewController: UIViewController, UICollectionViewDelegate, UIColl
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: collectionView.frame.width / 2 - 10, height: 75)
     }
-    
-}
-
-extension AddUsageViewController {
-    @IBAction func BackToHome(_ sender: UITapGestureRecognizer) {
-        
-        self.navigationController?.popToRootViewController(animated: true)
-    }
-   
-}
-
-extension AddUsageViewController: CustomButtonDelegate {
-    func anotherCustomBtnAction() {
-        //
-    }
-    
-    
-    //SAVE
-    func customButtonAction() {
-        let id: String = String.random()
-        let title: String = titleTxtField.text ?? ""
-        let price: Decimal = setStringToDecimal(amountValue: amountTxtField.text ?? "")
-        let status: UsageType
-        
-        if usageTypeData == 0 {
-            status = .moneyIn
-            userData.balance += price
-        } else {
-            status = .moneyOut
-            userData.balance -= price
-        }
-        
-        //Input To Array
-        usages.append(Usage(id: id, title: title, price: price, date: Date(), status: status, UserId: userData.userId))
-        
-        self.navigationController?.popToRootViewController(animated: true)
-    }
-    
-    
 }

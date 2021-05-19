@@ -42,19 +42,18 @@ class DetailDreamViewController: UIViewController {
         }
         
         //Set View Variable
-        let currentAmountConv = setDecimalToStringCurrency(amountValue: userData.balance)
-        let targetAmountConv = setDecimalToStringCurrency(amountValue: dreams[passIndex].targetAmount)
+        let currentAmountConv = String.setDecimalToStringCurrencyWithIDR(amountValue: userData.balance)
+        let targetAmountConv = String.setDecimalToStringCurrencyWithIDR(amountValue: dreams[passIndex].targetAmount)
         
         dreamTitle.text = dreams[passIndex].title
         percentProgress.text = "\(percentProgressData)%"
         
-        let amount = anotherSetDecimalToStringCurrency(amountValue: dreams[passIndex].targetAmount)
+        let amount = String.setDecimalToStringCurrency(amountValue: dreams[passIndex].targetAmount)
         targetAmount.text = "Rp \(amount)"
         progressAmount.text = "\(currentAmountConv) / \(targetAmountConv)"
         progressBar.progress = passProgressData ?? 0.0
         
     }
-    
     
     @IBAction func goEditImpian(_ sender: Any) {
         let editDreamVC = EditDreamViewController(nibName: String(describing: EditDreamViewController.self), bundle: nil)
@@ -70,7 +69,7 @@ class DetailDreamViewController: UIViewController {
     
     func confirmAction() {
         //Save To Usage
-        let id: String = String.random()
+        let id: String = String.randomCapitalizeWithNumber()
         let title: String = dreams[passIndex].title
         let price: Decimal = dreams[passIndex].targetAmount
         let status: UsageType = .moneyOut
@@ -87,13 +86,10 @@ class DetailDreamViewController: UIViewController {
         //Navigate
         self.navigationController?.popToRootViewController(animated: true)
     }
-
 }
 
 extension DetailDreamViewController {
-    
     fileprivate func initProperties() {
-        
         setShadow(detailBG)
         detailBG.layer.cornerRadius = 24
         setShadow(heartLogo)
@@ -109,7 +105,6 @@ extension DetailDreamViewController {
 }
 
 extension DetailDreamViewController: AnotherButtonDelegate {
-    
     func firstBtnAction() {
         let alert = UIAlertController(title: "Konfirmasi Mimpi", message: "Apakah anda yakin ingin mengkonfirmasi mimpi \"\(dreams[passIndex].title)\" ?", preferredStyle: .alert)
         
@@ -122,11 +117,10 @@ extension DetailDreamViewController: AnotherButtonDelegate {
         alert.addAction(cancelButton)
         alert.addAction(deleteButton)
         
-        present(alert, animated: true, completion: nil)    }
+        present(alert, animated: true, completion: nil)
+    }
     
     func secondBtnAction() {
         self.navigationController?.popToRootViewController(animated: true)
     }
-    
-    
 }

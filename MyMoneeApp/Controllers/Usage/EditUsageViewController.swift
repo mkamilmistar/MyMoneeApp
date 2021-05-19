@@ -7,10 +7,9 @@
 
 import UIKit
 
-class EditUsageViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, UITextFieldDelegate {
+class EditUsageViewController: UIViewController {
 
     @IBOutlet var usageTypeCollection: UICollectionView!
-   
     @IBOutlet var customBtn: AnotherButton!
     @IBOutlet var formInput: FormInput!
     
@@ -18,8 +17,7 @@ class EditUsageViewController: UIViewController, UICollectionViewDelegate, UICol
     var deleteButton: UIButton!
     var titleTxtField: UITextField!
     var priceTxtField: UITextField!
-    private var usageTypeData: Int? 
-    
+    private var usageTypeData: Int?
     var passIndex: Int!
     var userData: User = AuthUser.data
     var passBalance: Decimal = 0
@@ -28,6 +26,22 @@ class EditUsageViewController: UIViewController, UICollectionViewDelegate, UICol
         super.viewDidLoad()
         
         //set Style init
+        initStyleView()
+        
+        usageTypeCollection.delegate = self
+        usageTypeCollection.dataSource = self
+        usageTypeCollection.allowsMultipleSelection = false
+        priceTxtField.delegate = self
+        titleTxtField.delegate = self
+        customBtn.delegate = self
+        
+        let uiNib = UINib(nibName: String(describing: UsageTypeCell.self), bundle: nil)
+        usageTypeCollection.register(uiNib, forCellWithReuseIdentifier: String(describing: UsageTypeCell.self))
+    }
+}
+
+extension EditUsageViewController {
+    fileprivate func initStyleView() {
         updateButton = customBtn.firstButton
         updateButton.setTitle("Perbarui", for: .normal)
         
@@ -37,25 +51,15 @@ class EditUsageViewController: UIViewController, UICollectionViewDelegate, UICol
         enabledMainButton(updateButton)
         mainDeleteButton(deleteButton)
         
-        usageTypeCollection.delegate = self
-        usageTypeCollection.dataSource = self
-        usageTypeCollection.allowsMultipleSelection = false
-        
-        let uiNib = UINib(nibName: String(describing: UsageTypeCell.self), bundle: nil)
-        usageTypeCollection.register(uiNib, forCellWithReuseIdentifier: String(describing: UsageTypeCell.self))
-        
         formInput.titleLabel.text = "Judul"
         titleTxtField = formInput.titleField
-        titleTxtField.delegate = self
         
         formInput.amountLabel.text = "Jumlah (Rp)"
         priceTxtField = formInput.AmountField
-        priceTxtField.delegate = self
-        customBtn.delegate = self
         
         //Set Value
         titleTxtField.text = usages[passIndex].title
-        priceTxtField.text = setDecimalToString(amountValue: usages[passIndex].amount)
+        priceTxtField.text = String.setDecimalToString(amountValue: usages[passIndex].amount)
         
         //Initialize Selected Value
         if usages[passIndex].status == .moneyIn {
@@ -63,12 +67,100 @@ class EditUsageViewController: UIViewController, UICollectionViewDelegate, UICol
         } else {
             usageTypeData = 1
         }
-        
     }
     
+    @IBAction func backToDetailUsage(_ sender: UITapGestureRecognizer) {
+        self.navigationController?.popViewController(animated: true)
+    }
+    
+    func updateUsage() {
+        let id = usages[passIndex].id
+        let title = titleTxtField.text ?? ""
+        let amount = Decimal.setStringToDecimal(
+            amountValue: priceTxtField.text?.replacingOccurrences(of: ".", with: "") ?? "")
+        let date = usages[passIndex].date
+        var status: UsageType
+        
+        if usageTypeData == 0 {
+            status = .moneyIn
+            passBalance = userData.balance - usages[passIndex].amount
+          
+            if status != usages[passIndex].status {
+                userData.balance = userData.balance + (amount*2)
+            } else {
+                userData.balance = passBalance + amount
+            }
+        } else {
+            status = .moneyOut
+            passBalance = userData.balance + usages[passIndex].amount
+            
+            if status != usages[passIndex].status {
+                userData.balance = userData.balance - (amount*2)
+            } else {
+                userData.balance = passBalance - amount
+            }
+        }
+
+        usages[passIndex] = Usage(id: id, title: title, price: amount, date: date, status: status, UserId: userData.userId)
+    }
+    
+    func deleteUsage(){
+        //Balance Conditional
+        if usages[passIndex].status == .moneyIn {
+            userData.balance -= usages[passIndex].amount
+        } else {
+            userData.balance += usages[passIndex].amount
+        }
+        
+        //Delete
+        usages.remove(at: passIndex)
+        
+        //Navigate
+        self.navigationController?.popToRootViewController(animated: true)
+    }
+}
+
+extension EditUsageViewController: UITextFieldDelegate {
+    //button condition
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+
+        let txtField = (textField.text! as NSString).replacingCharacters(in: range, with: string)
+
+        if txtField.isEmpty || usageTypeData == nil {
+            disabledMainButton(updateButton)
+        } else {
+            enabledMainButton(updateButton)
+        }
+        return true
+    }
+}
+
+extension EditUsageViewController: AnotherButtonDelegate {
+    func firstBtnAction() {
+        updateUsage()
+        self.navigationController?.popToRootViewController(animated: true)
+    }
+    
+    func secondBtnAction() {
+        let alert = UIAlertController(title: "Menghapus Penggunaan", message: "Apakah anda yakin ingin menghapus penggunaan \"\(usages[passIndex].title)\" ?", preferredStyle: .alert)
+        
+        let deleteButton = UIAlertAction(title: "Hapus", style: .destructive) { (_) -> Void in
+            self.deleteUsage()
+        }
+        
+        let cancelButton = UIAlertAction(title: "Batal", style: .cancel)
+        
+        alert.addAction(cancelButton)
+        alert.addAction(deleteButton)
+        
+        present(alert, animated: true, completion: nil)
+    }
+    
+}
+
+extension EditUsageViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     //when select
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        
         let cell = collectionView.cellForItem(at: indexPath)
     
         cell?.layer.borderColor = AppColor.mainPurple.cgColor
@@ -80,7 +172,6 @@ class EditUsageViewController: UIViewController, UICollectionViewDelegate, UICol
         if (titleTxtField.text != "") && (priceTxtField.text != "") {
             enabledMainButton(updateButton)
         }
-        
     }
     
     //when deselect
@@ -89,7 +180,6 @@ class EditUsageViewController: UIViewController, UICollectionViewDelegate, UICol
         cell?.layer.borderWidth = 0
         cell?.layer.borderColor = UIColor.white.cgColor
         usageTypeCollection.deselectItem(at: indexPath, animated: false)
-
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -124,97 +214,6 @@ class EditUsageViewController: UIViewController, UICollectionViewDelegate, UICol
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: collectionView.frame.width / 2 - 10, height: 75)
-    }
-    
-}
-
-extension EditUsageViewController {
-    @IBAction func backToDetailUsage(_ sender: UITapGestureRecognizer) {
-        self.navigationController?.popViewController(animated: true)
-    }
-    
-    //button condition
-    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-
-        let txtField = (textField.text! as NSString).replacingCharacters(in: range, with: string)
-
-        if txtField.isEmpty || usageTypeData == nil {
-            disabledMainButton(updateButton)
-        } else {
-            enabledMainButton(updateButton)
-        }
-        return true
-    }
-   
-    func updateUsage() {
-        let id = usages[passIndex].id
-        let title = titleTxtField.text ?? ""
-        let amount = setStringToDecimal(
-            amountValue: priceTxtField.text?.replacingOccurrences(of: ".", with: "") ?? "")
-        let date = usages[passIndex].date
-        var status: UsageType
-        
-        if usageTypeData == 0 {
-            status = .moneyIn
-            passBalance = userData.balance - usages[passIndex].amount
-          
-            if status != usages[passIndex].status {
-                userData.balance = userData.balance + (amount*2)
-            } else {
-                userData.balance = passBalance + amount
-            }
-            
-        } else {
-            status = .moneyOut
-            passBalance = userData.balance + usages[passIndex].amount
-            
-            if status != usages[passIndex].status {
-                userData.balance = userData.balance - (amount*2)
-            } else {
-                userData.balance = passBalance - amount
-            }
-            
-        }
-
-        usages[passIndex] = Usage(id: id, title: title, price: amount, date: date, status: status, UserId: userData.userId)
-        
-    }
-    
-    func deleteUsage(){
-        //Balance Conditional
-        if usages[passIndex].status == .moneyIn {
-            userData.balance -= usages[passIndex].amount
-        } else {
-            userData.balance += usages[passIndex].amount
-        }
-        
-        //Delete
-        usages.remove(at: passIndex)
-        
-        //Navigate
-        self.navigationController?.popToRootViewController(animated: true)
-    }
-}
-
-extension EditUsageViewController: AnotherButtonDelegate {
-    func firstBtnAction() {
-        updateUsage()
-        self.navigationController?.popToRootViewController(animated: true)
-    }
-    
-    func secondBtnAction() {
-        let alert = UIAlertController(title: "Menghapus Penggunaan", message: "Apakah anda yakin ingin menghapus penggunaan \"\(usages[passIndex].title)\" ?", preferredStyle: .alert)
-        
-        let deleteButton = UIAlertAction(title: "Hapus", style: .destructive) { (_) -> Void in
-            self.deleteUsage()
-        }
-        
-        let cancelButton = UIAlertAction(title: "Batal", style: .cancel)
-        
-        alert.addAction(cancelButton)
-        alert.addAction(deleteButton)
-        
-        present(alert, animated: true, completion: nil)
     }
     
 }
