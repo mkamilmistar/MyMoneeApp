@@ -17,6 +17,7 @@ class AddDreamViewController: UIViewController {
     var titleField: UITextField!
     var targetAmountField: UITextField!
     var userData: User = AuthUser.data
+    var dreamService = DreamService()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,10 +45,14 @@ extension AddDreamViewController: CustomButtonDelegate {
         let title: String = titleField.text ?? ""
         let targetAmount: Decimal = (targetAmountField.text ?? "").setStringToDecimal
         
-        dreams.append(Dream(dreamId: dreamId, title: title,
-                            targetAmount: targetAmount, userId: userData.userId))
-        
-        self.navigationController?.popToRootViewController(animated: true)
+        dreamService.addDream(uploadDataModel: DreamResponse(
+                                dreamId: dreamId, title: title, targetAmount:
+                                    targetAmount, userId: String(userData.userId))) {
+            DispatchQueue.main.async {
+                self.navigationController?.popToRootViewController(animated: true)
+            }
+        }
+    
     }
 }
 

@@ -1,5 +1,5 @@
 //
-//  TransactionService.swift
+//  DreamService.swift
 //  MyMoneeApp
 //
 //  Created by MacBook on 20/05/21.
@@ -7,11 +7,11 @@
 
 import Foundation
 
-class TransactionService {
+class DreamService {
+    let url: String = "https://60a5decac0c1fd00175f48af.mockapi.io/api/v1/dream"
     
-    let url: String = "https://60a5decac0c1fd00175f48af.mockapi.io/api/v1/transaction"
-    
-    func getTransaction(completion: @escaping (_ transaction: [TransactionResponse]) -> Void) {
+    func getDreams(completion: @escaping (_ dream: [DreamResponse]) -> Void) {
+        let decoder = JSONDecoder()
         guard let url = URL(string: url) else {
             print("Error: cannot create URL")
             return
@@ -29,7 +29,7 @@ class TransactionService {
                 return
             }
             do {
-                let data = try JSONDecoder().decode([TransactionResponse].self, from: data)
+                let data = try decoder.decode([DreamResponse].self, from: data)
                 completion(data)
             } catch {
                 let error = error
@@ -40,7 +40,7 @@ class TransactionService {
         task.resume()
     }
     
-    func addTransaction(uploadDataModel: TransactionResponse, completion: @escaping () -> Void) {
+    func addDream(uploadDataModel: DreamResponse, completion: @escaping () -> Void) {
         
         guard let url = URL(string: url) else {
             print("Error: cannot create URL")
@@ -65,11 +65,11 @@ class TransactionService {
         task.resume()
     }
     
-    func updateTransaction(uploadDataModel: TransactionResponse, completion: @escaping () -> Void) {
+    func updateDream(uploadDataModel: DreamResponse, completion: @escaping () -> Void) {
         
-        let transactionId = "/\(uploadDataModel.transactionId)"
+        let dreamId = "/\(uploadDataModel.dreamId)"
         
-        guard let url = URL(string: url)?.appendingPathComponent(transactionId) else {
+        guard let url = URL(string: url)?.appendingPathComponent(dreamId) else {
             print("Error: cannot create URL")
             return
         }
@@ -92,11 +92,11 @@ class TransactionService {
         task.resume()
     }
     
-    func deleteTransaction(_ transactionId: String, completion: @escaping () -> Void ) {
+    func deleteDream(_ dreamId: String, completion: @escaping () -> Void ) {
         
-        let transactionId = "/\(transactionId)"
+        let dreamId = "/\(dreamId)"
         
-        guard let url = URL(string: url)?.appendingPathComponent(transactionId) else {
+        guard let url = URL(string: url)?.appendingPathComponent(dreamId) else {
             print("Error: cannot create URL")
             return
         }

@@ -50,7 +50,7 @@ class AddUsageViewController: UIViewController {
     }
     
     func saveTransaction() {
-        let usageId: String = String.randomCapitalizeWithNumber()
+        let transactionId: String = String.randomCapitalizeWithNumber()
         let title: String = titleTxtField.text ?? ""
         let price: Decimal = (amountTxtField.text ?? "").setStringToDecimal
         let status: String
@@ -64,9 +64,9 @@ class AddUsageViewController: UIViewController {
         }
         self.createSpinnerView()
 
-        // Input To Array
+        // Input To API
         service.addTransaction(uploadDataModel: TransactionResponse(
-                                transactionId: usageId, title: title, amount: price,
+                                transactionId: transactionId, title: title, amount: price,
                                 type: status, createdAt: Date(), updatedAt: Date())) {
             DispatchQueue.main.async {
                 self.navigationController?.popToRootViewController(animated: true)

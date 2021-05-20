@@ -65,6 +65,7 @@ class HomeViewController: UIViewController {
     func loadData() {
         service.getTransaction { (transactionList) in
             DispatchQueue.main.async {
+                self.userData.balance = self.totalMoneyIn - self.totalMoneyOut
                 transactions = transactionList
 
                 self.dataNotFound()

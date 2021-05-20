@@ -15,6 +15,7 @@ class EditDreamViewController: UIViewController {
     var deleteButton: UIButton!
     var titleField: UITextField!
     var targetAmountField: UITextField!
+    var dreamService = DreamService()
     
     @IBOutlet var button: AnotherButton!
     @IBOutlet var formInput: FormInput!
@@ -33,14 +34,19 @@ class EditDreamViewController: UIViewController {
         navigationBar.navigationLabel.text = "Ubah Impian"
         
         // Set Value
-        titleField.text = dreams[passIndex].title
-        targetAmountField.text = dreams[passIndex].targetAmount.setDecimalToStringCurrency
+        titleField.text = dreamResponse[passIndex].title
+        targetAmountField.text = dreamResponse[passIndex].targetAmount.setDecimalToStringCurrency
         
     }
     
     func deleteDream() {
-        dreams.remove(at: passIndex!)
-        self.navigationController?.popToRootViewController(animated: true)
+        let dreamId = dreamResponse[passIndex].dreamId
+        
+        dreamService.deleteDream(dreamId) {
+            DispatchQueue.main.async {
+                self.navigationController?.popToRootViewController(animated: true)
+            }
+        }
         
     }
     
@@ -48,9 +54,16 @@ class EditDreamViewController: UIViewController {
         let title = titleField.text ?? ""
         let targetAmount = (targetAmountField.text?.replacingOccurrences(of: ".", with: "") ?? "").setStringToDecimal
         
-        dreams[passIndex!] = Dream(dreamId: dreams[passIndex].dreamId,
-                                   title: title, targetAmount: targetAmount,
-                                   userId: userData.userId)
+        dreamService.updateDream(
+            uploadDataModel: DreamResponse(
+            dreamId: dreamResponse[passIndex].dreamId,
+            title: title, targetAmount: targetAmount,
+                userId: dreamResponse[passIndex].userId)) {
+            DispatchQueue.main.async {
+                self.navigationController?.popToRootViewController(animated: true)
+            }
+        }
+        self.createSpinnerView()
     }
 }
 
@@ -81,7 +94,7 @@ extension EditDreamViewController: AnotherButtonDelegate {
     func secondBtnAction() {
         let alert = UIAlertController(
             title: "Menghapus Impian",
-            message: "Apakah anda yakin ingin menghapus impian \"\(dreams[passIndex].title)\" ?",
+            message: "Apakah anda yakin ingin menghapus impian \"\(dreamResponse[passIndex].title)\" ?",
             preferredStyle: .alert)
         
         let deleteButton = UIAlertAction(title: "Hapus", style: .destructive) { (_) -> Void in

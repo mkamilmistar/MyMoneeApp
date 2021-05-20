@@ -72,6 +72,8 @@
 		FADB23FE26561EEC0077521A /* TransactionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADB23FD26561EEC0077521A /* TransactionService.swift */; };
 		FADB24102656816C0077521A /* A.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADB240F2656816C0077521A /* A.swift */; };
 		FADB2415265691E20077521A /* SpinnerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADB2414265691E20077521A /* SpinnerViewController.swift */; };
+		FADB24232656BA9E0077521A /* DreamService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADB24222656BA9E0077521A /* DreamService.swift */; };
+		FADB24262656BAB10077521A /* DreamResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADB24252656BAB10077521A /* DreamResponse.swift */; };
 		FADFA9CD264F618100965CD8 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADFA9CC264F618100965CD8 /* User.swift */; };
 		FADFA9D1264F657A00965CD8 /* NotFound.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADFA9D0264F657A00965CD8 /* NotFound.swift */; };
 		FADFA9D5264F658900965CD8 /* NotFound.xib in Resources */ = {isa = PBXBuildFile; fileRef = FADFA9D4264F658900965CD8 /* NotFound.xib */; };
@@ -152,6 +154,8 @@
 		FADB23FD26561EEC0077521A /* TransactionService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionService.swift; sourceTree = "<group>"; };
 		FADB240F2656816C0077521A /* A.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = A.swift; sourceTree = "<group>"; };
 		FADB2414265691E20077521A /* SpinnerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpinnerViewController.swift; sourceTree = "<group>"; };
+		FADB24222656BA9E0077521A /* DreamService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DreamService.swift; sourceTree = "<group>"; };
+		FADB24252656BAB10077521A /* DreamResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DreamResponse.swift; sourceTree = "<group>"; };
 		FADFA9CC264F618100965CD8 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		FADFA9D0264F657A00965CD8 /* NotFound.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotFound.swift; sourceTree = "<group>"; };
 		FADFA9D4264F658900965CD8 /* NotFound.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NotFound.xib; sourceTree = "<group>"; };
@@ -441,6 +445,7 @@
 			isa = PBXGroup;
 			children = (
 				FADB23F226561D410077521A /* TransactionResponse.swift */,
+				FADB24252656BAB10077521A /* DreamResponse.swift */,
 			);
 			path = Response;
 			sourceTree = "<group>";
@@ -449,6 +454,7 @@
 			isa = PBXGroup;
 			children = (
 				FADB23FD26561EEC0077521A /* TransactionService.swift */,
+				FADB24222656BA9E0077521A /* DreamService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -661,11 +667,13 @@
 				FA15F425264ADC1E001B15D9 /* UsageTableViewCell.swift in Sources */,
 				FA9AF01A264D0E8200EC9109 /* UsageTypeCell.swift in Sources */,
 				FAD7EBF2264BBEF6000E752D /* DetailDreamViewController.swift in Sources */,
+				FADB24232656BA9E0077521A /* DreamService.swift in Sources */,
 				FA15F3BE264AC7D2001B15D9 /* HomeViewController.swift in Sources */,
 				FADB2415265691E20077521A /* SpinnerViewController.swift in Sources */,
 				FA8A3E732653612E006D4983 /* Header.swift in Sources */,
 				FADB24102656816C0077521A /* A.swift in Sources */,
 				FA156B2F2654FCCD00DA1089 /* NavigationBar.swift in Sources */,
+				FADB24262656BAB10077521A /* DreamResponse.swift in Sources */,
 				FAD7EC06264BCDE2000E752D /* AddDreamViewController.swift in Sources */,
 				FAD7EC0C264BD06A000E752D /* EditDreamViewController.swift in Sources */,
 				FAD7EBC5264B90B5000E752D /* DetailUsageViewController.swift in Sources */,

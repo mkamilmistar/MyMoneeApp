@@ -15,6 +15,8 @@ class DreamViewController: UIViewController {
     var userData: User = AuthUser.data
     var progressBarData: Float = 0.0
     var passIndex: Int = 0
+    var transactionService = TransactionService()
+    var dreamService = DreamService()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,29 +31,33 @@ class DreamViewController: UIViewController {
         
         // View Style
         setViewStyle()
+        self.createSpinnerView()
+        
+        loadData()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
+        loadData()
         dreamTableView.reloadData()
-        if dreams.count > 0 {
-            self.dreamTableView.isHidden = false
-            self.notFound.isHidden = true
-            self.notFound.addButton.isHidden = true
-        }
+        dataNotFound()
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        dreamTableView.reloadData()
+    func loadData() {
+        dreamService.getDreams { (dreamList) in
+            DispatchQueue.main.async {
+                dreamResponse = dreamList
+                self.dataNotFound()
+                self.dreamTableView.reloadData()
+            }
+        }
     }
 }
 
 extension DreamViewController {
     fileprivate func setProgress(_ indexPath: IndexPath) -> Float {
         let currentDouble = userData.balance.setDecimalToDouble
-        let targetDouble = dreams[indexPath.row].targetAmount.setDecimalToDouble
+        let targetDouble = dreamResponse[indexPath.row].targetAmount.setDecimalToDouble
         progressBarData = Float(currentDouble / targetDouble)
         
         // Conditional Progress Bar Data
@@ -80,24 +86,40 @@ extension DreamViewController {
     
     func confirmAction(_ index: Int) {
         // Save To Usage
-        let usageId: String = String.randomCapitalizeWithNumber()
-        let title: String = dreams[index].title
-        let price: Decimal = dreams[index].targetAmount
-        let status: UsageType = .moneyOut
+        let transactionId: String = String.randomCapitalizeWithNumber()
+        let title: String = dreamResponse[index].title
+        let price: Decimal = dreamResponse[index].targetAmount
+        let status: String = "debit"
         
-        // Input To Array
-        usages.append(Usage(usageId: usageId, title: title, price: price, date: Date(),
-                            status: status, userId: userData.userId))
+        self.createSpinnerView()
+
+        transactionService.addTransaction(uploadDataModel: TransactionResponse(
+                                transactionId: transactionId, title: title, amount: price,
+                                type: status, createdAt: Date(), updatedAt: Date())) {
+            DispatchQueue.main.async {
+                // Delete From Dream
+                self.navigationController?.popToRootViewController(animated: true)
+            }
+        }
         
-        // Delete From Dream
-        dreams.remove(at: index)
-        
+        // delete Dreams
+        dreamService.deleteDream(dreamResponse[passIndex].dreamId) {
+            print("sukses")
+        }
+
         // Subtract Balance
         userData.balance -= price
         
-        // Navigate
-        self.navigationController?.popToRootViewController(animated: true)
     }
+    
+    fileprivate func dataNotFound() {
+        if dreamResponse.count > 0 {
+            self.dreamTableView.isHidden = false
+            self.notFound.isHidden = true
+            self.notFound.addButton.isHidden = true
+        }
+    }
+    
 }
 
 extension DreamViewController: UITableViewDelegate, UITableViewDataSource {
@@ -120,14 +142,8 @@ extension DreamViewController: UITableViewDelegate, UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if dreams.count > 0 {
-            return dreams.count
-        } else {
-            self.dreamTableView.isHidden = true
-            self.notFound.isHidden = false
-            self.notFound.addButton.isHidden = false
-            return 0
-        }
+        dataNotFound()
+        return dreamResponse.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -138,9 +154,9 @@ extension DreamViewController: UITableViewDelegate, UITableViewDataSource {
         // change selected color
         dataCell.selectionStyle = .none
         
-        dataCell.title.text = dreams[indexPath.row].title
+        dataCell.title.text = dreamResponse[indexPath.row].title
         
-        dataCell.targetAmount.text = dreams[indexPath.row].targetAmount.setDecimalToStringCurrencyWithIDR
+        dataCell.targetAmount.text = dreamResponse[indexPath.row].targetAmount.setDecimalToStringCurrencyWithIDR
             
         dataCell.balance.text = userData.balance.setDecimalToStringCurrencyWithIDR
         dataCell.progressBar.progress = setProgress(indexPath)
@@ -168,7 +184,7 @@ extension DreamViewController: DreamTableDelegate {
     func confirmButton(_ tag: Int) {
         let alert = UIAlertController(
             title: "Konfirmasi Mimpi", message:
-                "Apakah anda yakin ingin mengkonfirmasi mimpi \"\(dreams[tag].title)\" ?",
+                "Apakah anda yakin ingin mengkonfirmasi mimpi \"\(dreamResponse[tag].title)\" ?",
             preferredStyle: .alert)
         
         let deleteButton = UIAlertAction(title: "Konfirmasi", style: .default) { (_) -> Void in
@@ -188,11 +204,13 @@ extension DreamViewController: DreamTableDelegate {
         // Delete From Dream
         let alert = UIAlertController(
             title: "Menghapus Impian", message:
-                "Apakah anda yakin ingin menghapus impian \"\(dreams[tag].title)\" ?",
+                "Apakah anda yakin ingin menghapus impian \"\(dreamResponse[tag].title)\" ?",
             preferredStyle: .alert)
         
         let deleteButton = UIAlertAction(title: "Hapus", style: .destructive) { (_) -> Void in
-            dreams.remove(at: tag)
+            self.dreamService.deleteDream(dreamResponse[self.passIndex].dreamId) {
+                print("sukses")
+            }
             self.dreamTableView.reloadData()
         }
         
