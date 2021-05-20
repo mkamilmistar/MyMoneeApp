@@ -32,6 +32,9 @@ class HomeViewController: UIViewController {
         
         // Set View Style
         setViewStyle()
+        loadData()
+        
+        self.createSpinnerView()
         
         // Register Table
         let uiNib = UINib(nibName: String(describing: UsageTableViewCell.self), bundle: nil)
@@ -40,30 +43,14 @@ class HomeViewController: UIViewController {
         usagesTableView.dataSource = self
         notFound.delegate = self
         headerView.delegate = self
-        
-//        service.loadTransactionList { (_) in
-//            print("dapet")
-//        }
-    }
     
-    func loadData() {
-        service.getTransaction { (transactionList) in
-            DispatchQueue.main.async {
-                transactions = transactionList
-                print(transactions)
-                self.dataNotFound()
-                // Money In Out
-                self.calcualateMoneyByType()
-                self.usagesTableView.reloadData()
-            }
-        }
     }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
         // Load Data Transaction
         loadData()
-
+        
         dataNotFound()
         usagesTableView.reloadData()
         
@@ -73,7 +60,19 @@ class HomeViewController: UIViewController {
         schedulerGreetingText()
 
         passingDataToProfile()
+    }
+    
+    func loadData() {
+        service.getTransaction { (transactionList) in
+            DispatchQueue.main.async {
+                transactions = transactionList
 
+                self.dataNotFound()
+                // Money In Out
+                self.calcualateMoneyByType()
+                self.usagesTableView.reloadData()
+            }
+        }
     }
 }
 
@@ -161,16 +160,8 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if usages.count > 0 {
-            return transactions.count
-        } else {
-            self.usagesTableView.isHidden = true
-            self.notFound.isHidden = false
-            self.notFound.addButton.isHidden = false
-            self.riwayatPenggunaanLabel.isHidden = true
-            
-            return 0
-        }
+        dataNotFound()
+        return transactions.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

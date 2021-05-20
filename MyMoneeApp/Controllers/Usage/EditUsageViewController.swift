@@ -37,7 +37,6 @@ class EditUsageViewController: UIViewController {
         titleTxtField.delegate = self
         customBtn.delegate = self
         navigationBar.delegate = self
-        navigationBar.navigationLabel.text = "Ubah Penggunaan"
         
         let uiNib = UINib(nibName: String(describing: UsageTypeCell.self), bundle: nil)
         usageTypeCollection.register(uiNib, forCellWithReuseIdentifier: String(describing: UsageTypeCell.self))
@@ -60,6 +59,8 @@ extension EditUsageViewController {
         
         formInput.amountLabel.text = "Jumlah (Rp)"
         priceTxtField = formInput.amountField
+        
+        navigationBar.navigationLabel.text = "Ubah Penggunaan"
         
         // Set Value
         titleTxtField.text = transactions[passIndex].title
@@ -104,9 +105,11 @@ extension EditUsageViewController {
                                     transactionId: transactionId, title: title,
                                     amount: amount, type: status, createdAt: date,
                                     updatedAt: Date())) {
-            print("Update Sukses")
+            DispatchQueue.main.async {
+                self.navigationController?.popToRootViewController(animated: true)
+            }
         }
-
+        self.createSpinnerView()
     }
     
     func deleteUsage() {
@@ -119,13 +122,12 @@ extension EditUsageViewController {
         
         let transactionId = transactions[passIndex].transactionId
         
-        // Delete
-        service.deleteTransaction(transactionId, completion: {
-            print("deleted success")
-        }) 
-        
-        // Navigate
-        self.navigationController?.popToRootViewController(animated: true)
+        service.deleteTransaction(transactionId) {
+            DispatchQueue.main.async {
+                self.navigationController?.popToRootViewController(animated: true)
+            }
+        }
+
     }
 }
 
@@ -148,7 +150,6 @@ extension EditUsageViewController: UITextFieldDelegate {
 extension EditUsageViewController: AnotherButtonDelegate {
     func firstBtnAction() {
         updateUsage()
-        self.navigationController?.popToRootViewController(animated: true)
     }
     
     func secondBtnAction() {
@@ -160,6 +161,7 @@ extension EditUsageViewController: AnotherButtonDelegate {
         
         let deleteButton = UIAlertAction(title: "Hapus", style: .destructive) { (_) -> Void in
             self.deleteUsage()
+            self.createSpinnerView()
         }
         
         let cancelButton = UIAlertAction(title: "Batal", style: .cancel)

@@ -49,6 +49,30 @@ class AddUsageViewController: UIViewController {
         
     }
     
+    func saveTransaction() {
+        let usageId: String = String.randomCapitalizeWithNumber()
+        let title: String = titleTxtField.text ?? ""
+        let price: Decimal = (amountTxtField.text ?? "").setStringToDecimal
+        let status: String
+        
+        if usageTypeData == 0 {
+            status = "credit"
+            userData.balance += price
+        } else {
+            status = "debit"
+            userData.balance -= price
+        }
+        self.createSpinnerView()
+
+        // Input To Array
+        service.addTransaction(uploadDataModel: TransactionResponse(
+                                transactionId: usageId, title: title, amount: price,
+                                type: status, createdAt: Date(), updatedAt: Date())) {
+            DispatchQueue.main.async {
+                self.navigationController?.popToRootViewController(animated: true)
+            }
+        }
+    }
 }
 
 extension AddUsageViewController: UITextFieldDelegate {
@@ -71,27 +95,7 @@ extension AddUsageViewController: UITextFieldDelegate {
 extension AddUsageViewController: CustomButtonDelegate {
     // SAVE
     func customButtonAction() {
-        let usageId: String = String.randomCapitalizeWithNumber()
-        let title: String = titleTxtField.text ?? ""
-        let price: Decimal = (amountTxtField.text ?? "").setStringToDecimal
-        let status: String
-        
-        if usageTypeData == 0 {
-            status = "credit"
-            userData.balance += price
-        } else {
-            status = "debit"
-            userData.balance -= price
-        }
-        
-        // Input To Array
-        service.addTransaction(uploadDataModel: TransactionResponse(
-                                transactionId: usageId, title: title, amount: price,
-                                type: status, createdAt: Date(), updatedAt: Date())) {
-            print("sukses")
-        }
-
-        self.navigationController?.popToRootViewController(animated: true)
+        saveTransaction()
     }
 }
 
@@ -140,7 +144,6 @@ extension AddUsageViewController: UICollectionViewDelegate,
         }
         
         return cell
-
     }
     
     func collectionView(_ collectionView: UICollectionView,

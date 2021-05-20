@@ -9,10 +9,8 @@ import Foundation
 
 // ================================= LIST TO DO
 
-
 // OPTIONAL
 // Dapat melakukan get data by id pada /transaction/:id
-// Terdapat loading indicator saat melakukan Network Request
 // Terdapat toast ketika sukses menambah/mengubah/menghapus data
 
 // ================================= DONE
@@ -21,3 +19,4 @@ import Foundation
 // Dapat melakukan post data /transaction
 // Dapat melakukan put data /transaction
 // Dapat melakukan delete data /transaction
+// Terdapat loading indicator saat melakukan Network Request

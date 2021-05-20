@@ -71,6 +71,7 @@
 		FADB23F326561D410077521A /* TransactionResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADB23F226561D410077521A /* TransactionResponse.swift */; };
 		FADB23FE26561EEC0077521A /* TransactionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADB23FD26561EEC0077521A /* TransactionService.swift */; };
 		FADB24102656816C0077521A /* A.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADB240F2656816C0077521A /* A.swift */; };
+		FADB2415265691E20077521A /* SpinnerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADB2414265691E20077521A /* SpinnerViewController.swift */; };
 		FADFA9CD264F618100965CD8 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADFA9CC264F618100965CD8 /* User.swift */; };
 		FADFA9D1264F657A00965CD8 /* NotFound.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADFA9D0264F657A00965CD8 /* NotFound.swift */; };
 		FADFA9D5264F658900965CD8 /* NotFound.xib in Resources */ = {isa = PBXBuildFile; fileRef = FADFA9D4264F658900965CD8 /* NotFound.xib */; };
@@ -150,6 +151,7 @@
 		FADB23F226561D410077521A /* TransactionResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionResponse.swift; sourceTree = "<group>"; };
 		FADB23FD26561EEC0077521A /* TransactionService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionService.swift; sourceTree = "<group>"; };
 		FADB240F2656816C0077521A /* A.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = A.swift; sourceTree = "<group>"; };
+		FADB2414265691E20077521A /* SpinnerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpinnerViewController.swift; sourceTree = "<group>"; };
 		FADFA9CC264F618100965CD8 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		FADFA9D0264F657A00965CD8 /* NotFound.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotFound.swift; sourceTree = "<group>"; };
 		FADFA9D4264F658900965CD8 /* NotFound.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NotFound.xib; sourceTree = "<group>"; };
@@ -407,6 +409,7 @@
 				FA8A3E712653610D006D4983 /* Header */,
 				FA156B2A2654FCAB00DA1089 /* NavigationBar */,
 				FADFA9CF264F654B00965CD8 /* NotFound */,
+				FADB2413265691A10077521A /* ProgressIndicator */,
 				FA15F422264ADBE3001B15D9 /* UsageTableCell */,
 				FA9AF016264D0E2D00EC9109 /* UsageTypeCell */,
 			);
@@ -416,8 +419,8 @@
 		FAD7EC02264BCBFE000E752D /* MainController */ = {
 			isa = PBXGroup;
 			children = (
-				FA15F3BC264AC7D2001B15D9 /* HomeViewController.swift */,
 				FA15F3C2264AC86E001B15D9 /* DreamViewController.swift */,
+				FA15F3BC264AC7D2001B15D9 /* HomeViewController.swift */,
 				FA15F3A0264AC5BE001B15D9 /* MainTabController.swift */,
 				FA15F3C9264AC888001B15D9 /* ProfileViewController.swift */,
 			);
@@ -448,6 +451,14 @@
 				FADB23FD26561EEC0077521A /* TransactionService.swift */,
 			);
 			path = Services;
+			sourceTree = "<group>";
+		};
+		FADB2413265691A10077521A /* ProgressIndicator */ = {
+			isa = PBXGroup;
+			children = (
+				FADB2414265691E20077521A /* SpinnerViewController.swift */,
+			);
+			path = ProgressIndicator;
 			sourceTree = "<group>";
 		};
 		FADFA9CF264F654B00965CD8 /* NotFound */ = {
@@ -651,6 +662,7 @@
 				FA9AF01A264D0E8200EC9109 /* UsageTypeCell.swift in Sources */,
 				FAD7EBF2264BBEF6000E752D /* DetailDreamViewController.swift in Sources */,
 				FA15F3BE264AC7D2001B15D9 /* HomeViewController.swift in Sources */,
+				FADB2415265691E20077521A /* SpinnerViewController.swift in Sources */,
 				FA8A3E732653612E006D4983 /* Header.swift in Sources */,
 				FADB24102656816C0077521A /* A.swift in Sources */,
 				FA156B2F2654FCCD00DA1089 /* NavigationBar.swift in Sources */,

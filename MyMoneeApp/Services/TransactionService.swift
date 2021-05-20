@@ -37,6 +37,7 @@ class TransactionService {
                 print(error.localizedDescription)
             }
         }
+        
         task.resume()
     }
     
