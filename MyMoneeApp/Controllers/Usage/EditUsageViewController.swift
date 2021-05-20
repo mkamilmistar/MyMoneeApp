@@ -22,6 +22,7 @@ class EditUsageViewController: UIViewController {
     var passIndex: Int!
     var userData: User = AuthUser.data
     var passBalance: Decimal = 0
+    var service = TransactionService()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -61,11 +62,11 @@ extension EditUsageViewController {
         priceTxtField = formInput.amountField
         
         // Set Value
-        titleTxtField.text = usages[passIndex].title
-        priceTxtField.text = usages[passIndex].amount.setDecimalToStringCurrency
+        titleTxtField.text = transactions[passIndex].title
+        priceTxtField.text = transactions[passIndex].amount.setDecimalToStringCurrency
         
         // Initialize Selected Value
-        if usages[passIndex].status == .moneyIn {
+        if transactions[passIndex].type == "credit" {
             usageTypeData = 0
         } else {
             usageTypeData = 1
@@ -73,46 +74,55 @@ extension EditUsageViewController {
     }
     
     func updateUsage() {
-        let usageId = usages[passIndex].usageId
+        let transactionId = transactions[passIndex].transactionId
         let title = titleTxtField.text ?? ""
         let amount = (priceTxtField.text?.replacingOccurrences(of: ".", with: "") ?? "").setStringToDecimal
-        let date = usages[passIndex].date
-        var status: UsageType
+        let date = transactions[passIndex].createdAt
+        var status: String
         
         if usageTypeData == 0 {
-            status = .moneyIn
-            passBalance = userData.balance - usages[passIndex].amount
+            status = "credit"
+            passBalance = userData.balance - transactions[passIndex].amount
           
-            if status != usages[passIndex].status {
+            if status != transactions[passIndex].type {
                 userData.balance += amount * 2
             } else {
                 userData.balance = passBalance + amount
             }
         } else {
-            status = .moneyOut
-            passBalance = userData.balance + usages[passIndex].amount
+            status = "debit"
+            passBalance = userData.balance + transactions[passIndex].amount
             
-            if status != usages[passIndex].status {
+            if status != transactions[passIndex].type {
                 userData.balance -= amount * 2
             } else {
                 userData.balance = passBalance - amount
             }
         }
+      
+        service.updateTransaction(uploadDataModel: TransactionResponse(
+                                    transactionId: transactionId, title: title,
+                                    amount: amount, type: status, createdAt: date,
+                                    updatedAt: Date())) {
+            print("Update Sukses")
+        }
 
-        usages[passIndex] = Usage(usageId: usageId, title: title, price: amount,
-                                  date: date, status: status, userId: userData.userId)
     }
     
     func deleteUsage() {
         // Balance Conditional
-        if usages[passIndex].status == .moneyIn {
-            userData.balance -= usages[passIndex].amount
+        if transactions[passIndex].type == "debit" {
+            userData.balance -= transactions[passIndex].amount
         } else {
-            userData.balance += usages[passIndex].amount
+            userData.balance += transactions[passIndex].amount
         }
         
+        let transactionId = transactions[passIndex].transactionId
+        
         // Delete
-        usages.remove(at: passIndex)
+        service.deleteTransaction(transactionId, completion: {
+            print("deleted success")
+        }) 
         
         // Navigate
         self.navigationController?.popToRootViewController(animated: true)
@@ -144,7 +154,7 @@ extension EditUsageViewController: AnotherButtonDelegate {
     func secondBtnAction() {
         let alert = UIAlertController(
             title: "Menghapus Penggunaan",
-            message: "Apakah anda yakin ingin menghapus penggunaan \"\(usages[passIndex].title)\" ?",
+            message: "Apakah anda yakin ingin menghapus penggunaan \"\(transactions[passIndex].title)\" ?",
             preferredStyle: .alert
         )
         

@@ -48,6 +48,11 @@ extension String {
         }
     }
 }
+extension Decimal {
+    var setDecimalToInt: Int {
+        return NSDecimalNumber(decimal: self).intValue
+    }
+}
 
 extension Decimal {
     var setDecimalToDouble: Double {

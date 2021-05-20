@@ -29,11 +29,11 @@ class DetailUsageViewController: UIViewController {
         initViewStyle()
         
         // setViewVariable
-        idUsage.text = usages[passIndex].usageId
-        titleUsage.text = usages[passIndex].title
-        let stringPrice = usages[passIndex].amount.setDecimalToStringCurrency
+        idUsage.text = transactions[passIndex].transactionId
+        titleUsage.text = transactions[passIndex].title
+        let stringPrice = transactions[passIndex].amount.setDecimalToStringCurrency
         
-        if usages[passIndex].status == .moneyIn {
+        if transactions[passIndex].type == "credit" {
             iconStatus.image = UIImage(named: "Arrow_Up_BG")
             status.text = "Pemasukan"
             price.textColor = UIColor.mainGreen()
@@ -45,7 +45,7 @@ class DetailUsageViewController: UIViewController {
             price.text = "-Rp \(stringPrice)"
         }
         
-        dateUsage.text = usages[passIndex].date.setDateToString
+        dateUsage.text = transactions[passIndex].createdAt.setDateToString
     }
     
     @IBAction func goEditUsage(_ sender: UIButton) {

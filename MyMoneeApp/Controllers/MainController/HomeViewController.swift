@@ -21,6 +21,8 @@ class HomeViewController: UIViewController {
     @IBOutlet var historyBackground: UIView!
     @IBOutlet var headerView: Header!
     
+    var service = TransactionService()
+
     var userData: User = AuthUser.data
     var totalMoneyIn: Decimal = 0.0
     var totalMoneyOut: Decimal = 0.0
@@ -38,39 +40,48 @@ class HomeViewController: UIViewController {
         usagesTableView.dataSource = self
         notFound.delegate = self
         headerView.delegate = self
+        
+//        service.loadTransactionList { (_) in
+//            print("dapet")
+//        }
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
-        userName.text = userData.name
-        let balance =  userData.balance.setDecimalToStringCurrency
-        balanceLabel.text = "Rp \(balance)"
-       
-        // Set Data Greeting
-        schedulerGreetingText()
-        
-        // Money In Out
-        calcualateMoneyByType()
-        passingDataToProfile()
-        
-        // Data Transaction Conditional
+    func loadData() {
+        service.getTransaction { (transactionList) in
+            DispatchQueue.main.async {
+                transactions = transactionList
+                print(transactions)
+                self.dataNotFound()
+                // Money In Out
+                self.calcualateMoneyByType()
+                self.usagesTableView.reloadData()
+            }
+        }
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        // Load Data Transaction
+        loadData()
+
+        dataNotFound()
         usagesTableView.reloadData()
         
-        if usages.count > 0 {
-            self.usagesTableView.isHidden = false
-            self.notFound.isHidden = true
-            self.notFound.addButton.isHidden = true
-            self.riwayatPenggunaanLabel.isHidden = false
-        }
+        userName.text = userData.name
+
+        // Set Data Greeting
+        schedulerGreetingText()
+
+        passingDataToProfile()
+
     }
 }
 
 extension HomeViewController {
     fileprivate func calcualateMoneyByType() {
         // Get All Data In and Out
-        totalMoneyIn = usages.filter({$0.status == .moneyIn}).map({$0.amount}).reduce(0, +)
-        totalMoneyOut = usages.filter({$0.status == .moneyOut}).map({$0.amount}).reduce(0, +)
+        totalMoneyIn = transactions.filter({$0.type == "credit"}).map({$0.amount}).reduce(0, +)
+        totalMoneyOut = transactions.filter({$0.type == "debit"}).map({$0.amount}).reduce(0, +)
 
         let dataUsageIn = totalMoneyIn.setDecimalToStringCurrency
         let dataUsageOut = totalMoneyOut.setDecimalToStringCurrency
@@ -78,6 +89,9 @@ extension HomeViewController {
         // Set Data Show
         totalUsageIn.text = "Rp. \(dataUsageIn)"
         totalUsageOut.text = "Rp. \(dataUsageOut)"
+        
+        // Balance User
+        balanceLabel.text = "Rp \((totalMoneyIn - totalMoneyOut).setDecimalToStringCurrency)"
     }
     
     fileprivate func passingDataToProfile() {
@@ -148,7 +162,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if usages.count > 0 {
-            return usages.count
+            return transactions.count
         } else {
             self.usagesTableView.isHidden = true
             self.notFound.isHidden = false
@@ -170,11 +184,11 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         trans.selectedBackgroundView = backgroundView
         
         // Set Data Cell
-        trans.title.text = usages[indexPath.row].title
-        trans.date.text = usages[indexPath.row].date.setDateToString
-        let price = usages[indexPath.row].amount.setDecimalToStringCurrency
+        trans.title.text = transactions[indexPath.row].title
+        trans.date.text = transactions[indexPath.row].createdAt.setDateToString
+        let price = transactions[indexPath.row].amount.setDecimalToStringCurrency
        
-        if usages[indexPath.row].status == .moneyOut {
+        if transactions[indexPath.row].type == "debit" {
             trans.imageStatus.image = UIImage(named: "Arrow_Down_BG")
             trans.price.textColor = UIColor.mainRed()
             trans.price.text = "-Rp \(price)"
@@ -195,5 +209,19 @@ extension HomeViewController: HeaderDelegate, NotFoundDelegate {
     
     func notFoundButtonAction() {
         addData()
+    }
+    
+    func dataNotFound() {
+        if transactions.count > 0 {
+            self.usagesTableView.isHidden = false
+            self.notFound.isHidden = true
+            self.notFound.addButton.isHidden = true
+            self.riwayatPenggunaanLabel.isHidden = false
+        } else {
+            self.usagesTableView.isHidden = true
+            self.notFound.isHidden = false
+            self.notFound.addButton.isHidden = false
+            self.riwayatPenggunaanLabel.isHidden = true
+        }
     }
 }

@@ -19,6 +19,7 @@ class AddUsageViewController: UIViewController {
     var saveButton: UIButton!
     var titleTxtField: UITextField!
     var amountTxtField: UITextField!
+    var service = TransactionService()
         
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -47,7 +48,7 @@ class AddUsageViewController: UIViewController {
         navigationBar.navigationLabel.text = "Tambah Penggunaan"
         
     }
-  
+    
 }
 
 extension AddUsageViewController: UITextFieldDelegate {
@@ -73,20 +74,23 @@ extension AddUsageViewController: CustomButtonDelegate {
         let usageId: String = String.randomCapitalizeWithNumber()
         let title: String = titleTxtField.text ?? ""
         let price: Decimal = (amountTxtField.text ?? "").setStringToDecimal
-        let status: UsageType
+        let status: String
         
         if usageTypeData == 0 {
-            status = .moneyIn
+            status = "credit"
             userData.balance += price
         } else {
-            status = .moneyOut
+            status = "debit"
             userData.balance -= price
         }
         
         // Input To Array
-        usages.append(Usage(usageId: usageId, title: title, price: price, date: Date(),
-                            status: status, userId: userData.userId))
-        
+        service.addTransaction(uploadDataModel: TransactionResponse(
+                                transactionId: usageId, title: title, amount: price,
+                                type: status, createdAt: Date(), updatedAt: Date())) {
+            print("sukses")
+        }
+
         self.navigationController?.popToRootViewController(animated: true)
     }
 }
@@ -106,7 +110,6 @@ extension AddUsageViewController: UICollectionViewDelegate,
         if (titleTxtField.text != "") && (amountTxtField.text != "") {
             enabledMainButton(saveButton)
         }
-        
     }
     
     // when deselect

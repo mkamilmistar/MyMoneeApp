@@ -1,6 +1,7 @@
 disabled_rules:
   - comma
   - force_cast
+  - force_try
   - large_tuple
   - nesting
   - function_parameter_count
