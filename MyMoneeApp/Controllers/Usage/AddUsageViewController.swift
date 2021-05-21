@@ -62,12 +62,12 @@ class AddUsageViewController: UIViewController {
             status = "debit"
             userData.balance -= price
         }
-        self.createSpinnerView()
+        self.loadingSpinner()
 
         // Input To API
         serviceTransaction.addTransaction(uploadDataModel: TransactionResponse(
                                 transactionId: transactionId, title: title, amount: price,
-                                type: status, createdAt: Date(), updatedAt: Date())) {
+                                            type: status, createdAt: Date(), updatedAt: Date())) {
             DispatchQueue.main.async {
                 Helper.showToast("Penggunaan Berhasil Disimpan")
                 self.navigationController?.popToRootViewController(animated: true)

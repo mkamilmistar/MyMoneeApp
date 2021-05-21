@@ -21,6 +21,8 @@ class DetailUsageViewController: UIViewController {
     var passIndex: Int = 0
     var dataUser: User = AuthUser.data
     var backButton: UIButton!
+    var transactionService = TransactionService()
+    var passTransactionId: String = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,24 +30,14 @@ class DetailUsageViewController: UIViewController {
         // SetStyle
         initViewStyle()
         
-        // setViewVariable
-        idUsage.text = transactions[passIndex].transactionId
-        titleUsage.text = transactions[passIndex].title
-        let stringPrice = transactions[passIndex].amount.setDecimalToStringCurrency
+        initDataLoad()
         
-        if transactions[passIndex].type == "credit" {
-            iconStatus.image = UIImage(named: "Arrow_Up_BG")
-            status.text = "Pemasukan"
-            price.textColor = UIColor.mainGreen()
-            price.text = "+Rp \(stringPrice)"
-        } else {
-            iconStatus.image = UIImage(named: "Arrow_Down_BG")
-            status.text = "Pengeluaran"
-            price.textColor = UIColor.mainRed()
-            price.text = "-Rp \(stringPrice)"
-        }
-        
-        dateUsage.text = transactions[passIndex].createdAt.setDateToString
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        loadDataDetail()
+        initDataLoad()
     }
     
     @IBAction func goEditUsage(_ sender: UIButton) {
@@ -58,10 +50,46 @@ class DetailUsageViewController: UIViewController {
         
         // Pass Data
         editUsageVC.passIndex = self.passIndex
+        editUsageVC.passTransactionId = transaction.transactionId ?? ""
+        editUsageVC.passTitle = transaction.title ?? ""
+        editUsageVC.passAmount = transaction.amount ?? 0.0
+        editUsageVC.passCreatedAt = transaction.createdAt ?? nil
+        editUsageVC.passStatus = transaction.type ?? ""
         
         self.navigationController?.pushViewController(editUsageVC, animated: true)
     }
-
+    
+    func loadDataDetail() {
+        transactionService.getTransactionByID(transactionId: passTransactionId) { (dataTransaction) in
+            DispatchQueue.main.async {
+                transaction = dataTransaction
+                self.loadingSpinner()
+                self.initDataLoad()
+            }
+        }
+    }
+    
+    fileprivate func initDataLoad() {
+        // setViewVariable
+        idUsage.text = transaction.transactionId
+        titleUsage.text = transaction.title
+        let stringPrice = transaction.amount?.setDecimalToStringCurrency
+        
+        if transaction.type == "credit" {
+            iconStatus.image = UIImage(named: "Arrow_Up_BG")
+            status.text = "Pemasukan"
+            price.textColor = UIColor.mainGreen()
+            price.text = "+Rp \(stringPrice ?? "")"
+        } else {
+            iconStatus.image = UIImage(named: "Arrow_Down_BG")
+            status.text = "Pengeluaran"
+            price.textColor = UIColor.mainRed()
+            price.text = "-Rp \(stringPrice ?? "")"
+        }
+        
+        dateUsage.text = transaction.createdAt?.setDateToString
+    }
+    
 }
 
 extension DetailUsageViewController {

@@ -94,7 +94,7 @@ class DetailDreamViewController: UIViewController {
         }
         
         // Subtract Balance
-        userData.balance -= price
+//        userData.balance -= price
     }
 }
 

@@ -20,9 +20,14 @@ class EditUsageViewController: UIViewController {
     var priceTxtField: UITextField!
     private var usageTypeData: Int?
     var passIndex: Int!
+    var passTransactionId: String!
     var userData: User = AuthUser.data
     var passBalance: Decimal = 0
     var serviceTransaction = TransactionService()
+    var passTitle: String = ""
+    var passAmount: Decimal = 0.0
+    var passCreatedAt: Date!
+    var passStatus: String = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -63,11 +68,11 @@ extension EditUsageViewController {
         navigationBar.navigationLabel.text = "Ubah Penggunaan"
         
         // Set Value
-        titleTxtField.text = transactions[passIndex].title
-        priceTxtField.text = transactions[passIndex].amount.setDecimalToStringCurrency
+        titleTxtField.text = passTitle
+        priceTxtField.text = passAmount.setDecimalToStringCurrency
         
         // Initialize Selected Value
-        if transactions[passIndex].type == "credit" {
+        if passStatus == "credit" {
             usageTypeData = 0
         } else {
             usageTypeData = 1
@@ -75,26 +80,26 @@ extension EditUsageViewController {
     }
     
     func updateUsage() {
-        let transactionId = transactions[passIndex].transactionId
+        let transactionId = self.passTransactionId
         let title = titleTxtField.text ?? ""
         let amount = (priceTxtField.text?.replacingOccurrences(of: ".", with: "") ?? "").setStringToDecimal
-        let date = transactions[passIndex].createdAt
+        let date = passCreatedAt
         var status: String
         
         if usageTypeData == 0 {
             status = "credit"
-            passBalance = userData.balance - transactions[passIndex].amount
+            passBalance = userData.balance - passAmount
           
-            if status != transactions[passIndex].type {
+            if status != passStatus {
                 userData.balance += amount * 2
             } else {
                 userData.balance = passBalance + amount
             }
         } else {
             status = "debit"
-            passBalance = userData.balance + transactions[passIndex].amount
+            passBalance = userData.balance + passAmount
             
-            if status != transactions[passIndex].type {
+            if status != passStatus {
                 userData.balance -= amount * 2
             } else {
                 userData.balance = passBalance - amount
@@ -110,18 +115,18 @@ extension EditUsageViewController {
                 self.navigationController?.popToRootViewController(animated: true)
             }
         }
-        self.createSpinnerView()
+        self.loadingSpinner()
     }
     
     func deleteUsage() {
         // Balance Conditional
-        if transactions[passIndex].type == "debit" {
-            userData.balance -= transactions[passIndex].amount
+        if passStatus == "debit" {
+            userData.balance -= passAmount
         } else {
-            userData.balance += transactions[passIndex].amount
+            userData.balance += passAmount
         }
         
-        let transactionId = transactions[passIndex].transactionId
+        guard let transactionId = passTransactionId else { return }
         
         serviceTransaction.deleteTransaction(transactionId) {
             DispatchQueue.main.async {
@@ -157,13 +162,13 @@ extension EditUsageViewController: AnotherButtonDelegate {
     func secondBtnAction() {
         let alert = UIAlertController(
             title: "Menghapus Penggunaan",
-            message: "Apakah anda yakin ingin menghapus penggunaan \"\(transactions[passIndex].title)\" ?",
+            message: "Apakah anda yakin ingin menghapus penggunaan \"\(passTitle)\" ?",
             preferredStyle: .alert
         )
         
         let deleteButton = UIAlertAction(title: "Hapus", style: .destructive) { (_) -> Void in
             self.deleteUsage()
-            self.createSpinnerView()
+            self.loadingSpinner()
         }
         
         let cancelButton = UIAlertAction(title: "Batal", style: .cancel)
@@ -177,7 +182,8 @@ extension EditUsageViewController: AnotherButtonDelegate {
 }
 
 extension EditUsageViewController: UICollectionViewDelegate,
-                                   UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+                                   UICollectionViewDataSource,
+                                   UICollectionViewDelegateFlowLayout {
     // when select
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let cell = collectionView.cellForItem(at: indexPath)

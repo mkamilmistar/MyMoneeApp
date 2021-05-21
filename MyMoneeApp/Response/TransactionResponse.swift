@@ -8,12 +8,12 @@
 import Foundation
 
 struct TransactionResponse: Codable {
-    var transactionId: String
-    var title: String
-    var amount: Decimal
-    var type: String
-    var createdAt: Date
-    var updatedAt: Date
+    var transactionId: String?
+    var title: String?
+    var amount: Decimal?
+    var type: String?
+    var createdAt: Date?
+    var updatedAt: Date?
     
     enum CodingKeys: String, CodingKey {
         case transactionId = "id"
@@ -26,3 +26,4 @@ struct TransactionResponse: Codable {
 }
 
 var transactions: [TransactionResponse] = []
+var transaction = TransactionResponse()

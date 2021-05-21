@@ -31,10 +31,10 @@ class HomeViewController: UIViewController {
         super.viewDidLoad()
         
         // Set View Style
-        setViewStyle()
-        loadData()
-        
-        self.createSpinnerView()
+        schedulerGreetingText()
+        initViewData()
+        self.loadingSpinner()
+        loadTransactionData()
         
         // Register Table
         let uiNib = UINib(nibName: String(describing: UsageTableViewCell.self), bundle: nil)
@@ -49,29 +49,30 @@ class HomeViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         // Load Data Transaction
-        loadData()
+        self.loadingSpinner()
+        loadTransactionData()
+        self.calcualateMoneyByType()
         
         dataNotFound()
         usagesTableView.reloadData()
         
         userName.text = userData.name
-
-        // Set Data Greeting
-        schedulerGreetingText()
-
-        passingDataToProfile()
     }
     
-    func loadData() {
+    func loadTransactionData() {
         transactionService.getTransaction { (transactionList) in
             DispatchQueue.main.async {
-                self.userData.balance += (self.totalMoneyIn - self.totalMoneyOut)
+                self.userData.balance = (self.totalMoneyIn - self.totalMoneyOut)
                 transactions = transactionList
-
+                self.initViewData()
+                self.passingDataToProfile()
                 self.dataNotFound()
                 // Money In Out
                 self.calcualateMoneyByType()
                 self.usagesTableView.reloadData()
+                
+                // Set Data Greeting
+                self.schedulerGreetingText()
             }
         }
     }
@@ -80,8 +81,8 @@ class HomeViewController: UIViewController {
 extension HomeViewController {
     fileprivate func calcualateMoneyByType() {
         // Get All Data In and Out
-        totalMoneyIn = transactions.filter({$0.type == "credit"}).map({$0.amount}).reduce(0, +)
-        totalMoneyOut = transactions.filter({$0.type == "debit"}).map({$0.amount}).reduce(0, +)
+        totalMoneyIn = transactions.filter({$0.type == "credit"}).map({$0.amount ?? 0.0}).reduce(0, +)
+        totalMoneyOut = transactions.filter({$0.type == "debit"}).map({$0.amount ?? 0.0}).reduce(0, +)
 
         let dataUsageIn = totalMoneyIn.setDecimalToStringCurrency
         let dataUsageOut = totalMoneyOut.setDecimalToStringCurrency
@@ -102,7 +103,9 @@ extension HomeViewController {
         profileVC.passAllMoneyOut = totalMoneyOut
     }
     
-    fileprivate func setViewStyle() {
+    fileprivate func initViewData() {
+        userName.text = userData.name
+        
         usagesTableView.separatorStyle = .none
         usagesTableView.backgroundColor = .white
         historyBackground.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
@@ -157,6 +160,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         // PassingData
         detailUsageVC.passIndex = indexPath.row
         detailUsageVC.hidesBottomBarWhenPushed = true
+        detailUsageVC.passTransactionId = transactions[indexPath.row].transactionId ?? ""
         self.navigationController?.pushViewController(detailUsageVC, animated: true)
     }
     
@@ -177,18 +181,18 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         
         // Set Data Cell
         trans.title.text = transactions[indexPath.row].title
-        trans.date.text = transactions[indexPath.row].createdAt.setDateToString
-        let price = transactions[indexPath.row].amount.setDecimalToStringCurrency
+        trans.date.text = transactions[indexPath.row].createdAt?.setDateToString
+        let price = transactions[indexPath.row].amount?.setDecimalToStringCurrency
        
         if transactions[indexPath.row].type == "debit" {
             trans.imageStatus.image = UIImage(named: "Arrow_Down_BG")
             trans.price.textColor = UIColor.mainRed()
-            trans.price.text = "-Rp \(price)"
+            trans.price.text = "-Rp \(price ?? "")"
         } else {
             trans.price.textColor = UIColor.systemGreen
             trans.imageStatus.image = UIImage(named: "Arrow_Up_BG")
             trans.price.textColor = UIColor.mainGreen()
-            trans.price.text = "+Rp \(price)"
+            trans.price.text = "+Rp \(price ?? "")"
         }
         return trans
     }

@@ -48,13 +48,13 @@ class EditDreamViewController: UIViewController {
                 self.navigationController?.popToRootViewController(animated: true)
             }
         }
-        
     }
     
     func updateDreamData() {
         let title = titleField.text ?? ""
         let targetAmount = (targetAmountField.text?.replacingOccurrences(of: ".", with: "") ?? "").setStringToDecimal
         
+        self.loadingSpinner()
         dreamService.updateDream(
             uploadDataModel: DreamResponse(
             dreamId: dreamResponse[passIndex].dreamId,
@@ -65,7 +65,6 @@ class EditDreamViewController: UIViewController {
                 self.navigationController?.popToRootViewController(animated: true)
             }
         }
-        self.createSpinnerView()
     }
 }
 

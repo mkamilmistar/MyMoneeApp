@@ -71,8 +71,7 @@
 		FAD7EC0D264BD06A000E752D /* EditDreamViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FAD7EC0B264BD06A000E752D /* EditDreamViewController.xib */; };
 		FADB23F326561D410077521A /* TransactionResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADB23F226561D410077521A /* TransactionResponse.swift */; };
 		FADB23FE26561EEC0077521A /* TransactionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADB23FD26561EEC0077521A /* TransactionService.swift */; };
-		FADB24102656816C0077521A /* A.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADB240F2656816C0077521A /* A.swift */; };
-		FADB2415265691E20077521A /* SpinnerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADB2414265691E20077521A /* SpinnerViewController.swift */; };
+		FADB2415265691E20077521A /* IndicatorProgress.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADB2414265691E20077521A /* IndicatorProgress.swift */; };
 		FADB24232656BA9E0077521A /* DreamService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADB24222656BA9E0077521A /* DreamService.swift */; };
 		FADB24262656BAB10077521A /* DreamResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADB24252656BAB10077521A /* DreamResponse.swift */; };
 		FADFA9CD264F618100965CD8 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADFA9CC264F618100965CD8 /* User.swift */; };
@@ -154,8 +153,7 @@
 		FAD7EC0B264BD06A000E752D /* EditDreamViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EditDreamViewController.xib; sourceTree = "<group>"; };
 		FADB23F226561D410077521A /* TransactionResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionResponse.swift; sourceTree = "<group>"; };
 		FADB23FD26561EEC0077521A /* TransactionService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionService.swift; sourceTree = "<group>"; };
-		FADB240F2656816C0077521A /* A.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = A.swift; sourceTree = "<group>"; };
-		FADB2414265691E20077521A /* SpinnerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpinnerViewController.swift; sourceTree = "<group>"; };
+		FADB2414265691E20077521A /* IndicatorProgress.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndicatorProgress.swift; sourceTree = "<group>"; };
 		FADB24222656BA9E0077521A /* DreamService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DreamService.swift; sourceTree = "<group>"; };
 		FADB24252656BAB10077521A /* DreamResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DreamResponse.swift; sourceTree = "<group>"; };
 		FADFA9CC264F618100965CD8 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
@@ -210,7 +208,6 @@
 		FA15F382264AA7F9001B15D9 /* MyMoneeApp */ = {
 			isa = PBXGroup;
 			children = (
-				FADB240F2656816C0077521A /* A.swift */,
 				FA15F3A8264AC6FA001B15D9 /* Application */,
 				FA2F8782264E987500B8BF30 /* Configuration */,
 				FA15F3A7264AC6E9001B15D9 /* Controllers */,
@@ -465,7 +462,7 @@
 		FADB2413265691A10077521A /* ProgressIndicator */ = {
 			isa = PBXGroup;
 			children = (
-				FADB2414265691E20077521A /* SpinnerViewController.swift */,
+				FADB2414265691E20077521A /* IndicatorProgress.swift */,
 			);
 			path = ProgressIndicator;
 			sourceTree = "<group>";
@@ -673,9 +670,8 @@
 				FA9E8EA726575613004F047B /* Helper.swift in Sources */,
 				FADB24232656BA9E0077521A /* DreamService.swift in Sources */,
 				FA15F3BE264AC7D2001B15D9 /* HomeViewController.swift in Sources */,
-				FADB2415265691E20077521A /* SpinnerViewController.swift in Sources */,
+				FADB2415265691E20077521A /* IndicatorProgress.swift in Sources */,
 				FA8A3E732653612E006D4983 /* Header.swift in Sources */,
-				FADB24102656816C0077521A /* A.swift in Sources */,
 				FA156B2F2654FCCD00DA1089 /* NavigationBar.swift in Sources */,
 				FADB24262656BAB10077521A /* DreamResponse.swift in Sources */,
 				FAD7EC06264BCDE2000E752D /* AddDreamViewController.swift in Sources */,

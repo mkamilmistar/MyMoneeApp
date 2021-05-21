@@ -17,7 +17,7 @@ struct DreamResponse: Codable {
         case dreamId = "id"
         case title = "title"
         case targetAmount = "target_amount"
-        case userId = "user_id"
+        case userId = "userId"
     }
 }
 

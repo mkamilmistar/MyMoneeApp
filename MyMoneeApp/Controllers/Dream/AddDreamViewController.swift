@@ -45,6 +45,7 @@ extension AddDreamViewController: CustomButtonDelegate {
         let title: String = titleField.text ?? ""
         let targetAmount: Decimal = (targetAmountField.text ?? "").setStringToDecimal
         
+        self.loadingSpinner()
         dreamService.addDream(uploadDataModel: DreamResponse(
                                 dreamId: dreamId, title: title, targetAmount:
                                     targetAmount, userId: String(userData.userId))) {

@@ -7,7 +7,7 @@
 
 import UIKit
 
-class SpinnerViewController: UIViewController {
+class IndicatorProgress: UIViewController {
     var spinner = UIActivityIndicatorView(style: UIActivityIndicatorView.Style.large)
     
     override func loadView() {

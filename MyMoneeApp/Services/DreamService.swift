@@ -17,7 +17,6 @@ class DreamService {
             return
         }
         
-        // Membuat Object Component URL
         var request = URLRequest(url: url)
         request.httpMethod = "GET"
         request.allHTTPHeaderFields = [
@@ -111,6 +110,37 @@ class DreamService {
         let task = URLSession.shared.dataTask(with: request) {(_, _, _) in
            completion()
         }
+        task.resume()
+    }
+    
+    // BY ID
+    func getDreamByID(dreamId: String, completion: @escaping (_ dream: [DreamResponse]) -> Void) {
+        
+        let decoder = JSONDecoder()
+        guard let url = URL(string: url)?.appendingPathComponent(dreamId) else {
+            print("Error: cannot create URL")
+            return
+        }
+        
+        var request = URLRequest(url: url)
+        request.httpMethod = "GET"
+        request.allHTTPHeaderFields = [
+            "Content-Type": "application/json",
+            "Accept": "application/json"
+        ]
+        let task = URLSession.shared.dataTask(with: request) { (data, _, error) in
+            guard let data = data else {
+                return
+            }
+            do {
+                let data = try decoder.decode([DreamResponse].self, from: data)
+                completion(data)
+            } catch {
+                let error = error
+                print(error.localizedDescription)
+            }
+        }
+        
         task.resume()
     }
 }

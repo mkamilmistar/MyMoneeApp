@@ -31,19 +31,19 @@ class DreamViewController: UIViewController {
         
         // View Style
         setViewStyle()
-        self.createSpinnerView()
-        
-        loadData()
+        dataNotFound()
+        self.loadingSpinner()
+        loadDreamData()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        loadData()
-        dreamTableView.reloadData()
+        self.loadingSpinner()
+        loadDreamData()
         dataNotFound()
     }
     
-    func loadData() {
+    func loadDreamData() {
         dreamService.getDreams { (dreamList) in
             DispatchQueue.main.async {
                 dreamResponse = dreamList
@@ -86,30 +86,32 @@ extension DreamViewController {
     
     func confirmAction(_ index: Int) {
         // Save To Usage
-        let transactionId: String = String.randomCapitalizeWithNumber()
+//        let transactionId: String = String.randomCapitalizeWithNumber()
         let title: String = dreamResponse[index].title
         let price: Decimal = dreamResponse[index].targetAmount
         let status: String = "debit"
-        
-        self.createSpinnerView()
 
         transactionService.addTransaction(uploadDataModel: TransactionResponse(
-                                transactionId: transactionId, title: title, amount: price,
+                                title: title, amount: price,
                                 type: status, createdAt: Date(), updatedAt: Date())) {
             DispatchQueue.main.async {
                 Helper.showToast("Impian Berhasil Dikonfirmasi")
+                self.loadingSpinner()
+                self.loadDreamData()
                 self.navigationController?.popToRootViewController(animated: true)
             }
         }
         
         // delete Dreams
-        dreamService.deleteDream(dreamResponse[passIndex].dreamId) {
-            print("Deleted")
+        dreamService.deleteDream(dreamResponse[index].dreamId) {
+            print("Confirmed")
         }
 
         // Subtract Balance
-        userData.balance -= price
+//        userData.balance -= price
         
+        dreamTableView.reloadData()
+        dataNotFound()
     }
     
     fileprivate func dataNotFound() {
@@ -117,6 +119,10 @@ extension DreamViewController {
             self.dreamTableView.isHidden = false
             self.notFound.isHidden = true
             self.notFound.addButton.isHidden = true
+        } else {
+            self.dreamTableView.isHidden = true
+            self.notFound.isHidden = false
+            self.notFound.addButton.isHidden = false
         }
     }
     
@@ -189,7 +195,7 @@ extension DreamViewController: DreamTableDelegate {
         
         let deleteButton = UIAlertAction(title: "Konfirmasi", style: .default) { (_) -> Void in
             self.confirmAction(tag)
-            self.dreamTableView.reloadData()
+            self.loadDreamData()
         }
         
         let cancelButton = UIAlertAction(title: "Batal", style: .cancel)
@@ -208,9 +214,12 @@ extension DreamViewController: DreamTableDelegate {
             preferredStyle: .alert)
         
         let deleteButton = UIAlertAction(title: "Hapus", style: .destructive) { (_) -> Void in
-            self.dreamService.deleteDream(dreamResponse[self.passIndex].dreamId) {
-                print("sukses")
-                Helper.showToast("Impian Berhasil Dihapus")
+            self.dreamService.deleteDream(dreamResponse[tag].dreamId) {
+                DispatchQueue.main.async {
+                    self.loadingSpinner()
+                    Helper.showToast("Impian Berhasil Dihapus")
+                    self.loadDreamData()
+                }
             }
             self.dreamTableView.reloadData()
         }

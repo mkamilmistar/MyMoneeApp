@@ -12,8 +12,8 @@ struct AuthUser {
 }
 
 extension UIViewController {
-    func createSpinnerView() {
-        let child = SpinnerViewController()
+    func loadingSpinner() {
+        let child = IndicatorProgress()
         
         addChild(child)
         child.view.frame = view.frame
