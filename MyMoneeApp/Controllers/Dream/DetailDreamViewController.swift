@@ -87,8 +87,8 @@ class DetailDreamViewController: UIViewController {
             DispatchQueue.main.async {
                 // Delete From Dream
                 self.dreamService.deleteDream(dreamId) {
-                    print("sukses")
                 }
+                Helper.showToast("Impian Berhasil Dikonfirmasi")
                 self.navigationController?.popToRootViewController(animated: true)
             }
         }

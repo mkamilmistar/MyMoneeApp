@@ -19,7 +19,7 @@ class AddUsageViewController: UIViewController {
     var saveButton: UIButton!
     var titleTxtField: UITextField!
     var amountTxtField: UITextField!
-    var service = TransactionService()
+    var serviceTransaction = TransactionService()
         
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -65,11 +65,13 @@ class AddUsageViewController: UIViewController {
         self.createSpinnerView()
 
         // Input To API
-        service.addTransaction(uploadDataModel: TransactionResponse(
+        serviceTransaction.addTransaction(uploadDataModel: TransactionResponse(
                                 transactionId: transactionId, title: title, amount: price,
                                 type: status, createdAt: Date(), updatedAt: Date())) {
             DispatchQueue.main.async {
+                Helper.showToast("Penggunaan Berhasil Disimpan")
                 self.navigationController?.popToRootViewController(animated: true)
+                
             }
         }
     }

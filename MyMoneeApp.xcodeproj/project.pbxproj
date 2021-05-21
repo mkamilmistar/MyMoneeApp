@@ -51,6 +51,7 @@
 		FA9AF01A264D0E8200EC9109 /* UsageTypeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9AF018264D0E8200EC9109 /* UsageTypeCell.swift */; };
 		FA9AF01B264D0E8200EC9109 /* UsageTypeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA9AF019264D0E8200EC9109 /* UsageTypeCell.xib */; };
 		FA9AF01E264D104400EC9109 /* CategoryUsage.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9AF01D264D104400EC9109 /* CategoryUsage.swift */; };
+		FA9E8EA726575613004F047B /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9E8EA626575613004F047B /* Helper.swift */; };
 		FAD7EBB2264AE29D000E752D /* Usage.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD7EBB1264AE29D000E752D /* Usage.swift */; };
 		FAD7EBB7264B82E6000E752D /* Dream.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD7EBB6264B82E6000E752D /* Dream.swift */; };
 		FAD7EBBD264B82FE000E752D /* DreamTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD7EBBB264B82FE000E752D /* DreamTableViewCell.swift */; };
@@ -133,6 +134,7 @@
 		FA9AF018264D0E8200EC9109 /* UsageTypeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsageTypeCell.swift; sourceTree = "<group>"; };
 		FA9AF019264D0E8200EC9109 /* UsageTypeCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UsageTypeCell.xib; sourceTree = "<group>"; };
 		FA9AF01D264D104400EC9109 /* CategoryUsage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryUsage.swift; sourceTree = "<group>"; };
+		FA9E8EA626575613004F047B /* Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
 		FAD7EBB1264AE29D000E752D /* Usage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Usage.swift; sourceTree = "<group>"; };
 		FAD7EBB6264B82E6000E752D /* Dream.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dream.swift; sourceTree = "<group>"; };
 		FAD7EBBB264B82FE000E752D /* DreamTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DreamTableViewCell.swift; sourceTree = "<group>"; };
@@ -343,6 +345,7 @@
 				FADFA9DA264FA16B00965CD8 /* Config.swift */,
 				FA2F8783264E987E00B8BF30 /* ConvertDataType.swift */,
 				FA2F878D264EE79400B8BF30 /* Shadow.swift */,
+				FA9E8EA626575613004F047B /* Helper.swift */,
 			);
 			path = Configuration;
 			sourceTree = "<group>";
@@ -667,6 +670,7 @@
 				FA15F425264ADC1E001B15D9 /* UsageTableViewCell.swift in Sources */,
 				FA9AF01A264D0E8200EC9109 /* UsageTypeCell.swift in Sources */,
 				FAD7EBF2264BBEF6000E752D /* DetailDreamViewController.swift in Sources */,
+				FA9E8EA726575613004F047B /* Helper.swift in Sources */,
 				FADB24232656BA9E0077521A /* DreamService.swift in Sources */,
 				FA15F3BE264AC7D2001B15D9 /* HomeViewController.swift in Sources */,
 				FADB2415265691E20077521A /* SpinnerViewController.swift in Sources */,

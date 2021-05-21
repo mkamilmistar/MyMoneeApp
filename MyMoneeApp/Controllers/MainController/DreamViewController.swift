@@ -97,14 +97,14 @@ extension DreamViewController {
                                 transactionId: transactionId, title: title, amount: price,
                                 type: status, createdAt: Date(), updatedAt: Date())) {
             DispatchQueue.main.async {
-                // Delete From Dream
+                Helper.showToast("Impian Berhasil Dikonfirmasi")
                 self.navigationController?.popToRootViewController(animated: true)
             }
         }
         
         // delete Dreams
         dreamService.deleteDream(dreamResponse[passIndex].dreamId) {
-            print("sukses")
+            print("Deleted")
         }
 
         // Subtract Balance
@@ -210,6 +210,7 @@ extension DreamViewController: DreamTableDelegate {
         let deleteButton = UIAlertAction(title: "Hapus", style: .destructive) { (_) -> Void in
             self.dreamService.deleteDream(dreamResponse[self.passIndex].dreamId) {
                 print("sukses")
+                Helper.showToast("Impian Berhasil Dihapus")
             }
             self.dreamTableView.reloadData()
         }

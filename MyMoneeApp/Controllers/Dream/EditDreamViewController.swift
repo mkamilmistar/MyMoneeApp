@@ -44,6 +44,7 @@ class EditDreamViewController: UIViewController {
         
         dreamService.deleteDream(dreamId) {
             DispatchQueue.main.async {
+                Helper.showToast("Impian Berhasil Dihapus")
                 self.navigationController?.popToRootViewController(animated: true)
             }
         }
@@ -60,6 +61,7 @@ class EditDreamViewController: UIViewController {
             title: title, targetAmount: targetAmount,
                 userId: dreamResponse[passIndex].userId)) {
             DispatchQueue.main.async {
+                Helper.showToast("Impian Berhasil Diubah")
                 self.navigationController?.popToRootViewController(animated: true)
             }
         }

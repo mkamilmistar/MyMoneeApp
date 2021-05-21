@@ -21,7 +21,7 @@ class HomeViewController: UIViewController {
     @IBOutlet var historyBackground: UIView!
     @IBOutlet var headerView: Header!
     
-    var service = TransactionService()
+    var transactionService = TransactionService()
 
     var userData: User = AuthUser.data
     var totalMoneyIn: Decimal = 0.0
@@ -63,9 +63,9 @@ class HomeViewController: UIViewController {
     }
     
     func loadData() {
-        service.getTransaction { (transactionList) in
+        transactionService.getTransaction { (transactionList) in
             DispatchQueue.main.async {
-                self.userData.balance = self.totalMoneyIn - self.totalMoneyOut
+                self.userData.balance += (self.totalMoneyIn - self.totalMoneyOut)
                 transactions = transactionList
 
                 self.dataNotFound()

@@ -22,7 +22,7 @@ class EditUsageViewController: UIViewController {
     var passIndex: Int!
     var userData: User = AuthUser.data
     var passBalance: Decimal = 0
-    var service = TransactionService()
+    var serviceTransaction = TransactionService()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -101,11 +101,12 @@ extension EditUsageViewController {
             }
         }
       
-        service.updateTransaction(uploadDataModel: TransactionResponse(
+        serviceTransaction.updateTransaction(uploadDataModel: TransactionResponse(
                                     transactionId: transactionId, title: title,
                                     amount: amount, type: status, createdAt: date,
                                     updatedAt: Date())) {
             DispatchQueue.main.async {
+                Helper.showToast("Penggunaan Berhasil Diubah")
                 self.navigationController?.popToRootViewController(animated: true)
             }
         }
@@ -122,9 +123,10 @@ extension EditUsageViewController {
         
         let transactionId = transactions[passIndex].transactionId
         
-        service.deleteTransaction(transactionId) {
+        serviceTransaction.deleteTransaction(transactionId) {
             DispatchQueue.main.async {
                 self.navigationController?.popToRootViewController(animated: true)
+                Helper.showToast("Penggunaan Berhasil Dihapus")
             }
         }
 
