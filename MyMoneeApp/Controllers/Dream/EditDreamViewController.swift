@@ -34,13 +34,14 @@ class EditDreamViewController: UIViewController {
         navigationBar.navigationLabel.text = "Ubah Impian"
         
         // Set Value
-        titleField.text = dreamResponse[passIndex].title
-        targetAmountField.text = dreamResponse[passIndex].targetAmount.setDecimalToStringCurrency
+        titleField.text = allDreamData[passIndex].title
+        targetAmountField.text = allDreamData[passIndex].targetAmount?.setDecimalToStringCurrency
+        setupLoadingView()
         
     }
     
     func deleteDream() {
-        let dreamId = dreamResponse[passIndex].dreamId
+        let dreamId = allDreamData[passIndex].dreamId!
         
         dreamService.deleteDream(dreamId) {
             DispatchQueue.main.async {
@@ -54,14 +55,16 @@ class EditDreamViewController: UIViewController {
         let title = titleField.text ?? ""
         let targetAmount = (targetAmountField.text?.replacingOccurrences(of: ".", with: "") ?? "").setStringToDecimal
         
-        self.loadingSpinner()
+        loadingIndicator.isAnimating = true
         dreamService.updateDream(
-            uploadDataModel: DreamResponse(
-            dreamId: dreamResponse[passIndex].dreamId,
+            allDreamData[passIndex].dreamId ?? "",
+            dreamDataModel: DreamResponse(
+            dreamId: allDreamData[passIndex].dreamId,
             title: title, targetAmount: targetAmount,
-                userId: dreamResponse[passIndex].userId)) {
-            DispatchQueue.main.async {
+                userId: allDreamData[passIndex].userId)) {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
                 Helper.showToast("Impian Berhasil Diubah")
+                loadingIndicator.isAnimating = false
                 self.navigationController?.popToRootViewController(animated: true)
             }
         }
@@ -95,7 +98,7 @@ extension EditDreamViewController: AnotherButtonDelegate {
     func secondBtnAction() {
         let alert = UIAlertController(
             title: "Menghapus Impian",
-            message: "Apakah anda yakin ingin menghapus impian \"\(dreamResponse[passIndex].title)\" ?",
+            message: "Apakah anda yakin ingin menghapus impian \"\(allDreamData[passIndex].title ?? "")\" ?",
             preferredStyle: .alert)
         
         let deleteButton = UIAlertAction(title: "Hapus", style: .destructive) { (_) -> Void in

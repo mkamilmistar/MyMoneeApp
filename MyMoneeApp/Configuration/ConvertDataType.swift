@@ -67,9 +67,6 @@ extension Decimal {
 extension Date {
     var setDateToString: String {
         let outputFormat = DateFormatter()
-        outputFormat.locale = NSLocale(localeIdentifier: "id") as Locale
-        outputFormat.timeZone = TimeZone(abbreviation: "WIB")
-        outputFormat.dateFormat = "dd MMMM yyyy' - 'HH:mm"
         return outputFormat.string(from: self as Date)
     }
     
@@ -84,6 +81,22 @@ extension String {
         formatter.locale = NSLocale(localeIdentifier: "id") as Locale
         return formatter.date(from: self)!
     }
+    
+    var setStringDateFormat: String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZZZZZ"
+        let myDate = dateFormatter.date(from: self)
+        
+        dateFormatter.dateFormat = "d MMMM yyyy' - 'HH:mm"
+        dateFormatter.timeZone = TimeZone(abbreviation: "WIB")
+        dateFormatter.locale = NSLocale(localeIdentifier: "id") as Locale
+        return dateFormatter.string(from: myDate!)
+    }
+    
+//    var setStringDateToISO: String {
+//        
+//    }
+    
 }
 
 // ============================================ END OF DATE CONVERT

@@ -47,31 +47,32 @@ class AddUsageViewController: UIViewController {
         navigationBar.delegate = self
         navigationBar.navigationLabel.text = "Tambah Penggunaan"
         
+        // Loading UI
+        setupLoadingView()
     }
     
     func saveTransaction() {
-        let transactionId: String = String.randomCapitalizeWithNumber()
         let title: String = titleTxtField.text ?? ""
         let price: Decimal = (amountTxtField.text ?? "").setStringToDecimal
         let status: String
         
         if usageTypeData == 0 {
             status = "credit"
-            userData.balance += price
         } else {
             status = "debit"
-            userData.balance -= price
         }
-        self.loadingSpinner()
-
+        
+        loadingIndicator.isAnimating = true
         // Input To API
-        serviceTransaction.addTransaction(uploadDataModel: TransactionResponse(
-                                transactionId: transactionId, title: title, amount: price,
-                                            type: status, createdAt: Date(), updatedAt: Date())) {
-            DispatchQueue.main.async {
+        serviceTransaction.addTransaction(transDataModel: TransactionResponse(
+                                title: title, amount: price,
+                                            type: status, createdAt:
+                                                Date().setDateToString,
+                                            updatedAt: Date().setDateToString)) {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
                 Helper.showToast("Penggunaan Berhasil Disimpan")
+                loadingIndicator.isAnimating = false
                 self.navigationController?.popToRootViewController(animated: true)
-                
             }
         }
     }

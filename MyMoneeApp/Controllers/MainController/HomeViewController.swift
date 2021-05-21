@@ -22,6 +22,7 @@ class HomeViewController: UIViewController {
     @IBOutlet var headerView: Header!
     
     var transactionService = TransactionService()
+    var userService = UserService()
 
     var userData: User = AuthUser.data
     var totalMoneyIn: Decimal = 0.0
@@ -33,7 +34,7 @@ class HomeViewController: UIViewController {
         // Set View Style
         schedulerGreetingText()
         initViewData()
-        self.loadingSpinner()
+        
         loadTransactionData()
         
         // Register Table
@@ -44,24 +45,20 @@ class HomeViewController: UIViewController {
         notFound.delegate = self
         headerView.delegate = self
     
+        setupLoadingView()
+        loadingIndicator.isAnimating = true
     }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         // Load Data Transaction
-        self.loadingSpinner()
         loadTransactionData()
-        self.calcualateMoneyByType()
         
-        dataNotFound()
-        usagesTableView.reloadData()
-        
-        userName.text = userData.name
     }
     
     func loadTransactionData() {
         transactionService.getTransaction { (transactionList) in
-            DispatchQueue.main.async {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
                 self.userData.balance = (self.totalMoneyIn - self.totalMoneyOut)
                 transactions = transactionList
                 self.initViewData()
@@ -73,6 +70,16 @@ class HomeViewController: UIViewController {
                 
                 // Set Data Greeting
                 self.schedulerGreetingText()
+                loadingIndicator.isAnimating = false
+            }
+        }
+    }
+    
+    func loadDataUser() {
+        userService.getUsers { (userList) in
+            DispatchQueue.main.async {
+                allUserData = userList
+                loadingIndicator.isAnimating = false
             }
         }
     }
@@ -117,6 +124,7 @@ extension HomeViewController {
         contentView.backgroundColor = UIColor.mainBG()
         view.backgroundColor = UIColor.mainBG()
         balanceView.backgroundColor = UIColor.mainPurple()
+
         notFound.isHidden = true
         notFound.addButton.isHidden = true
         notFound.addButton.setTitle("Tambah Penggunaan", for: .normal)
@@ -160,12 +168,14 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         // PassingData
         detailUsageVC.passIndex = indexPath.row
         detailUsageVC.hidesBottomBarWhenPushed = true
+        
+        // BY ID
         detailUsageVC.passTransactionId = transactions[indexPath.row].transactionId ?? ""
+        
         self.navigationController?.pushViewController(detailUsageVC, animated: true)
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        dataNotFound()
         return transactions.count
     }
     
@@ -181,7 +191,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         
         // Set Data Cell
         trans.title.text = transactions[indexPath.row].title
-        trans.date.text = transactions[indexPath.row].createdAt?.setDateToString
+        trans.date.text = transactions[indexPath.row].createdAt?.setStringDateFormat
         let price = transactions[indexPath.row].amount?.setDecimalToStringCurrency
        
         if transactions[indexPath.row].type == "debit" {

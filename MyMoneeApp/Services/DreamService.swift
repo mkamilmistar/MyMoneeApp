@@ -8,11 +8,12 @@
 import Foundation
 
 class DreamService {
-    let url: String = "https://60a5decac0c1fd00175f48af.mockapi.io/api/v1/dream"
+//    let url: String = "https://60a5decac0c1fd00175f48af.mockapi.io/api/v1/dream"
+    let url: String = "http://127.0.0.1:8080/dream"
     
-    func getDreams(completion: @escaping (_ dream: [DreamResponse]) -> Void) {
+    func getDreams(completion: @escaping (_ dreamDataModel: [DreamResponse]) -> Void) {
         let decoder = JSONDecoder()
-        guard let url = URL(string: url) else {
+        guard let url = URL(string: "http://127.0.0.1:8080/dreams") else {
             print("Error: cannot create URL")
             return
         }
@@ -39,14 +40,14 @@ class DreamService {
         task.resume()
     }
     
-    func addDream(uploadDataModel: DreamResponse, completion: @escaping () -> Void) {
+    func addDream(dreamDataModel: DreamResponse, completion: @escaping () -> Void) {
         
         guard let url = URL(string: url) else {
             print("Error: cannot create URL")
             return
         }
         
-        guard let jsonData = try? JSONEncoder().encode(uploadDataModel) else {
+        guard let jsonData = try? JSONEncoder().encode(dreamDataModel) else {
             print("Error: Trying to convert model to JSON data")
             return
         }
@@ -64,16 +65,14 @@ class DreamService {
         task.resume()
     }
     
-    func updateDream(uploadDataModel: DreamResponse, completion: @escaping () -> Void) {
+    func updateDream(_ userId: String, dreamDataModel: DreamResponse, completion: @escaping () -> Void) {
         
-        let dreamId = "/\(uploadDataModel.dreamId)"
-        
-        guard let url = URL(string: url)?.appendingPathComponent(dreamId) else {
+        guard let url = URL(string: url)?.appendingPathComponent(userId) else {
             print("Error: cannot create URL")
             return
         }
         
-        guard let jsonData = try? JSONEncoder().encode(uploadDataModel) else {
+        guard let jsonData = try? JSONEncoder().encode(dreamDataModel) else {
             print("Error: Trying to convert model to JSON data")
             return
         }
@@ -114,8 +113,7 @@ class DreamService {
     }
     
     // BY ID
-    func getDreamByID(dreamId: String, completion: @escaping (_ dream: [DreamResponse]) -> Void) {
-        
+    func getDreamById(dreamId: String, completion: @escaping (_ dreamDataModel: DreamResponse) -> Void) {
         let decoder = JSONDecoder()
         guard let url = URL(string: url)?.appendingPathComponent(dreamId) else {
             print("Error: cannot create URL")
@@ -133,7 +131,7 @@ class DreamService {
                 return
             }
             do {
-                let data = try decoder.decode([DreamResponse].self, from: data)
+                let data = try decoder.decode(DreamResponse.self, from: data)
                 completion(data)
             } catch {
                 let error = error

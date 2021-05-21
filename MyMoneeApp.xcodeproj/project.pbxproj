@@ -46,6 +46,13 @@
 		FA2F878B264EE58700B8BF30 /* ButtonConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2F878A264EE58700B8BF30 /* ButtonConfig.swift */; };
 		FA2F878E264EE79400B8BF30 /* Shadow.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2F878D264EE79400B8BF30 /* Shadow.swift */; };
 		FA50848426556C290021B507 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = FA50848326556C290021B507 /* .swiftlint.yml */; };
+		FA6B583B2657F405005D1A02 /* UserResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6B583A2657F405005D1A02 /* UserResponse.swift */; };
+		FA6B583E2657F488005D1A02 /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6B583D2657F488005D1A02 /* UserService.swift */; };
+		FA6B58422657FAC5005D1A02 /* ProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6B58412657FAC5005D1A02 /* ProgressView.swift */; };
+		FA6B58462657FAFA005D1A02 /* ProgressShapeLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6B58452657FAFA005D1A02 /* ProgressShapeLayer.swift */; };
+		FA6B58492657FB4E005D1A02 /* StrokeAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6B58482657FB4E005D1A02 /* StrokeAnimation.swift */; };
+		FA6B584C2657FBA4005D1A02 /* RotatingAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6B584B2657FBA4005D1A02 /* RotatingAnimation.swift */; };
+		FA6B584F2657FC45005D1A02 /* StrokeColorAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6B584E2657FC45005D1A02 /* StrokeColorAnimation.swift */; };
 		FA8A3E732653612E006D4983 /* Header.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8A3E722653612E006D4983 /* Header.swift */; };
 		FA8A3E792653613E006D4983 /* Header.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA8A3E782653613E006D4983 /* Header.xib */; };
 		FA9AF01A264D0E8200EC9109 /* UsageTypeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9AF018264D0E8200EC9109 /* UsageTypeCell.swift */; };
@@ -71,7 +78,6 @@
 		FAD7EC0D264BD06A000E752D /* EditDreamViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FAD7EC0B264BD06A000E752D /* EditDreamViewController.xib */; };
 		FADB23F326561D410077521A /* TransactionResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADB23F226561D410077521A /* TransactionResponse.swift */; };
 		FADB23FE26561EEC0077521A /* TransactionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADB23FD26561EEC0077521A /* TransactionService.swift */; };
-		FADB2415265691E20077521A /* IndicatorProgress.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADB2414265691E20077521A /* IndicatorProgress.swift */; };
 		FADB24232656BA9E0077521A /* DreamService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADB24222656BA9E0077521A /* DreamService.swift */; };
 		FADB24262656BAB10077521A /* DreamResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADB24252656BAB10077521A /* DreamResponse.swift */; };
 		FADFA9CD264F618100965CD8 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADFA9CC264F618100965CD8 /* User.swift */; };
@@ -128,6 +134,13 @@
 		FA2F878A264EE58700B8BF30 /* ButtonConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonConfig.swift; sourceTree = "<group>"; };
 		FA2F878D264EE79400B8BF30 /* Shadow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Shadow.swift; sourceTree = "<group>"; };
 		FA50848326556C290021B507 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
+		FA6B583A2657F405005D1A02 /* UserResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserResponse.swift; sourceTree = "<group>"; };
+		FA6B583D2657F488005D1A02 /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
+		FA6B58412657FAC5005D1A02 /* ProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressView.swift; sourceTree = "<group>"; };
+		FA6B58452657FAFA005D1A02 /* ProgressShapeLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressShapeLayer.swift; sourceTree = "<group>"; };
+		FA6B58482657FB4E005D1A02 /* StrokeAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StrokeAnimation.swift; sourceTree = "<group>"; };
+		FA6B584B2657FBA4005D1A02 /* RotatingAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RotatingAnimation.swift; sourceTree = "<group>"; };
+		FA6B584E2657FC45005D1A02 /* StrokeColorAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StrokeColorAnimation.swift; sourceTree = "<group>"; };
 		FA8A3E722653612E006D4983 /* Header.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Header.swift; sourceTree = "<group>"; };
 		FA8A3E782653613E006D4983 /* Header.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Header.xib; sourceTree = "<group>"; };
 		FA9AF018264D0E8200EC9109 /* UsageTypeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsageTypeCell.swift; sourceTree = "<group>"; };
@@ -153,7 +166,6 @@
 		FAD7EC0B264BD06A000E752D /* EditDreamViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EditDreamViewController.xib; sourceTree = "<group>"; };
 		FADB23F226561D410077521A /* TransactionResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionResponse.swift; sourceTree = "<group>"; };
 		FADB23FD26561EEC0077521A /* TransactionService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionService.swift; sourceTree = "<group>"; };
-		FADB2414265691E20077521A /* IndicatorProgress.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndicatorProgress.swift; sourceTree = "<group>"; };
 		FADB24222656BA9E0077521A /* DreamService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DreamService.swift; sourceTree = "<group>"; };
 		FADB24252656BAB10077521A /* DreamResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DreamResponse.swift; sourceTree = "<group>"; };
 		FADFA9CC264F618100965CD8 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
@@ -347,6 +359,18 @@
 			path = Configuration;
 			sourceTree = "<group>";
 		};
+		FA6B58402657FAB9005D1A02 /* Progress */ = {
+			isa = PBXGroup;
+			children = (
+				FA6B58412657FAC5005D1A02 /* ProgressView.swift */,
+				FA6B58452657FAFA005D1A02 /* ProgressShapeLayer.swift */,
+				FA6B58482657FB4E005D1A02 /* StrokeAnimation.swift */,
+				FA6B584B2657FBA4005D1A02 /* RotatingAnimation.swift */,
+				FA6B584E2657FC45005D1A02 /* StrokeColorAnimation.swift */,
+			);
+			path = Progress;
+			sourceTree = "<group>";
+		};
 		FA8A3E712653610D006D4983 /* Header */ = {
 			isa = PBXGroup;
 			children = (
@@ -407,13 +431,13 @@
 		FAD7EBF7264BBFC5000E752D /* Component */ = {
 			isa = PBXGroup;
 			children = (
+				FA6B58402657FAB9005D1A02 /* Progress */,
 				FAF2566026537EB200533263 /* Button */,
 				FAD7EBB5264B82CE000E752D /* DreamTableCell */,
 				FAF2566826538A7F00533263 /* FormInput */,
 				FA8A3E712653610D006D4983 /* Header */,
 				FA156B2A2654FCAB00DA1089 /* NavigationBar */,
 				FADFA9CF264F654B00965CD8 /* NotFound */,
-				FADB2413265691A10077521A /* ProgressIndicator */,
 				FA15F422264ADBE3001B15D9 /* UsageTableCell */,
 				FA9AF016264D0E2D00EC9109 /* UsageTypeCell */,
 			);
@@ -446,6 +470,7 @@
 			children = (
 				FADB23F226561D410077521A /* TransactionResponse.swift */,
 				FADB24252656BAB10077521A /* DreamResponse.swift */,
+				FA6B583A2657F405005D1A02 /* UserResponse.swift */,
 			);
 			path = Response;
 			sourceTree = "<group>";
@@ -455,16 +480,9 @@
 			children = (
 				FADB23FD26561EEC0077521A /* TransactionService.swift */,
 				FADB24222656BA9E0077521A /* DreamService.swift */,
+				FA6B583D2657F488005D1A02 /* UserService.swift */,
 			);
 			path = Services;
-			sourceTree = "<group>";
-		};
-		FADB2413265691A10077521A /* ProgressIndicator */ = {
-			isa = PBXGroup;
-			children = (
-				FADB2414265691E20077521A /* IndicatorProgress.swift */,
-			);
-			path = ProgressIndicator;
 			sourceTree = "<group>";
 		};
 		FADFA9CF264F654B00965CD8 /* NotFound */ = {
@@ -649,14 +667,18 @@
 				FADB23FE26561EEC0077521A /* TransactionService.swift in Sources */,
 				FADFA9DB264FA16B00965CD8 /* Config.swift in Sources */,
 				FAD7EBB2264AE29D000E752D /* Usage.swift in Sources */,
+				FA6B58462657FAFA005D1A02 /* ProgressShapeLayer.swift in Sources */,
 				FA15F384264AA7F9001B15D9 /* AppDelegate.swift in Sources */,
 				FADB23F326561D410077521A /* TransactionResponse.swift in Sources */,
+				FA6B58492657FB4E005D1A02 /* StrokeAnimation.swift in Sources */,
 				FAD7EBD3264B9D47000E752D /* ColorConfig.swift in Sources */,
 				FA15F3A2264AC5BE001B15D9 /* MainTabController.swift in Sources */,
+				FA6B583B2657F405005D1A02 /* UserResponse.swift in Sources */,
 				FAD7EBD7264B9FD7000E752D /* AddUsageViewController.swift in Sources */,
 				FAD7EBBD264B82FE000E752D /* DreamTableViewCell.swift in Sources */,
 				FAD7EBE5264BAF7E000E752D /* EditUsageViewController.swift in Sources */,
 				FA2F878B264EE58700B8BF30 /* ButtonConfig.swift in Sources */,
+				FA6B584F2657FC45005D1A02 /* StrokeColorAnimation.swift in Sources */,
 				FA034C26265111CB0055A39E /* Wallet.swift in Sources */,
 				FAF2566A26538A8800533263 /* FormInput.swift in Sources */,
 				FAD7EBB7264B82E6000E752D /* Dream.swift in Sources */,
@@ -670,11 +692,13 @@
 				FA9E8EA726575613004F047B /* Helper.swift in Sources */,
 				FADB24232656BA9E0077521A /* DreamService.swift in Sources */,
 				FA15F3BE264AC7D2001B15D9 /* HomeViewController.swift in Sources */,
-				FADB2415265691E20077521A /* IndicatorProgress.swift in Sources */,
+				FA6B583E2657F488005D1A02 /* UserService.swift in Sources */,
 				FA8A3E732653612E006D4983 /* Header.swift in Sources */,
+				FA6B584C2657FBA4005D1A02 /* RotatingAnimation.swift in Sources */,
 				FA156B2F2654FCCD00DA1089 /* NavigationBar.swift in Sources */,
 				FADB24262656BAB10077521A /* DreamResponse.swift in Sources */,
 				FAD7EC06264BCDE2000E752D /* AddDreamViewController.swift in Sources */,
+				FA6B58422657FAC5005D1A02 /* ProgressView.swift in Sources */,
 				FAD7EC0C264BD06A000E752D /* EditDreamViewController.swift in Sources */,
 				FAD7EBC5264B90B5000E752D /* DetailUsageViewController.swift in Sources */,
 			);

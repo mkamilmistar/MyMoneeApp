@@ -26,7 +26,7 @@ class EditUsageViewController: UIViewController {
     var serviceTransaction = TransactionService()
     var passTitle: String = ""
     var passAmount: Decimal = 0.0
-    var passCreatedAt: Date!
+    var passCreatedAt: String = ""
     var passStatus: String = ""
     
     override func viewDidLoad() {
@@ -42,6 +42,9 @@ class EditUsageViewController: UIViewController {
         titleTxtField.delegate = self
         customBtn.delegate = self
         navigationBar.delegate = self
+        
+        // Setup Loading
+        setupLoadingView()
         
         let uiNib = UINib(nibName: String(describing: UsageTypeCell.self), bundle: nil)
         usageTypeCollection.register(uiNib, forCellWithReuseIdentifier: String(describing: UsageTypeCell.self))
@@ -80,7 +83,6 @@ extension EditUsageViewController {
     }
     
     func updateUsage() {
-        let transactionId = self.passTransactionId
         let title = titleTxtField.text ?? ""
         let amount = (priceTxtField.text?.replacingOccurrences(of: ".", with: "") ?? "").setStringToDecimal
         let date = passCreatedAt
@@ -88,34 +90,22 @@ extension EditUsageViewController {
         
         if usageTypeData == 0 {
             status = "credit"
-            passBalance = userData.balance - passAmount
-          
-            if status != passStatus {
-                userData.balance += amount * 2
-            } else {
-                userData.balance = passBalance + amount
-            }
         } else {
             status = "debit"
-            passBalance = userData.balance + passAmount
-            
-            if status != passStatus {
-                userData.balance -= amount * 2
-            } else {
-                userData.balance = passBalance - amount
-            }
         }
-      
-        serviceTransaction.updateTransaction(uploadDataModel: TransactionResponse(
-                                    transactionId: transactionId, title: title,
-                                    amount: amount, type: status, createdAt: date,
-                                    updatedAt: Date())) {
-            DispatchQueue.main.async {
+        
+        loadingIndicator.isAnimating = true
+        serviceTransaction.updateTransaction(passTransactionId, transDataModel: TransactionResponse(
+                                    title: title, amount: amount, type: status,
+                                                createdAt: date,
+                                                updatedAt: Date().setDateToString)) {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
                 Helper.showToast("Penggunaan Berhasil Diubah")
+                loadingIndicator.isAnimating = false
                 self.navigationController?.popToRootViewController(animated: true)
             }
         }
-        self.loadingSpinner()
+        
     }
     
     func deleteUsage() {
@@ -128,10 +118,12 @@ extension EditUsageViewController {
         
         guard let transactionId = passTransactionId else { return }
         
+        loadingIndicator.isAnimating = true
         serviceTransaction.deleteTransaction(transactionId) {
-            DispatchQueue.main.async {
-                self.navigationController?.popToRootViewController(animated: true)
+            DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
                 Helper.showToast("Penggunaan Berhasil Dihapus")
+                loadingIndicator.isAnimating = false
+                self.navigationController?.popToRootViewController(animated: true)
             }
         }
 
@@ -168,7 +160,6 @@ extension EditUsageViewController: AnotherButtonDelegate {
         
         let deleteButton = UIAlertAction(title: "Hapus", style: .destructive) { (_) -> Void in
             self.deleteUsage()
-            self.loadingSpinner()
         }
         
         let cancelButton = UIAlertAction(title: "Batal", style: .cancel)

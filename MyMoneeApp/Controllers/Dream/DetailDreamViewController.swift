@@ -25,8 +25,9 @@ class DetailDreamViewController: UIViewController {
     var userData: User = AuthUser.data
     var backButton: UIButton!
     var confirmButton: UIButton!
-    var service = TransactionService()
+    var transactionService = TransactionService()
     var dreamService = DreamService()
+    var passDreamId: String = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,6 +35,29 @@ class DetailDreamViewController: UIViewController {
         // Set Properties of Component
         initProperties()
         
+        initDataLoad()
+        setupLoadingView()
+        loadingIndicator.isAnimating = true
+        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        loadDetailDream()
+        initDataLoad()
+    }
+    
+    func loadDetailDream() {
+        dreamService.getDreamById(dreamId: passDreamId) { (dataDream) in
+            DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                dreamDataById = dataDream
+                self.initDataLoad()
+                loadingIndicator.isAnimating = false
+            }
+        }
+    }
+    
+    fileprivate func initDataLoad() {
         // Conditional Button Confirm
         let percentProgressData = Int((passProgressData ?? 0.0) * 100)
         
@@ -45,16 +69,15 @@ class DetailDreamViewController: UIViewController {
         
         // Set View Variable
         let currentAmountConv = userData.balance.setDecimalToStringCurrency
-        let targetAmountConv = dreamResponse[passIndex].targetAmount.setDecimalToStringCurrency
+        let targetAmountConv = allDreamData[passIndex].targetAmount?.setDecimalToStringCurrency
         
-        dreamTitle.text = dreamResponse[passIndex].title
+        dreamTitle.text = allDreamData[passIndex].title
         percentProgress.text = "\(percentProgressData)%"
         
-        let amount = dreamResponse[passIndex].targetAmount.setDecimalToStringCurrency
-        targetAmount.text = "Rp \(amount)"
-        progressAmount.text = "IDR \(currentAmountConv) / IDR \(targetAmountConv)"
+        let amount = allDreamData[passIndex].targetAmount?.setDecimalToStringCurrency
+        targetAmount.text = "Rp \(amount ?? "")"
+        progressAmount.text = "IDR \(currentAmountConv) / IDR \(targetAmountConv ?? "")"
         progressBar.progress = passProgressData ?? 0.0
-        
     }
     
     @IBAction func goEditImpian(_ sender: Any) {
@@ -74,27 +97,26 @@ class DetailDreamViewController: UIViewController {
     func saveDreamToTransaction() {
         // Save To Transaction
         let transactionId: String = String.randomCapitalizeWithNumber()
-        let title: String = dreamResponse[passIndex].title
-        let price: Decimal = dreamResponse[passIndex].targetAmount
+        let title: String = allDreamData[passIndex].title ?? ""
+        let price: Decimal = allDreamData[passIndex].targetAmount ?? 0.0
         let status: String = "debit"
         
-        let dreamId = dreamResponse[passIndex].dreamId
+        let dreamId = allDreamData[passIndex].dreamId
        
         // Input To API
-        service.addTransaction(uploadDataModel: TransactionResponse(
+        loadingIndicator.isAnimating = true
+        transactionService.addTransaction(transDataModel: TransactionResponse(
                                 transactionId: transactionId, title: title, amount: price,
-                                type: status, createdAt: Date(), updatedAt: Date())) {
-            DispatchQueue.main.async {
+                                type: status, createdAt: Date().setDateToString, updatedAt: Date().setDateToString)) {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
                 // Delete From Dream
-                self.dreamService.deleteDream(dreamId) {
+                self.dreamService.deleteDream(dreamId!) {
                 }
                 Helper.showToast("Impian Berhasil Dikonfirmasi")
+                loadingIndicator.isAnimating = false
                 self.navigationController?.popToRootViewController(animated: true)
             }
         }
-        
-        // Subtract Balance
-//        userData.balance -= price
     }
 }
 
@@ -118,7 +140,7 @@ extension DetailDreamViewController: AnotherButtonDelegate {
     func firstBtnAction() {
         let alert = UIAlertController(
             title: "Konfirmasi Mimpi",
-            message: "Apakah anda yakin ingin mengkonfirmasi mimpi \"\(dreamResponse[passIndex].title)\" ?",
+            message: "Apakah anda yakin ingin mengkonfirmasi mimpi \"\(allDreamData[passIndex].title ?? "")\" ?",
             preferredStyle: .alert)
         
         let deleteButton = UIAlertAction(title: "Konfirmasi", style: .default) { (_) -> Void in

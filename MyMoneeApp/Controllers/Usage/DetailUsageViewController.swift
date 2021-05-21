@@ -32,6 +32,9 @@ class DetailUsageViewController: UIViewController {
         
         initDataLoad()
         
+        // Loading
+        setupLoadingView()
+        loadingIndicator.isAnimating = true
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -50,32 +53,33 @@ class DetailUsageViewController: UIViewController {
         
         // Pass Data
         editUsageVC.passIndex = self.passIndex
-        editUsageVC.passTransactionId = transaction.transactionId ?? ""
-        editUsageVC.passTitle = transaction.title ?? ""
-        editUsageVC.passAmount = transaction.amount ?? 0.0
-        editUsageVC.passCreatedAt = transaction.createdAt ?? nil
-        editUsageVC.passStatus = transaction.type ?? ""
+        editUsageVC.passTransactionId = transactionById.transactionId ?? ""
+        editUsageVC.passTitle = transactionById.title ?? ""
+        editUsageVC.passAmount = transactionById.amount ?? 0.0
+        editUsageVC.passCreatedAt = transactionById.createdAt ?? ""
+        editUsageVC.passStatus = transactionById.type ?? ""
         
         self.navigationController?.pushViewController(editUsageVC, animated: true)
     }
     
     func loadDataDetail() {
+        loadingIndicator.isAnimating = true
         transactionService.getTransactionByID(transactionId: passTransactionId) { (dataTransaction) in
-            DispatchQueue.main.async {
-                transaction = dataTransaction
-                self.loadingSpinner()
+            DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                transactionById = dataTransaction
                 self.initDataLoad()
+                loadingIndicator.isAnimating = false
             }
         }
     }
     
     fileprivate func initDataLoad() {
         // setViewVariable
-        idUsage.text = transaction.transactionId
-        titleUsage.text = transaction.title
-        let stringPrice = transaction.amount?.setDecimalToStringCurrency
+        idUsage.text = transactionById.transactionId
+        titleUsage.text = transactionById.title
+        let stringPrice = transactionById.amount?.setDecimalToStringCurrency
         
-        if transaction.type == "credit" {
+        if transactionById.type == "credit" {
             iconStatus.image = UIImage(named: "Arrow_Up_BG")
             status.text = "Pemasukan"
             price.textColor = UIColor.mainGreen()
@@ -87,7 +91,7 @@ class DetailUsageViewController: UIViewController {
             price.text = "-Rp \(stringPrice ?? "")"
         }
         
-        dateUsage.text = transaction.createdAt?.setDateToString
+        dateUsage.text = transactionById.createdAt?.setStringDateFormat
     }
     
 }

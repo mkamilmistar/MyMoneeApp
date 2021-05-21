@@ -31,24 +31,25 @@ class DreamViewController: UIViewController {
         
         // View Style
         setViewStyle()
-        dataNotFound()
-        self.loadingSpinner()
+        
+        // Loading
+        setupLoadingView()
+        loadingIndicator.isAnimating = true
         loadDreamData()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.loadingSpinner()
         loadDreamData()
-        dataNotFound()
     }
     
     func loadDreamData() {
         dreamService.getDreams { (dreamList) in
-            DispatchQueue.main.async {
-                dreamResponse = dreamList
+            DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                allDreamData = dreamList
                 self.dataNotFound()
                 self.dreamTableView.reloadData()
+                loadingIndicator.isAnimating = false
             }
         }
     }
@@ -57,8 +58,8 @@ class DreamViewController: UIViewController {
 extension DreamViewController {
     fileprivate func setProgress(_ indexPath: IndexPath) -> Float {
         let currentDouble = userData.balance.setDecimalToDouble
-        let targetDouble = dreamResponse[indexPath.row].targetAmount.setDecimalToDouble
-        progressBarData = Float(currentDouble / targetDouble)
+        let targetDouble = allDreamData[indexPath.row].targetAmount?.setDecimalToDouble
+        progressBarData = Float(currentDouble / (targetDouble ?? 0.0))
         
         // Conditional Progress Bar Data
         if progressBarData > 1 {
@@ -86,36 +87,32 @@ extension DreamViewController {
     
     func confirmAction(_ index: Int) {
         // Save To Usage
-//        let transactionId: String = String.randomCapitalizeWithNumber()
-        let title: String = dreamResponse[index].title
-        let price: Decimal = dreamResponse[index].targetAmount
+        let title: String = allDreamData[index].title ?? ""
+        let price: Decimal = allDreamData[index].targetAmount ?? 0.0
         let status: String = "debit"
 
-        transactionService.addTransaction(uploadDataModel: TransactionResponse(
+        loadingIndicator.isAnimating = true
+        transactionService.addTransaction(transDataModel: TransactionResponse(
                                 title: title, amount: price,
-                                type: status, createdAt: Date(), updatedAt: Date())) {
-            DispatchQueue.main.async {
+                                            type: status,
+                                            createdAt: Date().setDateToString,
+                                            updatedAt: Date().setDateToString)) {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
                 Helper.showToast("Impian Berhasil Dikonfirmasi")
-                self.loadingSpinner()
                 self.loadDreamData()
+                loadingIndicator.isAnimating = false
                 self.navigationController?.popToRootViewController(animated: true)
             }
         }
         
         // delete Dreams
-        dreamService.deleteDream(dreamResponse[index].dreamId) {
+        dreamService.deleteDream(allDreamData[index].dreamId!) {
             print("Confirmed")
         }
-
-        // Subtract Balance
-//        userData.balance -= price
-        
-        dreamTableView.reloadData()
-        dataNotFound()
     }
     
     fileprivate func dataNotFound() {
-        if dreamResponse.count > 0 {
+        if allDreamData.count > 0 {
             self.dreamTableView.isHidden = false
             self.notFound.isHidden = true
             self.notFound.addButton.isHidden = true
@@ -144,12 +141,15 @@ extension DreamViewController: UITableViewDelegate, UITableViewDataSource {
         detailDreamVC.passIndex = indexPath.row
         detailDreamVC.passProgressData = setProgress(indexPath)
         detailDreamVC.hidesBottomBarWhenPushed = true
+        
+        // BY ID
+        detailDreamVC.passDreamId = allDreamData[indexPath.row].dreamId ?? ""
+        
         self.navigationController?.pushViewController(detailDreamVC, animated: true)
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        dataNotFound()
-        return dreamResponse.count
+        return allDreamData.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -160,9 +160,9 @@ extension DreamViewController: UITableViewDelegate, UITableViewDataSource {
         // change selected color
         dataCell.selectionStyle = .none
         
-        dataCell.title.text = dreamResponse[indexPath.row].title
+        dataCell.title.text = allDreamData[indexPath.row].title
         
-        dataCell.targetAmount.text = dreamResponse[indexPath.row].targetAmount.setDecimalToStringCurrencyWithIDR
+        dataCell.targetAmount.text = allDreamData[indexPath.row].targetAmount?.setDecimalToStringCurrencyWithIDR
             
         dataCell.balance.text = userData.balance.setDecimalToStringCurrencyWithIDR
         dataCell.progressBar.progress = setProgress(indexPath)
@@ -190,7 +190,7 @@ extension DreamViewController: DreamTableDelegate {
     func confirmButton(_ tag: Int) {
         let alert = UIAlertController(
             title: "Konfirmasi Mimpi", message:
-                "Apakah anda yakin ingin mengkonfirmasi mimpi \"\(dreamResponse[tag].title)\" ?",
+                "Apakah anda yakin ingin mengkonfirmasi mimpi \"\(allDreamData[tag].title ?? "")\" ?",
             preferredStyle: .alert)
         
         let deleteButton = UIAlertAction(title: "Konfirmasi", style: .default) { (_) -> Void in
@@ -210,15 +210,15 @@ extension DreamViewController: DreamTableDelegate {
         // Delete From Dream
         let alert = UIAlertController(
             title: "Menghapus Impian", message:
-                "Apakah anda yakin ingin menghapus impian \"\(dreamResponse[tag].title)\" ?",
+                "Apakah anda yakin ingin menghapus impian \"\(allDreamData[tag].title ?? "")\" ?",
             preferredStyle: .alert)
         
         let deleteButton = UIAlertAction(title: "Hapus", style: .destructive) { (_) -> Void in
-            self.dreamService.deleteDream(dreamResponse[tag].dreamId) {
+            self.dreamService.deleteDream(allDreamData[tag].dreamId!) {
                 DispatchQueue.main.async {
-                    self.loadingSpinner()
                     Helper.showToast("Impian Berhasil Dihapus")
                     self.loadDreamData()
+                    
                 }
             }
             self.dreamTableView.reloadData()

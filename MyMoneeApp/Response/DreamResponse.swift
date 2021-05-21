@@ -8,17 +8,18 @@
 import Foundation
 
 struct DreamResponse: Codable {
-    var dreamId: String
-    var title: String
-    var targetAmount: Decimal
-    var userId: String
+    var dreamId: String?
+    var title: String?
+    var targetAmount: Decimal?
+    var userId: String?
     
     enum CodingKeys: String, CodingKey {
         case dreamId = "id"
-        case title = "title"
-        case targetAmount = "target_amount"
-        case userId = "userId"
+        case title
+        case targetAmount = "amount"
+        case userId
     }
 }
 
-var dreamResponse: [DreamResponse] = []
+var allDreamData: [DreamResponse] = []
+var dreamDataById = DreamResponse()

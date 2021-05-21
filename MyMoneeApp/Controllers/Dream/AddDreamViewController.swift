@@ -35,7 +35,7 @@ class AddDreamViewController: UIViewController {
         customButton.delegate = self
         navigationBar.delegate = self
         navigationBar.navigationLabel.text = "Tambah Impian"
-        
+        setupLoadingView()
     }
 }
 
@@ -45,12 +45,13 @@ extension AddDreamViewController: CustomButtonDelegate {
         let title: String = titleField.text ?? ""
         let targetAmount: Decimal = (targetAmountField.text ?? "").setStringToDecimal
         
-        self.loadingSpinner()
-        dreamService.addDream(uploadDataModel: DreamResponse(
+        loadingIndicator.isAnimating = true
+        dreamService.addDream(dreamDataModel: DreamResponse(
                                 dreamId: dreamId, title: title, targetAmount:
                                     targetAmount, userId: String(userData.userId))) {
-            DispatchQueue.main.async {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
                 Helper.showToast("Impian Berhasil Disimpan")
+                loadingIndicator.isAnimating = false
                 self.navigationController?.popToRootViewController(animated: true)
             }
         }

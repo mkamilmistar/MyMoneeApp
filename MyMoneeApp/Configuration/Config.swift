@@ -9,21 +9,5 @@ import UIKit
 
 struct AuthUser {
     static var data: User = users[0]
-}
-
-extension UIViewController {
-    func loadingSpinner() {
-        let child = IndicatorProgress()
-        
-        addChild(child)
-        child.view.frame = view.frame
-        view.addSubview(child.view)
-        child.didMove(toParent: self)
-        
-        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-            child.willMove(toParent: nil)
-            child.view.removeFromSuperview()
-            child.removeFromParent()
-        }
-    }
+//    static var data: UserResponse = allUserData[0]
 }

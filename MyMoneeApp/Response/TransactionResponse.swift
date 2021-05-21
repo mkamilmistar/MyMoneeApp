@@ -12,8 +12,9 @@ struct TransactionResponse: Codable {
     var title: String?
     var amount: Decimal?
     var type: String?
-    var createdAt: Date?
-    var updatedAt: Date?
+    var createdAt: String?
+    var updatedAt: String?
+    var userId: String?
     
     enum CodingKeys: String, CodingKey {
         case transactionId = "id"
@@ -22,8 +23,9 @@ struct TransactionResponse: Codable {
         case type
         case createdAt
         case updatedAt
+        case userId
     }
 }
 
 var transactions: [TransactionResponse] = []
-var transaction = TransactionResponse()
+var transactionById = TransactionResponse()

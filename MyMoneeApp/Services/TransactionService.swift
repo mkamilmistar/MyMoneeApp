@@ -9,12 +9,11 @@ import Foundation
 
 class TransactionService {
     
-    let url: String = "https://60a5decac0c1fd00175f48af.mockapi.io/api/v1/transaction"
-//    let url: String = "http://127.0.0.1:8080/transactions"
-//    let url2: String = "127.0.0.1:8080/transaction"
+//    let url: String = "https://60a5decac0c1fd00175f48af.mockapi.io/api/v1/transaction"
+    let url: String = "http://127.0.0.1:8080/transaction"
     
-    func getTransaction(completion: @escaping (_ transaction: [TransactionResponse]) -> Void) {
-        guard let url = URL(string: url) else {
+    func getTransaction(completion: @escaping (_ transDataModel: [TransactionResponse]) -> Void) {
+        guard let url = URL(string: "http://127.0.0.1:8080/transactions") else {
             print("Error: cannot create URL")
             return
         }
@@ -41,14 +40,14 @@ class TransactionService {
         task.resume()
     }
     
-    func addTransaction(uploadDataModel: TransactionResponse, completion: @escaping () -> Void) {
+    func addTransaction(transDataModel: TransactionResponse, completion: @escaping () -> Void) {
         
         guard let url = URL(string: url) else {
             print("Error: cannot create URL")
             return
         }
         
-        guard let jsonData = try? JSONEncoder().encode(uploadDataModel) else {
+        guard let jsonData = try? JSONEncoder().encode(transDataModel) else {
             print("Error: Trying to convert model to JSON data")
             return
         }
@@ -67,16 +66,16 @@ class TransactionService {
         task.resume()
     }
     
-    func updateTransaction(uploadDataModel: TransactionResponse, completion: @escaping () -> Void) {
-        
-        let transactionId = "/\(uploadDataModel.transactionId!)"
+    func updateTransaction(_ transactionId: String,
+                           transDataModel: TransactionResponse,
+                           completion: @escaping () -> Void) {
         
         guard let url = URL(string: url)?.appendingPathComponent(transactionId) else {
             print("Error: cannot create URL")
             return
         }
         
-        guard let jsonData = try? JSONEncoder().encode(uploadDataModel) else {
+        guard let jsonData = try? JSONEncoder().encode(transDataModel) else {
             print("Error: Trying to convert model to JSON data")
             return
         }
@@ -117,7 +116,10 @@ class TransactionService {
     }
     
     // BY ID
-    func getTransactionByID(transactionId: String, completion: @escaping (_ dream: TransactionResponse) -> Void) {
+    func getTransactionByID(
+        transactionId: String,
+        completion: @escaping
+            (_ transDataModel: TransactionResponse) -> Void) {
         
         let decoder = JSONDecoder()
         guard let url = URL(string: url)?.appendingPathComponent(transactionId) else {
