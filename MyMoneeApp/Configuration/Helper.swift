@@ -8,7 +8,6 @@
 import UIKit
 
 class Helper {
-    
     static func showToast(_ text: String, delay: TimeInterval = 3.0) {
         guard let window = UIApplication.shared.windows.filter({$0.isKeyWindow}).first else {
             return
@@ -18,7 +17,7 @@ class Helper {
         label.backgroundColor = UIColor(white: 0, alpha: 0.5)
         label.textColor = .white
         label.textAlignment = .center
-        label.font = UIFont.systemFont(ofSize: 15)
+        label.font = UIFont.init(name: "Poppins", size: 15)
         label.alpha = 0
         label.text = text
         label.numberOfLines = 0
@@ -32,7 +31,7 @@ class Helper {
         size = label.intrinsicContentSize
         width = min(size.width, window.frame.width - 100)
         
-        label.frame = CGRect(x: 20, y: window.frame.height - 90, width: width + 20, height: size.height + 20)
+        label.frame = CGRect(x: 20, y: window.frame.height - 150, width: width + 40, height: size.height + 20)
         label.center.x = window.center.x
         label.layer.cornerRadius = min(label.frame.height/2, 25)
         label.layer.masksToBounds = true
@@ -69,7 +68,7 @@ extension UIViewController {
 }
 
 let loadingIndicator: ProgressView = {
-    let progress = ProgressView(colors: [.red, .systemGreen, .systemBlue], lineWidth: 5)
+    let progress = ProgressView(colors: [UIColor.mainPurple(), .systemBlue, UIColor.mainGrey()], lineWidth: 5)
     progress.translatesAutoresizingMaskIntoConstraints = false
     return progress
 }()

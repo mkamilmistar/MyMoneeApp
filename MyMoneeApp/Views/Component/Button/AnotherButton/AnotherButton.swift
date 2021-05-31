@@ -35,7 +35,6 @@ class AnotherButton: UIView {
         addSubview(mainContent)
         mainContent.frame = self.bounds
         mainContent.autoresizingMask = [.flexibleHeight, .flexibleWidth]
-        
     }
     
     @IBAction func secondButton(_ sender: Any) {
